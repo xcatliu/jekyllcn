@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<section class="docs">
+    <div class="grid">
+        <div class="unit four-fifths">
+            <article>
+                {{ content }}
+            </article>
+        </div>
+        <div class="unit one-fifth">
+            {% include aside-docs.html current=page.title %}
+        </div>
+        <div class="clear"></div>
+    </div>
+</section>
