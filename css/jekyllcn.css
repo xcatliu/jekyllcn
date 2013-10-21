@@ -1,3 +1,23 @@
 body {
     font-family: Lato, "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "微软雅黑", sans-serif;
 }
+
+.main-nav li a {
+    font-size: 18px;
+    padding: 0.3em 2em;
+}
+
+aside h4 {
+    font-size: 18px;
+    padding: 0 10px 10px 30px;
+}
+
+body > footer {
+    padding-bottom: 0;
+}
+.jekyllcn-footer {
+    background: #333;
+}
+.jekyllcn-footer p {
+    margin: 0;
+}
