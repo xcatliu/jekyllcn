@@ -3,7 +3,7 @@
         <ul>
             {% for post in site.tags.getting-started %}
             <li{% if include.current == post.title %} class="current"{% endif %}>
-                <a href="{{ site.baseurl }}{{ post.permalink }}">{{ post.title }}</a>
+                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
             </li>
             {% endfor %}
         </ul>
@@ -11,7 +11,7 @@
         <ul>
             {% for post in site.tags.your-content %}
             <li{% if include.current == post.title %} class="current"{% endif %}>
-                <a href="{{ site.baseurl }}{{ post.permalink }}">{{ post.title }}</a>
+                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
             </li>
             {% endfor %}
         </ul>
@@ -19,7 +19,7 @@
         <ul>
             {% for post in site.tags.customization %}
             <li{% if include.current == post.title %} class="current"{% endif %}>
-                <a href="{{ site.baseurl }}{{ post.permalink }}">{{ post.title }}</a>
+                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
             </li>
             {% endfor %}
         </ul>
@@ -27,7 +27,7 @@
         <ul>
             {% for post in site.tags.deployment %}
             <li{% if include.current == post.title %} class="current"{% endif %}>
-                <a href="{{ site.baseurl }}{{ post.permalink }}">{{ post.title }}</a>
+                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
             </li>
             {% endfor %}
         </ul>
@@ -35,7 +35,7 @@
         <ul>
             {% for post in site.tags.miscellaneous %}
             <li{% if include.current == post.title %} class="current"{% endif %}>
-                <a href="{{ site.baseurl }}{{ post.permalink }}">{{ post.title }}</a>
+                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
             </li>
             {% endfor %}
         </ul>
@@ -43,7 +43,7 @@
         <ul>
             {% for post in site.tags.meta %}
             <li{% if include.current == post.title %} class="current"{% endif %}>
-                <a href="{{ site.baseurl }}{{ post.permalink }}">{{ post.title }}</a>
+                <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
             </li>
             {% endfor %}
         </ul>

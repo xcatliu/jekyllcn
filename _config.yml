@@ -1,2 +1,2 @@
-baseurl: /jekyllcn/
+baseurl: /jekyllcn
 permalink: :categories/:title

@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: 欢迎
-permalink: docs/home/
+permalink: /docs/home/
 category: docs
 tags: getting-started
 ---
