@@ -1,13 +1,7 @@
-jekyllcn
-========
+** 经大家建议，为了更公开的建设本站，此项目迁移至 Organization ，由网友共同维护，请关注的同学转移到 [https://github.com/jekyllcn/jekyllcn.github.io](https://github.com/jekyllcn/jekyllcn.github.io) **
 
-A translation of jekyllrb.com to Chinese
+给大家带来不便请原谅，谢谢！
 
-[http://jekyllcn.com](http://jekyllcn.com)
+# [jekyllcn](http://jekyllcn.com/)
 
-TODO list:
-----------
-
-* 加入认领机制，维护认领列表，避免重复劳动
-* 加入作者机制，在文档前显示作者
-* 完善 README.md
+[http://jekyllrb.com](http://jekyllrb.com) 的中文翻译网站
