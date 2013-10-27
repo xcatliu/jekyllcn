@@ -3,6 +3,7 @@ layout: docs
 title: 欢迎
 next_section: quickstart
 permalink: /docs/home/
+contributor: xcatliu
 ---
 
 该站点的目标是成为Jekyll的全面指南。包括一些内容如：搭建和运行你的站点、创建以及管理内容、定制站点的展现和外观、在不同的环境中发布、以及参与到Jekyll将来的开发的一些建议。

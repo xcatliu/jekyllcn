@@ -1,9 +1,10 @@
 ---
 layout: docs
 title: 安装
+prev_section: quickstart
+next_section: usage
 permalink: /docs/installation/
-category: docs
-tags: getting-started
+contributor: Neo-J
 ---
 安装完成Jekyll需要几分钟的时间。如果你觉得安装对你来说并不方便, 请 [file an
 issue]({{ site.repository }}/issues/new) (或者提交一个pull request)

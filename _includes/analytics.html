@@ -1,6 +1,7 @@
 {% if site.gauges_id %}
   <!-- Gauges (http://gaug.es/) -->
   <script type="text/javascript">
+    /*
     var _gauges = _gauges || [];
     (function() {
       var t   = document.createElement('script');
@@ -12,12 +13,14 @@
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(t, s);
     })();
+    */
   </script>
 {% endif %}
 
 {% if site.google_analytics_id %}
   <!-- Google Analytics (http://google.com/analytics) -->
   <script type="text/javascript">
+    /*
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', '{{ site.google_analytics_id }}']);
     _gaq.push(['_setDomainName', '{{ site.url }}']); // Multiple sub-domains
@@ -28,5 +31,6 @@
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
+    */
   </script>
 {% endif %}
