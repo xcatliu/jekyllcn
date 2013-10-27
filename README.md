@@ -15,10 +15,10 @@ jekyllcn 是 [http://jekyllrb.com](http://jekyllrb.com) 的中文翻译网站
 
 * 加入作者机制，在文档前显示作者
 * 完善 README.md ，包括规范
-* 代码高亮
-* doc 尾部的上一页下一页导航
 
 ## DONE
 
 * 改用了 jekyllrb.com 的源码
 * 加入认领机制，避免重复劳动
+* doc 尾部的上一页下一页导航
+* 代码高亮
