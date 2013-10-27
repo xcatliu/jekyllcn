@@ -1,9 +1,9 @@
 jekyllcn
 ========
 
-A translation of jekyllrb.com to Chinese
-
 [http://jekyllcn.com](http://jekyllcn.com)
+
+jekyllcn 是 [http://jekyllrb.com](http://jekyllrb.com) 的中文翻译网站
 
 TODO list:
 ----------
