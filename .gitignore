@@ -1,1 +1,5 @@
-_site
+_site/
+*.swp
+pkg/
+test/
+.DS_Store

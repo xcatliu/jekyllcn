@@ -2,19 +2,22 @@
 layout: default
 ---
 
-<section class="docs">
+  <section class="docs">
     <div class="grid">
-        <div class="unit" style="display:none;">
-            <!-- .grid .unit:first-child { padding-left: 20px; } -->
-        </div>
-        <div class="unit four-fifths">
-            <article>
-                {{ content }}
-            </article>
-        </div>
-        <div class="unit one-fifth">
-            {% include aside-docs.html current=page.title %}
-        </div>
-        <div class="clear"></div>
+
+      {% include docs_contents_mobile.html %}
+
+      <div class="unit four-fifths">
+        <article>
+          <h1>{{ page.title }}</h1>
+          {{ content }}
+          {% include section_nav.html %}
+        </article>
+      </div>
+
+      {% include docs_contents.html %}
+
+      <div class="clear"></div>
+
     </div>
-</section>
+  </section>

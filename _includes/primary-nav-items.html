@@ -1,0 +1,14 @@
+<ul>
+  <li class="{% if page.overview %}current{% endif %}">
+    <a href="{{ site.url }}/">概述</a>
+  </li>
+  <li class="{% if page.url contains '/docs/' %}current{% endif %}">
+    <a href="{{ site.url }}/docs/home/">文档</a>
+  </li>
+  <li class="{% if page.author %}current{% endif %}">
+    <a href="{{ site.url }}/news/">更新</a>
+  </li>
+  <li class="">
+    <a href="{{ site.repository }}">GitHub</a>
+  </li>
+</ul>
