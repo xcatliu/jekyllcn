@@ -1,9 +1,10 @@
 ---
 layout: docs
 title: 基本用法
+prev_section: installation
+next_section: structure
 permalink: /docs/usage/
-category: docs
-tags: getting-started
+contributor: Neo-J
 ---
 
 安装了Jekyll的Gem包之后，就可以在命令行中使用jekyll命令了。有以下这些用法：
