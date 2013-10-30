@@ -4,6 +4,7 @@ title: Variables
 prev_section: pages
 next_section: migrations
 permalink: /docs/variables/
+contributor: yujingz
 ---
 
 Jekyll traverses your site looking for files to process. Any files with [YAML
