@@ -4,6 +4,7 @@ title: Sites using Jekyll
 prev_section: troubleshooting
 next_section: resources
 permalink: /docs/sites/
+contributor: sanddudu
 ---
 
 It’s interesting to see what designs and features others have come up
