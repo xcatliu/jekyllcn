@@ -7,8 +7,8 @@ permalink: /docs/posts/
 contributor: sdpfoue
 ---
 
-Jeklly的一个最好的特点是“关注blog本身”。这是指什么呢？简单的说就是写博客的过程被 
-铸造进了Jekyll的功能中。你只需简单的管理你电脑中的一个文件夹下的文本文件就
+Jeklly 的一个最好的特点是“关注 blog 本身”。这是指什么呢？简单的说就是写博客的过程被 
+铸造进了 Jekyll 的功能中。你只需简单的管理你电脑中的一个文件夹下的文本文件就
 可以写文章并方便的在线上发布。与繁琐的配置和维护数据库和基于网站的内容管理系统（CMS）相比，
 这是一个非常受欢迎的改变。
 
@@ -17,13 +17,13 @@ Jeklly的一个最好的特点是“关注blog本身”。这是指什么呢？�
 在[目录结构](../structure/)介绍中说明过，所有的文章都在`_posts`文件夹中。
 这些文件可以用[Markdown](http://daringfireball.net/projects/markdown/) 编写，
 也可以用[Textile](http://textile.sitemonks.com/) 格式编写。只要文件中有
-[YAML配置](../frontmatter/)，它们就会从源格式转化成HTML页面，从而成为
+[YAML头信息](../frontmatter/)，它们就会从源格式转化成 HTML 页面，从而成为
 你的静态网站的一部分。
 
 ### 创建文章的文件
 
 发表一篇新文章，你所需要做的就是在`_posts`文件夹中创建一个新的文件。
-文件名的命名非常重要。Jekyll要求一篇文章的文件名遵循下面的格式：
+文件名的命名非常重要。Jekyll 要求一篇文章的文件名遵循下面的格式：
 {% highlight bash %}
 年-月-日-标题.MARKUP
 {% endhighlight %} 
@@ -37,7 +37,7 @@ Jeklly的一个最好的特点是“关注blog本身”。这是指什么呢？�
 
 ### 内容格式
 
-所有博客文章顶部必须有一段[页首YAML配置](../frontmatter/)(YAML front- matter)。
+所有博客文章顶部必须有一段[YAML头信息](../frontmatter/)(YAML front- matter)。
 在它下面，就可以选择你喜欢的格式来写文章。Jekyll支持2种流行的标记语言格式：
 [Markdown](http://daringfireball.net/projects/markdown/) 和
 [Textile](http://textile.sitemonks.com/). 这些格式都有自己的方式来标记文章中不
@@ -45,7 +45,7 @@ Jeklly的一个最好的特点是“关注blog本身”。这是指什么呢？�
 
 ## 引用图片和其它资源
 
-很多时候，你需要在文章中引用图片、下载或其它数字资源。尽管Markdown 和 Textile
+很多时候，你需要在文章中引用图片、下载或其它数字资源。尽管 Markdown 和 Textile
 在链接这些资源时的语法并不一样，但你只需要关心在站点的哪些地方保存这些文件。
 
 由于 Jekyll 的灵活性，有很多方式可以解决这个问题。一种常用做法是在工程的根目录下
@@ -61,7 +61,7 @@ Jeklly的一个最好的特点是“关注blog本身”。这是指什么呢？�
 ![有帮助的截图]({% raw %}{{ site.url }}{% endraw %}/assets/screenshot.jpg)
 {% endhighlight %}
 
-链接一个读者可下载的PDF文件：
+链接一个读者可下载的 PDF 文件：
 
 {% highlight text %}
 … 你可以直接 [下载 PDF]({% raw %}{{ site.url }}{% endraw %}/assets/mydoc.pdf).
@@ -70,7 +70,7 @@ Jeklly的一个最好的特点是“关注blog本身”。这是指什么呢？�
 <div class="note">
   <h5>提示™: 链接只使用站点的根URL</h5>
   <p>
-    如果你<strong>确信</strong>你的站点只在域名的根URL下做展示，你可以不使用
+    如果你<strong>确信</strong>你的站点只在域名的根 URL 下做展示，你可以不使用
      <code>{% raw %}{{ site.url }}{% endraw %}</code>变量。在这种情况下，
      直接使用<code>/path/file.jpg</code>即可。
   </p>
@@ -94,11 +94,11 @@ Jeklly的一个最好的特点是“关注blog本身”。这是指什么呢？�
 {% endhighlight %}
 
 当然，你可以完全控制怎样（在哪里）显示你的文章，如何管理你的站点。如果你想了解
-更多你需要读一下[Jekyll的模版是怎样工作的](../templates/)这篇文章。
+更多你需要读一下[Jekyll 的模版是怎样工作的](../templates/)这篇文章。
 
 ## 文章摘要
 
-Jekyll会自动取每篇文章从开头到第一次出现`excerpt_separator`的地方作为文章的摘要，
+Jekyll 会自动取每篇文章从开头到第一次出现`excerpt_separator`的地方作为文章的摘要，
 并将此内容保存到变量`post.excerpt`中。拿上面生成文章列表的例子，你可能想在每个标题下给出文章内容的提示，你可以在每篇文章
 的第一段加上如下的代码：
 
@@ -118,8 +118,8 @@ Jekyll会自动取每篇文章从开头到第一次出现`excerpt_separator`的�
 
 ## 高亮代码片段
 
-Jekyll 自带语法高亮功能，它是由Pygments来实现的。在文章中插入一段高亮代码非常
-容易，只需使用下面的Liquid标记：
+Jekyll 自带语法高亮功能，它是由 Pygments 来实现的。在文章中插入一段高亮代码非常
+容易，只需使用下面的 Liquid 标记：
 
 {% highlight text %}
 {% raw %}{% highlight ruby %}{% endraw %}
