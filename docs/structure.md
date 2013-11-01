@@ -35,8 +35,8 @@ Jekyll的核心其实是一个文本转换引擎。它的概念其实就是： �
 <table>
   <thead>
     <tr>
-      <th>File / Directory</th>
-      <th>Description</th>
+      <th>文件 / 目录</th>
+      <th>描述</th>
     </tr>
   </thead>
   <tbody>
