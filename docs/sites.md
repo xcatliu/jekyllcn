@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: 使用Jekyll的站点
+title: 使用 Jekyll 的站点
 prev_section: troubleshooting
 next_section: resources
 permalink: /docs/sites/
