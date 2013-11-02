@@ -101,12 +101,13 @@ redcarpet:
 {% endhighlight %}
 
 这些设置将为 Markdown 引擎引入以下来自 Github 风格 Markdown 的特性：
-* [换行](https://help.github.com/articles/github-flavored-markdown#newlines)
-* [语句中的多个下划线](https://help.github.com/articles/github-flavored-markdown#multiple-underscores-in-words)
-* [网址自动链接](https://help.github.com/articles/github-flavored-markdown#url-autolinking)
-* [删除线](https://help.github.com/articles/github-flavored-markdown#strikethrough)
-* [代码块](https://help.github.com/articles/github-flavored-markdown#fenced-code-blocks)
-* [代码高亮](https://help.github.com/articles/github-flavored-markdown#syntax-highlighting)
+
+*   [换行](https://help.github.com/articles/github-flavored-markdown#newlines)
+*   [语句中的多个下划线](https://help.github.com/articles/github-flavored-markdown#multiple-underscores-in-words)
+*   [网址自动链接](https://help.github.com/articles/github-flavored-markdown#url-autolinking)
+*   [删除线](https://help.github.com/articles/github-flavored-markdown#strikethrough)
+*   [代码块](https://help.github.com/articles/github-flavored-markdown#fenced-code-blocks)
+*   [代码高亮](https://help.github.com/articles/github-flavored-markdown#syntax-highlighting)
 
 <div class="note info">
   <h5>Github 风格 Markdown 并不适用于较长的文章</h5>
