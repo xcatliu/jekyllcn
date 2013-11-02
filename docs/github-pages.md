@@ -56,17 +56,10 @@ Jekyll 项目本身就是一个很好的例子，Jekyll 项目的代码存放在
 使你本地浏览的站点和部署在 Github Pages 上的站点一致，方便你的维
 护。
 
-1.  在 `_config.yml` 中，设置 `baseurl` 选项为 `/project-name`
-    -- 注意必须存在头部的斜杠以及**不能**有尾部的斜杠。
-2.  JS 或者 CSS 文件的引用格式应该如下：
-    `{% raw %}{{ site.baseurl}}/path/to/css.css{% endraw %}`
-    -- 注意斜杠之后必须紧随变量（在 "Path" 之后）。
-3.  创建固定链接和内部链接的格式应该如下：
-    `{% raw %}{{ site.baseurl }}{{ post.url }}{% endraw %}`
-    -- 注意两个变量之间不存在斜杠。
-4.  最后，如果你想在提交/部署之前浏览的话，请使用 `jekyll serve --baseurl ''`命令，
-    请确定在 `--baseurl` 的选项之后存在**空串**，这样的话你就可以在 `localhost:4000` 
-    看到你的站点（站点根地址不存在 `/project-name`）。
+1.  在 `_config.yml` 中，设置 `baseurl` 选项为 `/project-name` -- 注意必须存在头部的斜杠以及**不能**有尾部的斜杠。
+2.  JS 或者 CSS 文件的引用格式应该如下：`{% raw %}{{ site.baseurl}}/path/to/css.css{% endraw %}` -- 注意斜杠之后必须紧随变量（在 "Path" 之后）。
+3.  创建固定链接和内部链接的格式应该如下： `{% raw %}{{ site.baseurl }}{{ post.url }}{% endraw %}` -- 注意两个变量之间不存在斜杠。
+4.  最后，如果你想在提交/部署之前浏览的话，请使用 `jekyll serve --baseurl ''`命令，请确定在 `--baseurl` 的选项之后存在**空串**，这样的话你就可以在 `localhost:4000` 看到你的站点（站点根地址不存在 `/project-name`）。
 
 用这种方法你就可以在本地从根地址预览站点，而在 Github 上以 
 `gh-pages` 分支生成站点的时候能以 `/project-name` 为根地址并且正确地
@@ -101,12 +94,13 @@ redcarpet:
 {% endhighlight %}
 
 这些设置将为 Markdown 引擎引入以下来自 Github 风格 Markdown 的特性：
-* [换行](https://help.github.com/articles/github-flavored-markdown#newlines)
-* [语句中的多个下划线](https://help.github.com/articles/github-flavored-markdown#multiple-underscores-in-words)
-* [网址自动链接](https://help.github.com/articles/github-flavored-markdown#url-autolinking)
-* [删除线](https://help.github.com/articles/github-flavored-markdown#strikethrough)
-* [代码块](https://help.github.com/articles/github-flavored-markdown#fenced-code-blocks)
-* [代码高亮](https://help.github.com/articles/github-flavored-markdown#syntax-highlighting)
+
+*   [换行](https://help.github.com/articles/github-flavored-markdown#newlines)
+*   [语句中的多个下划线](https://help.github.com/articles/github-flavored-markdown#multiple-underscores-in-words)
+*   [网址自动链接](https://help.github.com/articles/github-flavored-markdown#url-autolinking)
+*   [删除线](https://help.github.com/articles/github-flavored-markdown#strikethrough)
+*   [代码块](https://help.github.com/articles/github-flavored-markdown#fenced-code-blocks)
+*   [代码高亮](https://help.github.com/articles/github-flavored-markdown#syntax-highlighting)
 
 <div class="note info">
   <h5>Github 风格 Markdown 并不适用于较长的文章</h5>
