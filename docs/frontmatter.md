@@ -4,6 +4,7 @@ title: Front-matter
 prev_section: configuration
 next_section: posts
 permalink: /docs/frontmatter/
+contributor: liul85
 ---
 
 The front-matter is where Jekyll starts to get really cool. Any file that
