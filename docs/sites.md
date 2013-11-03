@@ -1,30 +1,28 @@
 ---
 layout: docs
-title: Sites using Jekyll
+title: 使用 Jekyll 的站点
 prev_section: troubleshooting
 next_section: resources
 permalink: /docs/sites/
 contributor: sanddudu
 ---
 
-It’s interesting to see what designs and features others have come up
-with. Below are some Jekyll-powered blogs which were hand-picked for
-learning purposes.
+看看别人想出了什么设计与特性是十分有趣的。下面列出了一些可供学习的博客。
 
 - [Tom Preston-Werner](http://tom.preston-werner.com/)
-    ([source](http://github.com/mojombo/mojombo.github.com))
+    ([源代码](http://github.com/mojombo/mojombo.github.com))
 - [Nick Quaranto](http://quaran.to/)
-    ([source](https://github.com/qrush/qrush.github.com))
+    ([源代码](https://github.com/qrush/qrush.github.com))
 - [Roger Chapman](http://rogchap.com/)
-    ([source](https://github.com/rogchap/rogchap.github.com))
+    ([源代码](https://github.com/rogchap/rogchap.github.com))
 - [GitHub Official Teaching Materials](http://teach.github.com)
-    ([source](https://github.com/github/teach.github.com))
+    ([源代码](https://github.com/github/teach.github.com))
 - [Rasmus Andersson](http://rsms.me/)
-    ([source](https://github.com/rsms/rsms.github.com))
+    ([源代码](https://github.com/rsms/rsms.github.com))
 - [Scott Chacon](http://schacon.github.com)
-    ([source](https://github.com/schacon/schacon.github.com))
+    ([源代码](https://github.com/schacon/schacon.github.com))
 
-If you would like to explore more examples, you can find a list of sites
-and their sources on the ["Sites" page in the Jekyll wiki][jekyll-sites].
+如果你想查看更多的示例，你可以在 [Jekyll wiki 的 "Sites" 页面][jekyll-sites]
+找到另一些站点和源代码的列表。
 
 [jekyll-sites]: {{ site.repository }}/wiki/Sites

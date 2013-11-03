@@ -1,56 +1,54 @@
 ---
 layout: docs
-title: Extras
+title: 附加功能
 prev_section: plugins
 next_section: github-pages
 permalink: /docs/extras/
+contributor: yizeng
 ---
 
-There are a number of (optional) extra features that Jekyll supports that you
-may want to install, depending on how you plan to use Jekyll.
+Jekyll 提供了诸多 (可任选) 的附加功能，你可以依据你使用 Jekyll 的需求来选择安装它们。
 
-## LaTeX Support
+## LaTeX 支持
 
-Maruku comes with optional support for LaTeX to PNG rendering via blahtex
-(Version 0.6) which must be in your `$PATH` along with `dvips`. If you need
-Maruku to not assume a fixed location for `dvips`, check out [Remi’s Maruku
-fork](http://github.com/remi/maruku).
+Maruku 自带了将 LaTeX 渲染成 PNG 的功能可供选择，此功能使用
+blahtex (版本 0.6)，必须和 `dvips` 一起被置于你的 `$PATH` 中。
+如果你需要 Maruku 不调用默认位置的 `dvips`，请查看
+[Remi 的 Maruku fork](http://github.com/remi/maruku).
 
 ## RDiscount
 
-If you prefer to use [RDiscount](http://github.com/rtomayko/rdiscount) instead
-of [Maruku](http://github.com/bhollis/maruku) for Markdown, just make sure you have
-it installed:
+如果你更喜欢使用 [RDiscount](http://github.com/rtomayko/rdiscount) 来替代
+[Maruku](http://github.com/bhollis/maruku) 解析 Mardown，你只需确认已将其安装：
 
 {% highlight bash %}
 $ [sudo] gem install rdiscount
 {% endhighlight %}
 
-And then specify RDiscount as the Markdown engine in your `_config.yml` file to
-have Jekyll run with that option.
+然后在你的 `_config.yml` 文件内选择 RDiscount 作为 Markdown 引擎，使 Jekyl 可以读取该选项来运行。
 
 {% highlight yaml %}
-# In _config.yml
+# _config.yml 中
 markdown: rdiscount
 {% endhighlight %}
 
 ## Kramdown
 
-You can also use [Kramdown](http://kramdown.rubyforge.org/) instead of Maruku
-for Markdown. Make sure that Kramdown is installed:
+你还可以选择 [Kramdown](http://kramdown.rubyforge.org/) 来替代
+Maruku 解析 Mardown，你只需确认 Kramdown 已被安装：
 
 {% highlight bash %}
 $ [sudo] gem install kramdown
 {% endhighlight %}
 
-Then you can specify Kramdown as the Markdown engine in `_config.yml`.
+然后在你的 `_config.yml` 文件内选择 Kramdown 作为 Markdown 引擎。
 
 {% highlight yaml %}
-# In _config.yml
+# _config.yml 中
 markdown: kramdown
 {% endhighlight %}
 
-Kramdown has various options for customizing the HTML output. The
-[Configuration](/docs/configuration/) page lists the default options used by
-Jekyll. A complete list of options is also available on the [Kramdown
-website](http://kramdown.rubyforge.org/options.html).
+Kramdown 提供了各种选项用来自定义其 HTML 的输出。
+[配置](/docs/configuration/)页面列出了
+Jekyll 所使用的默认选项。一份完整的选项列表也可见于
+[Kramdown 网站](http://kramdown.rubyforge.org/options.html)。
