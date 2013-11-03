@@ -1,4 +1,3 @@
-contributor: Youngv
 ---
 layout: docs
 title: Configuration
