@@ -1,13 +1,13 @@
 ---
 layout: docs
-title: Deployment methods
+title: 部署方法
 prev_section: github-pages
 next_section: troubleshooting
 permalink: /docs/deployment-methods/
 contributor: wenbing
 ---
 
-Jekyll 生成的网站是静态的，因此有很多中部署方法。下面列出了一些常见的部署方法。
+Jekyll 生成的网站是静态的，因此有很多种部署方法。下面列出了一些常见的部署方法。
 
 ## 网站托管服务商 (FTP)
 
