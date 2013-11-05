@@ -1,17 +1,13 @@
 ---
 layout: docs
-title: Front-matter
+title: 头信息 
 prev_section: configuration
 next_section: posts
 permalink: /docs/frontmatter/
 contributor: liul85
 ---
 
-The front-matter is where Jekyll starts to get really cool. Any file that
-contains a [YAML](http://yaml.org/) front matter block will be processed by
-Jekyll as a special file. The front matter must be the first thing in the file
-and must take the form of valid YAML set between triple-dashed lines. Here is a
-basic example:
+正是头信息开始让 Jekyll 变的很酷。任何只要包含 [YAML](http://yaml.org/) 头信息的文件在 Jekyll 中都能被当做一个特殊的文件来处理。头信息必须在文件的开始部分，并且需要按照 YAML 的格式写在两行三虚线之间。下面是一个基本的例子：
 
 {% highlight yaml %}
 ---
@@ -20,42 +16,32 @@ title: Blogging Like a Hacker
 ---
 {% endhighlight %}
 
-Between these triple-dashed lines, you can set predefined variables (see below
-for a reference) or even create custom ones of your own. These variables will
-then be available to you to access using Liquid tags both further down in the
-file and also in any layouts or includes that the page or post in question
-relies on.
+在这两行的三虚线之间，你可以设置一些预定义的变量（下面这个例子可以作为参考）或者甚至创建一个你自己定义的变量。这样在接下来的文件和任意模板中或者在包含这些页面或博客的模板中都可以通过使用 Liquid 标签来访问这些变量。
 
 <div class="note warning">
-  <h5>UTF-8 Character Encoding Warning</h5>
+  <h5>UTF-8 编码方式警告</h5>
   <p>
-    If you use UTF-8 encoding, make sure that no <code>BOM</code> header
-    characters exist in your files or very, very bad things will happen to
-    Jekyll. This is especially relevant if you’re running Jekyll on Windows.
+    如果你使用UTF-8编码，那么在你的文件中一定不要出现 <code>BOM</code> 头字符，否则你会碰上非常糟糕的事情，尤其当你在Windows上使用Jekyll的时候。
   </p>
 </div>
 
 <div class="note">
-  <h5>ProTip™: Front Matter Variables Are Optional</h5>
+  <h5>提示™：头信息变量是可选的</h5>
   <p>
-    If you want to use <a href="../variables/">Liquid tags and variables</a> but
-    don’t need anything in your front-matter, just leave it empty! The set of
-    triple-dashed lines with nothing in between will still get Jekyll to process
-    your file. (This is useful for things like CSS and RSS feeds!)
+    如果你想使用 <a href="../variables/">Liquid 标签和变量</a>但是在头信息中又不需要任何定义，那么你可以将头信息设置为空！在头信息为空的情况下，Jekyll 仍然能够处理文件。（这对于一些像 CSS 和 RSS 的文件非常有用）
   </p>
 </div>
 
-## Predefined Global Variables
+## 预定义的全局变量 
 
-There are a number of predefined global variables that you can set in the
-front-matter of a page or post.
+你可以在页面或者博客的头信息处使用一些已经预定义好的全局变量。
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>Variable</th>
-      <th>Description</th>
+      <th>变量名称</th>
+      <th>描述</th>
     </tr>
   </thead>
   <tbody>
@@ -66,9 +52,7 @@ front-matter of a page or post.
       <td>
         <p>
 
-          If set, this specifies the layout file to use. Use the layout file
-          name without the file extension. Layout files must be placed in the
-          <code>_layouts</code> directory.
+          如果设置的话，会指定使用该模板文件。指定模板文件时候不需要扩展名。模板文件需要放在 <code>_layouts</code> 目录下。
 
         </p>
       </td>
@@ -80,9 +64,7 @@ front-matter of a page or post.
       <td>
         <p>
 
-          If you need your processed blog post URLs to be something other than
-          the default <code>/year/month/day/title.html</code> then you can set
-          this variable and it will be used as the final URL.
+          如果你需要让你的博客中的URL地址不同于默认值 <code>/year/month/day/title.html</code> 这样，那么当你设置这个变量后，就会使用最终的URL地址。
 
         </p>
       </td>
@@ -93,8 +75,8 @@ front-matter of a page or post.
       </td>
       <td>
         <p>
-          Set to false if you don’t want a specific post to show up when the
-          site is generated.
+          当站点生成的时候，如果你不需要展示一个具体的博文，可以设置这个变量为 false。
+
         </p>
       </td>
     </tr>
@@ -106,12 +88,7 @@ front-matter of a page or post.
       <td>
         <p>
 
-          Instead of placing posts inside of folders, you can specify one or
-          more categories that the post belongs to. When the site is generated
-          the post will act as though it had been set with these categories
-          normally. Categories (plural key) can be specified as a <a
-          href="http://en.wikipedia.org/wiki/YAML#Lists">YAML list</a> or a
-          space-separated string.
+          除过将博客文章放在某个文件夹下面外，你还可以根据文章的类别来给他们设置一个或者多个分类属性。这样当你的博客生成的时候这些文章就可以根据这些分类来阅读。在一个文章中多个类别可以通过 <a href="http://en.wikipedia.org/wiki/YAML#Lists">YAML list</a>来指定，或者用空格隔开。
 
         </p>
       </td>
@@ -123,9 +100,7 @@ front-matter of a page or post.
       <td>
         <p>
 
-          Similar to categories, one or multiple tags can be added to a post.
-          Also like categories, tags can be specified as a YAML list or a space-
-          separated string.
+          类似分类，一篇文章也可以给它增加一个或者多个标签。同样多个标签之间可以通过 YAML 列表或者空格隔开。
 
         </p>
       </td>
@@ -135,12 +110,9 @@ front-matter of a page or post.
 </div>
 
 
-## Custom Variables
+## 自定义变量
 
-Any variables in the front matter that are not predefined are mixed into the
-data that is sent to the Liquid templating engine during the conversion. For
-instance, if you set a title, you can use that in your layout to set the page
-title:
+在头信息中没有预先定义的任何变量都会在数据转换中通过 Liquid 模板被调用。例如，在头信息中你设置一个 title，然后就可以在你的模板中使用这个 title 变量来设置页面的 title属性 ：
 
 {% highlight html %}
 <!DOCTYPE HTML>
@@ -152,16 +124,16 @@ title:
     ...
 {% endhighlight %}
 
-## Predefined Variables for Posts
+## 在文章中预定义的变量
 
-These are available out-of-the-box to be used in the front-matter for a post.
+在文章中可以使用这些在头信息变量列表中未包含的变量。
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>Variable</th>
-      <th>Description</th>
+      <th>变量名称</th>
+      <th>描述</th>
     </tr>
   </thead>
   <tbody>
@@ -171,8 +143,7 @@ These are available out-of-the-box to be used in the front-matter for a post.
       </td>
       <td>
         <p>
-          A date here overrides the date from the name of the post. This can be
-          used to ensure correct sorting of posts.
+          这里的日期会覆盖文章名字中的日期。这样就可以用来确定文章分类的正确。
         </p>
       </td>
     </tr>
