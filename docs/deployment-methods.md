@@ -31,7 +31,6 @@ Jekyll 生成的网站是静态的，因此有很多种部署方法。下面列�
 
 ### Git post-receive 钩子
 
-To have a remote server handle the deploy for you every time you push changes using Git, you can create a user account which has all the public keys that are authorized to deploy in its `authorized_keys` file. With that in place, setting up the post-receive hook is done as follows:
 要让一个远程服务器在你每次用 Git 推送修改时进行部署，可以创建一个拥有所有要部署机器公钥的账号，然后设置 post-receive 钩子，其余的跟上面方法一样。
 
 {% highlight bash %}
