@@ -295,5 +295,3 @@ Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息
     这些变量仅在首页文件中可以，不过他们也会存在于子目录中，就像 <code>/blog/index.html</code>。
   </p>
 </div>
-
-        举例来说，如果你有 <code>url: http://mysite.com</code>
