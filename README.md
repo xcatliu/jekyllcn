@@ -14,11 +14,12 @@ jekyllcn 是 [http://jekyllrb.com](http://jekyllrb.com) 的中文翻译网站
 
 ## TODO list:
 
-* 加入作者机制，在文档前显示作者
-* 加入原文链接
+* 加入校验
 
 ## DONE
 
+* 加入作者机制，在文档前显示作者
+* 加入原文链接
 * 完善 README.md ，包括规范
 * 改用了 jekyllrb.com 的源码
 * 加入认领机制，避免重复劳动

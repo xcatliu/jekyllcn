@@ -4,3 +4,4 @@ permalink: /news/:year/:month/:day/:title/
 excerpt_separator: noifniof3nioaniof3nioafafinoafnoif
 repository: https://github.com/mojombo/jekyll
 google_analytics_id: UA-45256157-1
+origin_site: http://jekyllrb.com

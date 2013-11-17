@@ -10,6 +10,15 @@ layout: default
       <div class="unit four-fifths">
         <article>
           <h1>{{ page.title }}</h1>
+          <span class="doc-origin">
+              <a href="{{ site.origin_site }}{{ page.permalink }}" target="_blank">原文链接</a>
+          </span>
+          <div class="doc-meta">
+            翻译<a href="https://github.com/{{ page.contributor }}" class="post-author">
+              <img src="https://github.com/{{ page.contributor }}.png" class="avatar" />
+              {{ page.contributor }}
+            </a>
+          </div>
           {{ content }}
           {% include section_nav.html %}
         </article>
