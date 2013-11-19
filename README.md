@@ -25,3 +25,7 @@ jekyllcn 是 [http://jekyllrb.com](http://jekyllrb.com) 的中文翻译网站
 * 加入认领机制，避免重复劳动
 * doc 尾部的上一页下一页导航
 * 代码高亮
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jekyllcn/jekyllcn.github.io/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
