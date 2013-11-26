@@ -4,6 +4,7 @@ title: Upgrading
 prev_section: resources
 next_section: contributing
 permalink: /docs/upgrading/
+contributor: debbbbie
 ---
 
 Upgrading from an older version of Jekyll? A few things have changed in 1.0
