@@ -4,6 +4,7 @@ title: Templates
 prev_section: migrations
 next_section: permalinks
 permalink: /docs/templates/
+contributor: debbbbie
 ---
 
 Jekyll uses the [Liquid](http://wiki.shopify.com/Liquid) templating language to
