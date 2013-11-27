@@ -8,7 +8,7 @@ contributor: debbbbie
 ---
 
 Jekyll 支持以灵活的方式管理你网站的链接，你可以通过 [Configuration](../configuration/) 或
- [YAML Front Matter](../frontmatter/) 为每篇文章设置永久链接。你可以随心所欲的选择你自己的
+ [YAML 头信息](../frontmatter/) 为每篇文章设置永久链接。你可以随心所欲的选择你自己的
  格式，即使自定义。默认配置为 `date`。
 
 永久链接的模板用以冒号为前缀的关键词标记动态内容，比如 `date` 代表
