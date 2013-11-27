@@ -4,6 +4,7 @@ title: Permalinks
 prev_section: templates
 next_section: pagination
 permalink: /docs/permalinks/
+contributor: debbbbie
 ---
 
 Jekyll supports a flexible way to build your site’s URLs. You can specify the

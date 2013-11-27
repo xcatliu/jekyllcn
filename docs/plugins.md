@@ -4,6 +4,7 @@ title: Plugins
 prev_section: assets
 next_section: extras
 permalink: /docs/plugins/
+contributor: debbbbie
 ---
 
 Jekyll has a plugin system with hooks that allow you to create custom generated
