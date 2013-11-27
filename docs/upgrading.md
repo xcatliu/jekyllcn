@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Upgrading
+title: 升级
 prev_section: resources
 next_section: contributing
 permalink: /docs/upgrading/
