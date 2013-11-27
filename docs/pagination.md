@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Pagination
+title: 分页功能
 prev_section: permalinks
 next_section: plugins
 permalink: /docs/pagination/
