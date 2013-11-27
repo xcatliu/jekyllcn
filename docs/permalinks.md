@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Permalinks
+title: 永久链接
 prev_section: templates
 next_section: pagination
 permalink: /docs/permalinks/
