@@ -4,6 +4,7 @@ title: Pagination
 prev_section: permalinks
 next_section: plugins
 permalink: /docs/pagination/
+contributor: debbbbie
 ---
 
 With many websites—especially blogs—it’s very common to break the main listing
