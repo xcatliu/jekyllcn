@@ -333,110 +333,108 @@ end
 - [Full-text search by Pascal Widdershoven](https://github.com/PascalW/jekyll_indextank)：全文搜索。
 - [AliasGenerator by Thomas Mango](https://github.com/tsmango/jekyll_alias_generator)：根据YAML头信息中的 alias　生成跳转页面。
 - [Pageless Redirect Generator by Nick Quinlan](https://github.com/nquinlan/jekyll-pageless-redirects)：根据Jekyll跟路径做出跳转，支持分布式。
-- [Projectlist by Frederic Hemberger](https://github.com/fhemberger/jekyll-projectlist): Renders files in a directory as a single page instead of separate posts.
-- [RssGenerator by Assaf Gelber](https://github.com/agelber/jekyll-rss): Automatically creates an RSS 2.0 feed from your posts.
+- [Projectlist by Frederic Hemberger](https://github.com/fhemberger/jekyll-projectlist)：一个文件夹生成一个页面
+- [RssGenerator by Assaf Gelber](https://github.com/agelber/jekyll-rss)：自动生成 RSS 2.0 。
 
 #### 转换器
 
-- [Jade plugin by John Papandriopoulos](https://github.com/snappylabs/jade-jekyll-plugin): Jade converter for Jekyll.
-- [HAML plugin by Sam Z](https://gist.github.com/517556): HAML converter for Jekyll.
-- [HAML-Sass Converter by Adam Pearson](https://gist.github.com/481456): Simple HAML-Sass converter for Jekyll. [Fork](https://gist.github.com/528642) by Sam X.
-- [Sass SCSS Converter by Mark Wolfe](https://gist.github.com/960150): Sass converter which uses the new CSS compatible syntax, based Sam X’s fork above.
-- [LESS Converter by Jason Graham](https://gist.github.com/639920): Convert LESS files to CSS.
-- [LESS Converter by Josh Brown](https://gist.github.com/760265): Simple LESS converter.
-- [Upcase Converter by Blake Smith](https://gist.github.com/449463): An example Jekyll converter.
-- [CoffeeScript Converter by phaer](https://gist.github.com/959938): A [CoffeeScript](http://coffeescript.org) to Javascript converter.
-- [Markdown References by Olov Lassus](https://github.com/olov/jekyll-references): Keep all your markdown reference-style link definitions in one \_references.md file.
-- [Stylus Converter](https://gist.github.com/988201): Convert .styl to .css.
-- [ReStructuredText Converter](https://github.com/xdissent/jekyll-rst): Converts ReST documents to HTML with Pygments syntax highlighting.
-- [Jekyll-pandoc-plugin](https://github.com/dsanson/jekyll-pandoc-plugin): Use pandoc for rendering markdown.
-- [Jekyll-pandoc-multiple-formats](https://github.com/fauno/jekyll-pandoc-multiple-formats) by [edsl](https://github.com/edsl): Use pandoc to generate your site in multiple formats. Supports pandoc’s markdown extensions.
-- [ReStructuredText Converter](https://github.com/xdissent/jekyll-rst): Converts ReST documents to HTML with Pygments syntax highlighting.
-- [Transform Layouts](https://gist.github.com/1472645): Allows HAML layouts (you need a HAML Converter plugin for this to work).
+- [Jade plugin by John Papandriopoulos](https://github.com/snappylabs/jade-jekyll-plugin)： Jade 转换器。
+- [HAML plugin by Sam Z](https://gist.github.com/517556): HAML转换器。
+- [HAML-Sass Converter by Adam Pearson](https://gist.github.com/481456): HAML-Sass 转换器。 [Fork](https://gist.github.com/528642) by Sam X.
+- [Sass SCSS Converter by Mark Wolfe](https://gist.github.com/960150)：在Sam X 的基础上，一个兼容 CSS 的 Sass 转换器。
+- [LESS Converter by Jason Graham](https://gist.github.com/639920): 将 LESS 转换为 CSS。
+- [LESS Converter by Josh Brown](https://gist.github.com/760265): 简单的 LESS 转换器。
+- [Upcase Converter by Blake Smith](https://gist.github.com/449463): 一个例子 。
+- [CoffeeScript Converter by phaer](https://gist.github.com/959938): [CoffeeScript](http://coffeescript.org) 转换到 JavaScript 。
+- [Markdown References by Olov Lassus](https://github.com/olov/jekyll-references): 记录所有的超链接到 \_references.md 文件。
+- [Stylus Converter](https://gist.github.com/988201): 将 .styl 转换为 .css 。
+- [ReStructuredText Converter](https://github.com/xdissent/jekyll-rst): 用 Pygments 语法将 ReST 文档转换为 HTML 。
+- [Jekyll-pandoc-plugin](https://github.com/dsanson/jekyll-pandoc-plugin): 用 pandoc 转换 markdown 。
+- [Jekyll-pandoc-multiple-formats](https://github.com/fauno/jekyll-pandoc-multiple-formats) by [edsl](https://github.com/edsl):用 pandoc 生成网站，支持多种格式，并支持 pandoc 的后缀名。
+- [ReStructuredText Converter](https://github.com/xdissent/jekyll-rst): 又一个用 Pygments 语法将 ReST 文档转换为 HTML 。
+- [Transform Layouts](https://gist.github.com/1472645): 允许使用 HAML 布局（需要 HAML 转换器的配合）
 
 #### 过滤器
 
-- [Truncate HTML](https://github.com/MattHall/truncatehtml) by [Matt Hall](http://codebeef.com): A Jekyll filter that truncates HTML while preserving markup structure.
-- [Domain Name Filter by Lawrence Woodman](https://github.com/LawrenceWoodman/domain_name-liquid_filter): Filters the input text so that just the domain name is left.
-- [Summarize Filter by Mathieu Arnold](https://gist.github.com/731597): Remove markup after a `<div id="extended">` tag.
-- [URL encoding by James An](https://gist.github.com/919275): Percent encoding for URIs.
-- [JSON Filter](https://gist.github.com/1850654) by [joelverhagen](https://github.com/joelverhagen): Filter that takes input text and outputs it as JSON. Great for rendering JavaScript.
-- [i18n_filter](https://github.com/gacha/gacha.id.lv/blob/master/_plugins/i18n_filter.rb): Liquid filter to use I18n localization.
-- [Smilify](https://github.com/SaswatPadhi/jekyll_smilify) by [SaswatPadhi](https://github.com/SaswatPadhi): Convert text emoticons in your content to themeable smiley pics ([Demo](http://saswatpadhi.github.com/)).
-- [Read in X Minutes](https://gist.github.com/zachleat/5792681) by [zachleat](https://github.com/zachleat): Estimates the reading time of a string (for blog post content).
-- [Jekyll-timeago](https://github.com/markets/jekyll-timeago): Converts a time value to the time ago in words.
-- [pluralize](https://github.com/bdesham/pluralize): Easily combine a number and a word into a gramatically-correct amount like “1 minute” or “2 minute**s**”.
-- [reading_time](https://github.com/bdesham/reading_time): Count words and estimate reading time for a piece of text, ignoring HTML elements that are unlikely to contain running text.
-- [Table of Content Generator](https://github.com/dafi/jekyll-toc-generator): Generate the HTML code containing a table of content (TOC), the TOC can be customized in many way, for example you can decide which pages can be without TOC.
+- [Truncate HTML](https://github.com/MattHall/truncatehtml) by [Matt Hall](http://codebeef.com): 为保持 markup 结构，删除 HTML 标签。
+- [Domain Name Filter by Lawrence Woodman](https://github.com/LawrenceWoodman/domain_name-liquid_filter): 过滤出域名。
+- [Summarize Filter by Mathieu Arnold](https://gist.github.com/731597): 去掉 `<div id="extended">` 后边的内容。
+- [URL encoding by James An](https://gist.github.com/919275):为地址编码，如 `' ' #=> '%20'` 。
+- [JSON Filter](https://gist.github.com/1850654) by [joelverhagen](https://github.com/joelverhagen): 转换为 JSON 格式。
+- [i18n_filter](https://github.com/gacha/gacha.id.lv/blob/master/_plugins/i18n_filter.rb):实现了 I18n 国际化的 Liquid 过滤器。
+- [Smilify](https://github.com/SaswatPadhi/jekyll_smilify) by [SaswatPadhi](https://github.com/SaswatPadhi): 将表情符号转换为表情图片 ([例子](http://saswatpadhi.github.com/))。
+- [Read in X Minutes](https://gist.github.com/zachleat/5792681) by [zachleat](https://github.com/zachleat): 估计读完文章需要的时间。
+- [Jekyll-timeago](https://github.com/markets/jekyll-timeago): 把时间转换为 time ago 格式。
+- [pluralize](https://github.com/bdesham/pluralize): 根据单词前边的数字按需转换成复数形式。
+- [reading_time](https://github.com/bdesham/reading_time): 统计字数，并估计需要读的时间（已忽略HTML标签）。
+- [Table of Content Generator](https://github.com/dafi/jekyll-toc-generator): 生成包含表格（ TOC ）的 HTML 代码，支持自定义。
 
 #### 标签
 
-- [Delicious Plugin by Christian Hellsten](https://github.com/christianhellsten/jekyll-plugins): Fetches and renders bookmarks from delicious.com.
-- [Ultraviolet Plugin by Steve Alex](https://gist.github.com/480380): Jekyll tag for the [Ultraviolet](http://ultraviolet.rubyforge.org/) code highligher.
-- [Tag Cloud Plugin by Ilkka Laukkanen](https://gist.github.com/710577): Generate a tag cloud that links to tag pages.
-- [GIT Tag by Alexandre Girard](https://gist.github.com/730347): Add Git activity inside a list.
-- [MathJax Liquid Tags by Jessy Cowan-Sharp](https://gist.github.com/834610): Simple liquid tags for Jekyll that convert inline math and block equations to the appropriate MathJax script tags.
-- [Non-JS Gist Tag by Brandon Tilley](https://gist.github.com/1027674) A Liquid tag that embeds Gists and shows code for non-JavaScript enabled browsers and readers.
-- [Render Time Tag by Blake Smith](https://gist.github.com/449509): Displays the time a Jekyll page was generated.
-- [Status.net/OStatus Tag by phaer](https://gist.github.com/912466): Displays the notices in a given status.net/ostatus feed.
-- [Raw Tag by phaer](https://gist.github.com/1020852): Keeps liquid from parsing text betweeen `raw` tags.
-- [Embed.ly client by Robert Böhnke](https://github.com/robb/jekyll-embedly-client): Autogenerate embeds from URLs using oEmbed.
-- [Logarithmic Tag Cloud](https://gist.github.com/2290195): Flexible. Logarithmic distribution. Documentation inline.
-- [oEmbed Tag by Tammo van Lessen](https://gist.github.com/1455726): Enables easy content embedding (e.g. from YouTube, Flickr, Slideshare) via oEmbed.
-- [FlickrSetTag by Thomas Mango](https://github.com/tsmango/jekyll_flickr_set_tag): Generates image galleries from Flickr sets.
-- [Tweet Tag by Scott W. Bradley](https://github.com/scottwb/jekyll-tweet-tag): Liquid tag for [Embedded Tweets](https://dev.twitter.com/docs/embedded-tweets) using Twitter’s shortcodes.
-- [Jekyll-contentblocks](https://github.com/rustygeldmacher/jekyll-contentblocks): Lets you use Rails-like content_for tags in your templates, for passing content from your posts up to your layouts.
-- [Generate YouTube Embed](https://gist.github.com/1805814) by [joelverhagen](https://github.com/joelverhagen): Jekyll plugin which allows you to embed a YouTube video in your page with the YouTube ID. Optionally specify width and height dimensions. Like “oEmbed Tag” but just for YouTube.
-- [Jekyll-beastiepress](https://github.com/okeeblow/jekyll-beastiepress): FreeBSD utility tags for Jekyll sites.
-- [Jsonball](https://gist.github.com/1895282): Reads json files and produces maps for use in Jekyll files.
+- [Delicious Plugin by Christian Hellsten](https://github.com/christianhellsten/jekyll-plugins): 从 delicious.com 获取书签并展示。
+- [Ultraviolet Plugin by Steve Alex](https://gist.github.com/480380): [Ultraviolet](http://ultraviolet.rubyforge.org/) 插件。
+- [Tag Cloud Plugin by Ilkka Laukkanen](https://gist.github.com/710577): 生成云状的标签列表。
+- [GIT Tag by Alexandre Girard](https://gist.github.com/730347): 添加 Git activity 。
+- [MathJax Liquid Tags by Jessy Cowan-Sharp](https://gist.github.com/834610):用合适的 MathJax 标签替代相应的数学公式或方程式。
+- [Non-JS Gist Tag by Brandon Tilley](https://gist.github.com/1027674): 嵌入 Gists ，显示给禁用 JavaScript 的用户。
+- [Render Time Tag by Blake Smith](https://gist.github.com/449509): 显示页面的创建时间。
+- [Status.net/OStatus Tag by phaer](https://gist.github.com/912466): 显示 status.net/ostatus 的通知。
+- [Raw Tag by phaer](https://gist.github.com/1020852): 阻止转换 `raw` 标签的内容。
+- [Embed.ly client by Robert Böhnke](https://github.com/robb/jekyll-embedly-client): Embed.ly 的实现。
+- [Logarithmic Tag Cloud](https://gist.github.com/2290195): 支持对数。
+- [oEmbed Tag by Tammo van Lessen](https://gist.github.com/1455726): 通过 oEmbed 支持内嵌第三方代码 (例如 YouTube, Flickr, Slideshare) 。
+- [FlickrSetTag by Thomas Mango](https://github.com/tsmango/jekyll_flickr_set_tag): 将 Flickr 的图片生成画廊。
+- [Tweet Tag by Scott W. Bradley](https://github.com/scottwb/jekyll-tweet-tag): [Tweets 支持](https://dev.twitter.com/docs/embedded-tweets) 。
+- [Jekyll-contentblocks](https://github.com/rustygeldmacher/jekyll-contentblocks): 支持使用 Rails 风格的 content_for 标签。
+- [Generate YouTube Embed](https://gist.github.com/1805814) by [joelverhagen](https://github.com/joelverhagen):支持以 YouTube ID 嵌入 YouTube 视频，宽高可配置。
+- [Jekyll-beastiepress](https://github.com/okeeblow/jekyll-beastiepress): 可轻松连接到 FreeBSD 官网。
+- [Jsonball](https://gist.github.com/1895282): 读取json文件并生成地图。
 - [Bibjekyll](https://github.com/pablooliveira/bibjekyll): Render BibTeX-formatted bibliographies/citations included in posts and pages using bibtex2html.
-- [Jekyll-citation](https://github.com/archome/jekyll-citation): Render BibTeX-formatted bibliographies/citations included in posts and pages (pure Ruby).
-- [Jekyll Dribbble Set Tag](https://github.com/ericdfields/Jekyll-Dribbble-Set-Tag): Builds Dribbble image galleries from any user.
-- [Debbugs](https://gist.github.com/2218470): Allows posting links to Debian BTS easily.
-- [Refheap_tag](https://github.com/aburdette/refheap_tag): Liquid tag that allows embedding pastes from [refheap](https://refheap.com).
-- [Jekyll-devonly_tag](https://gist.github.com/2403522): A block tag for including markup only during development.
-- [JekyllGalleryTag](https://github.com/redwallhp/JekyllGalleryTag) by [redwallhp](https://github.com/redwallhp): Generates thumbnails from a directory of images and displays them in a grid.
-- [Youku and Tudou Embed](https://gist.github.com/Yexiaoxing/5891929): Liquid plugin for embedding Youku and Tudou videos.
-- [Jekyll-swfobject](https://github.com/sectore/jekyll-swfobject): Liquid plugin for embedding Adobe Flash files (.swf) using [SWFObject](http://code.google.com/p/swfobject/).
-- [Jekyll Picture Tag](https://github.com/robwierzbowski/jekyll-picture-tag): Easy responsive images for Jekyll. Based on the proposed [`<picture>`](http://picture.responsiveimages.org/) element, polyfilled with Scott Jehl’s [Picturefill](https://github.com/scottjehl/picturefill).
-- [Jekyll Image Tag](https://github.com/robwierzbowski/jekyll-image-tag): Better images for Jekyll. Save image presets, generate resized images, and add classes, alt text, and other attributes.
-- [Ditaa Tag](https://github.com/matze/jekyll-ditaa) by [matze](https://github.com/matze): Renders ASCII diagram art into PNG images and inserts a figure tag.
-- [Good Include](https://github.com/penibelst/jekyll-good-include) by [Anatol Broder](http://penibelst.de/): Strips newlines and whitespaces from the end of include files before processing.
-- [Jekyll Suggested Tweet](https://github.com/davidensinger/jekyll-suggested-tweet) by [David Ensinger](https://github.com/davidensinger/): A Liquid tag for Jekyll that allows for the embedding of suggested tweets via Twitter’s Web Intents API.
+- [Jekyll-citation](https://github.com/archome/jekyll-citation): 生成 BibTeX格式（ Holy shit! 还有多少要翻译）。
+- [Jekyll Dribbble Set Tag](https://github.com/ericdfields/Jekyll-Dribbble-Set-Tag): 生成 Dribbble 画廊。
+- [Debbugs](https://gist.github.com/2218470):可以轻松的链接到 Debian BTS 。
+- [Refheap_tag](https://github.com/aburdette/refheap_tag): 支持[refheap](https://refheap.com).
+- [Jekyll-devonly_tag](https://gist.github.com/2403522): 仅在开发环境使用的情况下可以考虑一下。
+- [JekyllGalleryTag](https://github.com/redwallhp/JekyllGalleryTag) by [redwallhp](https://github.com/redwallhp): 生成缩略图，并展示。
+- [Youku and Tudou Embed](https://gist.github.com/Yexiaoxing/5891929): 支持内嵌 Youku 和 Tudou 视频。
+- [Jekyll-swfobject](https://github.com/sectore/jekyll-swfobject): 通过 [SWFObject](http://code.google.com/p/swfobject/) 支持内嵌 flash 。
+- [Jekyll Picture Tag](https://github.com/robwierzbowski/jekyll-picture-tag): 相应式的图片，推荐 [`<picture>`](http://picture.responsiveimages.org/) ，改编自 Scott Jehl 的 [Picturefill](https://github.com/scottjehl/picturefill).
+- [Jekyll Image Tag](https://github.com/robwierzbowski/jekyll-image-tag): 更好的图片处理插件，预先保存，生成调整大小后的图片，并且加好 `classes` 和 `alt` 等属性。
+- [Ditaa Tag](https://github.com/matze/jekyll-ditaa) by [matze](https://github.com/matze): 将 ditta 格式的 ASCII 图片转换成 PNG。
+- [Good Include](https://github.com/penibelst/jekyll-good-include) by [Anatol Broder](http://penibelst.de/): 去掉文件末尾的空行空格。
+- [Jekyll Suggested Tweet](https://github.com/davidensinger/jekyll-suggested-tweet) by [David Ensinger](https://github.com/davidensinger/): 通过 Twitter 的 API 支持内嵌感兴趣的 tweets。
 
 #### 集合
 
-- [Jekyll Plugins by Recursive Design](http://recursive-design.com/projects/jekyll-plugins/): Plugins to generate Project pages from GitHub readmes, a Category page, and a Sitemap generator.
-- [Company website and blog plugins](https://github.com/flatterline/jekyll-plugins) by Flatterline, a [Ruby on Rails development company](http://flatterline.com/): Portfolio/project page generator, team/individual page generator, an author bio liquid tag for use on posts, and a few other smaller plugins.
-- [Jekyll plugins by Aucor](https://github.com/aucor/jekyll-plugins): Plugins for trimming unwanted newlines/whitespace and sorting pages by weight attribute.
+- [Jekyll Plugins by Recursive Design](http://recursive-design.com/projects/jekyll-plugins/): 生成 readme 说明文档，列表页以及网站地图。
+- [Company website and blog plugins](https://github.com/flatterline/jekyll-plugins) by Flatterline, a [Ruby on Rails development company](http://flatterline.com/): Portfolio/project 的生成器, team/individual 的生成器，等等。
+- [Jekyll plugins by Aucor](https://github.com/aucor/jekyll-plugins): 移除不需要的空格空行，并根据 weight 属性给页面排序。
 
 #### 其他
 
-- [Pygments Cache Path by Raimonds Simanovskis](https://github.com/rsim/blog.rayapps.com/blob/master/_plugins/pygments_cache_patch.rb): Plugin to cache syntax-highlighted code from Pygments.
-- [Draft/Publish Plugin by Michael Ivey](https://gist.github.com/49630): Save posts as drafts.
-- [Growl Notification Generator by Tate Johnson](https://gist.github.com/490101): Send Jekyll notifications to Growl.
-- [Growl Notification Hook by Tate Johnson](https://gist.github.com/525267): Better alternative to the above, but requires his “hook” fork.
-- [Related Posts by Lawrence Woodman](https://github.com/LawrenceWoodman/related_posts-jekyll_plugin): Overrides `site.related_posts` to use categories to assess relationship.
-- [Tiered Archives by Eli Naeher](https://gist.github.com/88cda643aa7e3b0ca1e5): Create tiered template variable that allows you to group archives by year and month.
-- [Jekyll-localization](https://github.com/blackwinter/jekyll-localization): Jekyll plugin that adds localization features to the rendering engine.
-- [Jekyll-rendering](https://github.com/blackwinter/jekyll-rendering): Jekyll plugin to provide alternative rendering engines.
-- [Jekyll-pagination](https://github.com/blackwinter/jekyll-pagination): Jekyll plugin to extend the pagination generator.
-- [Jekyll-tagging](https://github.com/pattex/jekyll-tagging): Jekyll plugin to automatically generate a tag cloud and tag pages.
-- [Jekyll-scholar](https://github.com/inukshuk/jekyll-scholar): Jekyll extensions for the blogging scholar.
-- [Jekyll-asset_bundler](https://github.com/moshen/jekyll-asset_bundler): Bundles and minifies JavaScript and CSS.
-- [Jekyll-assets](http://ixti.net/jekyll-assets/) by [ixti](https://github.com/ixti): Rails-alike assets pipeline (write assets in CoffeeScript, Sass, LESS etc; specify dependencies for automatic bundling using simple declarative comments in assets; minify and compress; use JST templates; cache bust; and many-many more).
-- [File compressor](https://gist.github.com/2758691) by [mytharcher](https://github.com/mytharcher): Compress HTML and JavaScript files on site build.
-- [Jekyll-minibundle](https://github.com/tkareine/jekyll-minibundle): Asset bundling and cache busting using external minification tool of your choice. No gem dependencies.
-- [Singlepage-jekyll](https://github.com/JCB-K/singlepage-jekyll) by [JCB-K](https://github.com/JCB-K): Turns Jekyll into a dynamic one-page website.
-- [generator-jekyllrb](https://github.com/robwierzbowski/generator-jekyllrb): A generator that wraps Jekyll in [Yeoman](http://yeoman.io/), a tool collection and workflow for builing modern web apps.
-- [grunt-jekyll](https://github.com/dannygarcia/grunt-jekyll)： [Grunt](http://gruntjs.com/)　插件。
-- [jekyll-postfiles](https://github.com/indirect/jekyll-postfiles)：　添加目录 `_postfiles`　和标签 {% raw %}`{{ postfile }}`{% endraw %}以保证所有的指向正确。
+- [Pygments Cache Path by Raimonds Simanovskis](https://github.com/rsim/blog.rayapps.com/blob/master/_plugins/pygments_cache_patch.rb): 缓存高亮代码核心模块。
+- [Draft/Publish Plugin by Michael Ivey](https://gist.github.com/49630): 保存到草稿。
+- [Growl Notification Generator by Tate Johnson](https://gist.github.com/490101): Jekyll 通知发送到 Growl 。
+- [Growl Notification Hook by Tate Johnson](https://gist.github.com/525267): 同上，推荐指数更高一点，但是需要他的 “hook” 。
+- [Related Posts by Lawrence Woodman](https://github.com/LawrenceWoodman/related_posts-jekyll_plugin): 重新实现关联，覆盖 `site.related_posts` 。
+- [Tiered Archives by Eli Naeher](https://gist.github.com/88cda643aa7e3b0ca1e5): 创建 tiered模板变量，允许按年月分组。
+- [Jekyll-localization](https://github.com/blackwinter/jekyll-localization): 支持本地化。
+- [Jekyll-rendering](https://github.com/blackwinter/jekyll-rendering): 一个渲染引擎。
+- [Jekyll-pagination](https://github.com/blackwinter/jekyll-pagination): 支持分页。
+- [Jekyll-tagging](https://github.com/pattex/jekyll-tagging): 生成云状标签。
+- [Jekyll-scholar](https://github.com/inukshuk/jekyll-scholar): 为学者定制。
+- [Jekyll-asset_bundler](https://github.com/moshen/jekyll-asset_bundler): 将 JavaScript 和 CSS 最小化。
+- [Jekyll-assets](http://ixti.net/jekyll-assets/) by [ixti](https://github.com/ixti): Rails 风格的 assets pipeline（支持的资源 CoffeeScript, Sass, LESS 等等；设置依赖；最小化压缩； JST 模板；缓存处理等等）。
+- [File compressor](https://gist.github.com/2758691) by [mytharcher](https://github.com/mytharcher): 压缩 HTML 和 JavaScript 。
+- [Jekyll-minibundle](https://github.com/tkareine/jekyll-minibundle): 根据你选择的最小化工具绑定资源和处理缓存。
+- [Singlepage-jekyll](https://github.com/JCB-K/singlepage-jekyll) by [JCB-K](https://github.com/JCB-K): 转换为单页网站。
+- [generator-jekyllrb](https://github.com/robwierzbowski/generator-jekyllrb): [Yeoman](http://yeoman.io/) 的包装，一个工具集，还有工作流，用来创建现代化的网站。
+- [grunt-jekyll](https://github.com/dannygarcia/grunt-jekyll)：[Grunt](http://gruntjs.com/)　插件。
+- [jekyll-postfiles](https://github.com/indirect/jekyll-postfiles)：添加目录 `_postfiles`　和标签 {% raw %}`{{ postfile }}`{% endraw %}以保证所有的指向正确。
 
 <div class="note info">
-  <h5>Jekyll Plugins Wanted</h5>
+  <h5>期待你的作品</h5>
   <p>
-    If you have a Jekyll plugin that you would like to see added to this list,
-    you should <a href="../contributing/">read the contributing page</a> to find
-    out how to make that happen.
+    如果你有一个 Jekyll 插件并且愿意加到这个列表中来，可以<a href="../contributing/">阅读此须知</a>，并参照着来做。
   </p>
 </div>
