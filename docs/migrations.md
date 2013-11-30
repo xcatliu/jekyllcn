@@ -4,7 +4,7 @@ title: Blog migrations
 prev_section: variables
 next_section: templates
 permalink: /docs/migrations/
-contributor: OrangeHat
+contributor: debbbbie
 ---
 
 If you’re switching to Jekyll from another blogging system, Jekyll’s importers
