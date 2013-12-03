@@ -4,7 +4,7 @@ title: 模板
 prev_section: migrations
 next_section: permalinks
 permalink: /docs/templates/
-contributor: debbbbie
+contributor: haio
 ---
 
 Jekyll 使用 [Liquid](http://wiki.shopify.com/Liquid)模板语言，支持所有标准的
