@@ -1,47 +1,38 @@
 ---
 layout: docs
-title: Blog migrations
+title: 博客迁移
 prev_section: variables
 next_section: templates
 permalink: /docs/migrations/
 contributor: debbbbie
 ---
 
-If you’re switching to Jekyll from another blogging system, Jekyll’s importers
-can help you with the move. Most methods listed on this page require read access
-to the database from your old system to generate posts for Jekyll. Each method
-generates `.markdown` posts in the `_posts` directory based on the entries in
-the foreign system.
+如果你要从其他博客迁移到 Jekyll ， Jekyll 导入器可以帮助你。本页面的所有方法都需要旧系统数据库的
+读权限，每个方法在 `_posts` 文件夹生成 `.markdown` 格式的文章。
 
-## Preparing for migrations
+## 迁移前的准备工作
 
-Because the importers have many of their own dependencies, they are made
-available via a separate gem called
-[`jekyll-import`](https://github.com/jekyll/jekyll-import). To use them, all
-you need to do is install the gem, and they will become available as part of
-Jekyll's standard command line interface.
+导入器有很多的依赖，需要通过 gem [`jekyll-import`](https://github.com/jekyll/jekyll-import)
+来完成。安装好本 gem 以后，就可以作为 Jekyll 的标准命令行来使用了。
 
 {% highlight bash %}
 $ gem install jekyll-import --pre
 {% endhighlight %}
 
-You should now be all set to run the importers below. If you ever get stuck, you
-can see help for each importer:
+你应该已经准备好运行导入器了，如果碰到任何麻烦，可以看看导入器的帮助：
 
 {% highlight bash %}
 $ jekyll help import           # => See list of importers
 $ jekyll help import IMPORTER  # => See importer specific help
 {% endhighlight %}
 
-Where IMPORTER is the name of the specific importer.
+其中的 IMPORTER 是某个导入器的名字。
 
 <div class="note info">
-  <h5>Note: Always double-check migrated content</h5>
+  <h5>提示：记得复核迁移后的内容</h5>
   <p>
 
-    Importers may not distinguish between published or private posts, so
-    you should always check that the content Jekyll generates for you appears as
-    you intended.
+    导入器没有区分公开的和私有的文章，你要记得检查迁移后的文章是否你想要的。
 
   </p>
 </div>
@@ -50,11 +41,10 @@ Where IMPORTER is the name of the specific importer.
 
 ## WordPress
 
-### WordPress export files
+### WordPress 导出文件
 
-If hpricot is not already installed, you will need to run `gem install hpricot`.
-Next, export your blog using the WordPress export utility. Assuming that the
-exported file is saved as `wordpress.xml`, here is the command you need to run:
+如果还没有安装 hpricot ，你需要首先运行 `gem install hpricot` ；然后，用WordPress的导出
+工具导出你的博客。假设导出的文件被保存为 `wordpress.xml` ，你需要运行如下命令：
 
 {% highlight bash %}
 $ ruby -rubygems -e 'require "jekyll/jekyll-import/wordpressdotcom";
@@ -68,33 +58,29 @@ $ ruby -rubygems -e 'require "jekyll/jekyll-import/wordpressdotcom";
   `https://YOUR-USER-NAME.wordpress.com/wp-admin/export.php`.</p>
 </div>
 
-### Using WordPress MySQL server connection
+### 使用 WordPress MySQL server 的连接
 
-If you want to import using a direct connection to the WordPress MySQL server,
-here's how:
+如果你想直接使用 WordPress MySQL server 的数据库连接，可以这样做：
 
 {% highlight bash %}
 $ ruby -rubygems -e 'require "jekyll/jekyll-import/wordpress";
     JekyllImport::WordPress.process({:dbname => "database", :user => "user", :pass => "pass"})'
 {% endhighlight %}
 
-If you are using Webfaction and have to set up an [SSH
-tunnel](http://docs.webfaction.com/user-guide/databases.html?highlight=mysql#starting-an-ssh-tunnel-with-ssh),
-be sure to make the hostname (`127.0.0.1`) explicit, otherwise MySQL may block
-your access based on `localhost` and `127.0.0.1` not being equivalent in its
-authentication system:
+如果你正在使用 Webfaction，并不得不建立一个
+[SSH tunnel](http://docs.webfaction.com/user-guide/databases.html?highlight=mysql#starting-an-ssh-tunnel-with-ssh),
+记得明确主机头(`127.0.0.1`) , 否则 MySQL 可能阻止连接，因为在认证系统中 `localhost` 和
+`127.0.0.1` 是不同的：
 
 {% highlight bash %}
 $ ruby -rubygems -e 'require "jekyll/jekyll-import/wordpress";
     JekyllImport::WordPress.process({:host => "127.0.0.1", :dbname => "database", :user => "user", :pass => "pass"})'
 {% endhighlight %}
 
-### Further WordPress migration alternatives
+### 功能更全的 WordPress 迁移工具
 
-While the above methods work, they do not import much of the metadata that is
-usually stored in WordPress posts and pages. If you need to export things like
-pages, tags, custom fields, image attachments and so on, the following resources
-might be useful to you:
+尽管上树方法可以工作，但他们并没有导入足够的元数据。如果你想导出诸如页面，标签，自定义字段，图片附件
+等等，下边的资源或许对你有用：
 
 - [Exitwp](https://github.com/thomasf/exitwp) is a configurable tool written in
   Python for migrating one or more WordPress blogs into Jekyll (Markdown) format
@@ -109,8 +95,7 @@ might be useful to you:
 
 ## Drupal
 
-If you’re migrating from [Drupal](http://drupal.org), there are two migrators
-for you, depending upon your Drupal version:
+如果你是从 [Drupal](http://drupal.org) 导入，根据你的 Drupal 版本，有两个迁移工具供你使用：
 - [Drupal 6](https://github.com/jekyll/jekyll-import/blob/v0.1.0.beta1/lib/jekyll/jekyll-import/drupal6.rb)
 - [Drupal 7](https://github.com/jekyll/jekyll-import/blob/v0.1.0.beta1/lib/jekyll/jekyll-import/drupal7.rb)
 
@@ -122,9 +107,7 @@ $ ruby -rubygems -e 'require "jekyll/jekyll-import/drupal7";
     JekyllImport::Drupal7.process("dbname", "user", "pass")'
 {% endhighlight %}
 
-If you are connecting to a different host or need to specify a table prefix for
-your database, you may optionally add those two parameters to the end of either
-Drupal migrator execution:
+如果要连接到不同的主机或配置表前缀，你可以在迁移 Drupal 的执行代码后边加上下边两个参数：
 
 {% highlight bash %}
 $ ruby -rubygems -e 'require "jekyll/jekyll-import/drupal6";
@@ -136,7 +119,7 @@ $ ruby -rubygems -e 'require "jekyll/jekyll-import/drupal7";
 
 ## Movable Type
 
-To import posts from Movable Type:
+从 Movable Type 导入：
 
 {% highlight bash %}
 $ ruby -rubygems -e 'require "jekyll/jekyll-import/mt";
@@ -145,41 +128,38 @@ $ ruby -rubygems -e 'require "jekyll/jekyll-import/mt";
 
 ## Typo
 
-To import posts from Typo:
+从 Typo 导入：
 
 {% highlight bash %}
 $ ruby -rubygems -e 'require "jekyll/jekyll-import/typo";
     JekyllImport::Typo.process("database", "user", "pass")'
 {% endhighlight %}
 
-This code has only been tested with Typo version 4+.
+这都代码仅仅在 Typo 版本 4 以上测试过。
 
 ## TextPattern
 
-To import posts from TextPattern:
+从 TextPattern 导入：
 
 {% highlight bash %}
 $ ruby -rubygems -e 'require "jekyll/jekyll-import/textpattern";
     JekyllImport::TextPattern.process("database_name", "username", "password", "hostname")'
 {% endhighlight %}
 
-You will need to run the above from the parent directory of your `_import`
-folder. For example, if `_import` is located in `/path/source/_import`, you will
-need to run this code from `/path/source`. The hostname defaults to `localhost`,
-all other variables are required. You may need to adjust the code used to filter
-entries. Left alone, it will attempt to pull all entries that are live or
-sticky.
+你需要从 `_import` 所在文件夹的上级文件夹运行上述命令。例如， `_import` 的路径是
+`/path/source/_import` ，你需要在 `/path/source` 运行上述命令。主机名默认为 `localhost` ，
+其他变量需要这个参数。你或许要调整入口的代码。默认的，它将试图寻找所有可能的入口。
 
 ## Mephisto
 
-To import posts from Mephisto:
+从 Mephisto 导入：
 
 {% highlight bash %}
 $ ruby -rubygems -e 'require "jekyll/jekyll-import/mephisto";
     JekyllImport::Mephisto.process("database", "user", "password")'
 {% endhighlight %}
 
-If your data is in Postgres, you should do this instead:
+如果你的数据放在 Postgres ，你需要用如下方法代替：
 
 {% highlight bash %}
 $ ruby -rubygems -e 'require "jekyll/jekyll-import/mephisto";
@@ -188,10 +168,8 @@ $ ruby -rubygems -e 'require "jekyll/jekyll-import/mephisto";
 
 ## Blogger (Blogspot)
 
-To import posts from Blogger, see [this post about migrating from Blogger to
-Jekyll](http://blog.coolaj86.com/articles/migrate-from-blogger-to-jekyll.html). If
-that doesn’t work for you, you might want to try some of the following
-alternatives:
+从 Blogger 导入，请参考文章[从 Blogger 迁移到 Jekyll](http://blog.coolaj86.com/articles/migrate-from-blogger-to-jekyll.html) 。
+如果没有很好的工作，你可以试试下边的这些替代品：
 
 - [@kennym](https://github.com/kennym) created a [little migration
   script](https://gist.github.com/1115810), because the solutions in the
@@ -207,28 +185,26 @@ alternatives:
 
 ## Posterous
 
-To import posts from your primary Posterous blog:
+从 Posterous 导入：
 
 {% highlight bash %}
 $ ruby -rubygems -e 'require "jekyll/jekyll-import/posterous";
     JekyllImport::Posterous.process("my_email", "my_pass")'
 {% endhighlight %}
 
-For any other Posterous blog on your account, you will need to specify the
-`blog_id` for the blog:
+如果要导出你帐号上的其他博客，需要配置 `blog_id` ：
 
 {% highlight bash %}
 $ ruby -rubygems -e 'require "jekyll/jekyll-import/posterous";
     JekyllImport::Posterous.process("my_email", "my_pass", "blog_id")'
 {% endhighlight %}
 
-There is also an [alternative Posterous
-migrator](https://github.com/pepijndevos/jekyll/blob/patch-1/lib/jekyll/migrators/posterous.rb)
-that maintains permalinks and attempts to import images too.
+有一个[替代品](https://github.com/pepijndevos/jekyll/blob/patch-1/lib/jekyll/migrators/posterous.rb)，
+他保持了永久链接，并试图导入图片。
 
 ## Tumblr
 
-To import posts from Tumblr:
+从 Tumblr 导入：
 
 {% highlight bash %}
 $ ruby -rubygems -e 'require "jekyll/jekyll-import/tumblr";
@@ -243,7 +219,7 @@ $ ruby -rubygems -e 'require "jekyll/jekyll-import/tumblr";
                    to the new Jekyll paths. Defaults to false.
 {% endhighlight %}
 
-## Other Systems
+## 其他
 
-If you have a system for which there is currently no migrator, consider writing
-one and sending us [a pull request](https://github.com/jekyll/jekyll-import).
+如果你有一个博客平台，而且还没有导入器，你可以考虑写一个，并提交给我们一个
+ [ pull request](https://github.com/jekyll/jekyll-import).

@@ -1,33 +1,31 @@
 ---
 layout: docs
-title: Templates
+title: 模板
 prev_section: migrations
 next_section: permalinks
 permalink: /docs/templates/
 contributor: debbbbie
 ---
 
-Jekyll uses the [Liquid](http://wiki.shopify.com/Liquid) templating language to
-process templates. All of the standard Liquid [tags](http://wiki.shopify.com/Logic) and
-[filters](http://wiki.shopify.com/Filters) are
-supported. Jekyll even adds a few handy filters and tags of its own to make
-common tasks easier.
+Jekyll 使用 [Liquid](http://wiki.shopify.com/Liquid)模板语言，支持所有标准的
+ Liquid [标签](http://wiki.shopify.com/Logic) 和 [过滤器](http://wiki.shopify.com/Filters) 。
+ Jekyll 甚至增加了几个过滤器和标签，方便使用。
 
-## Filters
+## 过滤器
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>Description</th>
-      <th><span class="filter">Filter</span> and <span class="output">Output</span></th>
+      <th>描述</th>
+      <th><span class="filter">过滤器</span> 和 <span class="output">输出</span></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
-        <p class='name'><strong>Date to XML Schema</strong></p>
-        <p>Convert a Date into XML Schema (ISO 8601) format.</p>
+        <p class='name'><strong>日期转化为 XML 模式</strong></p>
+        <p>将日期转化为 XML 模式 (ISO 8601) 的格式。</p>
       </td>
       <td class='align-center'>
         <p>
@@ -40,8 +38,8 @@ common tasks easier.
     </tr>
     <tr>
       <td>
-        <p class='name'><strong>Date to RFC-822 Format</strong></p>
-        <p>Convert a Date into the RFC-822 format used for RSS feeds.</p>
+        <p class='name'><strong>日期转化为 RFC-822 格式</strong></p>
+        <p>将日期转化为 RFC-822 格式，用于 RSS 订阅。</p>
       </td>
       <td class='align-center'>
         <p>
@@ -54,9 +52,8 @@ common tasks easier.
     </tr>
     <tr>
       <td>
-        <p class='name'><strong>Date to String</strong></p>
-        <p>Convert a date to short format.</p>
-      </td>
+        <p class='name'><strong>日期转化为短格式</strong></p>
+        <p>将日期转化为短格式。</td>
       <td class='align-center'>
         <p>
          <code class='filter'>{% raw %}{{ site.time | date_to_string }}{% endraw %}</code>
@@ -68,8 +65,8 @@ common tasks easier.
     </tr>
     <tr>
       <td>
-        <p class='name'><strong>Date to Long String</strong></p>
-        <p>Format a date to long format.</p>
+        <p class='name'><strong>日期转化为长格式</strong></p>
+        <p>将日期转化为长格式。</p>
       </td>
       <td class='align-center'>
         <p>
@@ -82,8 +79,8 @@ common tasks easier.
     </tr>
     <tr>
       <td>
-        <p class='name'><strong>XML Escape</strong></p>
-        <p>Escape some text for use in XML.</p>
+        <p class='name'><strong>XML 转码</strong></p>
+        <p>对一些字符串转码，已方便显示在 XML 。</p>
       </td>
       <td class='align-center'>
         <p>
@@ -93,10 +90,9 @@ common tasks easier.
     </tr>
     <tr>
       <td>
-        <p class='name'><strong>CGI Escape</strong></p>
+        <p class='name'><strong>CGI 转码</strong></p>
         <p>
-          CGI escape a string for use in a URL. Replaces any special characters
-          with appropriate %XX replacements.
+          CGI 转码，用于 URL 中，将所有的特殊字符转化为 %XX 的形式。
         </p>
       </td>
       <td class='align-center'>
@@ -110,9 +106,9 @@ common tasks easier.
     </tr>
     <tr>
       <td>
-        <p class='name'><strong>URI Escape</strong></p>
+        <p class='name'><strong>URI 转码</strong></p>
         <p>
-          URI escape a string.
+          URI 转码。
         </p>
       </td>
       <td class='align-center'>
@@ -126,8 +122,8 @@ common tasks easier.
     </tr>
     <tr>
       <td>
-        <p class='name'><strong>Number of Words</strong></p>
-        <p>Count the number of words in some text.</p>
+        <p class='name'><strong>统计字数</strong></p>
+        <p>统计文章中的字数。</p>
       </td>
       <td class='align-center'>
         <p>
@@ -140,8 +136,8 @@ common tasks easier.
     </tr>
     <tr>
       <td>
-        <p class='name'><strong>Array to Sentence</strong></p>
-        <p>Convert an array into a sentence. Useful for listing tags.</p>
+        <p class='name'><strong>数组转换为句子</strong></p>
+        <p>将数组转换为句子，列举标签时尤其有用。</p>
       </td>
       <td class='align-center'>
         <p>
@@ -154,8 +150,8 @@ common tasks easier.
     </tr>
     <tr>
       <td>
-        <p class='name'><strong>Textilize</strong></p>
-        <p>Convert a Textile-formatted string into HTML, formatted via RedCloth</p>
+        <p class='name'><strong>Textile 支持</strong></p>
+        <p>将 Textile 格式的字符串转换为 HTML ，使用 RedCloth</p>
       </td>
       <td class='align-center'>
         <p>
@@ -165,8 +161,8 @@ common tasks easier.
     </tr>
     <tr>
       <td>
-        <p class='name'><strong>Markdownify</strong></p>
-        <p>Convert a Markdown-formatted string into HTML.</p>
+        <p class='name'><strong>Markdown 支持</strong></p>
+        <p>将 Markdown 格式的字符串转换为 HTML 。</p>
       </td>
       <td class='align-center'>
         <p>
@@ -178,28 +174,26 @@ common tasks easier.
 </table>
 </div>
 
-## Tags
+## 标签
 
-### Includes
+### 引用
 
-If you have small page fragments that you wish to include in multiple places on
-your site, you can use the `include` tag.
+如果你需要在多个地方引用一小代码片段，可以使用 `include` 标签。
 
 {% highlight ruby %}
 {% raw %}{% include footer.html %}{% endraw %}
 {% endhighlight %}
 
-Jekyll expects all include files to be placed in an `_includes` directory at the
-root of your source directory. This will embed the contents of
-`<source>/_includes/footer.html` into the calling file.
+Jekyll 要求所有被引用的文件放在根目录的 `_includes` 文件夹，上述代码将把
+ `<source>/_includes/footer.html` 的内容包含进来。
 
-You can also pass parameters to an include:
+你还可以传递参数：
 
 {% highlight ruby %}
 {% raw %}{% include footer.html param="value" %}{% endraw %}
 {% endhighlight %}
 
-These parameters are available via Liquid in the include:
+这些变量可以通过 Lquid 调用：
 
 {% highlight ruby %}
 {% raw %}{{ include.param }}{% endraw %}
@@ -207,12 +201,11 @@ These parameters are available via Liquid in the include:
 
 ### Code snippet highlighting
 
-Jekyll has built in support for syntax highlighting of [over 100
-languages](http://pygments.org/languages/) thanks to
-[Pygments](http://pygments.org/). To use Pygments, you must have Python installed on your
-system and set `pygments` to `true` in your site's configuration file.
+Jekyll 已经支持 [超过 100 种语言](http://pygments.org/languages/) 代码高亮显示，在此感谢
+ [Pygments](http://pygments.org/) 。要使用 Pygments ，你必须安装 Python 并且在配置文件
+中设置 `pygments` 为 `true` 。
 
-To render a code block with syntax highlighting, surround your code as follows:
+使用代码高亮的例子如下：
 
 {% highlight text %}
 {% raw %}
@@ -224,17 +217,12 @@ end
 {% endraw %}
 {% endhighlight %}
 
-The argument to the `highlight` tag (`ruby` in the example above) is the
-language identifier. To find the appropriate identifier to use for the language
-you want to highlight, look for the “short name” on the [Lexers
-page](http://pygments.org/docs/lexers/).
+`highlight` 的参数 (本例中的 `ruby`) 是识别所用语言，要使用合适的识别器可以参照
+ [Lexers 页](http://pygments.org/docs/lexers/) 的 “short name” 。
 
-#### Line numbers
+#### 行号
 
-There is a second argument to `highlight` called `linenos` that is optional.
-Including the `linenos` argument will force the highlighted code to include line
-numbers. For instance, the following code block would include line numbers next
-to each line:
+`highlight` 的第二个可选参数是 `linenos` ，使用了 `linenos`会强制在代码上加入行号。例如：
 
 {% highlight text %}
 {% raw %}
@@ -246,20 +234,16 @@ end
 {% endraw %}
 {% endhighlight %}
 
-#### Stylesheets for syntax highlighting
+#### 代码高亮的样式
 
-In order for the highlighting to show up, you’ll need to include a highlighting
-stylesheet. For an example stylesheet you can look at
-[syntax.css](http://github.com/mojombo/tpw/tree/master/css/syntax.css). These
-are the same styles as used by GitHub and you are free to use them for your own
-site. If you use `linenos`, you might want to include an additional CSS class
-definition for the `.lineno` class in `syntax.css` to distinguish the line
-numbers from the highlighted code.
+要使用代码高亮，你还需要包含一个样式。例如你可以在
+[syntax.css](http://github.com/mojombo/tpw/tree/master/css/syntax.css) 找到，这里有
+跟 GitHub 一样的样式，并且免费。如果你使用了 `linenos` ，可能还需要在 `syntax.css` 加入
+ `.lineno` 样式。
 
 ### Post URL
 
-If you would like to include a link to a post on your site, the `post_url` tag
-will generate the correct permalink URL for the post you specify.
+如果你想使用你某篇文章的链接，标签 `post_url` 可以满足你的需求。
 
 {% highlight text %}
 {% raw %}
@@ -267,9 +251,9 @@ will generate the correct permalink URL for the post you specify.
 {% endraw %}
 {% endhighlight %}
 
-There is no need to include the file extension when using the `post_url` tag.
+当使用`post_url`标签时，不需要写文件后缀名。
 
-You can also use this tag to create a link to a post in Markdown as follows:
+还可以用 Markdown 这样为你的文章生成超链接：
 
 {% highlight text %}
 {% raw %}
@@ -279,7 +263,7 @@ You can also use this tag to create a link to a post in Markdown as follows:
 
 ### Gist
 
-Use the `gist` tag to easily embed a GitHub Gist onto your site:
+使用 `gist` 标签可以轻松的把 GitHub Gist 签入到网站中：
 
 {% highlight text %}
 {% raw %}
@@ -287,7 +271,7 @@ Use the `gist` tag to easily embed a GitHub Gist onto your site:
 {% endraw %}
 {% endhighlight %}
 
-You may also optionally specify the filename in the gist to display:
+你还可以配置 gist 的文件名，用以显示：
 
 {% highlight text %}
 {% raw %}
@@ -295,8 +279,7 @@ You may also optionally specify the filename in the gist to display:
 {% endraw %}
 {% endhighlight %}
 
-The `gist` tag also works with private gists, which require the gist owner's
-github username:
+`gist` 同样支持私有的 gists ，这需要 gist 所属的 github 用户名：
 
 {% highlight text %}
 {% raw %}
@@ -304,4 +287,4 @@ github username:
 {% endraw %}
 {% endhighlight %}
 
-The private gist syntax also supports filenames.
+私有的 gist 同样支持文件名。
