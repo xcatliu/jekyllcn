@@ -4,7 +4,7 @@ title: 配置
 prev_section: structure
 next_section: frontmatter
 permalink: /docs/configuration/
-contributor: debbbbie
+contributor: seitazen
 ---
 
 Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵活强大的配置功能。既可以配置在网站根目录下的
