@@ -53,7 +53,8 @@ Jekyll 使用 [Liquid](http://wiki.shopify.com/Liquid)模板语言，支持所�
     <tr>
       <td>
         <p class='name'><strong>日期转化为短格式</strong></p>
-        <p>将日期转化为短格式。</td>
+        <p>将日期转化为短格式。</p>
+      </td>
       <td class='align-center'>
         <p>
          <code class='filter'>{% raw %}{{ site.time | date_to_string }}{% endraw %}</code>
