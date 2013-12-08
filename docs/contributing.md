@@ -4,6 +4,7 @@ title: Contributing
 prev_section: upgrading
 next_section: history
 permalink: /docs/contributing/
+contributor: debbbbie
 ---
 
 So you've got an awesome idea to throw into Jekyll. Great! Please keep the
