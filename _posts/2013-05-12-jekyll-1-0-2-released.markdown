@@ -5,6 +5,7 @@ date: "2013-05-12 14:45:00 +0200"
 author: parkr
 version: 1.0.2
 categories: [release]
+contributor: debbbbie
 ---
 
 v1.0.2 has some key bugfixes that optionally restore some behaviour from pre-1.0
