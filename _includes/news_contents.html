@@ -2,21 +2,21 @@
   <aside>
     <ul>
       <li class="{% if page.title == 'News' %}current{% endif %}">
-        <a href="/news/">All News</a>
+        <a href="/news/">所有新闻</a>
       </li>
       <li class="{% if page.title == 'Releases' %}current{% endif %}">
-        <a href="/news/releases/">Jekyll Releases</a>
+        <a href="/news/releases/">Jekyll 版本发布</a>
       </li>
     </ul>
-    <h4>Recent Releases</h4>
+    <h4>最近发布</h4>
     <ul>
       {% for post in site.posts limit:5 %}
       <li class="{% if page.title == post.title %}current{% endif %}">
-        <a href="{{ post.url }}">Version {{ post.version }}</a>
+        <a href="{{ post.url }}">版本 {{ post.version }}</a>
       </li>
       {% endfor %}
       <li>
-        <a href="/docs/history/">History »</a>
+        <a href="/docs/history/">更多版本</a>
       </li>
     </ul>
   </aside>
