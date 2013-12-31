@@ -1,173 +1,229 @@
 ---
 layout: docs
-title: 模板
+title: Templates
 prev_section: migrations
 next_section: permalinks
 permalink: /docs/templates/
-contributor: debbbbie
 ---
 
-Jekyll 使用 [Liquid](http://wiki.shopify.com/Liquid)模板语言，支持所有标准的
- Liquid [标签](http://wiki.shopify.com/Logic) 和 [过滤器](http://wiki.shopify.com/Filters) 。
- Jekyll 甚至增加了几个过滤器和标签，方便使用。
+Jekyll uses the [Liquid](http://wiki.shopify.com/Liquid) templating language to
+process templates. All of the standard Liquid [tags](http://wiki.shopify.com/Logic) and
+[filters](http://wiki.shopify.com/Filters) are
+supported. Jekyll even adds a few handy filters and tags of its own to make
+common tasks easier.
 
-## 过滤器
+## Filters
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>描述</th>
-      <th><span class="filter">过滤器</span> 和 <span class="output">输出</span></th>
+      <th>Description</th>
+      <th><span class="filter">Filter</span> and <span class="output">Output</span></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
-        <p class='name'><strong>日期转化为 XML 模式</strong></p>
-        <p>将日期转化为 XML 模式 (ISO 8601) 的格式。</p>
+        <p class="name"><strong>Date to XML Schema</strong></p>
+        <p>Convert a Date into XML Schema (ISO 8601) format.</p>
       </td>
-      <td class='align-center'>
+      <td class="align-center">
         <p>
-         <code class='filter'>{% raw %}{{ site.time | date_to_xmlschema }}{% endraw %}</code>
+         <code class="filter">{% raw %}{{ site.time | date_to_xmlschema }}{% endraw %}</code>
         </p>
         <p>
-          <code class='output'>2008-11-17T13:07:54-08:00</code>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <p class='name'><strong>日期转化为 RFC-822 格式</strong></p>
-        <p>将日期转化为 RFC-822 格式，用于 RSS 订阅。</p>
-      </td>
-      <td class='align-center'>
-        <p>
-         <code class='filter'>{% raw %}{{ site.time | date_to_rfc822 }}{% endraw %}</code>
-        </p>
-        <p>
-          <code class='output'>Mon, 17 Nov 2008 13:07:54 -0800</code>
+          <code class="output">2008-11-07T13:07:54-08:00</code>
         </p>
       </td>
     </tr>
     <tr>
       <td>
-        <p class='name'><strong>日期转化为短格式</strong></p>
-        <p>将日期转化为短格式。</p>
+        <p class="name"><strong>Date to RFC-822 Format</strong></p>
+        <p>Convert a Date into the RFC-822 format used for RSS feeds.</p>
       </td>
-      <td class='align-center'>
+      <td class="align-center">
         <p>
-         <code class='filter'>{% raw %}{{ site.time | date_to_string }}{% endraw %}</code>
+         <code class="filter">{% raw %}{{ site.time | date_to_rfc822 }}{% endraw %}</code>
         </p>
         <p>
-          <code class='output'>17 Nov 2008</code>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <p class='name'><strong>日期转化为长格式</strong></p>
-        <p>将日期转化为长格式。</p>
-      </td>
-      <td class='align-center'>
-        <p>
-         <code class='filter'>{% raw %}{{ site.time | date_to_long_string }}{% endraw %}</code>
-        </p>
-        <p>
-          <code class='output'>17 November 2008</code>
+          <code class="output">Mon, 07 Nov 2008 13:07:54 -0800</code>
         </p>
       </td>
     </tr>
     <tr>
       <td>
-        <p class='name'><strong>XML 转码</strong></p>
-        <p>对一些字符串转码，已方便显示在 XML 。</p>
+        <p class="name"><strong>Date to String</strong></p>
+        <p>Convert a date to short format.</p>
       </td>
-      <td class='align-center'>
+      <td class="align-center">
         <p>
-         <code class='filter'>{% raw %}{{ page.content | xml_escape }}{% endraw %}</code>
+         <code class="filter">{% raw %}{{ site.time | date_to_string }}{% endraw %}</code>
+        </p>
+        <p>
+          <code class="output">07 Nov 2008</code>
         </p>
       </td>
     </tr>
     <tr>
       <td>
-        <p class='name'><strong>CGI 转码</strong></p>
-        <p>
-          CGI 转码，用于 URL 中，将所有的特殊字符转化为 %XX 的形式。
-        </p>
+        <p class="name"><strong>Date to Long String</strong></p>
+        <p>Format a date to long format.</p>
       </td>
-      <td class='align-center'>
+      <td class="align-center">
         <p>
-         <code class='filter'>{% raw %}{{ “foo,bar;baz?” | cgi_escape }}{% endraw %}</code>
+         <code class="filter">{% raw %}{{ site.time | date_to_long_string }}{% endraw %}</code>
         </p>
         <p>
-          <code class='output'>foo%2Cbar%3Bbaz%3F</code>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <p class='name'><strong>URI 转码</strong></p>
-        <p>
-          URI 转码。
-        </p>
-      </td>
-      <td class='align-center'>
-        <p>
-         <code class='filter'>{% raw %}{{ “'foo, bar \\baz?'” | uri_escape }}{% endraw %}</code>
-        </p>
-        <p>
-          <code class='output'>foo,%20bar%20%5Cbaz?</code>
+          <code class="output">07 November 2008</code>
         </p>
       </td>
     </tr>
     <tr>
       <td>
-        <p class='name'><strong>统计字数</strong></p>
-        <p>统计文章中的字数。</p>
+        <p class="name"><strong>Where</strong></p>
+        <p>Select all the objects in an array where the key has the given value.</p>
       </td>
-      <td class='align-center'>
+      <td class="align-center">
         <p>
-         <code class='filter'>{% raw %}{{ page.content | number_of_words }}{% endraw %}</code>
-        </p>
-        <p>
-          <code class='output'>1337</code>
+         <code class="filter">{% raw %}{{ site.members | where:"graduation_year","2014" }}{% endraw %}</code>
         </p>
       </td>
     </tr>
     <tr>
       <td>
-        <p class='name'><strong>数组转换为句子</strong></p>
-        <p>将数组转换为句子，列举标签时尤其有用。</p>
+        <p class="name"><strong>Group By</strong></p>
+        <p>Group an array's items by a given property.</p>
       </td>
-      <td class='align-center'>
+      <td class="align-center">
         <p>
-         <code class='filter'>{% raw %}{{ page.tags | array_to_sentence_string }}{% endraw %}</code>
+         <code class="filter">{% raw %}{{ site.members | group_by:"graduation_year" }}{% endraw %}</code>
         </p>
         <p>
-          <code class='output'>foo, bar, and baz</code>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <p class='name'><strong>Textile 支持</strong></p>
-        <p>将 Textile 格式的字符串转换为 HTML ，使用 RedCloth</p>
-      </td>
-      <td class='align-center'>
-        <p>
-         <code class='filter'>{% raw %}{{ page.excerpt | textilize }}{% endraw %}</code>
+          <code class="output">[{"name"=>"2013", "items"=>[...]},
+{"name"=>"2014", "items"=>[...]}]</code>
         </p>
       </td>
     </tr>
     <tr>
       <td>
-        <p class='name'><strong>Markdown 支持</strong></p>
-        <p>将 Markdown 格式的字符串转换为 HTML 。</p>
+        <p class="name"><strong>XML Escape</strong></p>
+        <p>Escape some text for use in XML.</p>
       </td>
-      <td class='align-center'>
+      <td class="align-center">
         <p>
-         <code class='filter'>{% raw %}{{ page.excerpt | markdownify }}{% endraw %}</code>
+         <code class="filter">{% raw %}{{ page.content | xml_escape }}{% endraw %}</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="name"><strong>CGI Escape</strong></p>
+        <p>
+          CGI escape a string for use in a URL. Replaces any special characters
+          with appropriate %XX replacements.
+        </p>
+      </td>
+      <td class="align-center">
+        <p>
+         <code class="filter">{% raw %}{{ “foo,bar;baz?” | cgi_escape }}{% endraw %}</code>
+        </p>
+        <p>
+          <code class="output">foo%2Cbar%3Bbaz%3F</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="name"><strong>URI Escape</strong></p>
+        <p>
+          URI escape a string.
+        </p>
+      </td>
+      <td class="align-center">
+        <p>
+         <code class="filter">{% raw %}{{ “'foo, bar \\baz?'” | uri_escape }}{% endraw %}</code>
+        </p>
+        <p>
+          <code class="output">foo,%20bar%20%5Cbaz?</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="name"><strong>Number of Words</strong></p>
+        <p>Count the number of words in some text.</p>
+      </td>
+      <td class="align-center">
+        <p>
+         <code class="filter">{% raw %}{{ page.content | number_of_words }}{% endraw %}</code>
+        </p>
+        <p>
+          <code class="output">1337</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="name"><strong>Array to Sentence</strong></p>
+        <p>Convert an array into a sentence. Useful for listing tags.</p>
+      </td>
+      <td class="align-center">
+        <p>
+         <code class="filter">{% raw %}{{ page.tags | array_to_sentence_string }}{% endraw %}</code>
+        </p>
+        <p>
+          <code class="output">foo, bar, and baz</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="name"><strong>Textilize</strong></p>
+        <p>Convert a Textile-formatted string into HTML, formatted via RedCloth</p>
+      </td>
+      <td class="align-center">
+        <p>
+         <code class="filter">{% raw %}{{ page.excerpt | textilize }}{% endraw %}</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="name"><strong>Markdownify</strong></p>
+        <p>Convert a Markdown-formatted string into HTML.</p>
+      </td>
+      <td class="align-center">
+        <p>
+         <code class="filter">{% raw %}{{ page.excerpt | markdownify }}{% endraw %}</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="name"><strong>Data To JSON</strong></p>
+        <p>Convert Hash or Array to JSON.</p>
+      </td>
+      <td class="align-center">
+        <p>
+         <code class="filter">{% raw %}{{ site.data.projects | jsonify }}{% endraw %}</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="name"><strong>Sort</strong></p>
+        <p>Sort an array. Optional arguments for hashes: 1.&nbsp;property name 2.&nbsp;nils order (<em>first</em> or <em>last</em>).</p>
+      </td>
+      <td class="align-center">
+        <p>
+         <code class="filter">{% raw %}{{ page.tags | sort }}{% endraw %}</code>
+        </p>
+        <p>
+         <code class="filter">{% raw %}{{ site.posts | sort: 'author' }}{% endraw %}</code>
+        </p>
+        <p>
+         <code class="filter">{% raw %}{{ site.pages | sort: 'title', 'last' }}{% endraw %}</code>
         </p>
       </td>
     </tr>
@@ -175,26 +231,39 @@ Jekyll 使用 [Liquid](http://wiki.shopify.com/Liquid)模板语言，支持所�
 </table>
 </div>
 
-## 标签
+## Tags
 
-### 引用
+### Includes
 
-如果你需要在多个地方引用一小代码片段，可以使用 `include` 标签。
+If you have small page fragments that you wish to include in multiple places on
+your site, you can use the `include` tag.
 
 {% highlight ruby %}
 {% raw %}{% include footer.html %}{% endraw %}
 {% endhighlight %}
 
-Jekyll 要求所有被引用的文件放在根目录的 `_includes` 文件夹，上述代码将把
- `<source>/_includes/footer.html` 的内容包含进来。
+Jekyll expects all include files to be placed in an `_includes` directory at the
+root of your source directory. This will embed the contents of
+`<source>/_includes/footer.html` into the calling file.
 
-你还可以传递参数：
+<div class="note">
+  <h5>ProTip™: Use variables as file name</h5>
+  <p>
+
+    The name of the file you wish to embed can be literal (as in the example above),
+    or you can use a variable, using liquid-like variable syntax as in
+    <code>{% raw %}{% include {{my_variable}} %}{% endraw %}</code>.
+
+  </p>
+</div>
+
+You can also pass parameters to an include:
 
 {% highlight ruby %}
 {% raw %}{% include footer.html param="value" %}{% endraw %}
 {% endhighlight %}
 
-这些变量可以通过 Lquid 调用：
+These parameters are available via Liquid in the include:
 
 {% highlight ruby %}
 {% raw %}{{ include.param }}{% endraw %}
@@ -202,11 +271,18 @@ Jekyll 要求所有被引用的文件放在根目录的 `_includes` 文件夹，
 
 ### Code snippet highlighting
 
-Jekyll 已经支持 [超过 100 种语言](http://pygments.org/languages/) 代码高亮显示，在此感谢
- [Pygments](http://pygments.org/) 。要使用 Pygments ，你必须安装 Python 并且在配置文件
-中设置 `pygments` 为 `true` 。
+Jekyll has built in support for syntax highlighting of [over 100
+languages](http://pygments.org/languages/) thanks to
+[Pygments](http://pygments.org/). To use Pygments, you must have Python installed
+on your system and set `highlighter` to `pygments` in your site's configuration
+file.
 
-使用代码高亮的例子如下：
+Alternatively, you can use [Rouge](https://github.com/jayferd/rouge) to highlight
+your code snippets. It doesn't support as many languages as Pygments does but
+it should fit in most cases and it's written in pure Ruby ; you don't need Python
+on your system!
+
+To render a code block with syntax highlighting, surround your code as follows:
 
 {% highlight text %}
 {% raw %}
@@ -218,12 +294,18 @@ end
 {% endraw %}
 {% endhighlight %}
 
-`highlight` 的参数 (本例中的 `ruby`) 是识别所用语言，要使用合适的识别器可以参照
- [Lexers 页](http://pygments.org/docs/lexers/) 的 “short name” 。
+The argument to the `highlight` tag (`ruby` in the example above) is the
+language identifier. To find the appropriate identifier to use for the language
+you want to highlight, look for the “short name” on the [Pygments' Lexers
+page](http://pygments.org/docs/lexers/) or the [Rouge
+wiki](https://github.com/jayferd/rouge/wiki/List-of-supported-languages-and-lexers).
 
-#### 行号
+#### Line numbers
 
-`highlight` 的第二个可选参数是 `linenos` ，使用了 `linenos`会强制在代码上加入行号。例如：
+There is a second argument to `highlight` called `linenos` that is optional.
+Including the `linenos` argument will force the highlighted code to include line
+numbers. For instance, the following code block would include line numbers next
+to each line:
 
 {% highlight text %}
 {% raw %}
@@ -235,16 +317,20 @@ end
 {% endraw %}
 {% endhighlight %}
 
-#### 代码高亮的样式
+#### Stylesheets for syntax highlighting
 
-要使用代码高亮，你还需要包含一个样式。例如你可以在
-[syntax.css](http://github.com/mojombo/tpw/tree/master/css/syntax.css) 找到，这里有
-跟 GitHub 一样的样式，并且免费。如果你使用了 `linenos` ，可能还需要在 `syntax.css` 加入
- `.lineno` 样式。
+In order for the highlighting to show up, you’ll need to include a highlighting
+stylesheet. For an example stylesheet you can look at
+[syntax.css](http://github.com/mojombo/tpw/tree/master/css/syntax.css). These
+are the same styles as used by GitHub and you are free to use them for your own
+site. If you use `linenos`, you might want to include an additional CSS class
+definition for the `.lineno` class in `syntax.css` to distinguish the line
+numbers from the highlighted code.
 
 ### Post URL
 
-如果你想使用你某篇文章的链接，标签 `post_url` 可以满足你的需求。
+If you would like to include a link to a post on your site, the `post_url` tag
+will generate the correct permalink URL for the post you specify.
 
 {% highlight text %}
 {% raw %}
@@ -252,9 +338,18 @@ end
 {% endraw %}
 {% endhighlight %}
 
-当使用`post_url`标签时，不需要写文件后缀名。
+If you organize your posts in subdirectories, you need to include subdirectory
+path to the post:
 
-还可以用 Markdown 这样为你的文章生成超链接：
+{% highlight text %}
+{% raw %}
+{% post_url /subdir/2010-07-21-name-of-post %}
+{% endraw %}
+{% endhighlight %}
+
+There is no need to include the file extension when using the `post_url` tag.
+
+You can also use this tag to create a link to a post in Markdown as follows:
 
 {% highlight text %}
 {% raw %}
@@ -264,23 +359,7 @@ end
 
 ### Gist
 
-使用 `gist` 标签可以轻松的把 GitHub Gist 签入到网站中：
-
-{% highlight text %}
-{% raw %}
-{% gist 5555251 %}
-{% endraw %}
-{% endhighlight %}
-
-你还可以配置 gist 的文件名，用以显示：
-
-{% highlight text %}
-{% raw %}
-{% gist 5555251 result.md %}
-{% endraw %}
-{% endhighlight %}
-
-`gist` 同样支持私有的 gists ，这需要 gist 所属的 github 用户名：
+Use the `gist` tag to easily embed a GitHub Gist onto your site. This works with public or secret gists:
 
 {% highlight text %}
 {% raw %}
@@ -288,4 +367,10 @@ end
 {% endraw %}
 {% endhighlight %}
 
-私有的 gist 同样支持文件名。
+You may also optionally specify the filename in the gist to display:
+
+{% highlight text %}
+{% raw %}
+{% gist parkr/931c1c8d465a04042403 jekyll-private-gist.markdown %}
+{% endraw %}
+{% endhighlight %}

@@ -1,78 +1,89 @@
 ---
 layout: docs
-title: 分页功能
+title: Pagination
 prev_section: permalinks
 next_section: plugins
 permalink: /docs/pagination/
-contributor: debbbbie
 ---
 
-对于大多数网站（尤其是博客），当文章越来越多的时候，就会有分页显示文章列表的需求。 Jekyll已经自建
-分页功能，你只需要根据约定放置文件即可。
+With many websites—especially blogs—it’s very common to break the main listing
+of posts up into smaller lists and display them over multiple pages. Jekyll has
+pagination built-in, so you can automatically generate the appropriate files and
+folders you need for paginated listings.
 
 <div class="note info">
-  <h5>分页功能只支持 HTML 文件</h5>
+  <h5>Pagination only works within HTML files</h5>
   <p>
-    Jekyll 的分页功能不支持 Markdown 或 Textile 文件，而是只支持 HTML 文件。当然，这不会让
-    你不爽。
+    Pagination does not work with Markdown or Textile files in your Jekyll site.
+    It will only work when used within HTML files. Since you’ll likely be using
+    this for the list of Posts, this shouldn’t be an issue.
   </p>
 </div>
 
-## 开启分页功能
+## Enable pagination
 
-开启分页功能很简单，只需要在 `_config.yml`里边加一行，并填写每页需要几行：
+To enable pagination for your blog, add a line to the `_config.yml` file that
+specifies how many items should be displayed per page:
 
 {% highlight yaml %}
 paginate: 5
 {% endhighlight %}
 
-下边是对需要带有分页页面的配置：
+The number should be the maximum number of Posts you’d like to be displayed per-
+page in the generated site.
+
+You may also specify where the destination of the pagination pages:
 
 {% highlight yaml %}
 paginate_path: "blog/page:num"
 {% endhighlight %}
 
-`blog/index.html`将会读取这个设置，把他传给每个分页页面，然后从第 `2` 页开始输出到
- `blog/page:num` ， `:num` 是页码。如果有 12 篇文章并且做如下配置 `paginate: 5` ，
- Jekyll会将前 5 篇文章写入 `blog/index.html` ，把接下来的 5 篇文章写入
- `blog/page2/index.html`，最后 2 篇写入 `blog/page3/index.html`。
+This will read in `blog/index.html`, send it each pagination page in Liquid as `paginator`
+and write the output to `blog/page:num`, where `:num` is the pagination page number,
+starting with `2`. If a site has 12 posts and specifies `paginate: 5`, Jekyll will write
+`blog/index.html` with the first 5 posts, `blog/page2/index.html` with the next 5 posts
+and `blog/page3/index.html` with the last 2 posts into the destination directory.
 
-## 与 `paginator` 相同的属性
+## Liquid Attributes Available
+
+The pagination plugin exposes the `paginator` liquid object with the following
+attributes:
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>属性</th>
-      <th>描述</th>
+      <th>Attribute</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><p><code>page</code></p></td>
-      <td><p>当前页码</p></td>
+      <td><p>current page number</p></td>
     </tr>
     <tr>
       <td><p><code>per_page</code></p></td>
-      <td><p>每页文章数量</p></td>
+      <td><p>number of posts per page</p></td>
     </tr>
     <tr>
       <td><p><code>posts</code></p></td>
-      <td><p>当前页的文章列表</p></td>
+      <td><p>a list of posts for the current page</p></td>
     </tr>
     <tr>
       <td><p><code>total_posts</code></p></td>
-      <td><p>总文章数</p></td>
+      <td><p>total number of posts in the site</p></td>
     </tr>
     <tr>
       <td><p><code>total_pages</code></p></td>
-      <td><p>总页数</p></td>
+      <td><p>number of pagination pages</p></td>
     </tr>
     <tr>
       <td><p><code>previous_page</code></p></td>
       <td>
           <p>
-              上一页页码 或 <code>nil</code>
+              page number of the previous pagination page,
+              or <code>nil</code> if no previous page exists
           </p>
       </td>
     </tr>
@@ -80,7 +91,8 @@ paginate_path: "blog/page:num"
       <td><p><code>previous_page_path</code></p></td>
       <td>
           <p>
-              上一页路径 或 <code>nil</code>
+              path of previous pagination page,
+              or <code>nil</code> if no previous page exists
           </p>
       </td>
     </tr>
@@ -88,7 +100,8 @@ paginate_path: "blog/page:num"
       <td><p><code>next_page</code></p></td>
       <td>
           <p>
-              下一页页码 或 <code>nil</code>
+              page number of the next pagination page,
+              or <code>nil</code> if no subsequent page exists
           </p>
       </td>
     </tr>
@@ -96,7 +109,8 @@ paginate_path: "blog/page:num"
       <td><p><code>next_page_path</code></p></td>
       <td>
           <p>
-              下一页路径 或 <code>nil</code>
+              path of next pagination page,
+              or <code>nil</code> if no subsequent page exists
           </p>
       </td>
     </tr>
@@ -105,13 +119,19 @@ paginate_path: "blog/page:num"
 </div>
 
 <div class="note info">
-  <h5>不支持对“标签”和“类别”分页</h5>
-  <p>分页功能仅仅遍历文章列表并计算出结果，并无读取 YAML 头信息，现在不支持对“标签”和“类别”分页。</p>
+  <h5>Pagination does not support tags or categories</h5>
+  <p>Pagination pages through every post in the <code>posts</code>
+  variable regardless of variables defined in the YAML Front Matter of
+  each. It does not currently allow paging over groups of posts linked
+  by a common tag or category.</p>
 </div>
 
-## 生成带分页功能的文章
+## Render the paginated Posts
 
-接下来要做的事情就是展现在页面上了，下边是一个简单的例子：
+The next thing you need to do is to actually display your posts in a list using
+the `paginator` variable that will now be available to you. You’ll probably want
+to do this in one of the main pages of your site. Here’s one example of a simple
+way of rendering paginated Posts in a HTML file:
 
 {% highlight html %}
 {% raw %}
@@ -120,7 +140,7 @@ layout: default
 title: My Blog
 ---
 
-<!-- 遍历分页后的文章 -->
+<!-- This loops through the paginated posts -->
 {% for post in paginator.posts %}
   <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
   <p class="author">
@@ -131,7 +151,7 @@ title: My Blog
   </div>
 {% endfor %}
 
-<!-- 分页链接 -->
+<!-- Pagination links -->
 <div class="pagination">
   {% if paginator.previous_page %}
     <a href="/page{{ paginator.previous_page }}" class="previous">Previous</a>
@@ -149,61 +169,43 @@ title: My Blog
 {% endhighlight %}
 
 <div class="note warning">
-  <h5>注意首尾页</h5>
+  <h5>Beware the page one edge-case</h5>
   <p>
-    Jekyll 没有生成文件夹 ‘page1’ ，所以上边的代码有 bug ，下边的代码解决了这个问题。
+    Jekyll does not generate a ‘page1’ folder, so the above code will not work
+    when a <code>/page1</code> link is produced. See below for a way to handle
+    this if it’s a problem for you.
   </p>
 </div>
 
- 下边的 HTML 片段是第一页，他除自己外，为每个页面生成了链接。
+The following HTML snippet should handle page one, and render a list of each
+page with links to all but the current page.
 
 {% highlight html %}
 {% raw %}
-<div id="post-pagination" class="pagination">
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
   {% if paginator.previous_page %}
-    <p class="previous">
-      {% if paginator.previous_page == 1 %}
-        <a href="/">Previous</a>
-      {% else %}
-        <a href="{{ paginator.previous_page_path }}">Previous</a>
-      {% endif %}
-    </p>
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
   {% else %}
-    <p class="previous disabled">
-      <span>Previous</span>
-    </p>
+    <span>&laquo; Prev</span>
   {% endif %}
 
-  <ul class="pages">
-    <li class="page">
-      {% if paginator.page == 1 %}
-        <span class="current-page">1</span>
-      {% else %}
-        <a href="/">1</a>
-      {% endif %}
-    </li>
-
-    {% for count in (2..paginator.total_pages) %}
-      <li class="page">
-        {% if count == paginator.page %}
-          <span class="current-page">{{ count }}</span>
-        {% else %}
-          <a href="/page{{ count }}">{{ count }}</a>
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+      <em>{{ page }}</em>
+    {% elsif page == 1 %}
+      <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+    {% else %}
+      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+    {% endif %}
+  {% endfor %}
 
   {% if paginator.next_page %}
-    <p class="next">
-      <a href="{{ paginator.next_page_path }}">Next</a>
-    </p>
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
   {% else %}
-    <p class="next disabled">
-      <span>Next</span>
-    </p>
+    <span>Next &raquo;</span>
   {% endif %}
-
 </div>
+{% endif %}
 {% endraw %}
 {% endhighlight %}

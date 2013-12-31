@@ -4,114 +4,88 @@ title: GitHub Pages
 prev_section: extras
 next_section: deployment-methods
 permalink: /docs/github-pages/
-contributor: brickgao
 ---
 
-[Github Pages](http://pages.github.com) 是面向用户、组织和项目开放的公共静态页面搭建托管服
-务，站点可以被免费托管在 Github 上，你可以选择使用 Github Pages 默
-认提供的域名 [github.io]() 或者自定义域名来发布站点。Github Pages 支持
-自动利用 Jekyll 生成站点，也同样支持纯 HTML 文档，将你的 Jekyll 站
-点托管在 Github Pages 上是一个不错的选择。
+[GitHub Pages](http://pages.github.com) are public web pages for users,
+organizations, and repositories, that are freely hosted on GitHub's
+[github.io]() domain or on a custom domain name of your choice. GitHub Pages are
+powered by Jekyll behind the scenes, so in addition to supporting regular HTML
+content, they’re also a great way to host your Jekyll-powered website for free.
 
-## 将 Jekyll 部署到 Github Pages 上
+## Deploying Jekyll to GitHub Pages
 
-Github Pages 依靠 Github 上项目的某些特定分支来工作。Github Pages
-分为两种基本类型：用户/组织的站点和项目的站点。搭建这两种类型站
-点的方法除了一小些细节之外基本一致。
+GitHub Pages work by looking at certain branches of repositories on GitHub.
+There are two basic types available: user/organization pages and project pages.
+The way to deploy these two types of sites are nearly identical, except for a
+few minor details.
 
-### 用户和组织的站点
+### User and Organization Pages
 
-用户和组织的站点被放置在一个特殊的专用仓库中，在该仓库中只存在
-Github Pages 的相关文件。这个仓库应该根据用户/组织的名称来命名，
-例如： [@mojombo 的用户站点仓库](https://github.com/mojombo/mojombo.github.io) 应该被命名为 `mojombo.github.io` 。
+User and organization pages live in a special GitHub repository dedicated to
+only the GitHub Pages files. This repository must be named after the account
+name. For example, [@mojombo’s user page
+repository](https://github.com/mojombo/mojombo.github.io) has the name
+`mojombo.github.io`.
 
-仓库中`master`分支里的文件将会被用来生成 Github Pages 站点，所以请
-确保你的文件储存在该分支上。
+Content from the `master` branch of your repository will be used to build and
+publish the GitHub Pages site, so make sure your Jekyll site is stored there.
 
 <div class="note info">
-  <h5>自定义域名不影响仓库命名</h5>
+  <h5>Custom domains do not affect repository names</h5>
   <p>
-    Github Pages 初始被设置部署在 
-    <code>username.github.io</code> 子域名上, 这就是为什么
-    <strong>即使你使用自定义域名</strong>仓库还需要这样命名。
+    GitHub Pages are initially configured to live under the
+    <code>username.github.io</code> subdomain, which is why repositories must
+    be named this way <strong>even if a custom domain is being used</strong>.
   </p>
 </div>
 
-### 项目的站点
+### Project Pages
 
-不同于用户和组织的站点，项目的站点文件存放在项目本身仓库的
-`gh-pages` 分支中。该分支下的文件将会被 Jekyll 处理，生成的站点会被
-部署到你的用户站点的子目录上，例如 `username.github.io/project` （除
-非指定了一个自定义的域名）。
+Unlike user and organization Pages, Project Pages are kept in the same
+repository as the project they are for, except that the website content is
+stored in a specially named `gh-pages` branch. The content of this branch will
+be rendered using Jekyll, and the output will become available under a subpath
+of your user pages subdomain, such as `username.github.io/project` (unless a
+custom domain is specified—see below).
 
-Jekyll 项目本身就是一个很好的例子，Jekyll 项目的代码存放在
-[master 分支]({{ site.repository }}) ， 而 Jekyll 的项目站点（就是你现在看见的网页）包含在同一仓库的 
-[gh-pages 分支]({{ site.repository }}/tree/gh-pages) 中。
+The Jekyll project repository itself is a perfect example of this branch
+structure—the [master branch]({{ site.repository }}) contains the
+actual software project for Jekyll, however the Jekyll website (that you’re
+looking at right now) is contained in the [gh-pages
+branch]({{ site.repository }}/tree/gh-pages) of the same repository.
 
-### 项目站点的网址结构
+### Project Page URL Structure
 
-你最好在将 Jekyll 站点提交到 `gh-pages` 之前先预览一下。因为 Github
-上项目站点的子目录结构会使站点的网址结构变得复杂。这里有一些处
-理 Github Pages 子目录结构（`username.github.io/project-name/`）的方法
-使你本地浏览的站点和部署在 Github Pages 上的站点一致，方便你的维
-护。
+Sometimes it's nice to preview your Jekyll site before you push your `gh-pages`
+branch to GitHub. However, the subdirectory-like URL structure GitHub uses for
+Project Pages complicates the proper resolution of URLs. Here is an approach to
+utilizing the GitHub Project Page URL structure (`username.github.io/project-name/`)
+whilst maintaining the ability to preview your Jekyll site locally.
 
-1.  在 `_config.yml` 中，设置 `baseurl` 选项为 `/project-name` -- 注意必须存在头部的斜杠以及**不能**有尾部的斜杠。
-2.  JS 或者 CSS 文件的引用格式应该如下：`{% raw %}{{ site.baseurl}}/path/to/css.css{% endraw %}` -- 注意斜杠之后必须紧随变量（在 "Path" 之后）。
-3.  创建固定链接和内部链接的格式应该如下： `{% raw %}{{ site.baseurl }}{{ post.url }}{% endraw %}` -- 注意两个变量之间不存在斜杠。
-4.  最后，如果你想在提交/部署之前浏览的话，请使用 `jekyll serve --baseurl ''`命令，请确定在 `--baseurl` 的选项之后存在**空串**，这样的话你就可以在 `localhost:4000` 看到你的站点（站点根地址不存在 `/project-name`）。
+1. In `_config.yml`, set the `baseurl` option to `/project-name` -- note the
+   leading slash and the **absence** of a trailing slash.
+2. When referencing JS or CSS files, do it like this:
+   `{% raw %}{{ site.baseurl }}/path/to/css.css{% endraw %}` -- note the slash
+   immediately following the variable (just before "path").
+3. When doing permalinks or internal links, do it like this:
+   `{% raw %}{{ site.baseurl }}{{ post.url }}{% endraw %}` -- note that there
+   is **no** slash between the two variables.
+4. Finally, if you'd like to preview your site before committing/deploying using
+   `jekyll serve`, be sure to pass an **empty string** to the `--baseurl` option,
+   so that you can view everything at `localhost:4000` normally (without
+   `/project-name` at the beginning): `jekyll serve --baseurl ''`
 
-用这种方法你就可以在本地从根地址预览站点，而在 Github 上以 
-`gh-pages` 分支生成站点的时候能以 `/project-name` 为根地址并且正确地
-显示。
+This way you can preview your site locally from the site root on localhost,
+but when GitHub generates your pages from the gh-pages branch all the URLs
+will start with `/project-name` and resolve properly.
 
 <div class="note">
-  <h5>GitHub Pages 的文档，帮助和支持</h5>
+  <h5>GitHub Pages Documentation, Help, and Support</h5>
   <p>
-    想获得关于 Github Pages 的更多信息和解决方案，你应该访问
-    <a href="https://help.github.com/categories/20/articles">GitHub’s Pages 帮助部分</a>。
-    如果无法找到解决方案，你可以联系 <a
-    href="https://github.com/contact">GitHub 支持</a>。
+    For more information about what you can do with GitHub Pages, as well as for
+    troubleshooting guides, you should check out <a
+    href="https://help.github.com/categories/20/articles">GitHub’s Pages Help
+    section</a>. If all else fails, you should contact <a
+    href="https://github.com/contact">GitHub Support</a>.
   </p>
 </div>
-
-### 模仿 Github 风格 Markdown
-Github 风格 Markdown 与常规 Markdown 有
-[些许差异](https://help.github.com/articles/github-flavored-markdown)。你可以在本地用
-以下的[设置]({{ site.url }}/docs/configuration)
-来模仿 Github 风格 Markdown。
-
-{% highlight yaml %}
-pygments: true
-markdown: redcarpet
-redcarpet:
-  extensions:
-    - hard_wrap
-    - no_intra_emphasis
-    - autolink
-    - strikethrough
-    - fenced_code_blocks
-{% endhighlight %}
-
-这些设置将为 Markdown 引擎引入以下来自 Github 风格 Markdown 的特性：
-
-*   [换行](https://help.github.com/articles/github-flavored-markdown#newlines)
-*   [语句中的多个下划线](https://help.github.com/articles/github-flavored-markdown#multiple-underscores-in-words)
-*   [网址自动链接](https://help.github.com/articles/github-flavored-markdown#url-autolinking)
-*   [删除线](https://help.github.com/articles/github-flavored-markdown#strikethrough)
-*   [代码块](https://help.github.com/articles/github-flavored-markdown#fenced-code-blocks)
-*   [代码高亮](https://help.github.com/articles/github-flavored-markdown#syntax-highlighting)
-
-<div class="note info">
-  <h5>Github 风格 Markdown 并不适用于较长的文章</h5>
-  <p>
-    注意 Github 风格 Markdown 是为方便评论和报告bug而创造的，并不适用于一个网站或blog。
-  </p>
-</div>
-
-如果你没有[Redcarpet](https://github.com/vmg/redcarpet)，你可以用以下的命令来安装。
-
-{% highlight sh %}
-gem install redcarpet
-{% endhighlight %}
-

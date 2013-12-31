@@ -1,57 +1,74 @@
 ---
 layout: docs
-title: 基本用法
+title: Basic Usage
 prev_section: installation
 next_section: structure
 permalink: /docs/usage/
-contributor: Neo-J
 ---
 
-安装了 Jekyll 的 Gem 包之后，就可以在命令行中使用 Jekyll 命令了。有以下这些用法：
+The Jekyll gem makes a `jekyll` executable available to you in your Terminal
+window. You can use this command in a number of ways:
 
 {% highlight bash %}
 $ jekyll build
-# => 当前文件夹中的内容将会生成到 ./site 文件夹中。
+# => The current folder will be generated into ./_site
 
 $ jekyll build --destination <destination>
-# => 当前文件夹中的内容将会生成到目标文件夹<destination>中。
+# => The current folder will be generated into <destination>
 
 $ jekyll build --source <source> --destination <destination>
-# => 指定源文件夹<source>中的内容将会生成到目标文件夹<destination>中。
+# => The <source> folder will be generated into <destination>
 
 $ jekyll build --watch
-# => 当前文件夹中的内容将会生成到 ./site 文件夹中，
-#    查看改变，并且自动再生成。
+# => The current folder will be generated into ./_site,
+#    watched for changes, and regenerated automatically.
 {% endhighlight %}
 
-Jekyll 同时也集成了一个开发用的服务器，可以让你使用浏览器在本地进行预览。
+<div class="note warning">
+  <h5>Destination folders are cleaned on site builds</h5>
+  <p>
+    The contents of <code>&lt;destination&gt;</code> are automatically
+    cleaned when the site is built.  Files or folders that are not
+    created by your site will be removed.  Do not use an important
+    location for <code>&lt;destination&gt;</code>; instead, use it as
+    a staging area and copy files from there to your web server.
+  </p>
+</div>
+
+Jekyll also comes with a built-in development server that will allow you to
+preview what the generated site will look like in your browser locally.
 
 {% highlight bash %}
 $ jekyll serve
-# => 一个开发服务器将会运行在 http://localhost:4000/
+# => A development server will run at http://localhost:4000/
 
 $ jekyll serve --detach
-# => 功能和`jekyll serve`命令相同，但是会脱离终端在后台运行。
-#    如果你想关闭服务器，可以使用`kill -9 1234`命令，"1234" 是进程号（PID）。
-#    如果你找不到进程号，那么就用`ps aux | grep jekyll`命令来查看，然后关闭服务器。[更多](http://unixhelp.ed.ac.uk/shell/jobz5.html).
+# => Same as `jekyll serve` but will detach from the current terminal.
+#    If you need to kill the server, you can `kill -9 1234` where "1234" is the PID.
+#    If you cannot find the PID, then do, `ps aux | grep jekyll` and kill the instance. [Read more](http://unixhelp.ed.ac.uk/shell/jobz5.html).
 
 $ jekyll serve --watch
-# => 和`jekyll serve`相同，但是会查看变更并且自动再生成。
+# => Same as `jekyll serve`, but watch for changes and regenerate automatically.
 {% endhighlight %}
 
-还有一些可以配置的[配置选项](../configuration/).
-很多配置选项既可以在命令行中作为标识(flags)设定，也可以在源文件根目录中的 `_config.yml` 文件中进行设定。Jekyll 会自动加载这些配置。比如你在你的 `_config.yml` 文件中添加了下面几行：
+These are just a few of the available [configuration options](../configuration/).
+Many configuration options can either be specified as flags on the command line,
+or alternatively (and more commonly) they can be specified in a `_config.yml`
+file at the root of the source directory. Jekyll will automatically use the
+options from this file when run. For example, if you place the following lines
+in your `_config.yml` file:
 
 {% highlight yaml %}
 source:      _source
 destination: _deploy
 {% endhighlight %}
 
-那么就等价于执行了以下两条命令：
+Then the following two commands will be equivalent:
 
 {% highlight bash %}
 $ jekyll build
 $ jekyll build --source _source --destination _deploy
 {% endhighlight %}
 
-有关配置选项的更详细说明，请查看[配置](../configuration/)页面.
+For more about the possible configuration options, see the
+[configuration](../configuration/) page.

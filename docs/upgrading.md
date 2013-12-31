@@ -1,101 +1,116 @@
 ---
 layout: docs
-title: 升级
+title: Upgrading
 prev_section: resources
 next_section: contributing
 permalink: /docs/upgrading/
-contributor: debbbbie
 ---
 
-是时候该升级你的 Jekyll 了，升级之前为你介绍一下版本 1.0 的更新内容。
+Upgrading from an older version of Jekyll? A few things have changed in 1.0
+that you'll want to know about.
 
-首先，我们需要获取 Jekyll 的最新版本：
+Before we dive in, go ahead and fetch the latest version of Jekyll:
 
 {% highlight bash %}
 $ gem update jekyll
 {% endhighlight %}
 
 <div class="note feature">
-  <h5 markdown="1">提示</h5>
-  <p markdown="1">想要迅速建立起一个 Jekyll 站点并跑起来吗？只需要输入命令
- <code>jekyll new SITENAME</code>，该命令将创建一个包含基本功能的 Jekyll 站点。</p>
+  <h5 markdown="1">Diving in</h5>
+  <p markdown="1">Want to get a new Jekyll site up and running quickly? Simply
+   run <code>jekyll new SITENAME</code> to create a new folder with a bare bones
+   Jekyll site.</p>
 </div>
 
-### Jekyll 命令
+### The Jekyll Command
 
-Jekyll 现在支持命令 `build` 和 `serve`，使用起来更加清晰。
-以前你或许会使用命令 `jekyll` 生成一个网站并用 `jekyll --server` 在本地浏览， 
-现在可以用子命令 `jekyll build` 和 `jekyll serve` 代替。
-如果当一个文件改变时，你希望 Jekyll 自动做出相应的更新，只需要在命令的末尾加上 `--watch` 即可。
+For better clarity, Jekyll now accepts the commands `build` and `serve`.
+Whereas before you might simply run the command `jekyll` to generate a site
+and `jekyll --server` to view it locally, now use the subcommands `jekyll build`
+and `jekyll serve` to do the same. And if you want Jekyll to automatically
+rebuild each time a file changes, just add the `--watch` flag at the end.
 
 <div class="note info">
-  <h5>Watching 和 Serving</h5>
-  <p markdown="1">使用新的子命令，网站的操作方式也有一些变化。以前的做法是在网站配置文件中加上
- `server: true`，现在用 `jekyll serve` 即可。 同样的 `watch: true` 也是如此，在
- `jekyll serve` 或 `jekyll build` 后边加上 即可 `&#45;&#45;watch`。</p>
+  <h5>Watching and Serving</h5>
+  <p markdown="1">With the new subcommands, the way sites are previewed locally
+   changed a bit. Instead of specifying `server: true` in the site's
+   configuration file, use `jekyll serve`. The same hold's true for
+   `watch: true`. Instead, use the `--watch` flag with either `jekyll serve`
+    or `jekyll build`.</p>
 </div>
 
-### 绝对地址
+### Absolute Permalinks
 
-在 Jekyll v1.0 中，我们引入了“绝对地址”。v1.1 之前，使用 **opt-in**。从 v1.1 开始, 
-将使用 **opt-out** ，这意味着 Jekyll 将使用绝对地址代替相对相对地址。
+In Jekyll v1.0, we introduced absolute permalinks for pages in subdirectories.
+Until v2.0, it is **opt-in**. Starting with v2.0, however, absolute permalinks
+will become **opt-out**, meaning Jekyll will default to using absolute permalinks
+instead of relative permalinks.
 
-* 如果要使用绝对地址，需要在配置文件中加上 `relative_permalinks: false` 。
-* 如果要继续使用相对地址，在配置文件中加上 `relative_permalinks: true` 。
+* To use absolute permalinks, set `relative_permalinks: false` in your configuration file.
+* To continue using relative permalinks, set `relative_permalinks: true` in your configuration file.
 
 <div class="note warning" id="absolute-permalinks-warning">
-  <h5 markdown="1">在 v1.1 中，绝对地址将成为默认配置</h5>
+  <h5 markdown="1">Absolute permalinks will be default in v2.0 and on</h5>
   <p markdown="1">
-    从 Jekyll v1.1.0 开始， `relative_permalinks` 默认为 `false`，这意味着所
-    有页面默认为绝对地址，该配置会一直保留到 v2.0 。
+    Starting with Jekyll v2.0, `relative_permalinks` will default to `false`,
+    meaning all pages will be built using the absolute permalink behaviour.
+    The switch will still exist until v2.0.
   </p>
 </div>
 
-### 草稿箱
+### Draft Posts
 
-Jekyll 现在支持草稿箱，并且可以很容易的在发布前预览。想要开始编写草稿，只需要在项目
-中建立 `_drafts` 文件夹（和 `_posts` 在同一目录），然后新建一个 markdown 文件即可。
-想要预览你的草稿，只需要在命令 `jekyll serve` 后边加上 `--drafts` 。
+Jekyll now lets you write draft posts, and allows you to easily preview how
+they will look prior to publishing. To start a draft, simply create a folder
+called `_drafts` in your site's source directory (e.g., alongside `_posts`),
+and add a new markdown file to it. To preview your new post, simply run the
+`jekyll serve` command with the `--drafts` flag.
 
 <div class="note info">
-  <h5 markdown="1">草稿没有日期</h5>
+  <h5 markdown="1">Drafts don't have dates</h5>
   <p markdown="1">
-    跟文章不同，草稿没有日期，因为还没有发布。只需用标题（比如 `my-draft-post.md` ）
-    做为文件名，而不是 `2013-07-01-my-draft-post.md` 。</p>
+    Unlike posts, drafts don't have a date, since they haven't
+    been published yet. Rather than naming your draft something like
+    `2013-07-01-my-draft-post.md`, simply name the file what you'd like your
+    post to eventually be titled, here `my-draft-post.md`.</p>
 </div>
 
-### 自定义配置文件
+### Custom Config File
 
-不仅可以通过在命令行末加标志, 还能够使用一个 Jekyll 自定义配置文件。这样可以帮助区分不同
-的环境，或以编程方式覆盖用户指定的配置。只需要在命令 `jekyll` 后加上 `--config` ，然后
-输入一个或多个配置文件的路径（以逗点隔开，不能有空格）。
+Rather than passing individual flags via the command line, you can now pass an
+entire custom Jekyll config file. This helps to distinguish between
+environments, or lets you programmatically override user-specified defaults.
+Simply add the `--config` flag to the `jekyll` command, followed by the path
+to one or more config files (comma-delimited, no spaces).
 
-#### 所以，不再建议使用以下这些命令：
+#### As a result, the following command line flags are now deprecated:
 
 * `--no-server`
 * `--no-auto`
-* `--auto` (现在的 `--watch`)
+* `--auto` (now `--watch`)
 * `--server`
 * `--url=`
-* `--maruku`，`--rdiscount` ，和 `--redcarpet`
+* `--maruku`, `--rdiscount`, and `--redcarpet`
 * `--pygments`
 * `--permalink=`
 * `--paginate`
 
 <div class="note info">
-  <h5>显式指定配置文件</h5>
-  <p markdown="1">如果你使用了标志 `&#45;&#45;config` ， Jekyll 将忽略文件
-    `&#95;config.yml` 。想对个配多置文件中组合使用吗？没问题， Jekyll 支持通过命令行
-    指定多个配置文件。越往右，配置文件优先级越高。如果我运行
-    `jekyll serve &#45;&#45;config &#95;config.yml,&#95;config-dev.yml`，并且他们
-    包含同一个配置项，那么这个配置项的结果将是右边 `&#95;config-dev.yml` 的值，而非
-    左边`&#95;config.yml` 。</p>
+  <h5>The config flag explicitly specifies your configuration file(s)</h5>
+  <p markdown="1">If you use the `--config` flag, Jekyll will ignore your
+    `_config.yml` file. Want to merge a custom configuration with the normal
+    configuration? No problem. Jekyll will accept more than one custom config
+    file via the command line. Config files cascade from right to left, such
+    that if I run `jekyll serve --config _config.yml,_config-dev.yml`,
+    the values in the config files on the right (`_config-dev.yml`) overwrite
+    those on the left (`_config.yml`) when both contain the same key.</p>
 </div>
 
-### 新的配置选项
+### New Config File Options
 
-Jekyll 1.0 引进了几个新的配置选项. 在升级之前，你应该检查一下在 pre-1.0 的配置文件中是否
-有这些，如果有，确保正确配置了：
+Jekyll 1.0 introduced several new config file options. Before you upgrade, you
+should check to see if any of these are present in your pre-1.0 config file, and
+if so, make sure that you're using them properly:
 
 * `excerpt_separator`
 * `host`
@@ -106,18 +121,26 @@ Jekyll 1.0 引进了几个新的配置选项. 在升级之前，你应该检查�
 * `timezone`
 * `url`
 
-### 根路径
+### Baseurl
 
-通常，你想要在不同的地方运行你的 Jekyll 站点，比如发布前在本地预览。Jekyll 1.0 中使用标志
- `--baseurl` 即可。要使用这个特写，首先在网站的 `_config.yml` 中写入生产环境的 `baseurl`
- ；然后，遍历一遍代码，对所有相对地址加上前缀 `{% raw %}{{ site.baseurl }}{% endraw %}`.
-当你想在本地测试的时候，在 `jekyll serve` 后传入标志 `--baseurl` 并跟上本地地址即可
-（可能是 `/` ）。
+Often, you'll want the ability to run a Jekyll site in multiple places, such as
+previewing locally before pushing to GitHub Pages. Jekyll 1.0 makes that
+easier with the new `--baseurl` flag. To take advantage of this feature, first
+add the production `baseurl` to your site's `_config.yml` file. Then,
+throughout the site, simply prefix relative URLs with `{% raw %}{{ site.baseurl }}{% endraw %}`.
+When you're ready to preview your site locally, pass along the `--baseurl` flag
+with your local baseurl (most likely `/`) to `jekyll serve` and Jekyll will
+swap in whatever you've passed along, ensuring all your links work as you'd
+expect in both environments.
 
 
 <div class="note warning">
-  <h5 markdown="1">所有的地址包含斜杠</h5>
-  <p markdown="1">如果你按照上边的方法做了，记得所有的地址前有一个斜杠。因此，
- `site.baseurl = /` 和 `post.url = /2013/06/05/my-fun-post/`最终形成的地址有两个斜杠
-开头。所以建议在  `baseurl` 不是 `/`时使用  `site.baseurl`。</p>
+  <h5 markdown="1">All page and post URLs contain leading slashes</h5>
+  <p markdown="1">If you use the method described above, please remember
+  that the URLs for all posts and pages contain a leading slash. Therefore,
+  concatenating the site baseurl and the post/page url where
+  `site.baseurl = /` and `post.url = /2013/06/05/my-fun-post/` will
+  result in two leading slashes, which will break links. It is thus
+  suggested that prefixing with `site.baseurl` only be used when the
+  `baseurl` is something other than the default of `/`.</p>
 </div>
