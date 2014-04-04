@@ -16,7 +16,7 @@ following in mind:
 * 如果是一个新特性，请写一个新的 [Cucumber](https://github.com/cucumber/cucumber/) 并在
   适当的地方重用步骤。同样，你也可以大胆的修改你对本网站的拷贝，一旦被合并掉，就会展示到网站 jekyllrb.com 。
 * 如果你改变了 Jekyll 的习惯，不要忘了及时更新文档。在 `site/docs` 里边。如果发现文档中缺失的信息，
-  赶快加上吧。伟大的文档早就伟大的项目！
+  赶快加上吧。伟大的文档造就伟大的项目！
 * 当修改 Ruby 代码的时候，请遵照 [GitHub Ruby 编码规范](https://github.com/styleguide/ruby)。
 * 请尽可能的提交 **小的 pull request** 。修改内容看起来越简单，就越可能被合并到主分支。
 * 当提交 pull request 时，要知道什么地方放什么东西。描述一下做了哪些修改，背后的动机以及
@@ -82,7 +82,7 @@ git push origin my_awesome_feature
 
 我们希望 Jekyll的文档尽可能的优秀。我们已经开源了所有文档，欢迎提交修改。
 
-你可以在【这里]({{ site.repository }}/tree/master/site)找到 jekyllrb.com 的文档。
+你可以在[这里]({{ site.repository }}/tree/master/site)找到 jekyllrb.com 的文档。
 
 所有针对文档的 pull requests 都要放在 `master` 。不允许提交到其他分支。
 
@@ -92,16 +92,16 @@ Github 上的 [Jekyll wiki]({{ site.repository }}/wiki)可以自由更新，不�
 陷阱
 -------
 
-* 如果你想修改 gem 版本，请放在一个独立的提交里边。如此，维护人员方便管理一些。
+* 如果你想修改 gem 版本，请放在一个独立的提交里边。如此，维护人员方便管理一些。 
 * 尽量让你分支中的代码是最新的。
-* 不要在你的 GitHub issue 用 \[fix\], \[feature\] 等标记。维护人员会积极的阅读 issues，一
-  旦碰到他们会主动标记。
+* 不要在你的 GitHub issue 用 [fix], [feature] 等标记。维护人员会积极的阅读 issues，一 旦碰到他们会主动标记。
+
+
 
 <div class="note">
   <h5>帮助我们做的更好</h5>
   <p>
     Both不管使用还是为 Jekyll 贡献代码，都应该是有趣的、简单的、轻松的，所以如果你发现有什么不适，
-    请在 Github 上 <a
-    href="{{ site.repository }}/issues/new">提交一个 issue</a> 。
+    请在 Github 上 <a href="{{ site.repository }}/issues/new">提交一个 issue</a> 。
   </p>
 </div>
