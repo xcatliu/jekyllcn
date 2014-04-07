@@ -25,7 +25,7 @@ blahtex (版本 0.6)，必须和 `dvips` 一起被置于你的 `$PATH` 中。
 $ [sudo] gem install rdiscount
 {% endhighlight %}
 
-然后在你的 `_config.yml` 文件内选择 RDiscount 作为 Markdown 引擎，使 Jekyl 可以读取该选项来运行。
+然后在你的 `_config.yml` 文件内选择 RDiscount 作为 Markdown 引擎，使 Jekyll 可以读取该选项来运行。
 
 {% highlight yaml %}
 # _config.yml 中
