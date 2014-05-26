@@ -5,7 +5,7 @@ jekyllcn
 
 jekyllcn 是 [http://jekyllrb.com](http://jekyllrb.com) 的中文翻译网站
 
-## jkyll 已升级到 2.x.x
+## jekyll 已升级到 2.x.x
 
 网站已经与官网同步了，但是文档还是旧文档，欢迎大家一起贡献翻译哈~
 
