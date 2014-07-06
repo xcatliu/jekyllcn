@@ -7,20 +7,18 @@ permalink: /docs/pagination/
 contributor: debbbbie
 ---
 
-对于大多数网站（尤其是博客），当文章越来越多的时候，就会有分页显示文章列表的需求。 Jekyll已经自建
-分页功能，你只需要根据约定放置文件即可。
+对于大多数网站（尤其是博客），当文章越来越多的时候，就会有分页显示文章列表的需求。Jekyll 已经自建分页功能，你只需要根据约定放置文件即可。
 
 <div class="note info">
   <h5>分页功能只支持 HTML 文件</h5>
   <p>
-    Jekyll 的分页功能不支持 Markdown 或 Textile 文件，而是只支持 HTML 文件。当然，这不会让
-    你不爽。
+    Jekyll 的分页功能不支持 Markdown 或 Textile 文件，而是只支持 HTML 文件。当然，这不会让你不爽。
   </p>
 </div>
 
 ## 开启分页功能
 
-开启分页功能很简单，只需要在 `_config.yml`里边加一行，并填写每页需要几行：
+开启分页功能很简单，只需要在 `_config.yml` 里边加一行，并填写每页需要几行：
 
 {% highlight yaml %}
 paginate: 5
@@ -32,10 +30,7 @@ paginate: 5
 paginate_path: "blog/page:num"
 {% endhighlight %}
 
-`blog/index.html`将会读取这个设置，把他传给每个分页页面，然后从第 `2` 页开始输出到
- `blog/page:num` ， `:num` 是页码。如果有 12 篇文章并且做如下配置 `paginate: 5` ，
- Jekyll会将前 5 篇文章写入 `blog/index.html` ，把接下来的 5 篇文章写入
- `blog/page2/index.html`，最后 2 篇写入 `blog/page3/index.html`。
+`blog/index.html` 将会读取这个设置，把他传给每个分页页面，然后从第 `2` 页开始输出到 `blog/page:num` ， `:num` 是页码。如果有 12 篇文章并且做如下配置 `paginate: 5` ， Jekyll 会将前 5 篇文章写入 `blog/index.html` ，把接下来的 5 篇文章写入 `blog/page2/index.html`，最后 2 篇写入 `blog/page3/index.html`。
 
 ## 与 `paginator` 相同的属性
 
@@ -106,7 +101,7 @@ paginate_path: "blog/page:num"
 
 <div class="note info">
   <h5>不支持对“标签”和“类别”分页</h5>
-  <p>分页功能仅仅遍历文章列表并计算出结果，并无读取 YAML 头信息，现在不支持对“标签”和“类别”分页。</p>
+  <p>分页功能仅仅遍历文章列表并计算出结果，并未读取 YAML 头信息，现在不支持对“标签”和“类别”分页。</p>
 </div>
 
 ## 生成带分页功能的文章

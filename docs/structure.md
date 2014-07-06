@@ -7,7 +7,7 @@ permalink: /docs/structure/
 contributor: Neo-J
 ---
 
-Jekyll 的核心其实是一个文本转换引擎。它的概念其实就是： 你用你最喜欢的标记语言来写文章，可以是 Markdown，也可以是 Textile,或者就是简单的 HTML, 然后 Jekyll 就会帮你套入一个或一系列的布局中。在整个过程中你可以设置URL路径, 你的文本在布局中的显示样式等等。这些都可以通过纯文本编辑来实现，最终生成的静态页面就是你的成品了。
+Jekyll 的核心其实是一个文本转换引擎。它的概念其实就是：你用你最喜欢的标记语言来写文章，可以是 Markdown, 也可以是 Textile, 或者就是简单的 HTML, 然后 Jekyll 就会帮你套入一个或一系列的布局中。在整个过程中你可以设置 URL 路径，你的文本在布局中的显示样式等等。这些都可以通过纯文本编辑来实现，最终生成的静态页面就是你的成品了。
 
 一个基本的 Jekyll 网站的目录结构一般是像这样的：
 {% highlight bash %}
@@ -126,8 +126,7 @@ Jekyll 的核心其实是一个文本转换引擎。它的概念其实就是： 
       <td>
         <p>
 
-          如果这些文件中包含 <a href="../frontmatter/">YAML 头信息</a> 部分，Jekyll 就会自动将它们进行转换。当然，其他的如 <code>.html</code>， <code>.markdown</code>，
-          <code>.md</code>，或者 <code>.textile</code> 等在你的站点根目录下或者不是以上提到的目录中的文件也会被转换。
+          如果这些文件中包含 <a href="../frontmatter/">YAML 头信息</a> 部分，Jekyll 就会自动将它们进行转换。当然，其他的如 <code>.html</code>, <code>.markdown</code>, <code>.md</code>, 或者 <code>.textile</code> 等在你的站点根目录下或者不是以上提到的目录中的文件也会被转换。
 
         </p>
       </td>
@@ -141,7 +140,7 @@ Jekyll 的核心其实是一个文本转换引擎。它的概念其实就是： 
 
           其他一些未被提及的目录和文件如
           <code>css</code> 还有 <code>images</code> 文件夹，
-          <code>favicon.ico</code> 等文件都将被完全拷贝到生成的 site 中。 这里有一些<a href="../sites/">使用 Jekyll 的站点</a>，如果你感兴趣就来看看吧。
+          <code>favicon.ico</code> 等文件都将被完全拷贝到生成的 site 中。这里有一些<a href="../sites/">使用 Jekyll 的站点</a>，如果你感兴趣就来看看吧。
 
         </p>
       </td>

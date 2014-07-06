@@ -21,7 +21,7 @@ title: Blogging Like a Hacker
 <div class="note warning">
   <h5>UTF-8 编码方式警告</h5>
   <p>
-    如果你使用UTF-8编码，那么在你的文件中一定不要出现 <code>BOM</code> 头字符，否则你会碰上非常糟糕的事情，尤其当你在Windows上使用Jekyll的时候。
+    如果你使用UTF-8编码，那么在你的文件中一定不要出现 <code>BOM</code> 头字符，否则你会碰上非常糟糕的事情，尤其当你在 Windows 上使用 Jekyll 的时候。
   </p>
 </div>
 
@@ -32,7 +32,7 @@ title: Blogging Like a Hacker
   </p>
 </div>
 
-## 预定义的全局变量 
+## 预定义的全局变量
 
 你可以在页面或者博客的头信息处使用一些已经预定义好的全局变量。
 
@@ -64,7 +64,7 @@ title: Blogging Like a Hacker
       <td>
         <p>
 
-          如果你需要让你的博客中的URL地址不同于默认值 <code>/year/month/day/title.html</code> 这样，那么当你设置这个变量后，就会使用最终的URL地址。
+          如果你需要让你的博客中的 URL 地址不同于默认值 <code>/year/month/day/title.html</code> 这样，那么当你设置这个变量后，就会使用最终的 URL 地址。
 
         </p>
       </td>
@@ -88,7 +88,7 @@ title: Blogging Like a Hacker
       <td>
         <p>
 
-          除过将博客文章放在某个文件夹下面外，你还可以根据文章的类别来给他们设置一个或者多个分类属性。这样当你的博客生成的时候这些文章就可以根据这些分类来阅读。在一个文章中多个类别可以通过 <a href="http://en.wikipedia.org/wiki/YAML#Lists">YAML list</a>来指定，或者用空格隔开。
+          除过将博客文章放在某个文件夹下面外，你还可以根据文章的类别来给他们设置一个或者多个分类属性。这样当你的博客生成的时候这些文章就可以根据这些分类来阅读。在一个文章中多个类别可以通过 <a href="http://en.wikipedia.org/wiki/YAML#Lists">YAML list</a> 来指定，或者用空格隔开。
 
         </p>
       </td>
@@ -112,7 +112,7 @@ title: Blogging Like a Hacker
 
 ## 自定义变量
 
-在头信息中没有预先定义的任何变量都会在数据转换中通过 Liquid 模板被调用。例如，在头信息中你设置一个 title，然后就可以在你的模板中使用这个 title 变量来设置页面的 title属性 ：
+在头信息中没有预先定义的任何变量都会在数据转换中通过 Liquid 模板被调用。例如，在头信息中你设置一个 title，然后就可以在你的模板中使用这个 title 变量来设置页面的 title 属性：
 
 {% highlight html %}
 <!DOCTYPE HTML>

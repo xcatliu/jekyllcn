@@ -7,7 +7,7 @@ permalink: /docs/variables/
 contributor: yujingz
 ---
 
-Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息](../frontmatter)的文件都是要处理的对象。对于每一个这样的文件，Jekyll都会通过[Liquid 模板工具](http://wiki.shopify.com/Liquid)来生成一系列的数据。下面就是这些可用数据变量的参考和文档。
+Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息](../frontmatter)的文件都是要处理的对象。对于每一个这样的文件，Jekyll 都会通过 [Liquid 模板工具](http://wiki.shopify.com/Liquid)来生成一系列的数据。下面就是这些可用数据变量的参考和文档。
 
 ## 全局(Global)变量
 
@@ -24,7 +24,7 @@ Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息
       <td><p><code>site</code></p></td>
       <td><p>
 
-          来自<code>_config.yml</code>文件，全站范围的信息 +配置。详细的信息请参考下文
+          来自<code>_config.yml</code>文件，全站范围的信息+配置。详细的信息请参考下文
 
       </p></td>
     </tr>
@@ -48,7 +48,7 @@ Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息
       <td><p><code>paginator</code></p></td>
       <td><p>
 
-        每当 <code>paginate</code> 配置选项被设置了的时候，这个变量就可用了。详情请看，<a
+        每当 <code>paginate</code> 配置选项被设置了的时候，这个变量就可用了。详情请看<a
         href="../pagination/">分页</a>。
 
       </p></td>
@@ -72,7 +72,7 @@ Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息
       <td><p><code>site.time</code></p></td>
       <td><p>
 
-        当前时间（跑<code>jekyll</code>这个命令的时间点）。
+        当前时间（运行<code>jekyll</code>这个命令的时间点）。
 
       </p></td>
     </tr>
@@ -88,7 +88,7 @@ Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息
       <td><p><code>site.posts</code></p></td>
       <td><p>
 
-        一个按照时间倒叙的所有 Posts 的清单。
+        一个按照时间倒序的所有 Posts 的清单。
 
       </p></td>
     </tr>
@@ -218,7 +218,7 @@ Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息
       <td><p><code>page.path</code></p></td>
       <td><p>
 
-        Post 或者 Page 的源文件地址。举例来说，一个页面在 GitHub上得源文件地址。
+        Post 或者 Page 的源文件地址。举例来说，一个页面在 GitHub 上的源文件地址。
         这可以在 <a href="../frontmatter/">YAML 头文件信息</a> 中被改写。
 
       </p></td>
@@ -251,11 +251,11 @@ Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息
   <tbody>
     <tr>
       <td><p><code>paginator.per_page</code></p></td>
-      <td><p>每一页Posts的数量。</p></td>
+      <td><p>每一页 Posts 的数量。</p></td>
     </tr>
     <tr>
       <td><p><code>paginator.posts</code></p></td>
-      <td><p>这一页可用的Posts。</p></td>
+      <td><p>这一页可用的 Posts。</p></td>
     </tr>
     <tr>
       <td><p><code>paginator.total_posts</code></p></td>
@@ -292,6 +292,6 @@ Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息
 <div class="note info">
   <h5>分页器变量的可用性</h5>
   <p>
-    这些变量仅在首页文件中可以，不过他们也会存在于子目录中，就像 <code>/blog/index.html</code>。
+    这些变量仅在首页文件中可用，不过他们也会存在于子目录中，就像 <code>/blog/index.html</code>。
   </p>
 </div>

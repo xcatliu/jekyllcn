@@ -71,7 +71,7 @@ Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵�
       <td>
         <p class='name'><strong>Include</strong></p>
         <p class="description">
-          转换时强制包含某些文件、文件夹。 <code>.htaccess</code> 是个典型的例子，因为默认排除 . 开头的文件。
+          转换时强制包含某些文件、文件夹。<code>.htaccess</code> 是个典型的例子，因为默认排除 . 开头的文件。
         </p>
       </td>
       <td class='align-center'>
@@ -347,7 +347,7 @@ Jekyll handles two special Redcarpet extensions:
     有了 both fenced code blocks 和 pygments ，就会直接高亮代码了；如果没有 pygments，将增加一个 `class="LANGUAGE"` 属性到 `<code>` 元素，用于给不同的 JavaScript 代码高亮库做后续处理。
 - `smart` --- 打开 SmartyPants ，将引号转为 &quot; 、连字符转为 em (`---`) 和 en (`--`) 破折号。
 
-Redcarpet 所有其他扩展保持他们本来的名字，并且在 Jekyll 中不能给 `smart` 加渲染选项。 [Redcarpet 的 README 中有可用扩展的列表。][redcarpet_extensions] 确保你看的 README 是正确的版本： Jekyll 当前用的是 v2.2.x ，其中 `footnotes` 和 `highlight` 在 3.0.0 以后才会支持。最常用的扩展是如下：
+Redcarpet 所有其他扩展保持他们本来的名字，并且在 Jekyll 中不能给 `smart` 加渲染选项。 [Redcarpet 的 README 中有可用扩展的列表。][redcarpet_extensions] 确保你看的 README 是正确的版本：Jekyll 当前用的是 v2.2.x ，其中 `footnotes` 和 `highlight` 在 3.0.0 以后才会支持。最常用的扩展是如下：
 
 - `tables`
 - `no_intra_emphasis`

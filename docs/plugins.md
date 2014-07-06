@@ -12,18 +12,14 @@ Jekyll 支持插件功能，你可以很容易的加入自己的代码。
 <div class="note info">
   <h5>在 GitHub Pages 使用插件</h5>
   <p>
-    <a href="http://pages.github.com/">GitHub Pages</a>是由Jekyll提供技术支持的，考
-    虑到安全因素，所有的 Pages 通过 <code>--safe</code> 选项禁用了插件功能，因此如果你的网
-    站部署在 Github Pages ，那么你的插件不会工作。<br><br>
-    不过仍然有办法发布到 GitHub Pages，你只需在本地做一些转换，并把生成好的文件上传到 Github
-    替代 Jekyll 就可以了。
+    <a href="http://pages.github.com/">GitHub Pages</a> 是由 Jekyll 提供技术支持的，考虑到安全因素，所有的 Pages 通过 <code>--safe</code> 选项禁用了插件功能，因此如果你的网站部署在 Github Pages ，那么你的插件不会工作。<br><br>
+    不过仍然有办法发布到 GitHub Pages，你只需在本地做一些转换，并把生成好的文件上传到 Github 替代 Jekyll 就可以了。
   </p>
 </div>
 
 ## 安装插件
 
-在网站根下目录建立 `_plugins` 文件夹，插件放在这里即可。 Jekyll 运行之前，会加载此目录下所有以
- `*.rb` 结尾的文件。
+在网站根下目录建立 `_plugins` 文件夹，插件放在这里即可。 Jekyll 运行之前，会加载此目录下所有以 `*.rb` 结尾的文件。
 
 通常，插件最终会被放在以下的目录中：
 
@@ -70,8 +66,7 @@ module Jekyll
 end
 {% endhighlight %}
 
-本例中，生成器在 `categories` 下生成了一系列文件。并使用布局 `category_index.html` 列出所有
-的文章。
+本例中，生成器在 `categories` 下生成了一系列文件。并使用布局 `category_index.html` 列出所有的文章。
 
 生成器只需要实现一个方法：
 
@@ -146,8 +141,7 @@ end
         <p><code>matches</code></p>
       </td>
       <td><p>
-        检查文件后缀名是否是所要的，传入的参数是文件的后缀名（包括点号），接受的返回值是
-         <code>true</code> 或 <code>false</code> 。
+        检查文件后缀名是否是所要的，传入的参数是文件的后缀名（包括点号），接受的返回值是 <code>true</code> 或 <code>false</code> 。
       </p></td>
     </tr>
     <tr>
@@ -170,14 +164,11 @@ end
 </table>
 </div>
 
-在上边的例子中， `UpcaseConverter#matches` 检查文件后缀名是不是 `.upcase` ;
-`UpcaseConverter#convert` 会处理检查成功文件的内容，即将所有的字符串变成大写；最终，保存的结果
-将以作为后缀名 `.html` 。
+在上边的例子中， `UpcaseConverter#matches` 检查文件后缀名是不是 `.upcase` ;`UpcaseConverter#convert` 会处理检查成功文件的内容，即将所有的字符串变成大写；最终，保存的结果将以作为后缀名 `.html` 。
 
 ## 标记
 
-如果你想使用 liquid 标记，你可以这样做。 Jekyll 官方的例子有 `highlight` 和 `include` 等
-标记。下边的例子中，自定义了一个 liquid 标记，用来输出当前时间：
+如果你想使用 liquid 标记，你可以这样做。 Jekyll 官方的例子有 `highlight` 和 `include` 等标记。下边的例子中，自定义了一个 liquid 标记，用来输出当前时间：
 
 {% highlight ruby %}
 module Jekyll
@@ -220,7 +211,7 @@ liquid 标记最少需要实现如下方法：
 </table>
 </div>
 
-你必须同时用Liquid模板引擎注册自定义标记，比如：：
+你必须同时用 Liquid 模板引擎注册自定义标记，比如：
 
 {% highlight ruby %}
 Liquid::Template.register_tag('render_time', Jekyll::RenderTimeTag)
@@ -242,8 +233,7 @@ Liquid::Template.register_tag('render_time', Jekyll::RenderTimeTag)
 
 ### Liquid 过滤器
 
-你可以像上边那样在 Liquid 模板中加入自己的过滤器。过滤器会把自己的方法暴露给 liquid 。所有的方法
-都必须至少接收一个参数，用来传输入内容；返回值是过滤的结果。
+你可以像上边那样在 Liquid 模板中加入自己的过滤器。过滤器会把自己的方法暴露给 liquid。所有的方法都必须至少接收一个参数，用来传输入内容；返回值是过滤的结果。
 
 {% highlight ruby %}
 module Jekyll
@@ -260,9 +250,7 @@ Liquid::Template.register_filter(Jekyll::AssetFilter)
 <div class="note">
   <h5>提示™：用 Liquid 访问 site 对象</h5>
   <p>
-    Jekyll 允许通过 Liquid 的<code>context.registers</code> 特性来访问
-    <code>site</code> 对象。比如可以用 <code>context.registers.config</code>
-    访问配置文件 <code>_config.yml</code> 。
+    Jekyll 允许通过 Liquid 的<code>context.registers</code> 特性来访问 <code>site</code> 对象。比如可以用 <code>context.registers.config</code> 访问配置文件 <code>_config.yml</code> 。
   </p>
 </div>
 
@@ -285,10 +273,7 @@ Liquid::Template.register_filter(Jekyll::AssetFilter)
       </td>
       <td>
         <p>
-          告诉 Jekyll 此插件是否可以安全的执行任意代码。 GitHub Pages 用他来决定那个插件可以
-          使用，哪些不可以使用。如果你的插件不允许执行任意代码，把它设为 <code>true</code> 即
-          可。 GitHub Pages 仍然不会加载你的插件，但是如果你把他夹杂到核心中，最后保证此值设置
-          的正确！
+          告诉 Jekyll 此插件是否可以安全的执行任意代码。 GitHub Pages 用他来决定那个插件可以使用，哪些不可以使用。如果你的插件不允许执行任意代码，把它设为 <code>true</code> 即可。 GitHub Pages 仍然不会加载你的插件，但是如果你把他夹杂到核心中，最后保证此值设置的正确！
         </p>
       </td>
     </tr>
@@ -298,9 +283,7 @@ Liquid::Template.register_filter(Jekyll::AssetFilter)
       </td>
       <td>
         <p>
-          此标记决定加载插件的顺序。可以是这些值： <code>:lowest</code>, <code>:low</code>,
-           <code>:normal</code> ， <code>:high</code> ，还有 <code>:highest</code>。
-          优先级高的先执行，优先级低的后执行。
+          此标记决定加载插件的顺序。可以是这些值：<code>:lowest</code>, <code>:low</code>, <code>:normal</code>, <code>:high</code>, 还有 <code>:highest</code>。优先级高的先执行，优先级低的后执行。
         </p>
       </td>
     </tr>
@@ -308,7 +291,7 @@ Liquid::Template.register_filter(Jekyll::AssetFilter)
 </table>
 </div>
 
-已上边例子的插件为例，应该这样设置这两个标记：
+以上边例子的插件为例，应该这样设置这两个标记：
 
 {% highlight ruby %}
 module Jekyll
@@ -322,7 +305,7 @@ end
 
 ## 可用的插件
 
-下边的插件，你可以按需所取：
+下边的插件，你可以按需索取：
 
 #### 生成器
 
@@ -332,7 +315,7 @@ end
 - [Sitemap.xml Generator by Michael Levin](https://github.com/kinnetica/jekyll-plugins)：遍历所有的页面和文章，生成 sitemap.xml 。
 - [Full-text search by Pascal Widdershoven](https://github.com/PascalW/jekyll_indextank)：全文搜索。
 - [AliasGenerator by Thomas Mango](https://github.com/tsmango/jekyll_alias_generator)：根据YAML头信息中的 alias　生成跳转页面。
-- [Pageless Redirect Generator by Nick Quinlan](https://github.com/nquinlan/jekyll-pageless-redirects)：根据Jekyll跟路径做出跳转，支持分布式。
+- [Pageless Redirect Generator by Nick Quinlan](https://github.com/nquinlan/jekyll-pageless-redirects)：根据 Jekyll 跟路径做出跳转，支持分布式。
 - [Projectlist by Frederic Hemberger](https://github.com/fhemberger/jekyll-projectlist)：一个文件夹生成一个页面
 - [RssGenerator by Assaf Gelber](https://github.com/agelber/jekyll-rss)：自动生成 RSS 2.0 。
 
@@ -417,19 +400,19 @@ end
 - [Growl Notification Generator by Tate Johnson](https://gist.github.com/490101): Jekyll 通知发送到 Growl 。
 - [Growl Notification Hook by Tate Johnson](https://gist.github.com/525267): 同上，推荐指数更高一点，但是需要他的 “hook” 。
 - [Related Posts by Lawrence Woodman](https://github.com/LawrenceWoodman/related_posts-jekyll_plugin): 重新实现关联，覆盖 `site.related_posts` 。
-- [Tiered Archives by Eli Naeher](https://gist.github.com/88cda643aa7e3b0ca1e5): 创建 tiered模板变量，允许按年月分组。
+- [Tiered Archives by Eli Naeher](https://gist.github.com/88cda643aa7e3b0ca1e5): 创建 tiered 模板变量，允许按年月分组。
 - [Jekyll-localization](https://github.com/blackwinter/jekyll-localization): 支持本地化。
 - [Jekyll-rendering](https://github.com/blackwinter/jekyll-rendering): 一个渲染引擎。
 - [Jekyll-pagination](https://github.com/blackwinter/jekyll-pagination): 支持分页。
 - [Jekyll-tagging](https://github.com/pattex/jekyll-tagging): 生成云状标签。
 - [Jekyll-scholar](https://github.com/inukshuk/jekyll-scholar): 为学者定制。
 - [Jekyll-asset_bundler](https://github.com/moshen/jekyll-asset_bundler): 将 JavaScript 和 CSS 最小化。
-- [Jekyll-assets](http://ixti.net/jekyll-assets/) by [ixti](https://github.com/ixti): Rails 风格的 assets pipeline（支持的资源 CoffeeScript, Sass, LESS 等等；设置依赖；最小化压缩； JST 模板；缓存处理等等）。
+- [Jekyll-assets](http://ixti.net/jekyll-assets/) by [ixti](https://github.com/ixti): Rails 风格的 assets pipeline（支持的资源 CoffeeScript, Sass, LESS 等等；设置依赖；最小化压缩；JST 模板；缓存处理等等）。
 - [File compressor](https://gist.github.com/2758691) by [mytharcher](https://github.com/mytharcher): 压缩 HTML 和 JavaScript 。
 - [Jekyll-minibundle](https://github.com/tkareine/jekyll-minibundle): 根据你选择的最小化工具绑定资源和处理缓存。
 - [Singlepage-jekyll](https://github.com/JCB-K/singlepage-jekyll) by [JCB-K](https://github.com/JCB-K): 转换为单页网站。
 - [generator-jekyllrb](https://github.com/robwierzbowski/generator-jekyllrb): [Yeoman](http://yeoman.io/) 的包装，一个工具集，还有工作流，用来创建现代化的网站。
-- [grunt-jekyll](https://github.com/dannygarcia/grunt-jekyll)：[Grunt](http://gruntjs.com/)　插件。
+- [grunt-jekyll](https://github.com/dannygarcia/grunt-jekyll)：[Grunt](http://gruntjs.com/) 插件。
 - [jekyll-postfiles](https://github.com/indirect/jekyll-postfiles)：添加目录 `_postfiles`　和标签 {% raw %}`{{ postfile }}`{% endraw %}以保证所有的指向正确。
 
 <div class="note info">
