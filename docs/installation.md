@@ -12,8 +12,7 @@ issue]({{ site.repository }}/issues/new) (或者提交一个 pull request)
 
 ### 事先准备
 
-安装 Jekyll 相当简单，但是你得先做好一些准备工作
-开始前你需要确保你在系统里已经有如下配置。
+安装 Jekyll 相当简单，但是你得先做好一些准备工作。开始前你需要确保你在系统里已经有如下配置。
 
 - [Ruby](http://www.ruby-lang.org/en/downloads/)
 - [RubyGems](http://rubygems.org/pages/download)
@@ -50,8 +49,7 @@ $ gem install jekyll
 
 ## 附加功能
 
-根据每个人使用方式的不同，Jekyll 还支持你安装一些附加功能。包括了对 LaTex 的支持，以及使用动态内容渲染引擎。
-查看 [the extras page](../extras/) 获得更多信息。
+根据每个人使用方式的不同，Jekyll 还支持你安装一些附加功能。包括了对 LaTex 的支持，以及使用动态内容渲染引擎。查看 [the extras page](../extras/) 获得更多信息。
 
 <div class="note">
   <h5>ProTip™: 允许代码高亮</h5>

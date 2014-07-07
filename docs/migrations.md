@@ -7,13 +7,11 @@ permalink: /docs/migrations/
 contributor: debbbbie
 ---
 
-如果你要从其他博客迁移到 Jekyll ， Jekyll 导入器可以帮助你。本页面的所有方法都需要旧系统数据库的
-读权限，每个方法在 `_posts` 文件夹生成 `.markdown` 格式的文章。
+如果你要从其他博客迁移到 Jekyll，Jekyll 导入器可以帮助你。本页面的所有方法都需要旧系统数据库的读权限，每个方法在 `_posts` 文件夹生成 `.markdown` 格式的文章。
 
 ## 迁移前的准备工作
 
-导入器有很多的依赖，需要通过 gem [`jekyll-import`](https://github.com/jekyll/jekyll-import)
-来完成。安装好本 gem 以后，就可以作为 Jekyll 的标准命令行来使用了。
+导入器有很多的依赖，需要通过 gem [`jekyll-import`](https://github.com/jekyll/jekyll-import) 来完成。安装好本 gem 以后，就可以作为 Jekyll 的标准命令来使用了。
 
 {% highlight bash %}
 $ gem install jekyll-import --pre
@@ -43,8 +41,7 @@ $ jekyll help import IMPORTER  # => See importer specific help
 
 ### WordPress 导出文件
 
-如果还没有安装 hpricot ，你需要首先运行 `gem install hpricot` ；然后，用WordPress的导出
-工具导出你的博客。假设导出的文件被保存为 `wordpress.xml` ，你需要运行如下命令：
+如果还没有安装 hpricot，你需要首先运行 `gem install hpricot` ；然后，用 WordPress 的导出工具导出你的博客。假设导出的文件被保存为 `wordpress.xml` ，你需要运行如下命令：
 
 {% highlight bash %}
 $ ruby -rubygems -e 'require "jekyll/jekyll-import/wordpressdotcom";
@@ -67,10 +64,7 @@ $ ruby -rubygems -e 'require "jekyll/jekyll-import/wordpress";
     JekyllImport::WordPress.process({:dbname => "database", :user => "user", :pass => "pass"})'
 {% endhighlight %}
 
-如果你正在使用 Webfaction，并不得不建立一个
-[SSH tunnel](http://docs.webfaction.com/user-guide/databases.html?highlight=mysql#starting-an-ssh-tunnel-with-ssh),
-记得明确主机头(`127.0.0.1`) , 否则 MySQL 可能阻止连接，因为在认证系统中 `localhost` 和
-`127.0.0.1` 是不同的：
+如果你正在使用 Webfaction，并不得不建立一个 [SSH tunnel](http://docs.webfaction.com/user-guide/databases.html?highlight=mysql#starting-an-ssh-tunnel-with-ssh),记得明确主机头(`127.0.0.1`) , 否则 MySQL 可能阻止连接，因为在认证系统中 `localhost` 和 `127.0.0.1` 是不同的：
 
 {% highlight bash %}
 $ ruby -rubygems -e 'require "jekyll/jekyll-import/wordpress";
@@ -79,8 +73,7 @@ $ ruby -rubygems -e 'require "jekyll/jekyll-import/wordpress";
 
 ### 功能更全的 WordPress 迁移工具
 
-尽管上树方法可以工作，但他们并没有导入足够的元数据。如果你想导出诸如页面，标签，自定义字段，图片附件
-等等，下边的资源或许对你有用：
+尽管上述方法可以工作，但他们并没有导入足够的元数据。如果你想导出诸如页面，标签，自定义字段，图片附件等等，下边的资源或许对你有用：
 
 - [Exitwp](https://github.com/thomasf/exitwp) is a configurable tool written in
   Python for migrating one or more WordPress blogs into Jekyll (Markdown) format
@@ -146,9 +139,7 @@ $ ruby -rubygems -e 'require "jekyll/jekyll-import/textpattern";
     JekyllImport::TextPattern.process("database_name", "username", "password", "hostname")'
 {% endhighlight %}
 
-你需要从 `_import` 所在文件夹的上级文件夹运行上述命令。例如， `_import` 的路径是
-`/path/source/_import` ，你需要在 `/path/source` 运行上述命令。主机名默认为 `localhost` ，
-其他变量需要这个参数。你或许要调整入口的代码。默认的，它将试图寻找所有可能的入口。
+你需要从 `_import` 所在文件夹的上级文件夹运行上述命令。例如， `_import` 的路径是 `/path/source/_import` ，你需要在 `/path/source` 运行上述命令。主机名默认为 `localhost` ，其他变量需要这个参数。你或许要调整入口的代码。默认的，它将试图寻找所有可能的入口。
 
 ## Mephisto
 
@@ -168,8 +159,7 @@ $ ruby -rubygems -e 'require "jekyll/jekyll-import/mephisto";
 
 ## Blogger (Blogspot)
 
-从 Blogger 导入，请参考文章[从 Blogger 迁移到 Jekyll](http://blog.coolaj86.com/articles/migrate-from-blogger-to-jekyll.html) 。
-如果没有很好的工作，你可以试试下边的这些替代品：
+从 Blogger 导入，请参考文章[从 Blogger 迁移到 Jekyll](http://blog.coolaj86.com/articles/migrate-from-blogger-to-jekyll.html) 。如果没有很好的工作，你可以试试下边的这些替代品：
 
 - [@kennym](https://github.com/kennym) created a [little migration
   script](https://gist.github.com/1115810), because the solutions in the
@@ -199,8 +189,7 @@ $ ruby -rubygems -e 'require "jekyll/jekyll-import/posterous";
     JekyllImport::Posterous.process("my_email", "my_pass", "blog_id")'
 {% endhighlight %}
 
-有一个[替代品](https://github.com/pepijndevos/jekyll/blob/patch-1/lib/jekyll/migrators/posterous.rb)，
-他保持了永久链接，并试图导入图片。
+有一个[替代品](https://github.com/pepijndevos/jekyll/blob/patch-1/lib/jekyll/migrators/posterous.rb)，他保持了永久链接，并试图导入图片。
 
 ## Tumblr
 
@@ -221,5 +210,4 @@ $ ruby -rubygems -e 'require "jekyll/jekyll-import/tumblr";
 
 ## 其他
 
-如果你有一个博客平台，而且还没有导入器，你可以考虑写一个，并提交给我们一个
- [ pull request](https://github.com/jekyll/jekyll-import).
+如果你有一个博客平台，而且还没有导入器，你可以考虑写一个，并提交给我们一个 [pull request](https://github.com/jekyll/jekyll-import).

@@ -7,9 +7,7 @@ permalink: /docs/templates/
 contributor: debbbbie
 ---
 
-Jekyll 使用 [Liquid](http://wiki.shopify.com/Liquid)模板语言，支持所有标准的
- Liquid [标签](http://wiki.shopify.com/Logic) 和 [过滤器](http://wiki.shopify.com/Filters) 。
- Jekyll 甚至增加了几个过滤器和标签，方便使用。
+Jekyll 使用 [Liquid](http://wiki.shopify.com/Liquid) 模板语言，支持所有标准的 Liquid [标签](http://wiki.shopify.com/Logic)和[过滤器](http://wiki.shopify.com/Filters)。Jekyll 甚至增加了几个过滤器和标签，方便使用。
 
 ## 过滤器
 
@@ -185,8 +183,7 @@ Jekyll 使用 [Liquid](http://wiki.shopify.com/Liquid)模板语言，支持所�
 {% raw %}{% include footer.html %}{% endraw %}
 {% endhighlight %}
 
-Jekyll 要求所有被引用的文件放在根目录的 `_includes` 文件夹，上述代码将把
- `<source>/_includes/footer.html` 的内容包含进来。
+Jekyll 要求所有被引用的文件放在根目录的 `_includes` 文件夹，上述代码将把 `<source>/_includes/footer.html` 的内容包含进来。
 
 你还可以传递参数：
 
@@ -202,9 +199,7 @@ Jekyll 要求所有被引用的文件放在根目录的 `_includes` 文件夹，
 
 ### Code snippet highlighting
 
-Jekyll 已经支持 [超过 100 种语言](http://pygments.org/languages/) 代码高亮显示，在此感谢
- [Pygments](http://pygments.org/) 。要使用 Pygments ，你必须安装 Python 并且在配置文件
-中设置 `pygments` 为 `true` 。
+Jekyll 已经支持[超过 100 种语言](http://pygments.org/languages/)代码高亮显示，在此感谢 [Pygments](http://pygments.org/)。要使用 Pygments，你必须安装 Python 并且在配置文件中设置 `pygments` 为 `true`。
 
 使用代码高亮的例子如下：
 
@@ -218,12 +213,11 @@ end
 {% endraw %}
 {% endhighlight %}
 
-`highlight` 的参数 (本例中的 `ruby`) 是识别所用语言，要使用合适的识别器可以参照
- [Lexers 页](http://pygments.org/docs/lexers/) 的 “short name” 。
+`highlight` 的参数 (本例中的 `ruby`) 是识别所用语言，要使用合适的识别器可以参照 [Lexers 页](http://pygments.org/docs/lexers/) 的 “short name” 。
 
 #### 行号
 
-`highlight` 的第二个可选参数是 `linenos` ，使用了 `linenos`会强制在代码上加入行号。例如：
+`highlight` 的第二个可选参数是 `linenos` ，使用了 `linenos` 会强制在代码上加入行号。例如：
 
 {% highlight text %}
 {% raw %}
@@ -237,10 +231,7 @@ end
 
 #### 代码高亮的样式
 
-要使用代码高亮，你还需要包含一个样式。例如你可以在
-[syntax.css](http://github.com/mojombo/tpw/tree/master/css/syntax.css) 找到，这里有
-跟 GitHub 一样的样式，并且免费。如果你使用了 `linenos` ，可能还需要在 `syntax.css` 加入
- `.lineno` 样式。
+要使用代码高亮，你还需要包含一个样式。例如你可以在 [syntax.css](http://github.com/mojombo/tpw/tree/master/css/syntax.css) 找到，这里有跟 GitHub 一样的样式，并且免费。如果你使用了 `linenos` ，可能还需要在 `syntax.css` 加入 `.lineno` 样式。
 
 ### Post URL
 
