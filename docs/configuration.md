@@ -131,7 +131,7 @@ Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵�
     <tr class='setting'>
       <td>
         <p class='name'><strong>Configuration</strong></p>
-        <p class="description">手动设置配置文件，可设置多个，且后边的设置会覆盖前边的。</p>
+        <p class="description">手动设置配置文件，可设置多个，且后边的配置会覆盖前边的。</p>
       </td>
       <td class='align-center'>
         <p><code class="flag">--config FILE1[,FILE2,...]</code></p>
