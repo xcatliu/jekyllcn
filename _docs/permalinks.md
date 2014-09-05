@@ -1,29 +1,24 @@
 ---
 layout: docs
-title: Permalinks
+title: 永久链接
 prev_section: templates
 next_section: pagination
 permalink: /docs/permalinks/
+contributor: debbbbie
 ---
 
-Jekyll supports a flexible way to build your site’s URLs. You can specify the
-permalinks for your site through the [Configuration](../configuration/) or in the
-[YAML Front Matter](../frontmatter/) for each post. You’re free to choose one of
-the built-in styles to create your links or craft your own. The default style is
-`date`.
+Jekyll 支持以灵活的方式管理你网站的链接，你可以通过 [Configuration](../configuration/) 或 [YAML 头信息](../frontmatter/) 为每篇文章设置永久链接。你可以随心所欲地选择内建链接格式，或者自定义链接格式。默认配置为 `date`。
 
-Permalinks are constructed by creating a template URL where dynamic elements are
-represented by colon-prefixed keywords. For example, the default `date`
-permalink is defined as `/:categories/:year/:month/:day/:title.html`.
+永久链接的模板用以冒号为前缀的关键词标记动态内容，比如 `date` 代表 `/:categories/:year/:month/:day/:title.html`。
 
-## Template variables
+## 模板变量
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>Variable</th>
-      <th>Description</th>
+      <th>变量</th>
+      <th>描述</th>
     </tr>
   </thead>
   <tbody>
@@ -32,7 +27,7 @@ permalink is defined as `/:categories/:year/:month/:day/:title.html`.
         <p><code>year</code></p>
       </td>
       <td>
-        <p>Year from the Post’s filename</p>
+        <p>文章所在文件的年份</p>
       </td>
     </tr>
     <tr>
@@ -40,7 +35,7 @@ permalink is defined as `/:categories/:year/:month/:day/:title.html`.
         <p><code>month</code></p>
       </td>
       <td>
-        <p>Month from the Post’s filename</p>
+        <p>文章所在文件的月份，格式如 `01, 10` </p>
       </td>
     </tr>
     <tr>
@@ -48,7 +43,7 @@ permalink is defined as `/:categories/:year/:month/:day/:title.html`.
         <p><code>i_month</code></p>
       </td>
       <td>
-        <p>Month from the Post’s filename without leading zeros.</p>
+        <p>文章所在文件的月份，格式如 `1, 10` </p>
       </td>
     </tr>
     <tr>
@@ -56,7 +51,7 @@ permalink is defined as `/:categories/:year/:month/:day/:title.html`.
         <p><code>day</code></p>
       </td>
       <td>
-        <p>Day from the Post’s filename</p>
+        <p>文章所在文件的日期，格式如 `01, 20`</p>
       </td>
     </tr>
     <tr>
@@ -64,15 +59,7 @@ permalink is defined as `/:categories/:year/:month/:day/:title.html`.
         <p><code>i_day</code></p>
       </td>
       <td>
-        <p>Day from the Post’s filename without leading zeros.</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <p><code>short_year</code></p>
-      </td>
-      <td>
-        <p>Year from the Post’s filename without the century.</p>
+        <p>文章所在文件的日期，格式如 `1, 20`</p>
       </td>
     </tr>
     <tr>
@@ -80,7 +67,7 @@ permalink is defined as `/:categories/:year/:month/:day/:title.html`.
         <p><code>title</code></p>
       </td>
       <td>
-        <p>Title from the Post’s filename</p>
+        <p>文章所在文件的标题</p>
       </td>
     </tr>
     <tr>
@@ -89,9 +76,7 @@ permalink is defined as `/:categories/:year/:month/:day/:title.html`.
       </td>
       <td>
         <p>
-          The specified categories for this Post. Jekyll automatically parses
-          out double slashes in the URLs, so if no categories are present, it
-          will ignore this.
+          为文章配置的目录，Jekyll 可以自动将 `//` 转换为 `/` ，所以如果没有目录，会自动忽略
         </p>
       </td>
     </tr>
@@ -99,24 +84,14 @@ permalink is defined as `/:categories/:year/:month/:day/:title.html`.
 </table>
 </div>
 
-## Built-in permalink styles
-
-**Note:** these may only apply to posts, not to pages, collections or
-static files. For example, `pretty` changes page permalinks from
-`/:path/:basename:output_ext` to `/:page/:basename/` if the page is HTML,
-thus "prettyifying" the page permalink. The `date`, `none`, and all custom
-values do not apply to pages. No permalink style applies to static files,
-and collections have their own means of specifying permalinks. It's all
-rather confusing but check out [Issue #2691](https://github.com/jekyll/jekyll/issues/2691)
-for more background on the subject, and submit a PR if you're adventurous
-enough to fix it all!
+## 已经建好的链接类型
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>Permalink Style</th>
-      <th>URL Template</th>
+      <th>链接类型</th>
+      <th> URL 模板</th>
     </tr>
   </thead>
   <tbody>
@@ -148,22 +123,22 @@ enough to fix it all!
 </table>
 </div>
 
-## Permalink style examples
+## 举例
 
-Given a post named: `/2009-04-29-slap-chop.textile`
+比如文件名： `/2009-04-29-slap-chop.textile`
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>URL Template</th>
-      <th>Resulting Permalink URL</th>
+      <th>设置</th>
+      <th>对应的 URL </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
-        <p>None specified, or <code>permalink: date</code></p>
+        <p>没有配置或 <code>permalink: date</code></p>
       </td>
       <td>
         <p><code>/2009/04/29/slap-chop.html</code></p>
@@ -171,7 +146,7 @@ Given a post named: `/2009-04-29-slap-chop.textile`
     </tr>
     <tr>
       <td>
-        <p><code>pretty</code></p>
+        <p><code>permalink: pretty</code></p>
       </td>
       <td>
         <p><code>/2009/04/29/slap-chop/index.html</code></p>
@@ -179,7 +154,7 @@ Given a post named: `/2009-04-29-slap-chop.textile`
     </tr>
     <tr>
       <td>
-        <p><code>/:month-:day-:year/:title.html</code></p>
+        <p><code>permalink: /:month-:day-:year/:title.html</code></p>
       </td>
       <td>
         <p><code>/04-29-2009/slap-chop.html</code></p>
@@ -187,7 +162,7 @@ Given a post named: `/2009-04-29-slap-chop.textile`
     </tr>
     <tr>
       <td>
-        <p><code>/blog/:year/:month/:day/:title</code></p>
+        <p><code>permalink: /blog/:year/:month/:day/:title</code></p>
       </td>
       <td>
         <p><code>/blog/2009/04/29/slap-chop/index.html</code></p>
