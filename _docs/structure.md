@@ -1,21 +1,15 @@
 ---
 layout: docs
-title: Directory structure
+title: 目录结构
 prev_section: usage
 next_section: configuration
 permalink: /docs/structure/
+contributor: Neo-J
 ---
 
-Jekyll is, at its core, a text transformation engine. The concept behind the
-system is this: you give it text written in your favorite markup language, be
-that Markdown, Textile, or just plain HTML, and it churns that through a layout
-or series of layout files. Throughout that process you can tweak how you want
-the site URLs to look, what data gets displayed in the layout, and more. This is
-all done through editing text files, and the static web site is the final
-product.
+Jekyll 的核心其实是一个文本转换引擎。它的概念其实就是：你用你最喜欢的标记语言来写文章，可以是 Markdown, 也可以是 Textile, 或者就是简单的 HTML, 然后 Jekyll 就会帮你套入一个或一系列的布局中。在整个过程中你可以设置 URL 路径，你的文本在布局中的显示样式等等。这些都可以通过纯文本编辑来实现，最终生成的静态页面就是你的成品了。
 
-A basic Jekyll site usually looks something like this:
-
+一个基本的 Jekyll 网站的目录结构一般是像这样的：
 {% highlight bash %}
 .
 ├── _config.yml
@@ -31,20 +25,18 @@ A basic Jekyll site usually looks something like this:
 ├── _posts
 |   ├── 2007-10-29-why-every-programmer-should-play-nethack.textile
 |   └── 2009-04-26-barcamp-boston-4-roundup.textile
-├── _data
-|   └── members.yml
 ├── _site
 └── index.html
 {% endhighlight %}
 
-An overview of what each of these does:
+来看看这些都有什么用：
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>File / Directory</th>
-      <th>Description</th>
+      <th>文件 / 目录</th>
+      <th>描述</th>
     </tr>
   </thead>
   <tbody>
@@ -55,9 +47,7 @@ An overview of what each of these does:
       <td>
         <p>
 
-          Stores <a href="../configuration/">configuration</a> data. Many of
-          these options can be specified from the command line executable but
-          it’s easier to specify them here so you don’t have to remember them.
+          保存<a href="../configuration/">配置</a>数据。很多配置选项都可以直接在命令行中进行设置，但是如果你把那些配置写在这儿，你就不用非要去记住那些命令了。
 
         </p>
       </td>
@@ -69,7 +59,7 @@ An overview of what each of these does:
       <td>
         <p>
 
-          Drafts are unpublished posts. The format of these files is without a date: <code>title.MARKUP</code>. Learn how to <a href="../drafts/">work with drafts</a>.
+          drafts 是未发布的文章。这些文件的格式中都没有 <code>title.MARKUP</code> 数据。学习如何使用 <a href="../drafts/">drafts</a>.
 
         </p>
       </td>
@@ -81,11 +71,9 @@ An overview of what each of these does:
       <td>
         <p>
 
-          These are the partials that can be mixed and matched by your layouts
-          and posts to facilitate reuse. The liquid tag
+          你可以加载这些包含部分到你的布局或者文章中以方便重用。可以用这个标签
           <code>{% raw %}{% include file.ext %}{% endraw %}</code>
-          can be used to include the partial in
-          <code>_includes/file.ext</code>.
+          来把文件 <code>_includes/file.ext</code> 包含进来。
 
         </p>
       </td>
@@ -97,11 +85,10 @@ An overview of what each of these does:
       <td>
         <p>
 
-          These are the templates that wrap posts. Layouts are chosen on a post-
-          by-post basis in the <a href="../frontmatter/">YAML Front Matter</a>,
-          which is described in the next section. The liquid tag
+          layouts 是包裹在文章外部的模板。布局可以在 <a href="../frontmatter/">YAML 头信息</a>中根据不同文章进行选择。
+          这将在下一个部分进行介绍。标签
           <code>{% raw %}{{ content }}{% endraw %}</code>
-          is used to inject content into the web page.
+          可以将content插入页面中。
 
         </p>
       </td>
@@ -113,27 +100,9 @@ An overview of what each of these does:
       <td>
         <p>
 
-          Your dynamic content, so to speak. The naming convention of these files is
-          important, and must follow the format:
-          <code>YEAR-MONTH-DAY-title.MARKUP</code>.
-          The <a href="../permalinks/">permalinks</a> can be customized for each
-          post, but the date and markup language are determined solely by the
-          file name.
-
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <p><code>_data</code></p>
-      </td>
-      <td>
-        <p>
-
-          Well-formatted site data should be placed here. The jekyll engine will
-          autoload all yaml files (ends with <code>.yml</code> or <code>.yaml</code>)
-          in this directory. If there's a file <code>members.yml</code> under the directory,
-          then you can access contents of the file through <code>site.data.members</code>.
+          这里放的就是你的文章了。文件格式很重要，必须要符合:
+          <code>YEAR-MONTH-DAY-title.MARKUP</code>。
+          The <a href="../permalinks/">permalinks</a> 可以在文章中自己定制，但是数据和标记语言都是根据文件名来确定的。
 
         </p>
       </td>
@@ -145,9 +114,7 @@ An overview of what each of these does:
       <td>
         <p>
 
-          This is where the generated site will be placed (by default) once
-          Jekyll is done transforming it. It’s probably a good idea to add this
-          to your <code>.gitignore</code> file.
+          一旦 Jekyll 完成转换，就会将生成的页面放在这里（默认）。最好将这个目录放进你的 <code>.gitignore</code> 文件中。
 
         </p>
       </td>
@@ -159,11 +126,7 @@ An overview of what each of these does:
       <td>
         <p>
 
-          Provided that the file has a <a href="../frontmatter/">YAML Front
-          Matter</a> section, it will be transformed by Jekyll. The same will
-          happen for any <code>.html</code>, <code>.markdown</code>,
-          <code>.md</code>, or <code>.textile</code> file in your site’s root
-          directory or directories not listed above.
+          如果这些文件中包含 <a href="../frontmatter/">YAML 头信息</a> 部分，Jekyll 就会自动将它们进行转换。当然，其他的如 <code>.html</code>, <code>.markdown</code>, <code>.md</code>, 或者 <code>.textile</code> 等在你的站点根目录下或者不是以上提到的目录中的文件也会被转换。
 
         </p>
       </td>
@@ -175,12 +138,9 @@ An overview of what each of these does:
       <td>
         <p>
 
-          Every other directory and file except for those listed above—such as
-          <code>css</code> and <code>images</code> folders,
-          <code>favicon.ico</code> files, and so forth—will be copied verbatim
-          to the generated site. There are plenty of <a href="../sites/">sites
-          already using Jekyll</a> if you’re curious to see how they’re laid
-          out.
+          其他一些未被提及的目录和文件如
+          <code>css</code> 还有 <code>images</code> 文件夹，
+          <code>favicon.ico</code> 等文件都将被完全拷贝到生成的 site 中。这里有一些<a href="../sites/">使用 Jekyll 的站点</a>，如果你感兴趣就来看看吧。
 
         </p>
       </td>

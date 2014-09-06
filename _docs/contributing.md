@@ -1,56 +1,45 @@
 ---
 layout: docs
-title: Contributing
+title: 贡献
 prev_section: upgrading
 next_section: history
 permalink: /docs/contributing/
+contributor: debbbbie
 ---
 
-So you've got an awesome idea to throw into Jekyll. Great! Please keep the
+是不是有个点子想实现到 Jekyll 。太好了，请参照如下： Great! Please keep the
 following in mind:
 
-* If you're creating a small fix or patch to an existing feature, just a simple
-  test will do. Please stay in the confines of the current test suite and use
-  [Shoulda](https://github.com/thoughtbot/shoulda/tree/master) and
-  [RR](https://github.com/btakita/rr/tree/master).
-* If it's a brand new feature, make sure to create a new
-  [Cucumber](https://github.com/cucumber/cucumber/) feature and reuse steps
-  where appropriate. Also, whipping up some documentation in your fork's `site`
-  would be appreciated, and once merged it will be transferred over to the main
-  `site`, jekyllrb.com.
-* If your contribution changes any Jekyll behavior, make sure to update the
-  documentation. It lives in `site/docs`. If the docs are missing information,
-  please feel free to add it in. Great docs make a great project!
-* Please follow the [GitHub Ruby Styleguide](https://github.com/styleguide/ruby)
-  when modifying Ruby code.
-* Please do your best to submit **small pull requests**. The easier the proposed
-  change is to review, the more likely it will be merged.
-* When submitting a pull request, please make judicious use of the pull request
-  body. A description of what changes were made, the motivations behind the
-  changes and [any tasks completed or left to complete](http://git.io/gfm-tasks)
-  will also speed up review time.
+* 如果你要在已有的特性上做一个小修补，只需要写一个简单的 test 就可以了。在当前测试中使用
+  [Shoulda](http://github.com/thoughtbot/shoulda/tree/master) 和
+  [RR](http://github.com/btakita/rr/tree/master).
+* 如果是一个新特性，请写一个新的 [Cucumber](https://github.com/cucumber/cucumber/) 并在
+  适当的地方重用步骤。同样，你也可以大胆的修改你对本网站的拷贝，一旦被合并掉，就会展示到网站 jekyllrb.com 。
+* 如果你改变了 Jekyll 的习惯，不要忘了及时更新文档。在 `site/docs` 里边。如果发现文档中缺失的信息，
+  赶快加上吧。伟大的文档造就伟大的项目！
+* 当修改 Ruby 代码的时候，请遵照 [GitHub Ruby 编码规范](https://github.com/styleguide/ruby)。
+* 请尽可能的提交 **小的 pull request** 。修改内容看起来越简单，就越可能被合并到主分支。
+* 当提交 pull request 时，要知道什么地方放什么东西。描述一下做了哪些修改，背后的动机以及
+  [完成了什么任务或有待完成的](http://git.io/gfm-tasks)都会加快复核。
 
 <div class="note warning">
-  <h5>Contributions will not be accepted without tests</h5>
+  <h5>不接受没有测试的代码</h5>
   <p>
-    If you’re creating a small fix or patch to an existing feature, just
-    a simple test will do.
+    如果你要在已有的特性上做一个小修补，只需要写一个简单的 test 就可以了。
   </p>
 </div>
 
-Test Dependencies
+测试依赖
 -----------------
 
-To run the test suite and build the gem you'll need to install Jekyll's
-dependencies. Jekyll uses Bundler, so a quick run of the `bundle` command and
-you're all set!
+想要跑测试用例和编译 gem 的话，你需要安装 Jekyll 的依赖包。Jekyll 支持 Bundler ，所以只需要运
+行一下 `bundle` 就可以了。
 
 {% highlight bash %}
 $ bundle
 {% endhighlight %}
 
-Before you start, run the tests and make sure that they pass (to confirm your
-environment is configured properly):
+ 在开始之前，跑一下测试代码以确信全部通过（确定一下你的环境配置好了）：
 
 {% highlight bash %}
 $ bundle exec rake test
@@ -60,74 +49,59 @@ $ bundle exec rake features
 Workflow
 --------
 
-Here's the most direct way to get your work merged into the project:
+这是最直接的途径： the most direct way to get your work merged into the project:
 
-* Fork the project.
-* Clone down your fork:
+* Fork 本项目。
+* 从你的fork下载到本地：
 
 {% highlight bash %}
 git clone git://github.com/<username>/jekyll.git
 {% endhighlight %}
 
-* Create a topic branch to contain your change:
+* 创建一个分支，包含要修改的内容：
 
 {% highlight bash %}
 git checkout -b my_awesome_feature
 {% endhighlight %}
 
 
-* Hack away, add tests. Not necessarily in that order.
-* Make sure everything still passes by running `rake`.
-* If necessary, rebase your commits into logical chunks, without errors.
-* Push the branch up:
+* 添加测试。
+* 通过命令 `rake` 确定所有测试依然全部通过。
+* 如果有必要，将你的提交合并到逻辑块里边，不能有错误。
+* 可以推送本分支了：
 
 {% highlight bash %}
 git push origin my_awesome_feature
 {% endhighlight %}
 
-* Create a pull request against jekyll/jekyll:master and describe what your
-  change does and the why you think it should be merged.
+* 同 mojombo/jekyll:master 对比并创建一个 pull request ，描述一下你改了什么还有你为什么认为
+  他们会合并你的代码。
 
-Updating Documentation
+更新文档
 ----------------------
 
-We want the Jekyll documentation to be the best it can be. We've
-open-sourced our docs and we welcome any pull requests if you find it
-lacking.
+我们希望 Jekyll的文档尽可能的优秀。我们已经开源了所有文档，欢迎提交修改。
 
-You can find the documentation for jekyllrb.com in the
-[site]({{ site.repository }}/tree/master/site) directory of
-Jekyll's repo on GitHub.com.
+你可以在[这里]({{ site.repository }}/tree/master/site)找到 jekyllrb.com 的文档。
 
-All documentation pull requests should be directed at `master`.  Pull
-requests directed at another branch will not be accepted.
+所有针对文档的 pull requests 都要放在 `master` 。不允许提交到其他分支。
 
-The [Jekyll wiki]({{ site.repository }}/wiki) on GitHub
-can be freely updated without a pull request as all
-GitHub users have access.
+Github 上的 [Jekyll wiki]({{ site.repository }}/wiki)可以自由更新，不需要 pull request，
+任何人都可以修改。
 
-If you want to add your plugin to the [list of plugins](/docs/plugins/#available-plugins),
-please submit a pull request modifying the [plugins page source
-file]({{ site.repository }}/blob/master/site/_docs/plugins.md) by adding a
-link to your plugin under the proper subheading depending upon its type.
-
-Gotchas
+陷阱
 -------
 
-* If you want to bump the gem version, please put that in a separate commit.
-  This way, the maintainers can control when the gem gets released.
-* Try to keep your patch(es) based from the latest commit on jekyll/jekyll.
-  The easier it is to apply your work, the less work the maintainers have to do,
-  which is always a good thing.
-* Please don't tag your GitHub issue with \[fix\], \[feature\], etc. The maintainers
-  actively read the issues and will label it once they come across it.
+* 如果你想修改 gem 版本，请放在一个独立的提交里边。如此，维护人员方便管理一些。 
+* 尽量让你分支中的代码是最新的。
+* 不要在你的 GitHub issue 用 [fix], [feature] 等标记。维护人员会积极的阅读 issues，一 旦碰到他们会主动标记。
+
+
 
 <div class="note">
-  <h5>Let us know what could be better!</h5>
+  <h5>帮助我们做的更好</h5>
   <p>
-    Both using and hacking on Jekyll should be fun, simple, and easy, so if for
-    some reason you find it’s a pain, please <a
-    href="{{ site.repository }}/issues/new">create an issue</a> on
-    GitHub describing your experience so we can make it better.
+    Both不管使用还是为 Jekyll 贡献代码，都应该是有趣的、简单的、轻松的，所以如果你发现有什么不适，
+    请在 Github 上 <a href="{{ site.repository }}/issues/new">提交一个 issue</a> 。
   </p>
 </div>

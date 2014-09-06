@@ -1,107 +1,63 @@
 ---
 layout: docs
-title: Installation
+title: 安装
 prev_section: quickstart
 next_section: usage
 permalink: /docs/installation/
+contributor: Neo-J
 ---
+安装完成 Jekyll 需要几分钟的时间。如果你觉得安装对你来说并不方便, 请 [file an
+issue]({{ site.repository }}/issues/new) (或者提交一个 pull request)
+来描述一下你的遭遇并告诉我们如何使这个安装过程更加便捷。
 
-Getting Jekyll installed and ready-to-go should only take a few minutes. If it
-ever becomes a pain in the ass, please [file an
-issue]({{ site.repository }}/issues/new) (or submit a pull request)
-describing the issue you encountered and how we might make the process easier.
+### 事先准备
 
-### Requirements
+安装 Jekyll 相当简单，但是你得先做好一些准备工作。开始前你需要确保你在系统里已经有如下配置。
 
-Installing Jekyll is easy and straight-forward, but there are a few requirements
-you’ll need to make sure your system has before you start.
-
-- [Ruby](http://www.ruby-lang.org/en/downloads/) (including development
-  headers)
+- [Ruby](http://www.ruby-lang.org/en/downloads/)
 - [RubyGems](http://rubygems.org/pages/download)
 - Linux, Unix, or Mac OS X
-- [NodeJS](http://nodejs.org), or another JavaScript runtime (for
-  CoffeeScript support).
 
 <div class="note info">
-  <h5>Running Jekyll on Windows</h5>
+  <h5>在 Windows 下使用 Jekyll</h5>
   <p>
-    While Windows is not officially supported, it is possible to get it running
-    on Windows. Special instructions can be found on our
-    <a href="../windows/#installation">Windows-specific docs page</a>.
+    你可以使用
+    <a href="http://www.madhur.co.in/blog/2011/09/01/runningjekyllwindows.html">
+    Jekyll running on Windows</a>, 但是官方文档并不建议你在 Windows 平台上安装 Jekyll。
   </p>
 </div>
 
-## Install with RubyGems
+## 借助 RubyGems 安装 Jekyll
 
-The best way to install Jekyll is via
-[RubyGems](http://rubygems.org/pages/download). At the terminal prompt,
-simply run the following command to install Jekyll:
+安装 Jekyll 的最好方式就是使用
+[RubyGems](http://docs.rubygems.org/read/chapter/3). 你只需要打开终端输入以下命令就可以安装了：
 
 {% highlight bash %}
 $ gem install jekyll
 {% endhighlight %}
 
-All of Jekyll’s gem dependencies are automatically installed by the above
-command, so you won’t have to worry about them at all. If you have problems
-installing Jekyll, check out the [troubleshooting](../troubleshooting/) page or
-[report an issue]({{ site.repository }}/issues/new) so the Jekyll
-community can improve the experience for everyone.
+所有的 Jekyll 的 gem 依赖包都会被自动安装，所以你完全不用去担心。如果你在安装中碰到了问题，请查看 [troubleshooting](../troubleshooting/) 或者
+[report an issue]({{ site.repository }}/issues/new) 那么Jekyll社区就会帮助你和其他用户解决问题了。
 
 <div class="note info">
-  <h5>Installing Xcode Command-Line Tools</h5>
+  <h5>安装 Xcode Command-Line Tools</h5>
   <p>
-    If you run into issues installing Jekyll's dependencies which make use of
-    native extensions and are using Mac OS X, you will need to install Xcode
-    and the Command-Line Tools it ships with. Download in
-    <code>Preferences &#8594; Downloads &#8594; Components</code>.
+    如果你是Mac用户，你就需要安装 Xcode 和 Command-Line Tools了。下载方式
+    <code>Preferences &#8594; Downloads &#8594; Components</code>。
   </p>
 </div>
 
-## Pre-releases
+## 附加功能
 
-In order to install a pre-release, make sure you have all the requirements
-installed properly and run:
-
-{% highlight bash %}
-gem install jekyll --pre
-{% endhighlight %}
-
-This will install the latest pre-release. If you want a particular pre-release,
-use the `-v` switch to indicate the version you'd like to install:
-
-{% highlight bash %}
-gem install jekyll -v '2.0.0.alpha.1'
-{% endhighlight %}
-
-If you'd like to install a development version of Jekyll, the process is a bit
-more involved. This gives you the advantage of having the latest and greatest,
-but may be unstable.
-
-{% highlight bash %}
-$ git clone git://github.com/jekyll/jekyll.git
-$ cd jekyll
-$ script/bootstrap
-$ bundle exec rake build
-$ ls pkg/*.gem | head -n 1 | xargs gem install -l
-{% endhighlight %}
-
-## Optional Extras
-
-There are a number of (optional) extra features that Jekyll supports that you
-may want to install, depending on how you plan to use Jekyll. These extras
-include LaTeX support, and the use of alternative content rendering engines.
-Check out [the extras page](../extras/) for more information.
+根据每个人使用方式的不同，Jekyll 还支持你安装一些附加功能。包括了对 LaTex 的支持，以及使用动态内容渲染引擎。查看 [the extras page](../extras/) 获得更多信息。
 
 <div class="note">
-  <h5>ProTip™: Enable Syntax Highlighting</h5>
+  <h5>ProTip™: 允许代码高亮</h5>
   <p>
-    If you’re the kind of person who is using Jekyll, then chances are you’ll
-    want to enable syntax highlighting using <a href="http://pygments.org/">Pygments</a>
-    or <a href="https://github.com/jayferd/rouge">Rouge</a>. You should really
-    <a href="../templates/#code-snippet-highlighting">check out how to
-    do that</a> before you go any farther.
+    如果你是一个使用 Jekyll 的程序猿，用 Pygments 来支持代码高亮吧。当然，使用前请先查看
+    <a href="../templates/#code_snippet_highlighting">how to do
+    that</a>。
   </p>
 </div>
 
-Now that you’ve got everything installed, let’s get to work!
+哦耶～你已经安装了所有需要的东西了，开始玩转 Jekyll 博客吧！
