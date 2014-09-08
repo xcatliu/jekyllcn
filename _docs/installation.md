@@ -4,7 +4,7 @@ title: 安装
 prev_section: quickstart
 next_section: usage
 permalink: /docs/installation/
-translators: Neo-J, xcatliu
+translators: [ Neo-J, xcatliu ]
 ---
 安装完成 Jekyll 需要几分钟的时间。如果你觉得安装对你来说并不方便, 请 [file an
 issue]({{ site.repository }}/issues/new) (或者提交一个 pull request)

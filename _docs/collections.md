@@ -4,6 +4,7 @@ title: Collections
 prev_section: variables
 next_section: datafiles
 permalink: /docs/collections/
+translators: [ xcatliu ]
 ---
 
 <div class="note warning">
