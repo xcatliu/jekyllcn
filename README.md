@@ -31,5 +31,3 @@ jekyllcn 是 [http://jekyllrb.com](http://jekyllrb.com) 的中文翻译网站
 
 * 升级到 2.x.x
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jekyllcn/jekyllcn.github.io/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
