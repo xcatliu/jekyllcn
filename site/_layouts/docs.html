@@ -14,6 +14,13 @@ layout: default
           </div>
           <h1>{{ page.title }}</h1>
           {{ content }}
+
+          <div class="doc-footer">
+            <p class="left"><a href="http://jekyllrb.com{{ page.url }}">原文链接</a></p>
+            <p class="right">翻译贡献者：{{ page.translators | join: ', '}}</p>
+            <div class="clear"></div>
+          </div>
+          
           {% include section_nav.html %}
         </article>
       </div>
