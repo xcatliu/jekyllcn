@@ -10,10 +10,18 @@ aside h4 {
 .jekyllcn-header {
   color: #222;
   background-color: #fc0;
+  margin-top: -5px;
+  background-image: linear-gradient(
+    to right,
+    #fc0 0%,
+    #fc0 49%,
+    #fff0b3 49%,
+    #fff0b3 100%
+  );
 }
 
 .jekyllcn-header a {
-  color: #026179;
+  color: #0389aa;
 }
 
 .jekyllcn-header a:hover {
@@ -22,8 +30,4 @@ aside h4 {
 
 .jekyllcn-header p {
   margin: 0;
-}
-
-.jekyllcn-header {
-  border-bottom: 5px solid #fc0;
 }
