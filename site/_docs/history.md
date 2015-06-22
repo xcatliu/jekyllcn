@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: History
-permalink: "/docs/history/"
+permalink: /docs/history/
 ---
 
 ## 2.5.3 / 2014-12-22

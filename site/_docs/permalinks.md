@@ -1,27 +1,22 @@
 ---
 layout: docs
-title: Permalinks
+title: 永久链接
 permalink: /docs/permalinks/
+translators: debbbbie
 ---
 
-Jekyll supports a flexible way to build your site’s URLs. You can specify the
-permalinks for your site through the [Configuration](../configuration/) or in
-the [YAML Front Matter](../frontmatter/) for each post. You’re free to choose
-one of the built-in styles to create your links or craft your own. The default
-style is `date`.
+Jekyll 支持以灵活的方式管理你网站的链接，你可以通过 [Configuration](../configuration/) 或 [YAML 头信息](../frontmatter/) 为每篇文章设置永久链接。你可以随心所欲地选择内建链接格式，或者自定义链接格式。默认配置为 `date`。
 
-Permalinks are constructed by creating a template URL where dynamic elements
-are represented by colon-prefixed keywords. For example, the default `date`
-permalink is defined according to the format `/:categories/:year/:month/:day/:title.html`.
+永久链接的模板用以冒号为前缀的关键词标记动态内容，比如 `date` 代表 `/:categories/:year/:month/:day/:title.html`。
 
-## Template variables
+## 模板变量
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>Variable</th>
-      <th>Description</th>
+      <th>变量</th>
+      <th>描述</th>
     </tr>
   </thead>
   <tbody>
@@ -30,7 +25,7 @@ permalink is defined according to the format `/:categories/:year/:month/:day/:ti
         <p><code>year</code></p>
       </td>
       <td>
-        <p>Year from the Post’s filename</p>
+        <p>文章所在文件的年份</p>
       </td>
     </tr>
     <tr>
@@ -38,7 +33,7 @@ permalink is defined according to the format `/:categories/:year/:month/:day/:ti
         <p><code>month</code></p>
       </td>
       <td>
-        <p>Month from the Post’s filename</p>
+        <p>文章所在文件的月份，格式如 `01, 10` </p>
       </td>
     </tr>
     <tr>
@@ -46,7 +41,7 @@ permalink is defined according to the format `/:categories/:year/:month/:day/:ti
         <p><code>i_month</code></p>
       </td>
       <td>
-        <p>Month from the Post’s filename without leading zeros.</p>
+        <p>文章所在文件的月份，格式如 `1, 10` </p>
       </td>
     </tr>
     <tr>
@@ -54,7 +49,7 @@ permalink is defined according to the format `/:categories/:year/:month/:day/:ti
         <p><code>day</code></p>
       </td>
       <td>
-        <p>Day from the Post’s filename</p>
+        <p>文章所在文件的日期，格式如 `01, 20`</p>
       </td>
     </tr>
     <tr>
@@ -62,15 +57,7 @@ permalink is defined according to the format `/:categories/:year/:month/:day/:ti
         <p><code>i_day</code></p>
       </td>
       <td>
-        <p>Day from the Post’s filename without leading zeros.</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <p><code>short_year</code></p>
-      </td>
-      <td>
-        <p>Year from the Post’s filename without the century.</p>
+        <p>文章所在文件的日期，格式如 `1, 20`</p>
       </td>
     </tr>
     <tr>
@@ -78,10 +65,7 @@ permalink is defined according to the format `/:categories/:year/:month/:day/:ti
         <p><code>title</code></p>
       </td>
       <td>
-        <p>
-            Title from the document’s filename. May be overridden via the
-            document’s <code>slug</code> YAML front matter.
-        </p>
+        <p>文章所在文件的标题</p>
       </td>
     </tr>
     <tr>
@@ -90,10 +74,7 @@ permalink is defined according to the format `/:categories/:year/:month/:day/:ti
       </td>
       <td>
         <p>
-          The specified categories for this Post. If a post has multiple
-          categories, Jekyll will create a hierarchy (e.g. <code>/category1/category2</code>).
-          Also Jekyll automatically parses out double slashes in the URLs,
-          so if no categories are present, it will ignore this.
+          为文章配置的目录，Jekyll 可以自动将 `//` 转换为 `/` ，所以如果没有目录，会自动忽略
         </p>
       </td>
     </tr>
@@ -101,17 +82,14 @@ permalink is defined according to the format `/:categories/:year/:month/:day/:ti
 </table>
 </div>
 
-## Built-in permalink styles
-
-While you can specify a custom permalink style using [template variables](#template-variables),
-Jekyll also provides the following built-in styles for convenience.
+## 已经建好的链接类型
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>Permalink Style</th>
-      <th>URL Template</th>
+      <th>链接类型</th>
+      <th> URL 模板</th>
     </tr>
   </thead>
   <tbody>
@@ -133,14 +111,6 @@ Jekyll also provides the following built-in styles for convenience.
     </tr>
     <tr>
       <td>
-        <p><code>ordinal</code></p>
-      </td>
-      <td>
-        <p><code>/:categories/:year/:y_day/:title.html</code></p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <p><code>none</code></p>
       </td>
       <td>
@@ -151,49 +121,22 @@ Jekyll also provides the following built-in styles for convenience.
 </table>
 </div>
 
-## Pages and collections
+## 举例
 
-<div class="note unreleased">
-  <h5>Support for improved page and collection permalinks is currently unreleased.</h5>
-  <p>
-    In order to use this feature, <a href="/docs/installation/#pre-releases">
-    install the latest development version of Jekyll</a>.
-  </p>
-</div>
-
-The `permalink` configuration setting specifies the permalink style used for
-posts. Pages and collections each have their own default permalink style; the
-default style for pages is `/:path/:basename` and the default for collections is
-`/:collection/:path`.
-
-These styles are modified to match the suffix style specified in the post
-permalink setting. For example, a permalink style of `pretty`, which contains a
-trailing slash, will update page permalinks to also contain a trailing slash:
-`/:path/:basename/`. A permalink style of `date`, which contains a trailing
-file extension, will update page permalinks to also contain a file extension:
-`/:path/:basename:output_ext`. The same is true for any custom permalink style.
-
-The permalink for an individual page or collection document can always be
-overridden in the [YAML Front Matter](../frontmatter/) for the page or document.
-Additionally, permalinks for a given collection can be customized [in the
-collections configuration](../collections/).
-
-## Permalink style examples
-
-Given a post named: `/2009-04-29-slap-chop.md`
+比如文件名： `/2009-04-29-slap-chop.textile`
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>URL Template</th>
-      <th>Resulting Permalink URL</th>
+      <th>设置</th>
+      <th>对应的 URL </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
-        <p>None specified, or <code>permalink: date</code></p>
+        <p>没有配置或 <code>permalink: date</code></p>
       </td>
       <td>
         <p><code>/2009/04/29/slap-chop.html</code></p>
@@ -201,7 +144,7 @@ Given a post named: `/2009-04-29-slap-chop.md`
     </tr>
     <tr>
       <td>
-        <p><code>pretty</code></p>
+        <p><code>permalink: pretty</code></p>
       </td>
       <td>
         <p><code>/2009/04/29/slap-chop/index.html</code></p>
@@ -209,7 +152,7 @@ Given a post named: `/2009-04-29-slap-chop.md`
     </tr>
     <tr>
       <td>
-        <p><code>/:month-:day-:year/:title.html</code></p>
+        <p><code>permalink: /:month-:day-:year/:title.html</code></p>
       </td>
       <td>
         <p><code>/04-29-2009/slap-chop.html</code></p>
@@ -217,65 +160,12 @@ Given a post named: `/2009-04-29-slap-chop.md`
     </tr>
     <tr>
       <td>
-        <p><code>/blog/:year/:month/:day/:title/</code></p>
+        <p><code>permalink: /blog/:year/:month/:day/:title</code></p>
       </td>
       <td>
-        <p><code>/blog/2009/04/29/slap-chop/</code></p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <p><code>/:year/:month/:title</code></p>
-        <p>See <a href="#extensionless-permalinks">extensionless permalinks</a> for details.</p>
-      </td>
-      <td>
-        <p><code>/2009/04/slap-chop</code></p>
+        <p><code>/blog/2009/04/29/slap-chop/index.html</code></p>
       </td>
     </tr>
   </tbody>
 </table>
 </div>
-
-## Extensionless permalinks
-
-<div class="note unreleased">
-  <h5>Support for extensionless permalink is currently unreleased.</h5>
-  <p>
-    In order to use this feature, <a href="/docs/installation/#pre-releases">
-    install the latest development version of Jekyll</a>.
-  </p>
-</div>
-
-Jekyll supports permalinks that contain neither a trailing slash nor a file
-extension, but this requires additional support from the web server to properly
-serve. When using extensionless permalinks, output files written to disk will
-still have the proper file extension (typically `.html`), so the web server
-must be able to map requests without file extensions to these files.
-
-Both [GitHub Pages](../github-pages/) and the Jekyll's built-in WEBrick server
-handle these requests properly without any additional work.
-
-### Apache
-
-The Apache web server has very extensive support for content negotiation and can
-handle extensionless URLs by setting the [multiviews][] option in your
-`httpd.conf` or `.htaccess` file:
-
-[multiviews]: https://httpd.apache.org/docs/current/content-negotiation.html#multiviews
-
-{% highlight apache %}
-Options +MultiViews
-{% endhighlight %}
-
-### Nginx
-
-The [try_files][] directive allows you to specify a list of files to search for
-to process a request. The following configuration will instruct nginx to search
-for a file with an `.html` extension if an exact match for the requested URI is
-not found.
-
-[try_files]: http://nginx.org/en/docs/http/ngx_http_core_module.html#try_files
-
-{% highlight nginx %}
-try_files $uri $uri.html $uri/ =404;
-{% endhighlight %}
