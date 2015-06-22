@@ -16,20 +16,20 @@ next, lets build a link to it.
     <div class="section-nav">
       <div class="left align-right">
           {% if forloop.first %}
-            <span class="prev disabled">Back</span>
+            <span class="prev disabled">上一节</span>
           {% else %}
             {% assign previous = forloop.index0 | minus: 1 %}
             {% assign previous_page = docs[previous] | prepend:"/docs/" | append:"/" %}
-            <a href="{{ previous_page }}" class="prev">Back</a>
+            <a href="{{ previous_page }}" class="prev">上一节</a>
           {% endif %}
       </div>
       <div class="right align-left">
           {% if forloop.last %}
-            <span class="next disabled">Next</span>
+            <span class="next disabled">下一节</span>
           {% else %}
             {% assign next = forloop.index0 | plus: 1 %}
             {% assign next_page = docs[next] | prepend:"/docs/" | append:"/" %}
-            <a href="{{ next_page }}" class="next">Next</a>
+            <a href="{{ next_page }}" class="next">下一节</a>
           {% endif %}
       </div>
     </div>
