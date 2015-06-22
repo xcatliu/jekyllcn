@@ -1,4 +1,4 @@
-- title: Getting Started
+- title: 开始
   docs:
   - home
   - quickstart
@@ -7,7 +7,7 @@
   - structure
   - configuration
 
-- title: Your Content
+- title: 博客内容
   docs:
   - frontmatter
   - posts
@@ -20,7 +20,7 @@
   - assets
   - migrations
 
-- title: Customization
+- title: 个性化
   docs:
   - templates
   - permalinks
@@ -28,20 +28,20 @@
   - plugins
   - extras
 
-- title: Deployment
+- title: 发布
   docs:
   - github-pages
   - deployment-methods
   - continuous-integration
 
-- title: Miscellaneous
+- title: 杂项
   docs:
   - troubleshooting
   - sites
   - resources
   - upgrading
 
-- title: Meta
+- title: 元信息
   docs:
   - contributing
   - history
