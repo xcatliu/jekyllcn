@@ -1,24 +1,22 @@
 ---
 layout: docs
-title: Static Files
+title: 静态文件
 permalink: /docs/static-files/
+translators: yzyzsun
 ---
 
-In addition to renderable and convertible content, we also have **static
-files**.
+除了用于渲染和转换的内容之外，我们还可以使用**静态文件**。
 
-A static file is a file that does not contain any YAML front matter. These
-include images, PDFs, and other un-rendered content.
+静态文件不包含任何 YAML 头信息，这包括图片、PDF 和其他不必渲染的内容。
 
-They're accessible in Liquid via `site.static_files` and contain the
-following metadata:
+它们在 Liquid 中可以通过 `site.static_files` 访问，还包括以下元数据：
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>Variable</th>
-      <th>Description</th>
+      <th>变量</th>
+      <th>描述</th>
     </tr>
   </thead>
   <tbody>
@@ -26,7 +24,7 @@ following metadata:
       <td><p><code>file.path</code></p></td>
       <td><p>
 
-        The relative path to the file.
+        文件的相对路径
 
       </p></td>
     </tr>
@@ -34,7 +32,7 @@ following metadata:
       <td><p><code>file.modified_time</code></p></td>
       <td><p>
 
-        The `Time` the file was last modified.
+        文件的最后修改时间
 
       </p></td>
     </tr>
@@ -42,8 +40,7 @@ following metadata:
       <td><p><code>file.extname</code></p></td>
       <td><p>
 
-        The extension name for the file, e.g.
-        <code>.jpg</code> for <code>image.jpg</code>
+        文件的扩展名，如 <code>image.jpg</code> 中的 <code>.jpg</code>
 
       </p></td>
     </tr>
