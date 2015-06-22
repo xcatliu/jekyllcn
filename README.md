@@ -5,13 +5,13 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 
 [jekyllcn](http://jekyllcn.com/) 是 [jekyllrb](http://jekyllrb.com/) 的中文翻译网站。
 
-由于官方文档更新，现在中文文档落后于官方文档，感兴趣的可以来贡献翻译。
+由于官方文档更新，现在中文文档落后于官方文档，欢迎参与[贡献翻译](https://github.com/xcatliu/jekyllcn#如何贡献翻译)。
 
 ## 如何贡献翻译
 
 1. [新建一个 issue](https://github.com/xcatliu/jekyllcn/issues/new)，说明要贡献哪篇文档（可以是落后于官方版本的中文文档，也可以是还没有翻译的文档）
-2. fork 之后，修改 `/site/_docs/` 中的对应文档进行翻译，并在本地预览，如果不知道如何在本地启动，可以参考[如何在本地启动](#如何在本地启动)
-3. 在 `frontmatter` 中将自己加入到 `translators` 字段
+2. fork 之后，修改 `/site/_docs/` 中的对应文档进行翻译，并在本地预览，如果不知道如何在本地启动，可以参考[如何在本地启动](https://github.com/xcatliu/jekyllcn#如何在本地启动)
+3. 注意在 Front Matter 中将自己加入到 `translators` 字段，若无此字段，则添加一个
 4. 提交一个 pull-request，等待审核
 
 ## 如何在本地启动
@@ -24,21 +24,83 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 
 ## 如何发布到 jekyllcn.com
 
-1. 执行 `bundle exec rake site:publis`
+1. 执行 `bundle exec rake site:publish`
 
 ## 项目进度
 
 ### 翻译进度
 
+- [x] 翻译 home
+- [x] 翻译 quickstart
+- [x] 翻译 installation
+- [x] 翻译 usage
+- [x] 翻译 structure
+- [x] 翻译 configuration
+- [x] 翻译 frontmatter
+- [x] 翻译 posts
+- [x] 翻译 drafts
+- [x] 翻译 pages
+- [ ] 翻译 static-files
+- [x] 翻译 variables
+- [ ] 翻译 collections
+- [ ] 翻译 datafiles
+- [ ] 翻译 assets
+- [x] 翻译 migrations
+- [x] 翻译 templates
+- [x] 翻译 permalinks
+- [x] 翻译 pagination
+- [x] 翻译 plugins
+- [ ] 翻译 extras
+- [ ] 翻译 github-pages
+- [x] 翻译 deployment-methods
+- [ ] 翻译 continuous-integration
+- [x] 翻译 troubleshooting
+- [x] 翻译 sites
+- [x] 翻译 resources
+- [x] 翻译 upgrading
+- [x] 翻译 contributing
+- [ ] 翻译 history
 
+### 更新进度
+
+- [ ] 更新 home
+- [ ] 更新 quickstart
+- [ ] 更新 installation
+- [ ] 更新 usage
+- [ ] 更新 structure
+- [ ] 更新 configuration
+- [ ] 更新 frontmatter
+- [ ] 更新 posts
+- [ ] 更新 drafts
+- [ ] 更新 pages
+- [ ] 更新 static-files
+- [ ] 更新 variables
+- [ ] 更新 collections
+- [ ] 更新 datafiles
+- [ ] 更新 assets
+- [ ] 更新 migrations
+- [ ] 更新 templates
+- [ ] 更新 permalinks
+- [ ] 更新 pagination
+- [ ] 更新 plugins
+- [ ] 更新 extras
+- [ ] 更新 github-pages
+- [ ] 更新 deployment-methods
+- [ ] 更新 continuous-integration
+- [ ] 更新 troubleshooting
+- [ ] 更新 sites
+- [ ] 更新 resources
+- [ ] 更新 upgrading
+- [ ] 更新 contributing
+- [ ] 更新 history
 
 ### 基础建设
 
-- [x] 跟进官网网站版本（2015-06-22）
+- [x] 跟进官方网站版本（2015-06-22）
+- [x] 首页中文适配（2015-06-22）
 - [x] 页脚加上贡献翻译链接
 - [x] 导航加上贡献翻译链接
 - [x] 每篇文档加上贡献翻译链接
-- [ ] 每篇文章加上原文链接
 - [x] 加上 ga
 - [x] 加上适配 jekyllcn 的 css
 - [x] 加上如何贡献翻译的文档
@@ -47,5 +109,7 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 - [x] header 中文适配
 - [x] 上一节下一节中文适配
 - [x] 右侧表头中文适配
-- [x] 首页中文适配（2015-06-22）
 - [x] head 中文适配
+- [ ] 每篇文文档加上原文链接
+- [x] 在 header 中加入贡献翻译链接
+- [ ] 每篇文档加上翻译贡献者
