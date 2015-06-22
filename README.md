@@ -20,7 +20,7 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 2. 执行 `bundle install`
 3. 执行 `bundle exec rake site:preview`
 
-参考 [contributing](http://jekyllrb.com/docs/contributing/)。
+参考 [contributing](http://jekyllcn.com/docs/contributing/)。
 
 ## 如何发布到 jekyllcn.com
 
