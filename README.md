@@ -3,6 +3,8 @@ jekyllcn
 
 Forked from [jekyll](https://github.com/jekyll/jekyll).
 
+网址：[http://jekyllcn.com/](http://jekyllcn.com/)
+
 [jekyllcn](http://jekyllcn.com/) 是 [jekyllrb](http://jekyllrb.com/) 的中文翻译网站。
 
 由于官方文档更新，现在中文文档落后于官方文档，欢迎参与[贡献翻译](https://github.com/xcatliu/jekyllcn#如何贡献翻译)。
@@ -12,6 +14,7 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 1. [新建一个 issue](https://github.com/xcatliu/jekyllcn/issues/new)，说明要贡献哪篇文档（可以是落后于官方版本的中文文档，也可以是还没有翻译的文档）
 2. fork 之后，修改 `/site/_docs/` 中的对应文档进行翻译，并在本地预览，如果不知道如何在本地启动，可以参考[如何在本地启动](https://github.com/xcatliu/jekyllcn#如何在本地启动)
 3. 注意在 Front Matter 中将自己加入到 `translators` 字段，若无此字段，则添加一个
+4. 若要修改 css，请修改 `/site/_sass/_jekyllcn.scss`，新增的 css 以 `.jekyllcn-` 开头，尽量避免破坏 jekyll 的文件
 4. 提交一个 pull-request，等待审核
 
 ## 如何在本地启动
@@ -28,7 +31,7 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 
 ## 项目进度
 
-总体进度：38 / 78 = 49%
+总体进度：42 / 78 = 54%
 
 ### 翻译进度
 
@@ -42,10 +45,10 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 - [x] 翻译 posts
 - [x] 翻译 drafts
 - [x] 翻译 pages
-- [ ] 翻译 static-files
+- [x] 翻译 static-files
 - [x] 翻译 variables
 - [ ] 翻译 collections
-- [ ] 翻译 datafiles
+- [x] 翻译 datafiles
 - [ ] 翻译 assets
 - [x] 翻译 migrations
 - [x] 翻译 templates
@@ -75,10 +78,10 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 - [ ] 更新 posts
 - [ ] 更新 drafts
 - [ ] 更新 pages
-- [ ] 更新 static-files
+- [x] 更新 static-files
 - [ ] 更新 variables
 - [ ] 更新 collections
-- [ ] 更新 datafiles
+- [x] 更新 datafiles
 - [ ] 更新 assets
 - [ ] 更新 migrations
 - [ ] 更新 templates
