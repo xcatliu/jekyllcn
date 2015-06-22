@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>Data Files</title>
+  <title>数据文件</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Jekyll v3.0.0.pre.beta7">
   <link rel="alternate" type="application/rss+xml" title="Jekyll • 简单静态博客网站生成器 - Feed" href="/feed.xml">
@@ -833,7 +833,7 @@
     
   
     
-      <option value="/docs/static-files/">Static Files</option>
+      <option value="/docs/static-files/">静态文件</option>
     
   
     
@@ -1001,7 +1001,7 @@
     
   
     
-      <option value="/docs/datafiles/">Data Files</option>
+      <option value="/docs/datafiles/">数据文件</option>
     
   
     
@@ -2183,34 +2183,24 @@
           <div class="improve right hide-on-mobiles">
             <a href="https://github.com/xcatliu/jekyllcn/edit/master/site/_docs/datafiles.md"><i class="fa fa-pencil"></i> &nbsp;发现错误或贡献翻译</a>
           </div>
-          <h1>Data Files</h1>
-          <p>In addition to the <a href="../variables/">built-in variables</a> available from Jekyll,
-you can specify your own custom data that can be accessed via the <a href="https://wiki.github.com/shopify/liquid/liquid-for-designers">Liquid
-templating system</a>.</p>
+          <h1>数据文件</h1>
+          <p>除了 Jekyll 的<a href="../variables/">内建变量</a>之外，你还可以指定用于 <a href="https://wiki.github.com/shopify/liquid/liquid-for-designers">Liquid 模板系统</a> 的自定义数据。</p>
 
-<p>Jekyll supports loading data from <a href="http://yaml.org/">YAML</a>, <a href="http://www.json.org/">JSON</a>,
-and <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> files located in the <code>_data</code> directory.
-Note that CSV files <em>must</em> contain a header row.</p>
+<p>Jekyll 支持从 <code>_data</code> 目录下的 <a href="http://yaml.org/">YAML</a>、<a href="http://www.json.org/">JSON</a> 和 <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> 载入数据，注意 CSV 文件<strong>必须</strong>包含表头行。</p>
 
-<p>This powerful feature allows you to avoid repetition in your templates and to
-set site specific options without changing <code>_config.yml</code>.</p>
+<p>这个强大的特性可以帮你避免模板中的重复，并能在不修改 <code>_config.yml</code> 的情况下设置网站特定的选项。</p>
 
-<p>Plugins/themes can also leverage Data Files to set configuration variables.</p>
+<p>插件和主题也可以通过数据文件来配置变量。</p>
 
-<h2 id="the-data-folder">The Data Folder</h2>
+<h2 id="section">数据目录</h2>
 
-<p>As explained on the <a href="../structure/">directory structure</a> page, the <code>_data</code>
-folder is where you can store additional data for Jekyll to use when generating
-your site. These files must be YAML files
-(using either the <code>.yml</code>, <code>.yaml</code>, <code>.json</code> or <code>csv</code> extension) and they will be
-accessible via <code>site.data</code>.</p>
+<p>正如在<a href="../structure/">目录结构</a>中所描述的，<code>_data</code> 目录用于存储供 Jekyll 生成网站的附加数据。这些文件可以使用 <code>.yml</code>、<code>.yaml</code>、<code>.json</code>、<code>csv</code> 扩展名，并可通过 <code>site.data</code> 访问。</p>
 
-<h2 id="example-list-of-members">Example: List of members</h2>
+<h2 id="section-1">示例：成员列表</h2>
 
-<p>Here is a basic example of using Data Files to avoid copy-pasting large chunks
-of code in your Jekyll templates:</p>
+<p>这是一个数据文件的简单示例，用以避免在模板中复制粘贴大段代码。</p>
 
-<p>In <code>_data/members.yml</code>:</p>
+<p><code>_data/members.yml</code>:</p>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Tom Preston-Werner</span>
   <span class="l-Scalar-Plain">github</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">mojombo</span>
@@ -2221,17 +2211,16 @@ of code in your Jekyll templates:</p>
 <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Liu Fengyun</span>
   <span class="l-Scalar-Plain">github</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">liufengyun</span></code></pre></figure>
 
-<p>Or <code>_data/members.csv</code>:</p>
+<p>或 <code>_data/members.csv</code>:</p>
 
 <figure class="highlight"><pre><code class="language-text" data-lang="text">name,github
 Tom Preston-Werner,mojombo
 Parker Moore,parkr
 Liu Fengyun,liufengyun</code></pre></figure>
 
-<p>This data can be accessed via <code>site.data.members</code> (notice that the filename
-determines the variable name).</p>
+<p>这些数据可以通过 <code>site.data.members</code> 访问（注意文件名决定了变量名）。</p>
 
-<p>You can now render the list of members in a template:</p>
+<p>你现在可以在模板中使用该成员列表了：</p>
 
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul&gt;</span>
 {% for member in site.data.members %}
@@ -2243,14 +2232,11 @@ determines the variable name).</p>
 {% endfor %}
 <span class="nt">&lt;/ul&gt;</span></code></pre></figure>
 
-<h2 id="example-organizations">Example: Organizations</h2>
+<h2 id="section-2">示例：组织结构</h2>
 
-<p>Data files can also be placed in sub-folders of the <code>_data</code> folder. Each folder
-level will be added to a variable’s namespace. The example below shows how
-GitHub organizations could be defined separately in a file under the <code>orgs</code>
-folder:</p>
+<p>数据文件也可以被放在 <code>_data</code> 的子目录下，每层目录都将添加进变量的命名空间。下面的示例展示了如何在 <code>orgs</code> 目录下分别定义 GitHub 的组织结构：</p>
 
-<p>In <code>_data/orgs/jekyll.yml</code>:</p>
+<p><code>_data/orgs/jekyll.yml</code>:</p>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">username</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">jekyll</span>
 <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Jekyll</span>
@@ -2261,7 +2247,7 @@ folder:</p>
   <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Parker Moore</span>
     <span class="l-Scalar-Plain">github</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">parkr</span></code></pre></figure>
 
-<p>In <code>_data/orgs/doeorg.yml</code>:</p>
+<p><code>_data/orgs/doeorg.yml</code>:</p>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">username</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">doeorg</span>
 <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Doe Org</span>
@@ -2269,8 +2255,7 @@ folder:</p>
   <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">John Doe</span>
     <span class="l-Scalar-Plain">github</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">jdoe</span></code></pre></figure>
 
-<p>The organizations can then be accessed via <code>site.data.orgs</code>, followed by the
-file name:</p>
+<p>该组织结构能够通过 <code>site.data.orgs</code> 加上各自的文件名访问：</p>
 
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul&gt;</span>
 {% for org_hash in site.data.orgs %}
@@ -2284,9 +2269,9 @@ file name:</p>
 {% endfor %}
 <span class="nt">&lt;/ul&gt;</span></code></pre></figure>
 
-<h2 id="example-accessing-a-specific-author">Example: Accessing a specific author</h2>
+<h2 id="section-3">示例：访问特定的作者</h2>
 
-<p>Pages and posts can also access a specific data item. The example below shows how to access a specific item:</p>
+<p>页面和文章也可以访问特定的数据项目，下面的例子展示了如何实现：</p>
 
 <p><code>_data/people.yml</code>:</p>
 
@@ -2294,7 +2279,7 @@ file name:</p>
     <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">David Smith</span>
     <span class="l-Scalar-Plain">twitter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">DavidSilvaSmith</span></code></pre></figure>
 
-<p>The author can then be specified as a page variable in a post’s frontmatter:</p>
+<p>然后可在文章的头信息中指定作者：</p>
 
 <figure class="highlight"><pre><code class="language-html" data-lang="html">---
 title: sample post
@@ -2843,7 +2828,7 @@ author: dave
     
   
     
-      <li class=""><a href="/docs/static-files/">Static Files</a></li>
+      <li class=""><a href="/docs/static-files/">静态文件</a></li>
       
 
 
@@ -2943,7 +2928,7 @@ author: dave
     
   
     
-      <li class="current"><a href="/docs/datafiles/">Data Files</a></li>
+      <li class="current"><a href="/docs/datafiles/">数据文件</a></li>
       
 
 
