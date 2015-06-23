@@ -2,7 +2,7 @@
 layout: docs
 title: 目录结构
 permalink: /docs/structure/
-translators: Neo-J
+translators: [Neo-J, chaucerling]
 ---
 
 Jekyll 的核心其实是一个文本转换引擎。它的概念其实就是：你用你最喜欢的标记语言来写文章，可以是 Markdown, 也可以是 Textile, 或者就是简单的 HTML, 然后 Jekyll 就会帮你套入一个或一系列的布局中。在整个过程中你可以设置 URL 路径，你的文本在布局中的显示样式等等。这些都可以通过纯文本编辑来实现，最终生成的静态页面就是你的成品了。
@@ -24,6 +24,7 @@ Jekyll 的核心其实是一个文本转换引擎。它的概念其实就是：�
 |   ├── 2007-10-29-why-every-programmer-should-play-nethack.textile
 |   └── 2009-04-26-barcamp-boston-4-roundup.textile
 ├── _site
+├── .jekyll-metadata
 └── index.html
 {% endhighlight %}
 
@@ -57,7 +58,7 @@ Jekyll 的核心其实是一个文本转换引擎。它的概念其实就是：�
       <td>
         <p>
 
-          drafts 是未发布的文章。这些文件的格式中都没有 <code>title.MARKUP</code> 数据。学习如何使用 <a href="../drafts/">drafts</a>.
+          drafts（草稿）是未发布的文章。这些文件的格式中都没有 <code>title.MARKUP</code> 数据。学习如何 <a href="../drafts/">使用草稿</a>.
 
         </p>
       </td>
@@ -83,7 +84,7 @@ Jekyll 的核心其实是一个文本转换引擎。它的概念其实就是：�
       <td>
         <p>
 
-          layouts 是包裹在文章外部的模板。布局可以在 <a href="../frontmatter/">YAML 头信息</a>中根据不同文章进行选择。
+          layouts（布局）是包裹在文章外部的模板。布局可以在 <a href="../frontmatter/">YAML 头信息</a>中根据不同文章进行选择。
           这将在下一个部分进行介绍。标签
           <code>{% raw %}{{ content }}{% endraw %}</code>
           可以将content插入页面中。
@@ -100,7 +101,19 @@ Jekyll 的核心其实是一个文本转换引擎。它的概念其实就是：�
 
           这里放的就是你的文章了。文件格式很重要，必须要符合:
           <code>YEAR-MONTH-DAY-title.MARKUP</code>。
-          The <a href="../permalinks/">permalinks</a> 可以在文章中自己定制，但是数据和标记语言都是根据文件名来确定的。
+          <a href="../permalinks/">永久链接</a> 可以在文章中自己定制，但是数据和标记语言都是根据文件名来确定的。
+
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>_data</code></p>
+      </td>
+      <td>
+        <p>
+
+          格式化好的网站数据应放在这里。jekyll 的引擎会自动加载在该目录下所有的 yaml 文件（后缀是 <code>.yml</code> 或者 <code>.yaml</code>）。如果有一个 <code>members.yml</code> 文件在该目录下，你就可以通过 <code>site.data.members</code> 获取该文件的内容。
 
         </p>
       </td>
@@ -113,6 +126,18 @@ Jekyll 的核心其实是一个文本转换引擎。它的概念其实就是：�
         <p>
 
           一旦 Jekyll 完成转换，就会将生成的页面放在这里（默认）。最好将这个目录放进你的 <code>.gitignore</code> 文件中。
+
+        </p>
+      </td>
+    </tr>
+     <tr>
+      <td>
+        <p><code>.jekyll-metadata</code></p>
+      </td>
+      <td>
+        <p>
+
+          该文件帮助 Jekyll 跟踪哪些文件从上次建立站点开始到现在没有被修改，哪些文件需要在下一次站点建立时重新生成。该文件不会被包含在生成的站点中。将它加入到你的 <code>.gitignore</code> 文件可能是一个好注意。
 
         </p>
       </td>
