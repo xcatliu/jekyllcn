@@ -17,10 +17,17 @@ layout: default
 
           <div class="jekyllcn-doc-footer">
             <p class="left"><a href="http://jekyllrb.com{{ page.url }}">原文链接</a></p>
-            <p class="right">翻译贡献者：{{ page.translators | join: ', '}}</p>
+            <p class="right">
+              翻译贡献者：
+              {% for translator in page.translators %}
+              <a href="https://github.com/{{ translator }}" title="{{ translator }}">
+                <img src="https://github.com/{{ translator }}.png" class="avatar" alt="{{ translator }} avatar" width="24" height="24">
+              </a>
+              {% endfor %}
+            </p>
             <div class="clear"></div>
           </div>
-          
+
           {% include section_nav.html %}
         </article>
       </div>
