@@ -2203,6 +2203,7 @@
 <span class="p">|</span>   ├── 2007-10-29-why-every-programmer-should-play-nethack.textile
 <span class="p">|</span>   └── 2009-04-26-barcamp-boston-4-roundup.textile
 ├── _site
+├── .jekyll-metadata
 └── index.html</code></pre></figure>
 
 <p>来看看这些都有什么用：</p>
@@ -2235,7 +2236,7 @@
       <td>
         <p>
 
-          drafts 是未发布的文章。这些文件的格式中都没有 <code>title.MARKUP</code> 数据。学习如何使用 <a href="../drafts/">drafts</a>.
+          drafts（草稿）是未发布的文章。这些文件的格式中都没有 <code>title.MARKUP</code> 数据。学习如何 <a href="../drafts/">使用草稿</a>.
 
         </p>
       </td>
@@ -2261,7 +2262,7 @@
       <td>
         <p>
 
-          layouts 是包裹在文章外部的模板。布局可以在 <a href="../frontmatter/">YAML 头信息</a>中根据不同文章进行选择。
+          layouts（布局）是包裹在文章外部的模板。布局可以在 <a href="../frontmatter/">YAML 头信息</a>中根据不同文章进行选择。
           这将在下一个部分进行介绍。标签
           <code>{{ content }}</code>
           可以将content插入页面中。
@@ -2278,7 +2279,19 @@
 
           这里放的就是你的文章了。文件格式很重要，必须要符合:
           <code>YEAR-MONTH-DAY-title.MARKUP</code>。
-          The <a href="../permalinks/">permalinks</a> 可以在文章中自己定制，但是数据和标记语言都是根据文件名来确定的。
+          <a href="../permalinks/">永久链接</a> 可以在文章中自己定制，但是数据和标记语言都是根据文件名来确定的。
+
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>_data</code></p>
+      </td>
+      <td>
+        <p>
+
+          格式化好的网站数据应放在这里。jekyll 的引擎会自动加载在该目录下所有的 yaml 文件（后缀是 <code>.yml</code> 或者 <code>.yaml</code>）。如果有一个 <code>members.yml</code> 文件在该目录下，你就可以通过 <code>site.data.members</code> 获取该文件的内容。
 
         </p>
       </td>
@@ -2291,6 +2304,18 @@
         <p>
 
           一旦 Jekyll 完成转换，就会将生成的页面放在这里（默认）。最好将这个目录放进你的 <code>.gitignore</code> 文件中。
+
+        </p>
+      </td>
+    </tr>
+     <tr>
+      <td>
+        <p><code>.jekyll-metadata</code></p>
+      </td>
+      <td>
+        <p>
+
+          该文件帮助 Jekyll 跟踪哪些文件从上次建立站点开始到现在没有被修改，哪些文件需要在下一次站点建立时重新生成。该文件不会被包含在生成的站点中。将它加入到你的 <code>.gitignore</code> 文件可能是一个好注意。
 
         </p>
       </td>
@@ -2333,6 +2358,10 @@
               
               <a href="https://github.com/Neo-J" title="Neo-J">
                 <img src="https://github.com/Neo-J.png" class="avatar" alt="Neo-J avatar" width="24" height="24">
+              </a>
+              
+              <a href="https://github.com/chaucerling" title="chaucerling">
+                <img src="https://github.com/chaucerling.png" class="avatar" alt="chaucerling avatar" width="24" height="24">
               </a>
               
             </p>

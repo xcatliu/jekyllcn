@@ -2257,6 +2257,17 @@
     </tr>
     <tr class="setting">
       <td>
+        <p class="name"><strong>Keep files</strong></p>
+        <p class="description">
+          当生成站点时，保留选择的文件。对文件不是由 jekyll 生成是有用的。例如由你的构建工具生成的文件或者资源。路径是相对于 <code>destination</code> 。
+        </p>
+      </td>
+      <td class="align-center">
+        <p><code class="option">keep_files: [DIR, FILE, ...]</code></p>
+      </td>
+    </tr>
+    <tr class="setting">
+      <td>
         <p class="name"><strong>Time Zone</strong></p>
         <p class="description">
             设置时区，这个设置作用于 <code>TZ</code> 变量， Ruby 用它来处理日期和时间。
@@ -2281,8 +2292,30 @@
         <p><code class="option">encoding: ENCODING</code></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <p class="name"><strong>Defaults</strong></p>
+        <p class="description">
+            设置 <a href="../frontmatter/" title="YAML Front Matter">YAML 头信息</a>
+            的默认值。
+        </p>
+      </td>
+      <td class="align-center">
+        <p><a href="#front-matter-defaults" title="details">详细</a></p>
+      </td>
+    </tr>
   </tbody>
 </table>
+</div>
+
+<div class="note warning">
+  <h5>Destination 文件夹会在站点建立时被清理</h5>
+  <p>
+    <code>&lt;destination&gt;</code> 的内容默认在站点建立时会被自动清理。不是你创建的文件和文件夹会被删除。你想在 <code>&lt;destination&gt;</code> 保留的文件和文件夹应在 <code>&lt;keep_files&gt;</code> 里指定。
+  </p>
+  <p>
+    不要把<code>&lt;destination&gt;</code> 设置到重要的路径上，而应该把它作为一个暂存区域,从那里复制文件到您的web服务器。
+  </p>
 </div>
 
 <h3 id="section-2">编译选项</h3>
@@ -2353,6 +2386,33 @@
         <p><code class="flag">--limit_posts NUM</code></p>
       </td>
     </tr>
+    <tr class="setting">
+      <td>
+        <p class="name"><strong>Force polling</strong></p>
+        <p class="description">强制使用轮询。</p>
+      </td>
+      <td class="align-center">
+        <p><code class="flag">--force_polling</code></p>
+      </td>
+    </tr>
+    <tr class="setting">
+      <td>
+        <p class="name"><strong>Verbose output</strong></p>
+        <p class="description">显示详细输出。</p>
+      </td>
+      <td class="align-center">
+        <p><code class="flag">-V, --verbose</code></p>
+      </td>
+    </tr>
+    <tr class="setting">
+      <td>
+        <p class="name"><strong>Silence Output</strong></p>
+        <p class="description">在编译期间不显示的正常输出。</p>
+      </td>
+      <td class="align-center">
+        <p><code class="flag">-q, --quiet</code></p>
+      </td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -2410,6 +2470,15 @@
         <p><code class="flag">-B, --detach</code></p>
       </td>
     </tr>
+    <tr class="setting">
+      <td>
+        <p class="name"><strong>Skips the initial site build.</strong></p>
+        <p class="description">跳过服务器启动之前，网站的初始化。</p>
+      </td>
+      <td class="align-center">
+        <p><code class="flag">--skip-initial-build</code></p>
+      </td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -2421,9 +2490,105 @@
   </p>
 </div>
 
-<h2 id="section-4">默认配置</h2>
+<h2 id="section-4">头信息默认值</h2>
 
-<p>Jekyll 默认使用以下的配置：</p>
+<p>通过使用 <a href="../frontmatter/">YAML 头信息</a>可以指定站点的页面和文章的配置。设置一些东西例如布局或者自定义标题，亦或是给文章指定一个更精确的日期/时间，这都可以往页面或文章的头信息添加数据来实现。</p>
+
+<p>很多时候，你会发现你在重复填写很多配置项。在每个文件里设置相同的布局，对每篇文章添加相同的分类，等等。你甚至可能添加自定义变量，如作者名，这可能对你博客上大部分的文章来说是相同的。</p>
+
+<p>Jekyll 提供了一个方法在站点配置中设置这些默认值，而不是在每次创建一个新的文章或页面重复此配置。要做到这一点，你可以在项目根目录下的 <code>_config.yml</code> 文件里设置 <code>defaults</code> 的值指定全站范围的默认值。</p>
+
+<p><code>defaults</code> 保存一个范围/值的对的数组，这定义了哪些默认值要设置到一个特定的文件路径下的文件，或者可选的，在该路径下指定 的文件类型的文件。</p>
+
+<p>假设您想添加一个默认的布局给站点中的所有页面和文章。 你要将这添加到你的 <code>_config.yml</code> 文件：</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">defaults</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span>
+    <span class="l-Scalar-Plain">scope</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span> <span class="s">&quot;&quot;</span> <span class="c1"># 一个空的字符串代表项目中所有的文件</span>
+    <span class="l-Scalar-Plain">values</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span> <span class="s">&quot;default&quot;</span></code></pre></figure>
+
+<p>在这里，我们把 <code>values</code> 应用给 scope 路径里的所有文件。因为路径被设为空字符串，它将会应用到你项目里的<strong>全部文件</strong>。你可能不想给项目在的每个文件都设置一个布局，例如 css 文件，所以你可以在 <code>scope</code> 下指定 <code>type</code> 的值。</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">defaults</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span>
+    <span class="l-Scalar-Plain">scope</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span> <span class="s">&quot;&quot;</span> <span class="c1"># 一个空的字符串代表项目中所有的文件</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="s">&quot;posts&quot;</span> <span class="c1"># 以前的 `post`， 在 Jekyll 2.2 里。</span>
+    <span class="l-Scalar-Plain">values</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span> <span class="s">&quot;default&quot;</span></code></pre></figure>
+
+<p>现在，这只会给类型是 <code>posts</code> 的文件设置默认布局。你可以使用的不同的类型分别是 <code>pages</code> ， <code>posts</code> ，  <code>drafts</code> 或者其他你站点中的集合。当创建一个范围/值的对，如果选择了 <code>type</code>，你必须指定一个值给 <code>path</code> 。</p>
+
+<p>正如前面所提到的，您可以给 <code>defaults</code> 设置多个范围/值的对。</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">defaults</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span>
+    <span class="l-Scalar-Plain">scope</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span> <span class="s">&quot;&quot;</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="s">&quot;posts&quot;</span>
+    <span class="l-Scalar-Plain">values</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span> <span class="s">&quot;my-site&quot;</span>
+  <span class="p-Indicator">-</span>
+    <span class="l-Scalar-Plain">scope</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span> <span class="s">&quot;projects&quot;</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="s">&quot;pages&quot;</span> <span class="c1"># 以前的 `post`， 在 Jekyll 2.2 里。</span>
+    <span class="l-Scalar-Plain">values</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span> <span class="s">&quot;project&quot;</span> <span class="c1"># 覆盖之前的默认布局</span>
+      <span class="l-Scalar-Plain">author</span><span class="p-Indicator">:</span> <span class="s">&quot;Mr.</span><span class="nv"> </span><span class="s">Hyde&quot;</span></code></pre></figure>
+
+<p>有了这些默认值，所有的文章都会使用 <code>my-site</code> 布局。任何在 <code>projects/</code> 文件夹下的 html 文件会使用 <code>project</code> 布局。这些文件也会拥有值为 <code>Mr. Hyde</code> 的 <code>page.author</code> 这一 <a href="../variables/">liquid 变量</a>，同时这些页面的类别被设为 <code>project</code> 。</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">collections</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">my_collection</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">output</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+
+<span class="l-Scalar-Plain">defaults</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span>
+    <span class="l-Scalar-Plain">scope</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span> <span class="s">&quot;&quot;</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="s">&quot;my_collection&quot;</span> <span class="c1"># 你的站点里的一个集合，复数形式</span>
+    <span class="l-Scalar-Plain">values</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span> <span class="s">&quot;default&quot;</span></code></pre></figure>
+
+<p>在这个例子中，在 <a href="../collections/">collection</a> 里面 <code>layout</code> 被设为 <code>default</code> ，用 <code>my_collection</code> 的名字。</p>
+
+<h3 id="section-5">优先权</h3>
+
+<p>Jekyll会应用你在 <code>_config.yml</code> 文件里 <code>defaults</code> 部分的所有配置设定。然而，你可以选择
+覆盖这些设定，通过在范围/值的对里指定一个更具体的路径。</p>
+
+<p>你可以观察上一个例子。一开始我们设置了 <code>my-site</code> 这一默认的布局。然后，使用一个更具体的路径，
+我们把在 <code>projects/</code> 路径下的文件的默认布局设置为 <code>project</code> 。这可以使用你想在页面或者文章的头信息里设定的任意值来达成。</p>
+
+<p>最后，如果你在 <code>_config.yml</code> 的 <code>defaults</code> 部分设置了站点的默认值，你可以在页面或文章的文件里覆盖这些设定。你需要做的是在在页面或文章的头信息里指定要覆盖的设定。例如：</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># In _config.yml</span>
+<span class="nn">...</span>
+<span class="l-Scalar-Plain">defaults</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span>
+    <span class="l-Scalar-Plain">scope</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span> <span class="s">&quot;projects&quot;</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="s">&quot;pages&quot;</span>
+    <span class="l-Scalar-Plain">values</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span> <span class="s">&quot;project&quot;</span>
+      <span class="l-Scalar-Plain">author</span><span class="p-Indicator">:</span> <span class="s">&quot;Mr.</span><span class="nv"> </span><span class="s">Hyde&quot;</span>
+      <span class="l-Scalar-Plain">category</span><span class="p-Indicator">:</span> <span class="s">&quot;project&quot;</span>
+<span class="nn">...</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># In projects/foo_project.md</span>
+<span class="nn">---</span>
+<span class="l-Scalar-Plain">author</span><span class="p-Indicator">:</span> <span class="s">&quot;John</span><span class="nv"> </span><span class="s">Smith&quot;</span>
+<span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span> <span class="s">&quot;foobar&quot;</span>
+<span class="nn">---</span>
+<span class="l-Scalar-Plain">The post text goes here...</span></code></pre></figure>
+
+<p>在站点建立时 <code>projects/foo_project.md</code> 的布局会是 <code>foobar</code>而不是<code>project</code> ， <code>author</code> 是 <code>John Smith</code>而不是 <code>Mr. Hyde</code> 。</p>
+
+<h2 id="section-6">默认配置</h2>
+
+<p>Jekyll 默认使用以下的配置运行。可以显式指定这些选项子在配置文件中或在命令行中。</p>
 
 <div class="note warning">
   <h5>有两个 kramdown 的选项不支持</h5>
@@ -2433,48 +2598,53 @@
   </p>
 </div>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">source</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">.</span>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Where things are</span>
+<span class="l-Scalar-Plain">source</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">.</span>
 <span class="l-Scalar-Plain">destination</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">./_site</span>
 <span class="l-Scalar-Plain">plugins</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">./_plugins</span>
 <span class="l-Scalar-Plain">layouts</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">./_layouts</span>
-<span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span>     <span class="p-Indicator">[</span><span class="s">&#39;.htaccess&#39;</span><span class="p-Indicator">]</span>
-<span class="l-Scalar-Plain">exclude</span><span class="p-Indicator">:</span>     <span class="p-Indicator">[]</span>
-<span class="l-Scalar-Plain">keep_files</span><span class="p-Indicator">:</span>  <span class="p-Indicator">[</span><span class="s">&#39;.git&#39;</span><span class="p-Indicator">,</span><span class="s">&#39;.svn&#39;</span><span class="p-Indicator">]</span>
-<span class="l-Scalar-Plain">timezone</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">nil</span>
-<span class="l-Scalar-Plain">encoding</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">nil</span>
+<span class="l-Scalar-Plain">data_source</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">./_data</span>
+<span class="l-Scalar-Plain">collections</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">null</span>
 
-<span class="l-Scalar-Plain">future</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">true</span>
-<span class="l-Scalar-Plain">show_drafts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">nil</span>
+<span class="c1"># Handling Reading</span>
+<span class="l-Scalar-Plain">safe</span><span class="p-Indicator">:</span>         <span class="l-Scalar-Plain">false</span>
+<span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span>      <span class="p-Indicator">[</span><span class="s">&quot;.htaccess&quot;</span><span class="p-Indicator">]</span>
+<span class="l-Scalar-Plain">exclude</span><span class="p-Indicator">:</span>      <span class="p-Indicator">[]</span>
+<span class="l-Scalar-Plain">keep_files</span><span class="p-Indicator">:</span>   <span class="p-Indicator">[</span><span class="s">&quot;.git&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;.svn&quot;</span><span class="p-Indicator">]</span>
+<span class="l-Scalar-Plain">encoding</span><span class="p-Indicator">:</span>     <span class="s">&quot;utf-8&quot;</span>
+<span class="l-Scalar-Plain">markdown_ext</span><span class="p-Indicator">:</span> <span class="s">&quot;markdown,mkdown,mkdn,mkd,md&quot;</span>
+
+<span class="c1"># Filtering Content</span>
+<span class="l-Scalar-Plain">show_drafts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">null</span>
 <span class="l-Scalar-Plain">limit_posts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0</span>
-<span class="l-Scalar-Plain">pygments</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">true</span>
+<span class="l-Scalar-Plain">future</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">true</span>
+<span class="l-Scalar-Plain">unpublished</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
 
-<span class="l-Scalar-Plain">relative_permalinks</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+<span class="c1"># Plugins</span>
+<span class="l-Scalar-Plain">whitelist</span><span class="p-Indicator">:</span> <span class="p-Indicator">[]</span>
+<span class="l-Scalar-Plain">gems</span><span class="p-Indicator">:</span>      <span class="p-Indicator">[]</span>
 
-<span class="l-Scalar-Plain">permalink</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">date</span>
-<span class="l-Scalar-Plain">paginate_path</span><span class="p-Indicator">:</span> <span class="s">&#39;page:num&#39;</span>
-
-<span class="l-Scalar-Plain">markdown</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">maruku</span>
-<span class="l-Scalar-Plain">markdown_ext</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">markdown,mkd,mkdn,md</span>
-<span class="l-Scalar-Plain">textile_ext</span><span class="p-Indicator">:</span>   <span class="l-Scalar-Plain">textile</span>
-
+<span class="c1"># Conversion</span>
+<span class="l-Scalar-Plain">markdown</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">kramdown</span>
+<span class="l-Scalar-Plain">highlighter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">rouge</span>
+<span class="l-Scalar-Plain">lsi</span><span class="p-Indicator">:</span>         <span class="l-Scalar-Plain">false</span>
 <span class="l-Scalar-Plain">excerpt_separator</span><span class="p-Indicator">:</span> <span class="s">&quot;\n\n&quot;</span>
 
-<span class="l-Scalar-Plain">safe</span><span class="p-Indicator">:</span>        <span class="l-Scalar-Plain">false</span>
-<span class="l-Scalar-Plain">watch</span><span class="p-Indicator">:</span>       <span class="l-Scalar-Plain">false</span>    <span class="c1"># deprecated</span>
-<span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">false</span>    <span class="c1"># deprecated</span>
-<span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span>        <span class="l-Scalar-Plain">0.0.0.0</span>
-<span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span>        <span class="l-Scalar-Plain">4000</span>
-<span class="l-Scalar-Plain">baseurl</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">/</span>
-<span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span>         <span class="l-Scalar-Plain">http://localhost:4000</span>
-<span class="l-Scalar-Plain">lsi</span><span class="p-Indicator">:</span>         <span class="l-Scalar-Plain">false</span>
+<span class="c1"># Serving</span>
+<span class="l-Scalar-Plain">detach</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">false</span>
+<span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">4000</span>
+<span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">127.0.0.1</span>
+<span class="l-Scalar-Plain">baseurl</span><span class="p-Indicator">:</span> <span class="s">&quot;&quot;</span> <span class="c1"># does not include hostname</span>
 
-<span class="l-Scalar-Plain">maruku</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">use_tex</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">false</span>
-  <span class="l-Scalar-Plain">use_divs</span><span class="p-Indicator">:</span>   <span class="l-Scalar-Plain">false</span>
-  <span class="l-Scalar-Plain">png_engine</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">blahtex</span>
-  <span class="l-Scalar-Plain">png_dir</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">images/latex</span>
-  <span class="l-Scalar-Plain">png_url</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">/images/latex</span>
+<span class="c1"># Outputting</span>
+<span class="l-Scalar-Plain">permalink</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">date</span>
+<span class="l-Scalar-Plain">paginate_path</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/page:num</span>
+<span class="l-Scalar-Plain">timezone</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">null</span>
 
+<span class="l-Scalar-Plain">quiet</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">false</span>
+<span class="l-Scalar-Plain">defaults</span><span class="p-Indicator">:</span> <span class="p-Indicator">[]</span>
+
+<span class="c1"># Markdown Processors</span>
 <span class="l-Scalar-Plain">rdiscount</span><span class="p-Indicator">:</span>
   <span class="l-Scalar-Plain">extensions</span><span class="p-Indicator">:</span> <span class="p-Indicator">[]</span>
 
@@ -2482,23 +2652,20 @@
   <span class="l-Scalar-Plain">extensions</span><span class="p-Indicator">:</span> <span class="p-Indicator">[]</span>
 
 <span class="l-Scalar-Plain">kramdown</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">auto_ids</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
-  <span class="l-Scalar-Plain">footnote_nr</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1</span>
-  <span class="l-Scalar-Plain">entity_output</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">as_char</span>
-  <span class="l-Scalar-Plain">toc_levels</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1..6</span>
-  <span class="l-Scalar-Plain">smart_quotes</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">lsquo,rsquo,ldquo,rdquo</span>
-  <span class="l-Scalar-Plain">use_coderay</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+  <span class="l-Scalar-Plain">auto_ids</span><span class="p-Indicator">:</span>       <span class="l-Scalar-Plain">true</span>
+  <span class="l-Scalar-Plain">footnote_nr</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">1</span>
+  <span class="l-Scalar-Plain">entity_output</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">as_char</span>
+  <span class="l-Scalar-Plain">toc_levels</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">1..6</span>
+  <span class="l-Scalar-Plain">smart_quotes</span><span class="p-Indicator">:</span>   <span class="l-Scalar-Plain">lsquo,rsquo,ldquo,rdquo</span>
+  <span class="l-Scalar-Plain">enable_coderay</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
 
   <span class="l-Scalar-Plain">coderay</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">coderay_wrap</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">div</span>
-    <span class="l-Scalar-Plain">coderay_line_numbers</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">inline</span>
-    <span class="l-Scalar-Plain">coderay_line_numbers_start</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1</span>
-    <span class="l-Scalar-Plain">coderay_tab_width</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">4</span>
-    <span class="l-Scalar-Plain">coderay_bold_every</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">10</span>
-    <span class="l-Scalar-Plain">coderay_css</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">style</span>
-
-<span class="l-Scalar-Plain">redcloth</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">hard_breaks</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span></code></pre></figure>
+    <span class="l-Scalar-Plain">coderay_wrap</span><span class="p-Indicator">:</span>              <span class="l-Scalar-Plain">div</span>
+    <span class="l-Scalar-Plain">coderay_line_numbers</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">inline</span>
+    <span class="l-Scalar-Plain">coderay_line_number_start</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1</span>
+    <span class="l-Scalar-Plain">coderay_tab_width</span><span class="p-Indicator">:</span>         <span class="l-Scalar-Plain">4</span>
+    <span class="l-Scalar-Plain">coderay_bold_every</span><span class="p-Indicator">:</span>        <span class="l-Scalar-Plain">10</span>
+    <span class="l-Scalar-Plain">coderay_css</span><span class="p-Indicator">:</span>               <span class="l-Scalar-Plain">style</span></code></pre></figure>
 
 <h2 id="markdown-">Markdown 选项</h2>
 
@@ -2508,24 +2675,23 @@
 
 <p>Redcarpet支持设置 <code>extensions</code> ，值为一个字符串数组，每个字符串都是 <code>Redcarpet::Markdown</code> 类的扩展，相应的扩展就会设置为 <code>true</code> 。</p>
 
-<p>Jekyll handles two special Redcarpet extensions:</p>
+<p>Jekyll 处理两个特别的 Redcarpet 扩展：</p>
 
 <ul>
-  <li>
-    <p><code>no_fenced_code_blocks</code> — 默认的， Jekyll 设置扩展 <code>fenced_code_blocks</code> (用三个波浪线或重音线标记代码区间) 为 <code>true</code> ，这或许是跟 GitHub 积极的采用有关。当使用Jekyll的时候， Redcarpet 的扩展 <code>fenced_code_blocks</code> 无效，作为替代方案，你可以这样做：</p>
+  <li><code>no_fenced_code_blocks</code> — 默认的， Jekyll 设置扩展 <code>fenced_code_blocks</code> (用三个波浪线或重音线标记代码区间) 为 <code>true</code> ，这或许是跟 GitHub 积极的采用有关。当使用Jekyll的时候， Redcarpet 的扩展 <code>fenced_code_blocks</code> 无效，作为替代方案，你可以使用这个语义相反的扩展来禁用 fenced code 。</li>
+</ul>
 
-    <p>注意你还可以这样来配置语言以支持语法高亮：</p>
+<p>注意你还可以这样来配置语言以支持语法高亮：</p>
 
-    <pre><code>  ```ruby
-  # ...ruby code
-  ```
+<pre><code>    ```ruby
+    # ...ruby code
+    ```
 </code></pre>
 
-    <p>有了 both fenced code blocks 和 pygments ，就会直接高亮代码了；如果没有 pygments，将增加一个 <code>class="LANGUAGE"</code> 属性到 <code>&lt;code&gt;</code> 元素，用于给不同的 JavaScript 代码高亮库做后续处理。</p>
-  </li>
-  <li>
-    <p><code>smart</code> — 打开 SmartyPants ，将引号转为 " 、连字符转为 em (<code>---</code>) 和 en (<code>--</code>) 破折号。</p>
-  </li>
+<p>有了 fenced code blocks 和 pygments ，就会直接高亮代码了；如果没有 pygments，将增加一个 <code>class="LANGUAGE"</code> 属性到 <code>&lt;code&gt;</code> 元素，用于给不同的 JavaScript 代码高亮库做后续处理。</p>
+
+<ul>
+  <li><code>smart</code> — 打开 SmartyPants ，将引号转为 " 、连字符转为 em (<code>---</code>) 和 en (<code>--</code>) 破折号。</li>
 </ul>
 
 <p>Redcarpet 所有其他扩展保持他们本来的名字，并且在 Jekyll 中不能给 <code>smart</code> 加渲染选项。 <a href="https://github.com/vmg/redcarpet/blob/v2.2.2/README.markdown#and-its-like-really-simple-to-use">Redcarpet 的 README 中有可用扩展的列表。</a> 确保你看的 README 是正确的版本：Jekyll 当前用的是 v2.2.x ，其中 <code>footnotes</code> 和 <code>highlight</code> 在 3.0.0 以后才会支持。最常用的扩展是如下：</p>
@@ -2536,6 +2702,38 @@
   <li><code>autolink</code></li>
 </ul>
 
+<h3 id="kramdown">Kramdown</h3>
+
+<p>除了上面提到的默认值，你可以打开 Github Flavored Markdown 的识别，通过输入一个 值为 “GFM” 的 <code>input</code> 选项。</p>
+
+<p>例如，在你的 <code>_config.yml</code> 中：</p>
+
+<pre><code>kramdown:
+  input: GFM
+</code></pre>
+
+<h3 id="markdown--1">自定义 Markdown 处理器</h3>
+
+<p>如果你对创建一个自定义 Markdown 处理器感兴趣，你真的很幸运！在 <code>Jekyll::Converters::Markdown</code> 的命名空间下新建一个类：</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Jekyll</span><span class="o">::</span><span class="no">Converters</span><span class="o">::</span><span class="no">Markdown</span><span class="o">::</span><span class="no">MyCustomProcessor</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+    <span class="nb">require</span> <span class="s1">&#39;funky_markdown&#39;</span>
+    <span class="vi">@config</span> <span class="o">=</span> <span class="n">config</span>
+  <span class="k">rescue</span> <span class="no">LoadError</span>
+    <span class="no">STDERR</span><span class="o">.</span><span class="n">puts</span> <span class="s1">&#39;You are missing a library required for Markdown. Please run:&#39;</span>
+    <span class="no">STDERR</span><span class="o">.</span><span class="n">puts</span> <span class="s1">&#39;  $ [sudo] gem install funky_markdown&#39;</span>
+    <span class="k">raise</span> <span class="no">FatalException</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Missing dependency: funky_markdown&quot;</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">convert</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+    <span class="o">::</span><span class="no">FunkyMarkdown</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>一旦你建立了你的类，并且它作为一个插件被正确安装到 <code>_plugins</code> 文件夹 或者 作为 gem 被正确安装，你要在你的 <code>_config.yml</code> 里指定它：</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">markdown</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">MyCustomProcessor</span></code></pre></figure>
 
 
           <div class="jekyllcn-doc-footer">
@@ -2545,6 +2743,10 @@
               
               <a href="https://github.com/debbbbie" title="debbbbie">
                 <img src="https://github.com/debbbbie.png" class="avatar" alt="debbbbie avatar" width="24" height="24">
+              </a>
+              
+              <a href="https://github.com/chaucerling" title="chaucerling">
+                <img src="https://github.com/chaucerling.png" class="avatar" alt="chaucerling avatar" width="24" height="24">
               </a>
               
             </p>

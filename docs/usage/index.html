@@ -2199,18 +2199,36 @@
 <span class="c"># =&gt; 当前文件夹中的内容将会生成到 ./_site 文件夹中，</span>
 <span class="c">#    查看改变，并且自动再生成。</span></code></pre></figure>
 
+<div class="note warning">
+  <h5>Destination 文件夹会在站点建立时被清理</h5>
+  <p>
+    <code>&lt;destination&gt;</code> 的内容默认在站点建立时会被自动清理。不是你创建的文件和文件夹会被删除。你想在 <code>&lt;destination&gt;</code> 保留的文件和文件夹应在 <code>&lt;keep_files&gt;</code> 里指定。
+  </p>
+  <p>
+    不要把<code>&lt;destination&gt;</code> 设置到重要的路径上，而应该把它作为一个暂存区域,从那里复制文件到您的web服务器。
+  </p>
+</div>
+
 <p>Jekyll 同时也集成了一个开发用的服务器，可以让你使用浏览器在本地进行预览。</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>jekyll serve
 <span class="c"># =&gt; 一个开发服务器将会运行在 http://localhost:4000/</span>
+<span class="c"># Auto-regeneration（自动再生成文件）: 开启。使用 `--no-watch` 来关闭。</span>
 
 <span class="nv">$ </span>jekyll serve --detach
 <span class="c"># =&gt; 功能和`jekyll serve`命令相同，但是会脱离终端在后台运行。</span>
 <span class="c">#    如果你想关闭服务器，可以使用`kill -9 1234`命令，&quot;1234&quot; 是进程号（PID）。</span>
-<span class="c">#    如果你找不到进程号，那么就用`ps aux | grep jekyll`命令来查看，然后关闭服务器。[更多](http://unixhelp.ed.ac.uk/shell/jobz5.html).</span>
+<span class="c">#    如果你找不到进程号，那么就用`ps aux | grep jekyll`命令来查看，然后关闭服务器。[更多](http://unixhelp.ed.ac.uk/shell/jobz5.html).</span></code></pre></figure>
 
-<span class="nv">$ </span>jekyll serve --watch
-<span class="c"># =&gt; 和`jekyll serve`相同，但是会查看变更并且自动再生成。</span></code></pre></figure>
+<div class="note info">
+  <h5>知道默认行为</h5>
+  <p>
+    在2.4版本中， <code>serve</code> 指令将会自动监测变化。想关闭这功能，你可以使用 <code>jekyll serve --no-watch</code> ，这会保留旧行为。
+  </p>
+</div>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>jekyll serve --no-watch
+<span class="c"># =&gt; 和 `jekyll serve` 一样，但不会监测变化。</span></code></pre></figure>
 
 <p>还有一些可以配置的<a href="../configuration/">配置选项</a>.
 很多配置选项既可以在命令行中作为标识(flags)设定，也可以在源文件根目录中的 <code>_config.yml</code> 文件中进行设定。Jekyll 会自动加载这些配置。比如你在你的 <code>_config.yml</code> 文件中添加了下面几行：</p>
@@ -2225,6 +2243,8 @@
 
 <p>有关配置选项的更详细说明，请查看<a href="../configuration/">配置</a>页面.</p>
 
+<p>如果你对离线浏览这些文档感兴趣，可以安装 <code>jekyll-docs</code> 的 gem ，在你终端运行 <code>jekyll docs</code> 来查看。</p>
+
 
           <div class="jekyllcn-doc-footer">
             <p class="left"><a href="http://jekyllrb.com/docs/usage/">原文链接</a></p>
@@ -2233,6 +2253,10 @@
               
               <a href="https://github.com/Neo-J" title="Neo-J">
                 <img src="https://github.com/Neo-J.png" class="avatar" alt="Neo-J avatar" width="24" height="24">
+              </a>
+              
+              <a href="https://github.com/chaucerling" title="chaucerling">
+                <img src="https://github.com/chaucerling.png" class="avatar" alt="chaucerling avatar" width="24" height="24">
               </a>
               
             </p>
