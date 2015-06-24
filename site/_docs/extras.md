@@ -1,16 +1,16 @@
 ---
 layout: docs
-title: Extras
+title: 附加功能
 permalink: /docs/extras/
+translators: ikenbe
 ---
 
-There are a number of (optional) extra features that Jekyll supports that you
-may want to install, depending on how you plan to use Jekyll.
+根据你使用 Jekyll 的不同方式，Jekyll 允许你安装一些可选的附加功能。 
 
-## Math Support
+## 数学支持
 
-Kramdown comes with optional support for LaTeX to PNG rendering via [MathJax](http://www.mathjax.org/) within math blocks. See the Kramdown documentation on [math blocks](http://kramdown.gettalong.org/syntax.html#math-blocks) and [math support](http://kramdown.gettalong.org/converter/html.html#math-support) for more details.
+使用 Kramdown 时可以选择使用由 [MathJax](http://www.mathjax.org/) 提供的 LaTex 格式到 PNG 格式的数学区块渲染器。具体细节可查阅 Kramdown 文档中的 [math blocks (数学区块)](http://kramdown.gettalong.org/syntax.html#math-blocks) 以及 [math support (数学支持)](http://kramdown.gettalong.org/converter/html.html#math-support) 部分。
 
-## Alternative Markdown Processors
+## 使用其它 Markdown 解析器
 
-See the Markdown section on the [configuration page](/docs/configuration/#markdown-options) for instructions on how to use and configure alternative Markdown processors, as well as how to create [custom processors](/docs/configuration/#custom-markdown-processors).
+关于如何使用其它的 Markdown 解析器，请参考 [configuration page (配置页面)](/docs/configuration/#markdown-options) 的 Markdown 部分；你也可以在 [custom processors (自定义解析器)](/docs/configuration/#custom-markdown-processors) 部分找到如何创建新的解析器。
