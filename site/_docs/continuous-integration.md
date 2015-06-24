@@ -1,20 +1,25 @@
 ---
 layout: docs
-title: Continuous Integration
+title: Continuous Integration 持续集成
 permalink: /docs/continuous-integration/
 ---
 
 You can easily test your website build against one or more versions of Ruby.
+对应于 Ruby 的一个或多个版本，你很容易就可以测试你的网站。
 The following guide will show you how to set up a free build environment on
 [Travis][0], with [GitHub][1] integration for pull requests. Paid
 alternatives exist for private repositories.
+
+以下指引将展示怎样在 [Travis][0] 上建立一个免费的，集成了处理 pull 请求的 [GitHub][1] 的构建环境。使用私有代码库的话，也有对应的付费选择。
 
 [0]: https://travis-ci.org/
 [1]: https://github.com/
 
 ## 1. Enabling Travis and GitHub
+## 1. 启用 Travis 以及 Github
 
 Enabling Travis builds for your GitHub repository is pretty simple:
+启用 Travis 来构建你的 Github 代码库非常简单：
 
 1. Go to your profile on travis-ci.org: https://travis-ci.org/profile/username
 2. Find the repository for which you're interested in enabling builds.
