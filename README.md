@@ -31,7 +31,7 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 
 ## 项目进度
 
-总体进度：51 / 78 = 65%
+总体进度：54 / 79 = 68%
 
 ### 翻译进度
 
@@ -49,14 +49,14 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 - [x] 翻译 variables
 - [ ] 翻译 collections
 - [x] 翻译 datafiles
-- [ ] 翻译 assets
+- [x] 翻译 assets
 - [x] 翻译 migrations
 - [x] 翻译 templates
 - [x] 翻译 permalinks
 - [x] 翻译 pagination
 - [x] 翻译 plugins
 - [x] 翻译 extras
-- [ ] 翻译 github-pages
+- [x] 翻译 github-pages
 - [x] 翻译 deployment-methods
 - [ ] 翻译 continuous-integration
 - [x] 翻译 troubleshooting
@@ -82,7 +82,7 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 - [ ] 更新 variables
 - [ ] 更新 collections
 - [x] 更新 datafiles
-- [ ] 更新 assets
+- [x] 更新 assets
 - [ ] 更新 migrations
 - [ ] 更新 templates
 - [ ] 更新 permalinks
@@ -119,3 +119,4 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 - [x] 在 header 中加入贡献翻译链接
 - [x] 每篇文档加上翻译贡献者
 - [x] 在 header 中底色代表项目进度
+- [ ] 给每篇文档加上对应英文的 hash

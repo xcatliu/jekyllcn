@@ -3,6 +3,7 @@ layout: docs
 title: 静态文件
 permalink: /docs/static-files/
 translators: yzyzsun
+hash: 5647b91
 ---
 
 除了用于渲染和转换的内容之外，我们还可以使用**静态文件**。

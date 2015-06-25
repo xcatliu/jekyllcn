@@ -3,6 +3,7 @@ layout: docs
 title: 数据文件
 permalink: /docs/datafiles/
 translators: yzyzsun
+hash: 5647b91
 ---
 
 除了 Jekyll 的[内建变量](../variables/)之外，你还可以指定用于 [Liquid 模板系统](https://wiki.github.com/shopify/liquid/liquid-for-designers) 的自定义数据。

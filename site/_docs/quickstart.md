@@ -3,6 +3,7 @@ layout: docs
 title: 快速指南
 permalink: /docs/quickstart/
 translators: [brickgao, chaucerling]
+hash: 5647b91
 ---
 
 以下是一个获取最简单 Jekyll 模板并生成静态页面并运行的例子。

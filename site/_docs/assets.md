@@ -3,6 +3,7 @@ layout: docs
 title: Assets
 permalink: /docs/assets/
 translators: yzyzsun
+hash: 5647b91
 ---
 
 Jekyll 提供了对 Sass 和 CoffeeScript 的内建支持。使用时只需创建以 `.sass`、`.scss` 或 `.coffee` 为扩展名的文件，并以两行 `---` 开头即可，例如：

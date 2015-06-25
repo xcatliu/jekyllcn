@@ -3,6 +3,7 @@ layout: docs
 title: 配置
 permalink: /docs/configuration/
 translators: [debbbbie, chaucerling]
+hash: 5647b91
 ---
 
 Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵活强大的配置功能。既可以配置在网站根目录下的

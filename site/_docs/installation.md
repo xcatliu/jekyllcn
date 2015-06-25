@@ -3,6 +3,7 @@ layout: docs
 title: 安装
 permalink: /docs/installation/
 translators: [ Neo-J, xcatliu ]
+hash: 5647b91
 ---
 
 安装完成 Jekyll 需要几分钟的时间。如果你觉得安装对你来说并不方便, 请 [file an

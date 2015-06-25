@@ -3,6 +3,7 @@ layout: docs
 title: 基本用法
 permalink: /docs/usage/
 translators: [Neo-J, chaucerling]
+hash: 5647b91
 ---
 
 安装了 Jekyll 的 Gem 包之后，就可以在命令行中使用 Jekyll 命令了。有以下这些用法：

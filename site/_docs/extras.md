@@ -3,6 +3,7 @@ layout: docs
 title: 附加功能
 permalink: /docs/extras/
 translators: ikenbe
+hash: 5647b91
 ---
 
 根据你使用 Jekyll 的不同方式，Jekyll 允许你安装一些可选的附加功能。 
