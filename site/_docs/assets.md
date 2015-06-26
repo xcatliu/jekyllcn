@@ -42,7 +42,7 @@ Sass 转换器默认配置中的 `sass_dir` 为 `_sass`。
 [example-sass]: https://github.com/jekyll/jekyll-sass-converter/tree/master/example
 
 <div class="note info">
-  <h5>The <code>sass_dir</code> 只用于 Sass</h5>
+  <h5><code>sass_dir</code> 只用于 Sass</h5>
   <p>
 
     注意 <code>sass_dir</code> 只是 Sass 的导入目录，没有其他作用。这意味着 Jekyll 并不直接知晓这些文件，所以这里的文件不应该包含 YAML 头信息，它们亦不会被转换。该目录只应该包含导入文件。
