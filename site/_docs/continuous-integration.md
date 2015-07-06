@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Continuous Integration 持续集成
+title: 持续集成
 permalink: /docs/continuous-integration/
 translators: ikenbe
 ---
