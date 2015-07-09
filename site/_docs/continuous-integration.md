@@ -3,6 +3,7 @@ layout: docs
 title: 持续集成
 permalink: /docs/continuous-integration/
 translators: ikenbe
+hash: 5647b91
 ---
 
 对应于 Ruby 的一个或多个版本，你很轻松就可以测试你的网站构建。以下指引将展示怎样在 [Travis][0] 上建立一个免费的，集成了处理 pull 请求的 [GitHub][1] 的构建环境。如果你使用私有代码库的话，也有相应的付费选择。

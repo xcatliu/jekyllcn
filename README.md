@@ -31,7 +31,7 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 
 ## 项目进度
 
-总体进度：54 / 79 = 68%
+总体进度：56 / 79 = 71%
 
 ### 翻译进度
 
@@ -58,7 +58,7 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 - [x] 翻译 extras
 - [x] 翻译 github-pages
 - [x] 翻译 deployment-methods
-- [ ] 翻译 continuous-integration
+- [x] 翻译 continuous-integration
 - [x] 翻译 troubleshooting
 - [x] 翻译 sites
 - [x] 翻译 resources
@@ -91,7 +91,7 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 - [x] 更新 extras
 - [ ] 更新 github-pages
 - [ ] 更新 deployment-methods
-- [ ] 更新 continuous-integration
+- [x] 更新 continuous-integration
 - [ ] 更新 troubleshooting
 - [ ] 更新 sites
 - [ ] 更新 resources
