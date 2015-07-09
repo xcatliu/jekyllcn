@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>Continuous Integration</title>
+  <title>持续集成</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Jekyll v3.0.0.pre.beta7">
   <link rel="alternate" type="application/rss+xml" title="Jekyll • 简单静态博客网站生成器 - Feed" href="/feed.xml">
@@ -1691,7 +1691,7 @@
     
   
     
-      <option value="/docs/continuous-integration/">Continuous Integration</option>
+      <option value="/docs/continuous-integration/">持续集成</option>
     
   
     
@@ -2183,69 +2183,52 @@
           <div class="improve right hide-on-mobiles">
             <a href="https://github.com/xcatliu/jekyllcn/edit/master/site/_docs/continuous-integration.md"><i class="fa fa-pencil"></i> &nbsp;发现错误或贡献翻译</a>
           </div>
-          <h1>Continuous Integration</h1>
-          <p>You can easily test your website build against one or more versions of Ruby.
-The following guide will show you how to set up a free build environment on
-<a href="https://travis-ci.org/">Travis</a>, with <a href="https://github.com/">GitHub</a> integration for pull requests. Paid
-alternatives exist for private repositories.</p>
+          <h1>持续集成</h1>
+          <p>对应于 Ruby 的一个或多个版本，你很轻松就可以测试你的网站构建。以下指引将展示怎样在 <a href="https://travis-ci.org/">Travis</a> 上建立一个免费的，集成了处理 pull 请求的 <a href="https://github.com/">GitHub</a> 的构建环境。如果你使用私有代码库的话，也有相应的付费选择。</p>
 
-<h2 id="enabling-travis-and-github">1. Enabling Travis and GitHub</h2>
+<h2 id="travis--github">1. 启用 Travis 以及 Github</h2>
 
-<p>Enabling Travis builds for your GitHub repository is pretty simple:</p>
+<p>启用 Travis 来构建你的 Github 代码库非常简单：</p>
 
 <ol>
-  <li>Go to your profile on travis-ci.org: https://travis-ci.org/profile/username</li>
-  <li>Find the repository for which you’re interested in enabling builds.</li>
-  <li>Click the slider on the right so it says “ON” and is a dark grey.</li>
-  <li>Optionally configure the build by clicking on the wrench icon. Further
-configuration happens in your <code>.travis.yml</code> file. More details on that
-below.</li>
+  <li>前往你在 travis-ci.org 的个人档案: https://travis-ci.org/profile/username</li>
+  <li>选择需要启用构建的代码库。</li>
+  <li>点击右侧的滑动按钮使其处于 “ON” 位置并成为深灰色。</li>
+  <li>点击扳手图标可以进行一些配置，使用 <code>.travis.yaml</code> 文件可以进行更大范围的配置。更多详情可见于其下方。</li>
 </ol>
 
-<h2 id="the-test-script">2. The Test Script</h2>
+<h2 id="section">2. 测试代码</h2>
 
-<p>The simplest test script simply runs <code>jekyll build</code> and ensures that Jekyll
-doesn’t fail to build the site. It doesn’t check the resulting site, but it
-does ensure things are built properly.</p>
+<p>最简单的测试代码是运行 <code>jekyll build</code> 来确保 Jekyll 对站点的构建不会出错。它并不检查站点的输出结果，而只确保构建正确地进行。</p>
 
-<p>When testing Jekyll output, there is no better tool than <a href="https://github.com/gjtorikian/html-proofer">html-proofer</a>.
-This tool checks your resulting site to ensure all links and images exist.
-Utilize it either with the convenient <code>htmlproof</code> command-line executable,
-or write a Ruby script which utilizes the gem.</p>
+<p>当需要测试 Jekyll 的输出结果时，<a href="https://github.com/gjtorikian/html-proofer">html-proofer</a> 是最佳的工具选择。这个工具会检查输出站点中所有的链接和图片的有效性。可以很方便地使用命令行 <code>htmlproof</code> 执行该工具，或者写一段 Ruby 代码来执行该 gem 。</p>
 
-<h3 id="the-html-proofer-executable">The HTML Proofer Executable</h3>
+<h3 id="html-proofer-">HTML Proofer 命令行执行</h3>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/usr/bin/env bash</span>
-<span class="nb">set</span> -e <span class="c"># halt script on error</span>
+<span class="nb">set</span> -e <span class="c"># 出错时中止代码</span>
 
 bundle <span class="nb">exec </span>jekyll build
 bundle <span class="nb">exec </span>htmlproof ./_site</code></pre></figure>
 
-<p>Some options can be specified via command-line switches. Check out the
-<code>html-proofer</code> README for more information about these switches, or run
-<code>htmlproof --help</code> locally.</p>
+<p>命令行执行时可通过参数切换一些选项。关于这些选项的信息请查看 <code>html-proofer</code> 的 README 文件，或者本地运行 <code>htmlproof --help</code> 。</p>
 
-<h3 id="the-html-proofer-library">The HTML Proofer Library</h3>
+<h3 id="html-proofer--1">HTML Proofer 库</h3>
 
-<p>You can also invoke <code>html-proofer</code> in Ruby scripts (e.g. in a Rakefile):</p>
+<p>你也可以通过 Ruby 脚本来调用 <code>html-proofer</code>(例如在一个 Rakefile 中):</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#!/usr/bin/env ruby</span>
 
 <span class="nb">require</span> <span class="s1">&#39;html/proofer&#39;</span>
 <span class="no">HTML</span><span class="o">::</span><span class="no">Proofer</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;./_site&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span></code></pre></figure>
 
-<p>Options are given as a second argument to <code>.new</code>, and are encoded in a
-symbol-keyed Ruby Hash. For more information about the configuration options,
-check out <code>html-proofer</code>’s README file.</p>
+<p>选项作为 <code>.new</code> 的第二参数传入，并编码为符号型键值的 Ruby 哈希 (symbol-keyed Ruby Hash)。要获得更多关于配置的选项，请参阅 <code>html-proofer</code> 的 README 文档。</p>
 
-<h2 id="configuring-your-travis-builds">3. Configuring Your Travis Builds</h2>
+<h2 id="travis-">3. 配置你的 Travis 构建</h2>
 
-<p>This file is used to configure your Travis builds. Because Jekyll is built
-with Ruby and requires RubyGems to install, we use the Ruby language build
-environment. Below is a sample <code>.travis.yml</code> file, followed by
-an explanation of each line.</p>
+<p>该文件用于配置你的 Travis 构建。由于 Jekyll 是基于 Ruby 的而且需要 RubyGems 来进行安装，我们使用 Ruby 语言环境。 范例的 <code>.travis.yml</code> 文件如下，后面会有每一行相应的解释。</p>
 
-<p><strong>Note:</strong> You will need a Gemfile as well, <a href="http://docs.travis-ci.com/user/languages/ruby/#Dependency-Management">Travis will automatically install</a> the dependencies based on the referenced gems:</p>
+<p><strong>注意：</strong> 你同时也需要一个 Gemfile, 基于相关的 gems, <a href="http://docs.travis-ci.com/user/languages/ruby/#Dependency-Management">Travis 将会自动安装</a> 依赖组件：</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">source</span> <span class="s2">&quot;https://rubygems.org&quot;</span>
 
@@ -2255,86 +2238,66 @@ an explanation of each line.</p>
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">language</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ruby</span>
 <span class="l-Scalar-Plain">rvm</span><span class="p-Indicator">:</span>
 <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">2.1</span>
-<span class="c1"># Assume bundler is being used, install step will run `bundle install`.</span>
+<span class="c1"># 假如 bundler 被使用，安装时将运行 `bundle install`.</span>
 <span class="l-Scalar-Plain">script</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">./script/cibuild</span>
 
-<span class="c1"># branch whitelist</span>
+<span class="c1"># 分支白名单</span>
 <span class="l-Scalar-Plain">branches</span><span class="p-Indicator">:</span>
   <span class="l-Scalar-Plain">only</span><span class="p-Indicator">:</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">gh-pages</span>     <span class="c1"># test the gh-pages branch</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">/pages-(.*)/</span> <span class="c1"># test every branch which starts with &quot;pages-&quot;</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">gh-pages</span>     <span class="c1"># 测试 gh-pages 分支</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">/pages-(.*)/</span> <span class="c1"># 测试每一个以 &quot;pages-&quot; 开头的分支</span>
 
 <span class="l-Scalar-Plain">env</span><span class="p-Indicator">:</span>
   <span class="l-Scalar-Plain">global</span><span class="p-Indicator">:</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">NOKOGIRI_USE_SYSTEM_LIBRARIES=true</span> <span class="c1"># speeds up installation of html-proofer</span></code></pre></figure>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">NOKOGIRI_USE_SYSTEM_LIBRARIES=true</span> <span class="c1"># 为 html-proofer 的安装加速</span></code></pre></figure>
 
-<p>Ok, now for an explanation of each line:</p>
+<p>Ok, 接下来是每一行的解释：</p>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">language</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ruby</span></code></pre></figure>
 
-<p>This line tells Travis to use a Ruby build container. It gives your script
-access to Bundler, RubyGems, and a Ruby runtime.</p>
+<p>这一行告诉 Travis 应该使用一个 Ruby 构建容器。这将给予你 Bundler, RubyGems, 和一个 Ruby 运行库的脚本访问权。</p>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">rvm</span><span class="p-Indicator">:</span>
 <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">2.1</span></code></pre></figure>
 
-<p>RVM is a popular Ruby Version Manager (like rbenv, chruby, etc). This
-directive tells Travis the Ruby version to use when running your test
-script.</p>
+<p>RVM 是一个流行的 Ruby 版本管理器 (像 rbenv, chruby, 等等). 这一指令告诉 Travis 用来运行测试脚本的 Ruby 的版本。</p>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">script</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">./script/cibuild</span></code></pre></figure>
 
-<p>Travis allows you to run any arbitrary shell script to test your site. One
-convention is to put all scripts for your project in the <code>script</code>
-directory, and to call your test script <code>cibuild</code>. This line is completely
-customizable. If your script won’t change much, you can write your test
-incantation here directly:</p>
+<p>Travis 允许用户运行任意自定义 shell 脚本来测试你的站点。惯用的一种方式是将项目的所有脚本放在 <code>script</code> 目录下，并将你的测试代码命名为 <code>cibuild</code>。当然这些都是可以完全自定义的。如果你的代码变化并不大，你也可以把你的测试语句这样写：</p>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">install</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">gem install jekyll html-proofer</span>
 <span class="l-Scalar-Plain">script</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">jekyll build &amp;&amp; htmlproof ./_site</span></code></pre></figure>
 
-<p>The <code>script</code> directive can be absolutely any valid shell command.</p>
+<p>此处的 <code>script</code> 指令可以是任何合法的 shell 命令。</p>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># branch whitelist</span>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># 分支白名单</span>
 <span class="l-Scalar-Plain">branches</span><span class="p-Indicator">:</span>
   <span class="l-Scalar-Plain">only</span><span class="p-Indicator">:</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">gh-pages</span>     <span class="c1"># test the gh-pages branch</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">/pages-(.*)/</span> <span class="c1"># test every branch which starts with &quot;pages-&quot;</span></code></pre></figure>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">gh-pages</span>     <span class="c1"># 测试 gh-pages 分支</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">/pages-(.*)/</span> <span class="c1"># 测试以 &quot;pages-&quot; 开头的所有分支</span></code></pre></figure>
 
-<p>You want to ensure the Travis builds for your site are being run only on
-the branch or branches which contain your site. One means of ensuring this
-isolation is including a branch whitelist in your Travis configuration
-file. By specifying the <code>gh-pages</code> branch, you will ensure the associated
-test script (discussed above) is only executed on site branches. If you use
-a pull request flow for proposing changes, you may wish to enforce a
-convention for your builds such that all branches containing edits are
-prefixed, exemplified above with the <code>/pages-(.*)/</code> regular expression.</p>
+<p>我们需要确保 Travis 为且只为包含了我们站点的分支进行构建，这可以通过在 Travis 的配置文件中加入一个分支白名单来实现。明确地加入 <code>gh-pages</code> 分支可以保证相关的 (上述) 测试脚本只在站点分支上运行。如果你使用 pull request flow 来提交修改，你可能希望添加一个构建规则，例如以上的正则表达式 <code>/pages-(.*)/</code>，让构建测试也涵盖了带有 pages 前缀的修改过的分支。</p>
 
-<p>The <code>branches</code> directive is completely optional.</p>
+<p><code>branches</code> 指令是完全可选的。</p>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">env</span><span class="p-Indicator">:</span>
   <span class="l-Scalar-Plain">global</span><span class="p-Indicator">:</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">NOKOGIRI_USE_SYSTEM_LIBRARIES=true</span> <span class="c1"># speeds up installation of html-proofer</span></code></pre></figure>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">NOKOGIRI_USE_SYSTEM_LIBRARIES=true</span> <span class="c1"># 加速 html-proofer 的安装</span></code></pre></figure>
 
-<p>Using <code>html-proofer</code>? You’ll want this environment variable. Nokogiri, used
-to parse HTML files in your compiled site, comes bundled with libraries
-which it must compile each time it is installed. Luckily, you can
-dramatically decrease the install time of Nokogiri by setting the
-environment variable <code>NOKOGIRI_USE_SYSTEM_LIBRARIES</code> to <code>true</code>.</p>
+<p>如果你在使用 <code>html-proofer</code>，建议使用这个环境变量。Nokogiri 在站点编译后被用来解析 HTML 文件，它每次安装都必须编译一遍所带的库文件。幸运的是，我们把环境变量 <code>NOKOGIRI_USE_SYSTEM_LIBRARIES</code> 设为 <code>true</code> 之后，将极大地降低 Nokogiri 所需的安装时间。</p>
 
 <div class="note warning">
-  <h5>Be sure to exclude <code>vendor</code> from your
-   <code>_config.yml</code></h5>
-  <p>Travis bundles all gems in the <code>vendor</code> directory on its build
-   servers, which Jekyll will mistakenly read and explode on.</p>
+  <h5>请确认将 <code>vendor</code> 从你的
+   <code>_config.yml</code> 中排除 (exclude)</h5>
+  <p>Travis 在它的构建服务器下的 <code>vendor</code> 目录中捆绑了所有的 gem, Jekyll 在此目录下会进行错误的读取并导致更严重的后果。</p>
 </div>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">exclude</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">vendor</span><span class="p-Indicator">]</span></code></pre></figure>
 
-<h3 id="questions">Questions?</h3>
+<h3 id="section-1">有疑问?</h3>
 
-<p>This entire guide is open-source. Go ahead and <a href="https://github.com/jekyll/jekyll/edit/master/site/_docs/continuous-integration.md">edit it</a> if you have a
-fix or <a href="https://github.com/jekyll/jekyll-help#how-do-i-ask-a-question">ask for help</a> if you run into trouble and need some help.</p>
+<p>这篇指引完全是开源的。如果你想修复一个错误，可以前往 <a href="https://github.com/xcatliu/jekyllcn/edit/master/site/_docs/continuous-integration.md">编辑</a> 。假如你遇到了麻烦并需要一些帮助，请前往 <a href="https://talk.jekyllrb.com/">求助</a></p>
 
 
 
@@ -2342,6 +2305,10 @@ fix or <a href="https://github.com/jekyll/jekyll-help#how-do-i-ask-a-question">a
             <p class="left"><a href="http://jekyllrb.com/docs/continuous-integration/">原文链接</a></p>
             <p class="right">
               翻译贡献者：
+              
+              <a href="https://github.com/ikenbe" title="ikenbe">
+                <img src="https://github.com/ikenbe.png" class="avatar" alt="ikenbe avatar" width="24" height="24">
+              </a>
               
             </p>
             <div class="clear"></div>
@@ -3361,7 +3328,7 @@ fix or <a href="https://github.com/jekyll/jekyll-help#how-do-i-ask-a-question">a
     
   
     
-      <li class="current"><a href="/docs/continuous-integration/">Continuous Integration</a></li>
+      <li class="current"><a href="/docs/continuous-integration/">持续集成</a></li>
       
 
 
