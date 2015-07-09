@@ -360,7 +360,7 @@ defaults:
   -
     scope:
       path: "projects"
-      type: "pages" # 以前的 `post`， 在 Jekyll 2.2 里。
+      type: "pages" # 以前的 `page`， 在 Jekyll 2.2 里。
     values:
       layout: "project" # 覆盖之前的默认布局
       author: "Mr. Hyde"
