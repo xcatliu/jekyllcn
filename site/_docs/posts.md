@@ -2,7 +2,7 @@
 layout: docs
 title: 撰写博客
 permalink: /docs/posts/
-translators: sdpfoue
+translators: [sdpfoue, LeuisKen]
 ---
 
 Jeklly 的一个最好的特点是『关注 blog 本身』。这是指什么呢？简单的说就是写博客的过程被铸造进了 Jekyll 的功能中。你只需简单的管理你电脑中的一个文件夹下的文本文件就可以写文章并方便的在线上发布。与繁琐的配置和维护数据库和基于网站的内容管理系统 (CMS) 相比，这是一个非常受欢迎的改变。
@@ -23,10 +23,24 @@ Jeklly 的一个最好的特点是『关注 blog 本身』。这是指什么呢�
 2012-09-12-how-to-write-a-blog.textile
 {% endhighlight %}
 
+<div class="note">
+  <h5>提示™: 链接到其他博文</h5>
+  <p>
+    使用<code><a href="../templates/#post-url">post_url</a></code>
+    标签链接到你的其他博文，以免网站的 permalink 变量改变产生不必要的麻烦。
+  </p>
+</div>
 
 ### 内容格式
 
-所有博客文章顶部必须有一段[YAML头信息](../frontmatter/)(YAML front- matter)。在它下面，就可以选择你喜欢的格式来写文章。Jekyll支持2种流行的标记语言格式：[Markdown](http://daringfireball.net/projects/markdown/) 和 [Textile](http://textile.sitemonks.com/)。这些格式都有自己的方式来标记文章中不同类型的内容，所以你首先需要熟悉这些格式并选择一种最符合你需求的。
+所有博客文章顶部必须有一段[YAML头信息](../frontmatter/)(YAML front- matter)。在它下面，就可以选择你喜欢的格式来写文章。 Jekyll 支持 [Markdown](http://daringfireball.net/projects/markdown/) ，以及以及[其他众多格式的扩展](/docs/plugins/#converters-1)，其中就包括十分流行的 [Textile](http://redcloth.org/textile) 。这些格式都有自己的方式来标记文章中不同类型的内容，所以你首先需要熟悉这些格式并选择一种最符合你需求的。
+
+<div class="note info">
+  <h5>注意字符集</h5>
+  <p>
+    内容处理器可以修改一些特定的字符来使他们表现的更好。比如， Redcarpet 的 <code>smart</code> 扩展被转换为标准样式， ASCII 的引号显示为弯曲的样子，和 Unicode 一样为了使浏览器可以正确显示这些字符，在你页面的 <code>&lt;head&gt;</code> 标签加入 <code>&lt;meta charset="utf-8"&gt;</code> 来定义页面所使用的字符集。
+  </p>
+</div>
 
 ## 引用图片和其它资源
 
@@ -72,6 +86,8 @@ Jeklly 的一个最好的特点是『关注 blog 本身』。这是指什么呢�
 
 当然，你可以完全控制怎样（在哪里）显示你的文章，如何管理你的站点。如果你想了解更多你需要读一下 [Jekyll 的模版是怎样工作的](../templates/)这篇文章。
 
+请注意，`post`变量仅在`for`循环中存在。如果你希望使用当前呈现的页面/博文中的变量（在`for`循环中的博文/页面的变量），请使用`page`变量来替代它。
+
 ## 文章摘要
 
 Jekyll 会自动取每篇文章从开头到第一次出现`excerpt_separator`的地方作为文章的摘要，并将此内容保存到变量`post.excerpt`中。拿上面生成文章列表的例子，你可能想在每个标题下给出文章内容的提示，你可以在每篇文章的第一段加上如下的代码：
@@ -87,11 +103,33 @@ Jekyll 会自动取每篇文章从开头到第一次出现`excerpt_separator`的
 </ul>
 {% endhighlight %}
 
-如果你不喜欢自动生成摘要，你可以在文章的YAML中增加`excerpt`来覆盖它。完全禁止掉可以将`excerpt_separator`设置成`""`.
+由于 Jekyll 会提取第一段的内容，你没有必要将摘要包裹在`p`标签中，它已经为你做了这项工作。如果你希望移除它们可以使用如下的代码：
+
+{% highlight html %}
+{{ post.excerpt | remove: '<p>' | remove: '</p>' }}
+{% endhighlight %}
+
+如果你不喜欢自动生成摘要，你可以在文章的YAML头信息中增加`excerpt`来覆盖它。另外，你也可以选择在文章中自定义一个`excerpt_separator`：
+
+{% highlight text %}
+---
+excerpt_separator: <!--more-->
+---
+
+Excerpt
+<!--more-->
+Out-of-excerpt
+{% endhighlight %}
+
+你也可以在`_config.yml`中全局声明`excerpt_separator`。
+
+完全禁止掉可以将`excerpt_separator`设置成`""`。
+
+同时，对于由 Liquid 标签输出的内容，你可以通过`| strip_html`过滤器来移除输出内容中的html标签。这在某些场景，如在你博文的`head`中生成`meta="description"`，以及其他html标签与内容不应混杂的场景下很有帮助。
 
 ## 高亮代码片段
 
-Jekyll 自带语法高亮功能，它是由 Pygments 来实现的。在文章中插入一段高亮代码非常容易，只需使用下面的 Liquid 标记：
+Jekyll 自带语法高亮功能，你可以选择使用 Pygments 或 Rouge 两种工具中的一种。在文章中插入一段高亮代码非常容易，只需使用下面的 Liquid 标记：
 
 {% highlight text %}
 {% raw %}{% highlight ruby %}{% endraw %}
