@@ -2,7 +2,7 @@
 layout: docs
 title: 头信息 
 permalink: /docs/frontmatter/
-translators: liul85
+translators: [liul85, LeuisKen]
 ---
 
 正是头信息开始让 Jekyll 变的很酷。任何只要包含 [YAML](http://yaml.org/) 头信息的文件在 Jekyll 中都能被当做一个特殊的文件来处理。头信息必须在文件的开始部分，并且需要按照 YAML 的格式写在两行三虚线之间。下面是一个基本的例子：
@@ -141,10 +141,17 @@ title: Blogging Like a Hacker
       </td>
       <td>
         <p>
-          这里的日期会覆盖文章名字中的日期。这样就可以用来保障文章排序的正确。
+          这里的日期会覆盖文章名字中的日期。这样就可以用来保障文章排序的正确。日期的具体格式为<code>YYYY-MM-DD HH:MM:SS +/-TTTT</code>；时，分，秒和时区都是可选的。
         </p>
       </td>
     </tr>
   </tbody>
 </table>
+</div>
+
+<div class="note">
+  <h5>提示™: 不要重复你自己</h5>
+  <p>
+    如果你不希望重复地使用常用的头信息变量，只需为它们定义<a href="../configuration/#front-matter-defaults" title="Front Matter defaults">默认值</a>然后再需要的时候覆盖他们即可。这种方式对于预定义变量和自定义变量都有效。
+  </p>
 </div>
