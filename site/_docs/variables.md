@@ -2,7 +2,7 @@
 layout: docs
 title: 常用变量
 permalink: /docs/variables/
-translators: yujingz
+translators: [yujingz, LeuisKen]
 ---
 
 Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息](../frontmatter)的文件都是要处理的对象。对于每一个这样的文件，Jekyll 都会通过 [Liquid 模板工具](http://wiki.shopify.com/Liquid)来生成一系列的数据。下面就是这些可用数据变量的参考和文档。
@@ -98,6 +98,54 @@ Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息
         相关性是低质量的，但是能被很快的计算出来。如果你需要高相关性，就要消耗更多的时间来计算。
         用<code>jekyll</code> 这个命令带上 <code>--lsi</code> (latent semantic
         indexing) 选项来计算高相关性的 Post。
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>site.static_files</code></p></td>
+      <td><p>
+
+        <a href="/docs/static-files/">静态文件</a>的列表 (此外的文件不会被 Jekyll 和 Liquid 处理。)。每个文件都具有三个属性： <code>path</code>，  <code>modified_time</code> 以及 <code>extname</code>。
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>site.html_pages</code></p></td>
+      <td><p>
+
+        ‘site.pages’的子集，存储以‘.html’结尾的部分。
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>site.html_files</code></p></td>
+      <td><p>
+
+        ‘site.static_files’的子集，存储以‘.html’结尾的部分。
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>site.collections</code></p></td>
+      <td><p>
+
+        一个所有集合（collection）的清单。
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>site.data</code></p></td>
+      <td><p>
+
+        一个存储了 <code>_data</code> 目录下的YAML文件数据的清单。
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>site.documents</code></p></td>
+      <td><p>
+
+        每一个集合（collection）中的全部文件的清单。
 
       </p></td>
     </tr>
@@ -221,12 +269,28 @@ Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息
 
       </p></td>
     </tr>
+    <tr>
+      <td><p><code>page.next</code></p></td>
+      <td><p>
+
+        当前文章在<code>site.posts</code>中的位置对应的下一篇文章。若当前文章为最后一篇文章，返回<code>nil</code>
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>page.previous</code></p></td>
+      <td><p>
+
+      当前文章在<code>site.posts</code>中的位置对应的上一篇文章。若当前文章为第一篇文章，返回<code>nil</code>
+
+      </p></td>
+    </tr>
   </tbody>
 </table>
 </div>
 
 <div class="note">
-  <h5>ProTip™: Use custom front-matter</h5>
+  <h5>提示™: 使用自定义的头信息</h5>
   <p>
 
     任何你自定义的头文件信息都会在 <code>page</code> 中可用。
