@@ -31,7 +31,7 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 
 ## 项目进度
 
-总体进度：56 / 79 = 71%
+总体进度：60 / 79 = 76%
 
 ### 翻译进度
 
@@ -68,15 +68,15 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 
 ### 更新进度
 
-- [ ] 更新 home
+- [x] 更新 home
 - [x] 更新 quickstart
 - [x] 更新 installation
 - [x] 更新 usage
 - [x] 更新 structure
 - [x] 更新 configuration
-- [ ] 更新 frontmatter
-- [ ] 更新 posts
-- [ ] 更新 drafts
+- [x] 更新 frontmatter
+- [x] 更新 posts
+- [x] 更新 drafts
 - [ ] 更新 pages
 - [x] 更新 static-files
 - [ ] 更新 variables
