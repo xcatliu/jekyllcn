@@ -76,6 +76,31 @@ Jekyll 使用 [Liquid](http://wiki.shopify.com/Liquid) 模板语言，支持所�
     </tr>
     <tr>
       <td>
+        <p class='name'><strong>检索</strong></p>
+        <p>选取键值对应的所有对象，返回一个数组。</p>
+      </td>
+      <td class='align-center'>
+        <p>
+         <code class='filter'>{% raw %}{{ site.members | where:"graduation_year","2014" }}{% endraw %}</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class='name'><strong>分组</strong></p>
+        <p>根据所给属性将对象分组，返回一个数组。</p>
+      </td>
+      <td class='align-center'>
+        <p>
+         <code class='filter'>{% raw %}{{ site.members | group_by:"graduation_year" }}{% endraw %}</code>
+        </p>
+        <p>
+          <code class='output'>[{"name"=>"2013", "items"=>[...]},<br />{"name"=>"2014", "items"=>[...]}]</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <p class='name'><strong>XML 转码</strong></p>
         <p>对一些字符串转码，已方便显示在 XML 。</p>
       </td>
@@ -147,17 +172,6 @@ Jekyll 使用 [Liquid](http://wiki.shopify.com/Liquid) 模板语言，支持所�
     </tr>
     <tr>
       <td>
-        <p class='name'><strong>Textile 支持</strong></p>
-        <p>将 Textile 格式的字符串转换为 HTML ，使用 RedCloth</p>
-      </td>
-      <td class='align-center'>
-        <p>
-         <code class='filter'>{% raw %}{{ page.excerpt | textilize }}{% endraw %}</code>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <p class='name'><strong>Markdown 支持</strong></p>
         <p>将 Markdown 格式的字符串转换为 HTML 。</p>
       </td>
@@ -167,9 +181,81 @@ Jekyll 使用 [Liquid](http://wiki.shopify.com/Liquid) 模板语言，支持所�
         </p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <p class='name'><strong>Sass / SCSS 转换</strong></p>
+        <p>将 Sass / SCSS 格式的字符串转换为 CSS</p>
+      </td>
+      <td class='align-center'>
+        <p>
+         <code class='filter'>{% raw %}{{ some_scss | scssify }}{% endraw %}</code>
+        </p>
+        <p>
+         <code class='filter'>{% raw %}{{ some_sass | sassify }}{% endraw %}</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class='name'><strong>slugify</strong></p>
+        <p>将字符串转换为小写字母 URL “slug”。详见下面的参数。</p>
+      </td>
+      <td class='align-center'>
+        <p>
+         <code class='filter'>{% raw %}{{ "The _config.yml file" | slugify }}{% endraw %}</code>
+        </p>
+        <p>
+          <code class='output'>the-config-yml-file</code>
+        </p>
+        <p>
+         <code class='filter'>{% raw %}{{ "The _config.yml file" | slugify: 'pretty' }}{% endraw %}</code>
+        </p>
+        <p>
+          <code class='output'>the-_config.yml-file</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class='name'><strong>JSON 转换</strong></p>
+        <p>将 Hash / 数组 格式的字符串转换为 JSON</p>
+      </td>
+      <td class='align-center'>
+        <p>
+         <code class='filter'>{% raw %}{{ site.data.projects | jsonify }}{% endraw %}</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class='name'><strong>排序</strong></p>
+        <p>对数组排序，可选参数为：1.排序属性；2.顺序（正序或倒序）</p>
+      </td>
+      <td class='align-center'>
+        <p>
+         <code class='filter'>{% raw %}{{ page.tags | sort }}{% endraw %}</code>
+        </p>
+        <p>
+         <code class='filter'>{% raw %}{{ site.posts | sort: 'author' }}{% endraw %}</code>
+        </p>
+        <p>
+         <code class='filter'>{% raw %}{{ site.pages | sort: 'title', 'last' }}{% endraw %}</code>
+        </p>
+      </td>
+    </tr>
   </tbody>
 </table>
 </div>
+
+### `slugify` 的可选参数
+
+`slugify`接受一个参数，用来设定具体的过滤字符。默认值为`default`。可选参数如下（含过滤字符）：
+
+- `none`：不过滤字符
+- `raw`：空格
+- `default`：空格和非字母数字字符
+- `pretty`：空格和非字母数字字符，`._~!$&'()+,;=@`除外
+
 
 ## 标签
 
@@ -183,21 +269,41 @@ Jekyll 使用 [Liquid](http://wiki.shopify.com/Liquid) 模板语言，支持所�
 
 Jekyll 要求所有被引用的文件放在根目录的 `_includes` 文件夹，上述代码将把 `<source>/_includes/footer.html` 的内容包含进来。
 
-你还可以传递参数：
+<div class="note">
+  <h5>提示™：使用变量作为文件名</h5>
+  <p>
+    文件名可以是文字（如上面的例子），也可以是 liquid 标记的使用变量，如<code>{% include {{my_variable}} %}</code>。
+  </p>
+</div>
+
+你还可以对 include 传递参数。省略引用标记来传递变量： Liquid 弯括号不能在此处使用：
 
 {% highlight ruby %}
-{% raw %}{% include footer.html param="value" %}{% endraw %}
+{% raw %}{% include footer.html param="value" variable-param=page.variable %}{% endraw %}
 {% endhighlight %}
 
-这些变量可以通过 Lquid 调用：
+这些变量可以通过 Liquid 调用：
 
 {% highlight ruby %}
 {% raw %}{{ include.param }}{% endraw %}
 {% endhighlight %}
 
-### Code snippet highlighting
+#### 相对于其他文件的 Permalink 引入
 
-Jekyll 已经支持[超过 100 种语言](http://pygments.org/languages/)代码高亮显示，在此感谢 [Pygments](http://pygments.org/)。要使用 Pygments，你必须安装 Python 并且在配置文件中设置 `pygments` 为 `true`。
+你也可以选择相对当前文件，引入其他文件的片段：
+{% highlight ruby %}
+{% raw %}{% include_relative somedir/footer.html %}{% endraw %}
+{% endhighlight %}
+
+引入的内容未必总在 `_includes` 文件夹。当该标签被使用时，引入的内容应位于对应的相对路径下。例如，`_posts/2014-09-03-my-file.markdown`文件试用了`include_relative`标签，引入的文件需要位于 `_posts` 文件夹或其子文件夹。在其他路径下将无法引入。
+
+ `include` 标签的其他特征也同样适用于 `include_relative` 标签，如使用变量。
+
+### 代码高亮
+
+Jekyll 已经支持[超过 100 种语言](http://pygments.org/languages/)代码高亮显示，在此感谢 [Pygments](http://pygments.org/)。要使用 Pygments ，你必须安装 Python 并且在配置文件中设置 `highlighter` 为 `pygments`。
+
+另外，你也可以使用 Rouge 实现代码高亮。虽然它不像 Pygments 支持那么多语言，但也可以胜任大多数场景。而且，由于 Rouge 基于 Ruby ，你无须在系统中配置 Python 环境。
 
 使用代码高亮的例子如下：
 
@@ -211,11 +317,11 @@ end
 {% endraw %}
 {% endhighlight %}
 
-`highlight` 的参数 (本例中的 `ruby`) 是识别所用语言，要使用合适的识别器可以参照 [Lexers 页](http://pygments.org/docs/lexers/) 的 “short name” 。
+`highlight` 的参数 (本例中的 `ruby`) 是识别所用语言。为了确定最适合你所用语言的高亮方式，你可以在 [Pygments’ Lexers page](http://pygments.org/docs/lexers/) 和 [Rouge wiki](https://github.com/jayferd/rouge/wiki/List-of-supported-languages-and-lexers) 寻找对应语言的 “short name”。
 
 #### 行号
 
-`highlight` 的第二个可选参数是 `linenos` ，使用了 `linenos` 会强制在代码上加入行号。例如：
+`highlight` 的第二个可选参数是 `linenos` 。使用了 `linenos` 会强制在代码上加入行号。例如：
 
 {% highlight text %}
 {% raw %}
@@ -229,15 +335,23 @@ end
 
 #### 代码高亮的样式
 
-要使用代码高亮，你还需要包含一个样式。例如你可以在 [syntax.css](http://github.com/mojombo/tpw/tree/master/css/syntax.css) 找到，这里有跟 GitHub 一样的样式，并且免费。如果你使用了 `linenos` ，可能还需要在 `syntax.css` 加入 `.lineno` 样式。
+要使用代码高亮，你还需要包含一个样式表。例如 [syntax.css](http://github.com/mojombo/tpw/tree/master/css/syntax.css) 。它包含了和 GitHub 一样的样式，并且免费。如果你使用了 `linenos` ，可能还需要在 `syntax.css` 加入 `.lineno` 样式。
 
-### Post URL
+### 博文链接(Post URL)
 
 如果你想使用你某篇文章的链接，标签 `post_url` 可以满足你的需求。
 
 {% highlight text %}
 {% raw %}
 {% post_url 2010-07-21-name-of-post %}
+{% endraw %}
+{% endhighlight %}
+
+如果你使用了子文件夹来组织你的博文，你需要在路径中加入子文件夹：
+
+{% highlight text %}
+{% raw %}
+{% post_url /subdir/2010-07-21-name-of-post %}
 {% endraw %}
 {% endhighlight %}
 
@@ -253,23 +367,7 @@ end
 
 ### Gist
 
-使用 `gist` 标签可以轻松的把 GitHub Gist 签入到网站中：
-
-{% highlight text %}
-{% raw %}
-{% gist 5555251 %}
-{% endraw %}
-{% endhighlight %}
-
-你还可以配置 gist 的文件名，用以显示：
-
-{% highlight text %}
-{% raw %}
-{% gist 5555251 result.md %}
-{% endraw %}
-{% endhighlight %}
-
-`gist` 同样支持私有的 gists ，这需要 gist 所属的 github 用户名：
+使用 `gist` 标签可以轻松的把 GitHub Gist 签入到网站中，对于公有和私有的 gist 均有效：
 
 {% highlight text %}
 {% raw %}
@@ -277,4 +375,10 @@ end
 {% endraw %}
 {% endhighlight %}
 
-私有的 gist 同样支持文件名。
+你也可以为 gist 设置文件名： 
+
+{% highlight text %}
+{% raw %}
+{% gist parkr/931c1c8d465a04042403 jekyll-private-gist.markdown %}
+{% endraw %}
+{% endhighlight %}

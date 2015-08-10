@@ -1,8 +1,8 @@
 ---
 layout: docs
-title: Assets
+title: 资源
 permalink: /docs/assets/
-translators: yzyzsun
+translators: [yzyzsun, LeuisKen]
 hash: 5647b91
 ---
 
