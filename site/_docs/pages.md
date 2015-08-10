@@ -2,7 +2,7 @@
 layout: docs
 title: 创建页面
 permalink: /docs/pages/
-translators: sdpfoue
+translators: [sdpfoue, LeuisKen]
 ---
 
 作为[写文章](../posts/)的补充，Jekyll 还可以创建静态页面。利用 Jekyll 带来的便利，你只需要复制文件或文件夹，就是这么简单。
@@ -14,7 +14,7 @@ translators: sdpfoue
 <div class="note">
   <h5>提示™: 在主页上使用布局</h5>
   <p>
-    站点上任何 HTML 文件，包括主页，都可以使用布局和 include 中的内容一般共用的内容，如页面的 header 和 footer. 将合适的部分抽出放到布局中。
+    站点上任何 HTML 文件，包括主页，都可以使用 layout 和 include 中的内容作为公用的内容，如页面的 header 和 footer. 将合适的部分抽出放到布局中。
   </p>
 </div>
 
@@ -45,7 +45,7 @@ translators: sdpfoue
 
 ### 命名一个文件夹并包含一个 index.html 文件
 
-上面的方法可以很好的工作，但是有些人不喜欢在 URL 中显示文件的扩展名。用 Jekyll 达到这种效果，你只需要为每个顶级页面创建一个文件夹，并包含一个 `inex.html` 文件。这样，每个 URL 就将以文件夹的名字作为结尾，网站服务器会将对应的 index.html 展示给用户。下面是一个示例来展示这种结构的样子：
+上面的方法可以很好的工作，但是有些人不喜欢在 URL 中显示文件的扩展名。用 Jekyll 达到这种效果，你只需要为每个顶级页面创建一个文件夹，并包含一个 `index.html` 文件。这样，每个 URL 就将以文件夹的名字作为结尾，网站服务器会将对应的 `index.html` 展示给用户。下面是一个示例来展示这种结构的样子：
 
 {% highlight bash %}
 .
