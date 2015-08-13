@@ -925,7 +925,7 @@
     
   
     
-      <option value="/docs/collections/">Collections</option>
+      <option value="/docs/collections/">集合（Collections）</option>
     
   
     
@@ -1059,7 +1059,7 @@
 
   
     
-      <option value="/docs/assets/">Assets</option>
+      <option value="/docs/assets/">资源</option>
     
   
     
@@ -2184,184 +2184,7 @@
             <a href="https://github.com/xcatliu/jekyllcn/edit/master/site/_docs/migrations.md"><i class="fa fa-pencil"></i> &nbsp;发现错误或贡献翻译</a>
           </div>
           <h1>博客迁移</h1>
-          <p>如果你要从其他博客迁移到 Jekyll，Jekyll 导入器可以帮助你。本页面的所有方法都需要旧系统数据库的读权限，每个方法在 <code>_posts</code> 文件夹生成 <code>.markdown</code> 格式的文章。</p>
-
-<h2 id="section">迁移前的准备工作</h2>
-
-<p>导入器有很多的依赖，需要通过 gem <a href="https://github.com/jekyll/jekyll-import"><code>jekyll-import</code></a> 来完成。安装好本 gem 以后，就可以作为 Jekyll 的标准命令来使用了。</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>gem install jekyll-import --pre</code></pre></figure>
-
-<p>你应该已经准备好运行导入器了，如果碰到任何麻烦，可以看看导入器的帮助：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>jekyll <span class="nb">help </span>import           <span class="c"># =&gt; See list of importers</span>
-<span class="nv">$ </span>jekyll <span class="nb">help </span>import IMPORTER  <span class="c"># =&gt; See importer specific help</span></code></pre></figure>
-
-<p>其中的 IMPORTER 是某个导入器的名字。</p>
-
-<div class="note info">
-  <h5>提示：记得复核迁移后的内容</h5>
-  <p>
-
-    导入器没有区分公开的和私有的文章，你要记得检查迁移后的文章是否你想要的。
-
-  </p>
-</div>
-
-<!-- TODO all these need to be fixed -->
-
-<h2 id="wordpress">WordPress</h2>
-
-<h3 id="wordpress-">WordPress 导出文件</h3>
-
-<p>如果还没有安装 hpricot，你需要首先运行 <code>gem install hpricot</code> ；然后，用 WordPress 的导出工具导出你的博客。假设导出的文件被保存为 <code>wordpress.xml</code> ，你需要运行如下命令：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ruby -rubygems -e <span class="s1">&#39;require &quot;jekyll/jekyll-import/wordpressdotcom&quot;;</span>
-<span class="s1">    JekyllImport::WordpressDotCom.process({ :source =&gt; &quot;wordpress.xml&quot; })&#39;</span></code></pre></figure>
-
-<div class="note">
-  <h5>ProTip™: WordPress.com Export Tool</h5>
-  <p>If you are migrating from a WordPress.com account, you can
-  access the export tool at the following URL:
-  <code>https://YOUR-USER-NAME.wordpress.com/wp-admin/export.php</code>.</p>
-</div>
-
-<h3 id="wordpress-mysql-server-">使用 WordPress MySQL server 的连接</h3>
-
-<p>如果你想直接使用 WordPress MySQL server 的数据库连接，可以这样做：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ruby -rubygems -e <span class="s1">&#39;require &quot;jekyll/jekyll-import/wordpress&quot;;</span>
-<span class="s1">    JekyllImport::WordPress.process({:dbname =&gt; &quot;database&quot;, :user =&gt; &quot;user&quot;, :pass =&gt; &quot;pass&quot;})&#39;</span></code></pre></figure>
-
-<p>如果你正在使用 Webfaction，并不得不建立一个 <a href="http://docs.webfaction.com/user-guide/databases.html?highlight=mysql#starting-an-ssh-tunnel-with-ssh">SSH tunnel</a>,记得明确主机头(<code>127.0.0.1</code>) , 否则 MySQL 可能阻止连接，因为在认证系统中 <code>localhost</code> 和 <code>127.0.0.1</code> 是不同的：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ruby -rubygems -e <span class="s1">&#39;require &quot;jekyll/jekyll-import/wordpress&quot;;</span>
-<span class="s1">    JekyllImport::WordPress.process({:host =&gt; &quot;127.0.0.1&quot;, :dbname =&gt; &quot;database&quot;, :user =&gt; &quot;user&quot;, :pass =&gt; &quot;pass&quot;})&#39;</span></code></pre></figure>
-
-<h3 id="wordpress--1">功能更全的 WordPress 迁移工具</h3>
-
-<p>尽管上述方法可以工作，但他们并没有导入足够的元数据。如果你想导出诸如页面，标签，自定义字段，图片附件等等，下边的资源或许对你有用：</p>
-
-<ul>
-  <li><a href="https://github.com/thomasf/exitwp">Exitwp</a> is a configurable tool written in
-Python for migrating one or more WordPress blogs into Jekyll (Markdown) format
-while keeping as much metadata as possible. Exitwp also downloads attachments
-and pages.</li>
-  <li><a href="http://vitobotta.com/how-to-migrate-from-wordpress-to-jekyll/">A great
-article</a> with a
-step-by-step guide for migrating a WordPress blog to Jekyll while keeping most
-of the structure and metadata.</li>
-  <li><a href="https://github.com/theaob/wpXml2Jekyll">wpXml2Jekyll</a> is an executable
-windows application for creating Markdown posts from your WordPress XML file.</li>
-</ul>
-
-<h2 id="drupal">Drupal</h2>
-
-<p>如果你是从 <a href="http://drupal.org">Drupal</a> 导入，根据你的 Drupal 版本，有两个迁移工具供你使用：
-- <a href="https://github.com/jekyll/jekyll-import/blob/v0.1.0.beta1/lib/jekyll/jekyll-import/drupal6.rb">Drupal 6</a>
-- <a href="https://github.com/jekyll/jekyll-import/blob/v0.1.0.beta1/lib/jekyll/jekyll-import/drupal7.rb">Drupal 7</a></p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ruby -rubygems -e <span class="s1">&#39;require &quot;jekyll/jekyll-import/drupal6&quot;;</span>
-<span class="s1">    JekyllImport::Drupal6.process(&quot;dbname&quot;, &quot;user&quot;, &quot;pass&quot;)&#39;</span>
-<span class="c"># ... or ...</span>
-<span class="nv">$ </span>ruby -rubygems -e <span class="s1">&#39;require &quot;jekyll/jekyll-import/drupal7&quot;;</span>
-<span class="s1">    JekyllImport::Drupal7.process(&quot;dbname&quot;, &quot;user&quot;, &quot;pass&quot;)&#39;</span></code></pre></figure>
-
-<p>如果要连接到不同的主机或配置表前缀，你可以在迁移 Drupal 的执行代码后边加上下边两个参数：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ruby -rubygems -e <span class="s1">&#39;require &quot;jekyll/jekyll-import/drupal6&quot;;</span>
-<span class="s1">    JekyllImport::Drupal6.process(&quot;dbname&quot;, &quot;user&quot;, &quot;pass&quot;, &quot;host&quot;, &quot;table_prefix&quot;)&#39;</span>
-<span class="c"># ... or ...</span>
-<span class="nv">$ </span>ruby -rubygems -e <span class="s1">&#39;require &quot;jekyll/jekyll-import/drupal7&quot;;</span>
-<span class="s1">    JekyllImport::Drupal7.process(&quot;dbname&quot;, &quot;user&quot;, &quot;pass&quot;, &quot;host&quot;, &quot;table_prefix&quot;)&#39;</span></code></pre></figure>
-
-<h2 id="movable-type">Movable Type</h2>
-
-<p>从 Movable Type 导入：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ruby -rubygems -e <span class="s1">&#39;require &quot;jekyll/jekyll-import/mt&quot;;</span>
-<span class="s1">    JekyllImport::MT.process(&quot;database&quot;, &quot;user&quot;, &quot;pass&quot;)&#39;</span></code></pre></figure>
-
-<h2 id="typo">Typo</h2>
-
-<p>从 Typo 导入：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ruby -rubygems -e <span class="s1">&#39;require &quot;jekyll/jekyll-import/typo&quot;;</span>
-<span class="s1">    JekyllImport::Typo.process(&quot;database&quot;, &quot;user&quot;, &quot;pass&quot;)&#39;</span></code></pre></figure>
-
-<p>这都代码仅仅在 Typo 版本 4 以上测试过。</p>
-
-<h2 id="textpattern">TextPattern</h2>
-
-<p>从 TextPattern 导入：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ruby -rubygems -e <span class="s1">&#39;require &quot;jekyll/jekyll-import/textpattern&quot;;</span>
-<span class="s1">    JekyllImport::TextPattern.process(&quot;database_name&quot;, &quot;username&quot;, &quot;password&quot;, &quot;hostname&quot;)&#39;</span></code></pre></figure>
-
-<p>你需要从 <code>_import</code> 所在文件夹的上级文件夹运行上述命令。例如， <code>_import</code> 的路径是 <code>/path/source/_import</code> ，你需要在 <code>/path/source</code> 运行上述命令。主机名默认为 <code>localhost</code> ，其他变量需要这个参数。你或许要调整入口的代码。默认的，它将试图寻找所有可能的入口。</p>
-
-<h2 id="mephisto">Mephisto</h2>
-
-<p>从 Mephisto 导入：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ruby -rubygems -e <span class="s1">&#39;require &quot;jekyll/jekyll-import/mephisto&quot;;</span>
-<span class="s1">    JekyllImport::Mephisto.process(&quot;database&quot;, &quot;user&quot;, &quot;password&quot;)&#39;</span></code></pre></figure>
-
-<p>如果你的数据放在 Postgres ，你需要用如下方法代替：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ruby -rubygems -e <span class="s1">&#39;require &quot;jekyll/jekyll-import/mephisto&quot;;</span>
-<span class="s1">    JekyllImport::Mephisto.postgres({:database =&gt; &quot;database&quot;, :username=&gt;&quot;username&quot;, :password =&gt;&quot;password&quot;})&#39;</span></code></pre></figure>
-
-<h2 id="blogger-blogspot">Blogger (Blogspot)</h2>
-
-<p>从 Blogger 导入，请参考文章<a href="http://blog.coolaj86.com/articles/migrate-from-blogger-to-jekyll.html">从 Blogger 迁移到 Jekyll</a> 。如果没有很好的工作，你可以试试下边的这些替代品：</p>
-
-<ul>
-  <li><a href="https://github.com/kennym">@kennym</a> created a <a href="https://gist.github.com/1115810">little migration
-script</a>, because the solutions in the
-previous article didn’t work out for him.</li>
-  <li><a href="https://github.com/ngauthier">@ngauthier</a> created <a href="https://gist.github.com/1506614">another
-importer</a> that imports comments, and does so
-via blogger’s archive instead of the RSS feed.</li>
-  <li><a href="https://github.com/juniorz">@juniorz</a> created <a href="https://gist.github.com/1564581">yet another
-importer</a> that works for
-<a href="http://octopress.org">Octopress</a>. It is like <a href="https://gist.github.com/1506614">@ngauthier’s
-version</a> but separates drafts from posts, as
-well as importing tags and permalinks.</li>
-</ul>
-
-<h2 id="posterous">Posterous</h2>
-
-<p>从 Posterous 导入：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ruby -rubygems -e <span class="s1">&#39;require &quot;jekyll/jekyll-import/posterous&quot;;</span>
-<span class="s1">    JekyllImport::Posterous.process(&quot;my_email&quot;, &quot;my_pass&quot;)&#39;</span></code></pre></figure>
-
-<p>如果要导出你帐号上的其他博客，需要配置 <code>blog_id</code> ：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ruby -rubygems -e <span class="s1">&#39;require &quot;jekyll/jekyll-import/posterous&quot;;</span>
-<span class="s1">    JekyllImport::Posterous.process(&quot;my_email&quot;, &quot;my_pass&quot;, &quot;blog_id&quot;)&#39;</span></code></pre></figure>
-
-<p>有一个<a href="https://github.com/pepijndevos/jekyll/blob/patch-1/lib/jekyll/migrators/posterous.rb">替代品</a>，他保持了永久链接，并试图导入图片。</p>
-
-<h2 id="tumblr">Tumblr</h2>
-
-<p>从 Tumblr 导入：</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ruby -rubygems -e <span class="s1">&#39;require &quot;jekyll/jekyll-import/tumblr&quot;;</span>
-<span class="s1">    JekyllImport::Tumblr.process(url, format, grab_images, add_highlights, rewrite_urls)&#39;</span>
-<span class="c"># url    - String: your blog&#39;s URL</span>
-<span class="c"># format - String: the output file extension. Use &quot;md&quot; to have your content</span>
-<span class="c">#          converted from HTML to Markdown. Defaults to &quot;html&quot;.</span>
-<span class="c"># grab_images    - Boolean: whether to download images as well. Defaults to false.</span>
-<span class="c"># add_highlights - Boolean: whether to wrap code blocks (indented 4 spaces) in a Liquid</span>
-                   <span class="s2">&quot;highlight&quot;</span> tag. Defaults to false.
-<span class="c"># rewrite_urls   - Boolean: whether to write pages that redirect from the old Tumblr paths</span>
-                   to the new Jekyll paths. Defaults to false.</code></pre></figure>
-
-<h2 id="section-1">其他</h2>
-
-<p>如果你有一个博客平台，而且还没有导入器，你可以考虑写一个，并提交给我们一个 <a href="https://github.com/jekyll/jekyll-import">pull request</a>.</p>
+          <p>如果你要从其他博客迁移到 Jekyll，Jekyll 导入器可以帮助你。想了解更多关于导入站点至 Jekyll 的信息，请查看我们的 <a href="http://import.jekyllrb.com/docs/home/"><code>jekyll-import</code>文档页面</a>。</p>
 
 
           <div class="jekyllcn-doc-footer">
@@ -2371,6 +2194,10 @@ well as importing tags and permalinks.</li>
               
               <a href="https://github.com/debbbbie" title="debbbbie">
                 <img src="https://github.com/debbbbie.png" class="avatar" alt="debbbbie avatar" width="24" height="24">
+              </a>
+              
+              <a href="https://github.com/LeuisKen" title="LeuisKen">
+                <img src="https://github.com/LeuisKen.png" class="avatar" alt="LeuisKen avatar" width="24" height="24">
               </a>
               
             </p>
@@ -2997,7 +2824,7 @@ well as importing tags and permalinks.</li>
     
   
     
-      <li class=""><a href="/docs/collections/">Collections</a></li>
+      <li class=""><a href="/docs/collections/">集合（Collections）</a></li>
       
 
 
@@ -3027,7 +2854,7 @@ well as importing tags and permalinks.</li>
 
   
     
-      <li class=""><a href="/docs/assets/">Assets</a></li>
+      <li class=""><a href="/docs/assets/">资源</a></li>
       
 
 

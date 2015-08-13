@@ -925,7 +925,7 @@
     
   
     
-      <option value="/docs/collections/">Collections</option>
+      <option value="/docs/collections/">集合（Collections）</option>
     
   
     
@@ -1059,7 +1059,7 @@
 
   
     
-      <option value="/docs/assets/">Assets</option>
+      <option value="/docs/assets/">资源</option>
     
   
     
@@ -2255,6 +2255,31 @@
     </tr>
     <tr>
       <td>
+        <p class="name"><strong>检索</strong></p>
+        <p>选取键值对应的所有对象，返回一个数组。</p>
+      </td>
+      <td class="align-center">
+        <p>
+         <code class="filter">{{ site.members | where:"graduation_year","2014" }}</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="name"><strong>分组</strong></p>
+        <p>根据所给属性将对象分组，返回一个数组。</p>
+      </td>
+      <td class="align-center">
+        <p>
+         <code class="filter">{{ site.members | group_by:"graduation_year" }}</code>
+        </p>
+        <p>
+          <code class="output">[{"name"=&gt;"2013", "items"=&gt;[...]},<br />{"name"=&gt;"2014", "items"=&gt;[...]}]</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <p class="name"><strong>XML 转码</strong></p>
         <p>对一些字符串转码，已方便显示在 XML 。</p>
       </td>
@@ -2326,17 +2351,6 @@
     </tr>
     <tr>
       <td>
-        <p class="name"><strong>Textile 支持</strong></p>
-        <p>将 Textile 格式的字符串转换为 HTML ，使用 RedCloth</p>
-      </td>
-      <td class="align-center">
-        <p>
-         <code class="filter">{{ page.excerpt | textilize }}</code>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <p class="name"><strong>Markdown 支持</strong></p>
         <p>将 Markdown 格式的字符串转换为 HTML 。</p>
       </td>
@@ -2346,9 +2360,82 @@
         </p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <p class="name"><strong>Sass / SCSS 转换</strong></p>
+        <p>将 Sass / SCSS 格式的字符串转换为 CSS</p>
+      </td>
+      <td class="align-center">
+        <p>
+         <code class="filter">{{ some_scss | scssify }}</code>
+        </p>
+        <p>
+         <code class="filter">{{ some_sass | sassify }}</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="name"><strong>slugify</strong></p>
+        <p>将字符串转换为小写字母 URL “slug”。详见下面的参数。</p>
+      </td>
+      <td class="align-center">
+        <p>
+         <code class="filter">{{ "The _config.yml file" | slugify }}</code>
+        </p>
+        <p>
+          <code class="output">the-config-yml-file</code>
+        </p>
+        <p>
+         <code class="filter">{{ "The _config.yml file" | slugify: 'pretty' }}</code>
+        </p>
+        <p>
+          <code class="output">the-_config.yml-file</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="name"><strong>JSON 转换</strong></p>
+        <p>将 Hash / 数组 格式的字符串转换为 JSON</p>
+      </td>
+      <td class="align-center">
+        <p>
+         <code class="filter">{{ site.data.projects | jsonify }}</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="name"><strong>排序</strong></p>
+        <p>对数组排序，可选参数为：1.排序属性；2.顺序（正序或倒序）</p>
+      </td>
+      <td class="align-center">
+        <p>
+         <code class="filter">{{ page.tags | sort }}</code>
+        </p>
+        <p>
+         <code class="filter">{{ site.posts | sort: 'author' }}</code>
+        </p>
+        <p>
+         <code class="filter">{{ site.pages | sort: 'title', 'last' }}</code>
+        </p>
+      </td>
+    </tr>
   </tbody>
 </table>
 </div>
+
+<h3 id="slugify-"><code>slugify</code> 的可选参数</h3>
+
+<p><code>slugify</code>接受一个参数，用来设定具体的过滤字符。默认值为<code>default</code>。可选参数如下（含过滤字符）：</p>
+
+<ul>
+  <li><code>none</code>：不过滤字符</li>
+  <li><code>raw</code>：空格</li>
+  <li><code>default</code>：空格和非字母数字字符</li>
+  <li><code>pretty</code>：空格和非字母数字字符，<code>._~!$&amp;'()+,;=@</code>除外</li>
+</ul>
 
 <h2 id="section-1">标签</h2>
 
@@ -2360,17 +2447,36 @@
 
 <p>Jekyll 要求所有被引用的文件放在根目录的 <code>_includes</code> 文件夹，上述代码将把 <code>&lt;source&gt;/_includes/footer.html</code> 的内容包含进来。</p>
 
-<p>你还可以传递参数：</p>
+<div class="note">
+  <h5>提示™：使用变量作为文件名</h5>
+  <p>
+    文件名可以是文字（如上面的例子），也可以是 liquid 标记的使用变量，如<code>{% include {{my_variable}} %}</code>。
+  </p>
+</div>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">{</span><span class="o">%</span> <span class="kp">include</span> <span class="n">footer</span><span class="o">.</span><span class="n">html</span> <span class="n">param</span><span class="o">=</span><span class="s2">&quot;value&quot;</span> <span class="o">%</span><span class="p">}</span></code></pre></figure>
+<p>你还可以对 include 传递参数。省略引用标记来传递变量： Liquid 弯括号不能在此处使用：</p>
 
-<p>这些变量可以通过 Lquid 调用：</p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">{</span><span class="o">%</span> <span class="kp">include</span> <span class="n">footer</span><span class="o">.</span><span class="n">html</span> <span class="n">param</span><span class="o">=</span><span class="s2">&quot;value&quot;</span> <span class="n">variable</span><span class="o">-</span><span class="n">param</span><span class="o">=</span><span class="n">page</span><span class="o">.</span><span class="n">variable</span> <span class="o">%</span><span class="p">}</span></code></pre></figure>
+
+<p>这些变量可以通过 Liquid 调用：</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">{{</span> <span class="kp">include</span><span class="o">.</span><span class="n">param</span> <span class="p">}}</span></code></pre></figure>
 
-<h3 id="code-snippet-highlighting">Code snippet highlighting</h3>
+<h4 id="permalink-">相对于其他文件的 Permalink 引入</h4>
 
-<p>Jekyll 已经支持<a href="http://pygments.org/languages/">超过 100 种语言</a>代码高亮显示，在此感谢 <a href="http://pygments.org/">Pygments</a>。要使用 Pygments，你必须安装 Python 并且在配置文件中设置 <code>pygments</code> 为 <code>true</code>。</p>
+<p>你也可以选择相对当前文件，引入其他文件的片段：</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">{</span><span class="o">%</span> <span class="n">include_relative</span> <span class="n">somedir</span><span class="o">/</span><span class="n">footer</span><span class="o">.</span><span class="n">html</span> <span class="o">%</span><span class="p">}</span></code></pre></figure>
+
+<p>引入的内容未必总在 <code>_includes</code> 文件夹。当该标签被使用时，引入的内容应位于对应的相对路径下。例如，<code>_posts/2014-09-03-my-file.markdown</code>文件试用了<code>include_relative</code>标签，引入的文件需要位于 <code>_posts</code> 文件夹或其子文件夹。在其他路径下将无法引入。</p>
+
+<p><code>include</code> 标签的其他特征也同样适用于 <code>include_relative</code> 标签，如使用变量。</p>
+
+<h3 id="section-3">代码高亮</h3>
+
+<p>Jekyll 已经支持<a href="http://pygments.org/languages/">超过 100 种语言</a>代码高亮显示，在此感谢 <a href="http://pygments.org/">Pygments</a>。要使用 Pygments ，你必须安装 Python 并且在配置文件中设置 <code>highlighter</code> 为 <code>pygments</code>。</p>
+
+<p>另外，你也可以使用 Rouge 实现代码高亮。虽然它不像 Pygments 支持那么多语言，但也可以胜任大多数场景。而且，由于 Rouge 基于 Ruby ，你无须在系统中配置 Python 环境。</p>
 
 <p>使用代码高亮的例子如下：</p>
 
@@ -2380,11 +2486,11 @@ def foo
 end
 {% endhighlight %}</code></pre></figure>
 
-<p><code>highlight</code> 的参数 (本例中的 <code>ruby</code>) 是识别所用语言，要使用合适的识别器可以参照 <a href="http://pygments.org/docs/lexers/">Lexers 页</a> 的 “short name” 。</p>
+<p><code>highlight</code> 的参数 (本例中的 <code>ruby</code>) 是识别所用语言。为了确定最适合你所用语言的高亮方式，你可以在 <a href="http://pygments.org/docs/lexers/">Pygments’ Lexers page</a> 和 <a href="https://github.com/jayferd/rouge/wiki/List-of-supported-languages-and-lexers">Rouge wiki</a> 寻找对应语言的 “short name”。</p>
 
-<h4 id="section-3">行号</h4>
+<h4 id="section-4">行号</h4>
 
-<p><code>highlight</code> 的第二个可选参数是 <code>linenos</code> ，使用了 <code>linenos</code> 会强制在代码上加入行号。例如：</p>
+<p><code>highlight</code> 的第二个可选参数是 <code>linenos</code> 。使用了 <code>linenos</code> 会强制在代码上加入行号。例如：</p>
 
 <figure class="highlight"><pre><code class="language-text" data-lang="text">{% highlight ruby linenos %}
 def foo
@@ -2392,15 +2498,19 @@ def foo
 end
 {% endhighlight %}</code></pre></figure>
 
-<h4 id="section-4">代码高亮的样式</h4>
+<h4 id="section-5">代码高亮的样式</h4>
 
-<p>要使用代码高亮，你还需要包含一个样式。例如你可以在 <a href="http://github.com/mojombo/tpw/tree/master/css/syntax.css">syntax.css</a> 找到，这里有跟 GitHub 一样的样式，并且免费。如果你使用了 <code>linenos</code> ，可能还需要在 <code>syntax.css</code> 加入 <code>.lineno</code> 样式。</p>
+<p>要使用代码高亮，你还需要包含一个样式表。例如 <a href="http://github.com/mojombo/tpw/tree/master/css/syntax.css">syntax.css</a> 。它包含了和 GitHub 一样的样式，并且免费。如果你使用了 <code>linenos</code> ，可能还需要在 <code>syntax.css</code> 加入 <code>.lineno</code> 样式。</p>
 
-<h3 id="post-url">Post URL</h3>
+<h3 id="post-url">博文链接(Post URL)</h3>
 
 <p>如果你想使用你某篇文章的链接，标签 <code>post_url</code> 可以满足你的需求。</p>
 
 <figure class="highlight"><pre><code class="language-text" data-lang="text">{% post_url 2010-07-21-name-of-post %}</code></pre></figure>
+
+<p>如果你使用了子文件夹来组织你的博文，你需要在路径中加入子文件夹：</p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">{% post_url /subdir/2010-07-21-name-of-post %}</code></pre></figure>
 
 <p>当使用<code>post_url</code>标签时，不需要写文件后缀名。</p>
 
@@ -2410,19 +2520,14 @@ end
 
 <h3 id="gist">Gist</h3>
 
-<p>使用 <code>gist</code> 标签可以轻松的把 GitHub Gist 签入到网站中：</p>
-
-<figure class="highlight"><pre><code class="language-text" data-lang="text">{% gist 5555251 %}</code></pre></figure>
-
-<p>你还可以配置 gist 的文件名，用以显示：</p>
-
-<figure class="highlight"><pre><code class="language-text" data-lang="text">{% gist 5555251 result.md %}</code></pre></figure>
-
-<p><code>gist</code> 同样支持私有的 gists ，这需要 gist 所属的 github 用户名：</p>
+<p>使用 <code>gist</code> 标签可以轻松的把 GitHub Gist 签入到网站中，对于公有和私有的 gist 均有效：</p>
 
 <figure class="highlight"><pre><code class="language-text" data-lang="text">{% gist parkr/931c1c8d465a04042403 %}</code></pre></figure>
 
-<p>私有的 gist 同样支持文件名。</p>
+<p>你也可以为 gist 设置文件名：</p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">{% gist parkr/931c1c8d465a04042403 jekyll-private-gist.markdown %}</code></pre></figure>
+
 
 
           <div class="jekyllcn-doc-footer">
@@ -3061,7 +3166,7 @@ end
     
   
     
-      <li class=""><a href="/docs/collections/">Collections</a></li>
+      <li class=""><a href="/docs/collections/">集合（Collections）</a></li>
       
 
 
@@ -3091,7 +3196,7 @@ end
 
   
     
-      <li class=""><a href="/docs/assets/">Assets</a></li>
+      <li class=""><a href="/docs/assets/">资源</a></li>
       
 
 

@@ -925,7 +925,7 @@
     
   
     
-      <option value="/docs/collections/">Collections</option>
+      <option value="/docs/collections/">集合（Collections）</option>
     
   
     
@@ -1059,7 +1059,7 @@
 
   
     
-      <option value="/docs/assets/">Assets</option>
+      <option value="/docs/assets/">资源</option>
     
   
     
@@ -2280,6 +2280,54 @@
       </p></td>
     </tr>
     <tr>
+      <td><p><code>site.static_files</code></p></td>
+      <td><p>
+
+        <a href="/docs/static-files/">静态文件</a>的列表 (此外的文件不会被 Jekyll 和 Liquid 处理。)。每个文件都具有三个属性： <code>path</code>，  <code>modified_time</code> 以及 <code>extname</code>。
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>site.html_pages</code></p></td>
+      <td><p>
+
+        ‘site.pages’的子集，存储以‘.html’结尾的部分。
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>site.html_files</code></p></td>
+      <td><p>
+
+        ‘site.static_files’的子集，存储以‘.html’结尾的部分。
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>site.collections</code></p></td>
+      <td><p>
+
+        一个所有集合（collection）的清单。
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>site.data</code></p></td>
+      <td><p>
+
+        一个存储了 <code>_data</code> 目录下的YAML文件数据的清单。
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>site.documents</code></p></td>
+      <td><p>
+
+        每一个集合（collection）中的全部文件的清单。
+
+      </p></td>
+    </tr>
+    <tr>
       <td><p><code>site.categories.CATEGORY</code></p></td>
       <td><p>
 
@@ -2399,12 +2447,28 @@
 
       </p></td>
     </tr>
+    <tr>
+      <td><p><code>page.next</code></p></td>
+      <td><p>
+
+        当前文章在<code>site.posts</code>中的位置对应的下一篇文章。若当前文章为最后一篇文章，返回<code>nil</code>
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>page.previous</code></p></td>
+      <td><p>
+
+      当前文章在<code>site.posts</code>中的位置对应的上一篇文章。若当前文章为第一篇文章，返回<code>nil</code>
+
+      </p></td>
+    </tr>
   </tbody>
 </table>
 </div>
 
 <div class="note">
-  <h5>ProTip™: Use custom front-matter</h5>
+  <h5>提示™: 使用自定义的头信息</h5>
   <p>
 
     任何你自定义的头文件信息都会在 <code>page</code> 中可用。
@@ -2480,6 +2544,10 @@
               
               <a href="https://github.com/yujingz" title="yujingz">
                 <img src="https://github.com/yujingz.png" class="avatar" alt="yujingz avatar" width="24" height="24">
+              </a>
+              
+              <a href="https://github.com/LeuisKen" title="LeuisKen">
+                <img src="https://github.com/LeuisKen.png" class="avatar" alt="LeuisKen avatar" width="24" height="24">
               </a>
               
             </p>
@@ -3094,7 +3162,7 @@
     
   
     
-      <li class=""><a href="/docs/collections/">Collections</a></li>
+      <li class=""><a href="/docs/collections/">集合（Collections）</a></li>
       
 
 
@@ -3124,7 +3192,7 @@
 
   
     
-      <li class=""><a href="/docs/assets/">Assets</a></li>
+      <li class=""><a href="/docs/assets/">资源</a></li>
       
 
 
