@@ -272,7 +272,7 @@ Jekyll 要求所有被引用的文件放在根目录的 `_includes` 文件夹，
 <div class="note">
   <h5>提示™：使用变量作为文件名</h5>
   <p>
-    文件名可以是文字（如上面的例子），也可以是 liquid 标记的使用变量，如<code>{% include {{my_variable}} %}</code>。
+    文件名可以是文字（如上面的例子），也可以是 liquid 标记的使用变量，如<code>{% raw %}{% include {{my_variable}} %}{% endraw %}</code>。
   </p>
 </div>
 
