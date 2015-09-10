@@ -32,7 +32,7 @@ translator: UniFreak
 - 关于清理 `destination` 目录的重复警告 ([#3161]({{ site.repository }}/issues/3161))
 - 添加 `jekyll-500px-embed` 到第三方插件列表 ([#3163]({{ site.repository }}/issues/3163))
 - 简化 Windwos Gemfile 实例中的平台检测 ([#3177]({{ site.repository }}/issues/3177))
-- 舔加 `jekyll-jalali` 到第三方插件列表 ([#3198]({{ site.repository }}/issues/3198))
+- 添加 `jekyll-jalali` 到第三方插件列表 ([#3198]({{ site.repository }}/issues/3198))
 - 添加 Troubleshooting 页面目录 ([#3196]({{ site.repository }}/issues/3196))
 - 添加 `inline_highlight` 到第三方插件列表 ([#3212]({{ site.repository }}/issues/3212))
 - 添加 `jekyll-mermaid` 到第三方插件列表 ([#3222]({{ site.repository }}/issues/3222))
