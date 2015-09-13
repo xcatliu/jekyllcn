@@ -2,6 +2,7 @@
 layout: docs
 title: History
 permalink: /docs/history/
+translator: UniFreak
 ---
 
 ## 2.5.3 / 2014-12-22
@@ -10,31 +11,31 @@ permalink: /docs/history/
 ### Bug Fixes
 {: #bug-fixes-v2-5-3}
 
-- When checking a Markdown extname, include position of the `.` ([#3147]({{ site.repository }}/issues/3147))
-- Fix `jsonify` Liquid filter handling of boolean values ([#3154]({{ site.repository }}/issues/3154))
-- Add comma to value of `viewport` meta tag ([#3170]({{ site.repository }}/issues/3170))
-- Set the link type for the RSS feed to `application/rss+xml` ([#3176]({{ site.repository }}/issues/3176))
-- Refactor `#as_liquid` ([#3158]({{ site.repository }}/issues/3158))
+- 当检查 Markdown 的扩展名时, 包含了 `.` 的位置([#3147]({{ site.repository }}/issues/3147))
+- 修复 `jsonify` Liquid 过滤器处理 boolean 值时的错误 ([#3154]({{ site.repository }}/issues/3154))
+- 在 `viewport` 元标签的值中增加逗号 ([#3170]({{ site.repository }}/issues/3170))
+- 设置 RSS 源的链接类型为 `application/rss+xml` ([#3176]({{ site.repository }}/issues/3176))
+- 重构 `#as_liquid` ([#3158]({{ site.repository }}/issues/3158))
 
 ### Development Fixes
 {: #development-fixes-v2-5-3}
 
-- Exclude built-in bundles from being added to coverage report ([#3180]({{ site.repository }}/issues/3180))
+- 把内置的 bundles 从覆盖率报告中排除 ([#3180]({{ site.repository }}/issues/3180))
 
 ### Site Enhancements
 {: #site-enhancements-v2-5-3}
 
-- Add `[@alfredxing](https://github.com/alfredxing)` to the `[@jekyll](https://github.com/jekyll)/core` team. :tada: ([#3218]({{ site.repository }}/issues/3218))
-- Document the `-q` option for the `build` and `serve` commands ([#3149]({{ site.repository }}/issues/3149))
-- Fix some minor typos/flow fixes in documentation website content ([#3165]({{ site.repository }}/issues/3165))
-- Add `keep_files` to configuration documentation ([#3162]({{ site.repository }}/issues/3162))
-- Repeat warning about cleaning of the `destination` directory ([#3161]({{ site.repository }}/issues/3161))
-- Add jekyll-500px-embed to list of third-party plugins ([#3163]({{ site.repository }}/issues/3163))
-- Simplified platform detection in Gemfile example for Windows ([#3177]({{ site.repository }}/issues/3177))
-- Add the `jekyll-jalali` plugin added to the list of third-party plugins. ([#3198]({{ site.repository }}/issues/3198))
-- Add Table of Contents to Troubleshooting page ([#3196]({{ site.repository }}/issues/3196))
-- Add `inline_highlight` plugin to list of third-party plugins ([#3212]({{ site.repository }}/issues/3212))
-- Add `jekyll-mermaid` plugin to list of third-party plugins ([#3222]({{ site.repository }}/issues/3222))
+- 添加 `[@alfredxing](https://github.com/alfredxing)` 到 `[@jekyll](https://github.com/jekyll)/core` 团队. :tada: ([#3218]({{ site.repository }}/issues/3218))
+- 把 `build` 和 `serve` 命令的 `-q` 选项增加到文档 ([#3149]({{ site.repository }}/issues/3149))
+- 修复了一些文档站点内容里的错别字 ([#3165]({{ site.repository }}/issues/3165))
+- 添加 `keep_files` 到配置文档 ([#3162]({{ site.repository }}/issues/3162))
+- 关于清理 `destination` 目录的重复警告 ([#3161]({{ site.repository }}/issues/3161))
+- 添加 `jekyll-500px-embed` 到第三方插件列表 ([#3163]({{ site.repository }}/issues/3163))
+- 简化 Windwos Gemfile 实例中的平台检测 ([#3177]({{ site.repository }}/issues/3177))
+- 添加 `jekyll-jalali` 到第三方插件列表 ([#3198]({{ site.repository }}/issues/3198))
+- 添加 Troubleshooting 页面目录 ([#3196]({{ site.repository }}/issues/3196))
+- 添加 `inline_highlight` 到第三方插件列表 ([#3212]({{ site.repository }}/issues/3212))
+- 添加 `jekyll-mermaid` 到第三方插件列表 ([#3222]({{ site.repository }}/issues/3222))
 
 
 ## 2.5.2 / 2014-11-17
@@ -43,29 +44,29 @@ permalink: /docs/history/
 ### Minor Enhancements
 {: #minor-enhancements-v2-5-2}
 
-- `post_url` should match `post.name` instead of slugs and dates ([#3058]({{ site.repository }}/issues/3058))
+- `post_url` 应该匹配 `post.name`, 而不是 slugs 和日期 ([#3058]({{ site.repository }}/issues/3058))
 
 ### Bug Fixes
 {: #bug-fixes-v2-5-2}
 
-- Fix bundle require for `:jekyll_plugins` ([#3119]({{ site.repository }}/issues/3119))
-- Remove duplicate regexp phrase: `^\A` ([#3089]({{ site.repository }}/issues/3089))
-- Remove duplicate `Conversion error:` message in `Convertible` ([#3088]({{ site.repository }}/issues/3088))
-- Print full conversion error message in `Renderer#convert` ([#3090]({{ site.repository }}/issues/3090))
+- 修复 `Bundler.require:jekyll_plugins` ([#3119]({{ site.repository }}/issues/3119))
+- 删除重复的正则语句: `^\A` ([#3089]({{ site.repository }}/issues/3089))
+- 删除 `Convertible` 中重复的 `Conversion error:` 消息 ([#3088]({{ site.repository }}/issues/3088))
+- 在 `Renderer#convert`  中打印完整的转换错误消息([#3090]({{ site.repository }}/issues/3090))
 
 ### Site Enhancements
 {: #site-enhancements-v2-5-2}
 
-- Change variable names in Google Analytics script ([#3093]({{ site.repository }}/issues/3093))
-- Mention CSV files in the docs for data files ([#3101]({{ site.repository }}/issues/3101))
-- Add trailing slash to `paginate_path` example. ([#3091]({{ site.repository }}/issues/3091))
-- Get rid of noifniof (`excerpt_separator`) ([#3094]({{ site.repository }}/issues/3094))
-- Sass improvements, around nesting mostly. ([#3123]({{ site.repository }}/issues/3123))
-- Add webmentions.io plugin to the list of third-party plugins ([#3127]({{ site.repository }}/issues/3127))
-- Add Sass mixins and use them. ([#2904]({{ site.repository }}/issues/2904))
-- Slightly compress jekyll-sticker.jpg. ([#3133]({{ site.repository }}/issues/3133))
-- Update gridism and separate out related but custom styles. ([#3132]({{ site.repository }}/issues/3132))
-- Add remote-include plugin to list of third-party plugins ([#3136]({{ site.repository }}/issues/3136))
+- 更改 Google Analytics 脚本中的变量名 ([#3093]({{ site.repository }}/issues/3093))
+- 在文档中提及 CSV 文件可作为数据文件 ([#3101]({{ site.repository }}/issues/3101))
+- 在 `paginate_path` 实例末尾添加斜杠 ([#3091]({{ site.repository }}/issues/3091))
+- 去除noifniof (`excerpt_separator`) ([#3094]({{ site.repository }}/issues/3094))
+- Sass 改进, 多是关于嵌套的 ([#3123]({{ site.repository }}/issues/3123))
+- 添加 `webmentions.io` 到第三方插件列表 ([#3127]({{ site.repository }}/issues/3127))
+- 添加并使用 Sass mixins ([#2904]({{ site.repository }}/issues/2904))
+- 稍微压缩了 jekyll-sticker.jpg. ([#3133]({{ site.repository }}/issues/3133))
+- 更新 gridism 并分离出相关但是自定义的样式 ([#3132]({{ site.repository }}/issues/3132))
+- 添加 `remote-include` 到第三方插件列表 ([#3136]({{ site.repository }}/issues/3136))
 
 
 ## 2.5.1 / 2014-11-09
@@ -74,13 +75,13 @@ permalink: /docs/history/
 ### Bug Fixes
 {: #bug-fixes-v2-5-1}
 
-- Fix path sanitation bug related to Windows drive names ([#3077]({{ site.repository }}/issues/3077))
+- 修复有关 Windows 盘符名的路径 sanitation bug ([#3077]({{ site.repository }}/issues/3077))
 
 ### Development Fixes
 {: #development-fixes-v2-5-1}
 
-- Add development time dependencies on minitest and test-unit to gemspec for cygwin ([#3064]({{ site.repository }}/issues/3064))
-- Use Travis's built-in caching. ([#3075]({{ site.repository }}/issues/3075))
+- 添加 minitest 和 test-unit 到 cygwin gemspec 的开发以来中 ([#3064]({{ site.repository }}/issues/3064))
+- 使用 Travis 的内建缓存 ([#3075]({{ site.repository }}/issues/3075))
 
 
 ## 2.5.0 / 2014-11-06
@@ -89,74 +90,72 @@ permalink: /docs/history/
 ### Minor Enhancements
 {: #minor-enhancements-v2-5-0}
 
-- Require gems in `:jekyll_plugins` Gemfile group unless `JEKYLL_NO_BUNDLER_REQUIRE` is specified in the environment. ([#2865]({{ site.repository }}/issues/2865))
-- Centralize path sanitation in the `Site` object ([#2882]({{ site.repository }}/issues/2882))
-- Allow placeholders in permalinks ([#3031]({{ site.repository }}/issues/3031))
-- Allow users to specify the log level via `JEKYLL_LOG_LEVEL`. ([#3067]({{ site.repository }}/issues/3067))
-- Fancy Indexing with WEBrick ([#3018]({{ site.repository }}/issues/3018))
-- Allow Enumerables to be used with `where` filter. ([#2986]({{ site.repository }}/issues/2986))
-- Meta descriptions in the site template now use `page.excerpt` if it's available ([#2964]({{ site.repository }}/issues/2964))
-- Change indentation in `head.html` of site template to 2 spaces from 4 ([#2973]({{ site.repository }}/issues/2973))
-- Use a `$content-width` variable instead of a fixed value in the site template CSS ([#2972]({{ site.repository }}/issues/2972))
-- Strip newlines in site template `<meta>` description. ([#2982]({{ site.repository }}/issues/2982))
-- Add link to atom feed in `head` of site template files ([#2996]({{ site.repository }}/issues/2996))
-- Performance optimizations ([#2994]({{ site.repository }}/issues/2994))
-- Use `Hash#each_key` instead of `Hash#keys.each` to speed up iteration
-    over hash keys. ([#3017]({{ site.repository }}/issues/3017))
-- Further minor performance enhancements. ([#3022]({{ site.repository }}/issues/3022))
-- Add 'b' and 's' aliases for build and serve, respectively ([#3065]({{ site.repository }}/issues/3065))
+- 除非在环境中指定 `JEKYLL_NO_BUNDLER_REQUIRE`, 否则在 `:jekyll_plugins` Gemfile 组中要求 gems ([#2865]({{ site.repository }}/issues/2865))
+- 在 `Site` 对象中集中路径 sanitation ([#2882]({{ site.repository }}/issues/2882))
+- 在 ermalinks 中允许占位符 ([#3031]({{ site.repository }}/issues/3031))
+- 允许用户通过 `JEKYLL_LOG_LEVEL` 指定 log 级别 ([#3067]({{ site.repository }}/issues/3067))
+- 用 WEBrick 实现漂亮索引 ([#3018]({{ site.repository }}/issues/3018))
+- 允许 Enumerables 使用 `where` 过滤器 ([#2986]({{ site.repository }}/issues/2986))
+- 如果存在 `page.excerpt`, 则使用其作为站点模板的元描述 ([#2964]({{ site.repository }}/issues/2964))
+- 把 `head.html` 站点模板的缩进从 2 个空格改为 4 个 ([#2973]({{ site.repository }}/issues/2973))
+- 在站点模板的 CSS 中使用 `$content-width` 变量, 而非一个固定值 ([#2972]({{ site.repository }}/issues/2972))
+- 去除站点模板 `<meta>` 描述中的换行 ([#2982]({{ site.repository }}/issues/2982))
+- 在站点模板文件中加入 atom 源的链接 ([#2996]({{ site.repository }}/issues/2996))
+- 性能优化 ([#2994]({{ site.repository }}/issues/2994))
+- 使用 `Hash#each_key` 替代 `Hash#keys.each` 以加速 hash 键的迭代 ([#3017]({{ site.repository }}/issues/3017))
+- 进一步小幅的性能优化 ([#3022]({{ site.repository }}/issues/3022))
+- 分别添加 'b' 和 's' 作为 build 和 serve 的别名 ([#3065]({{ site.repository }}/issues/3065))
 
 ### Bug Fixes
 {: #bug-fixes-v2-5-0}
 
-- Fix Rouge's RedCarpet plugin interface integration ([#2951]({{ site.repository }}/issues/2951))
-- Remove `--watch` from the site template blog post since it defaults
-    to watching in in 2.4.0 ([#2922]({{ site.repository }}/issues/2922))
-- Fix code for media query mixin in site template ([#2946]({{ site.repository }}/issues/2946))
-- Allow post URL's to have `.htm` extensions ([#2925]({{ site.repository }}/issues/2925))
-- `Utils.slugify`: Don't create new objects when gsubbing ([#2997]({{ site.repository }}/issues/2997))
-- The jsonify filter should deep-convert to Liquid when given an Array. ([#3032]({{ site.repository }}/issues/3032))
-- Apply `jsonify` filter to Hashes deeply and effectively ([#3063]({{ site.repository }}/issues/3063))
-- Use `127.0.0.1` as default host instead of `0.0.0.0` ([#3053]({{ site.repository }}/issues/3053))
-- In the case that a Gemfile does not exist, ensure Jekyll doesn't fail on requiring the Gemfile group ([#3066]({{ site.repository }}/issues/3066))
+- 修复 Rouge 的 RedCarpet 插件接口集成 ([#2951]({{ site.repository }}/issues/2951))
+- 从站点模板博客文章中删除 `--watch`, 因为 2.4.0 中默认即为此 ([#2922]({{ site.repository }}/issues/2922))
+- 修复站点模板中的媒体查询 mixin 代码 ([#2946]({{ site.repository }}/issues/2946))
+- 允许文章 URL 带有 `.htm` 后缀 ([#2925]({{ site.repository }}/issues/2925))
+- `Utils.slugify`: gsubbing 时不要创建新对象 ([#2997]({{ site.repository }}/issues/2997))
+- 当应用到数组的时候, jsonify 过滤器应该深转换为 Liquid ([#3032]({{ site.repository }}/issues/3032))
+- 应用 `jsonify` 过滤器到 Hashes 时进行深层且有效的转换 ([#3063]({{ site.repository }}/issues/3063))
+- 使用 `127.0.0.1` 作为默认主机而非 `0.0.0.0` ([#3053]({{ site.repository }}/issues/3053))
+- 在某个 Gemfile 不存在的情况下, 确保 Jekyll 在需求 Gemfile 组时不出错 ([#3066]({{ site.repository }}/issues/3066))
 
 ### Development Fixes
 {: #development-fixes-v2-5-0}
 
-- Fix a typo in the doc block for `Jekyll::URL.escape_path` ([#3052]({{ site.repository }}/issues/3052))
-- Add integration test for `jekyll new --blank` in TestUnit ([#2913]({{ site.repository }}/issues/2913))
-- Add unit test for `jekyll new --force` logic ([#2929]({{ site.repository }}/issues/2929))
-- Update outdated comment for `Convertible#transform` ([#2957]({{ site.repository }}/issues/2957))
-- Add Hakiri badge to README. ([#2953]({{ site.repository }}/issues/2953))
-- Add some simple benchmarking tools. ([#2993]({{ site.repository }}/issues/2993))
+- 修复一个 `Jekyll::URL.escape_path` 注释中的错别字 ([#3052]({{ site.repository }}/issues/3052))
+- 在 TestUnit 中为 `jekyll new --blank` 添加了一个集成测试 ([#2913]({{ site.repository }}/issues/2913))
+- 为 `jekyll new --force` 逻辑添加了一个单元测试 ([#2929]({{ site.repository }}/issues/2929))
+- 更新了已过时的 `Convertible#transform` 注释 ([#2957]({{ site.repository }}/issues/2957))
+- 在 README 中添加 Hakiri 徽章 ([#2953]({{ site.repository }}/issues/2953))
+- 添加一些简单的基准测试工具 ([#2993]({{ site.repository }}/issues/2993))
 
 ### Site Enhancements
 {: #site-enhancements-v2-5-0}
 
-- `NOKOGIRI_USE_SYSTEM_LIBRARIES=true` **decreases** installation time. ([#3040]({{ site.repository }}/issues/3040))
-- Add FormKeep to resources as Jekyll form backend ([#3010]({{ site.repository }}/issues/3010))
-- Fixing a mistake in the name of the new Liquid tag ([#2969]({{ site.repository }}/issues/2969))
-- Update Font Awesome to v4.2.0. ([#2898]({{ site.repository }}/issues/2898))
-- Fix link to [#2895]({{ site.repository }}/issues/2895) in 2.4.0 release post. ([#2899]({{ site.repository }}/issues/2899))
-- Add Big Footnotes for Kramdown plugin to list of third-party plugins ([#2916]({{ site.repository }}/issues/2916))
-- Remove warning regarding GHP use of singular types for front matter defaults ([#2919]({{ site.repository }}/issues/2919))
-- Fix quote character typo in site documentation for templates ([#2917]({{ site.repository }}/issues/2917))
-- Point Liquid links to Liquid’s Github wiki ([#2887]({{ site.repository }}/issues/2887))
-- Add HTTP Basic Auth (.htaccess) plugin to list of third-party plugins ([#2931]({{ site.repository }}/issues/2931))
-- (Minor) Grammar & `_config.yml` filename fixes ([#2911]({{ site.repository }}/issues/2911))
-- Added `mathml.rb` to the list of third-party plugins. ([#2937]({{ site.repository }}/issues/2937))
-- Add `--force_polling` to the list of configuration options ([#2943]({{ site.repository }}/issues/2943))
-- Escape unicode characters in site CSS ([#2906]({{ site.repository }}/issues/2906))
-- Add note about using the github-pages gem via pages.github.com/versions.json ([#2939]({{ site.repository }}/issues/2939))
-- Update usage documentation to reflect 2.4 auto-enabling of `--watch`. ([#2954]({{ site.repository }}/issues/2954))
-- Add `--skip-initial-build` to configuration docs ([#2949]({{ site.repository }}/issues/2949))
-- Fix a minor typo in Templates docs page ([#2959]({{ site.repository }}/issues/2959))
-- Add a ditaa-ditaa plugin under Other section on the Plugins page ([#2967]({{ site.repository }}/issues/2967))
-- Add `build/serve -V` option to configuration documentation ([#2948]({{ site.repository }}/issues/2948))
-- Add 'Jekyll Twitter Plugin' to list of third-party plugins ([#2979]({{ site.repository }}/issues/2979))
-- Docs: Update normalize.css to v3.0.2. ([#2981]({{ site.repository }}/issues/2981))
-- Fix typo in Continuous Integration documentation ([#2984]({{ site.repository }}/issues/2984))
-- Clarify behavior of `:categories` in permalinks ([#3011]({{ site.repository }}/issues/3011))
+- `NOKOGIRI_USE_SYSTEM_LIBRARIES=true` **减少** 安装时间 ([#3040]({{ site.repository }}/issues/3040))
+- 添加 FormKeep 进资源, 作为 Jekyll 的表单后端 ([#3010]({{ site.repository }}/issues/3010))
+- 修复新 Liquid 标签名称中的一处错误 ([#2969]({{ site.repository }}/issues/2969))
+- 更新 Font Awesome 至 v4.2.0. ([#2898]({{ site.repository }}/issues/2898))
+- 修复 2.4.0 发布帖中 [#2895] 的链接({{ site.repository }}/issues/2895) ([#2899]({{ site.repository }}/issues/2899))
+- 添加 Big Footnotes for Kramdown 到第三方插件列表 ([#2916]({{ site.repository }}/issues/2916))
+- ? 去除关于 front matter 中默认使用单数形式的 GHP 警告 ([#2919]({{ site.repository }}/issues/2919))
+- 修复站点模板文档中引号符号错误 ([#2917]({{ site.repository }}/issues/2917))
+- Liquid 链接指向 Liquid 的 Github wiki ([#2887]({{ site.repository }}/issues/2887))
+- 添加 HTTP Basic Auth (.htaccess) 到第三方插件列表 ([#2931]({{ site.repository }}/issues/2931))
+- (小幅) 语法 & `_config.yml` 文件名修复 ([#2911]({{ site.repository }}/issues/2911))
+- 添加 `mathml.rb` 到第三方插件列表 ([#2937]({{ site.repository }}/issues/2937))
+- 添加 `--force_polling` 进配置选项列表 ([#2943]({{ site.repository }}/issues/2943))
+- 转义站点 CSS 中的 unicode 字符 ([#2906]({{ site.repository }}/issues/2906))
+- 添加关于使用通过 pages.github.com/versions.json 使用 github-pages gem 的说明 ([#2939]({{ site.repository }}/issues/2939))
+- 更新基本用法文档, 以反映 2.4 中自动启用 `--watch` 的改动 ([#2954]({{ site.repository }}/issues/2954))
+- 添加 `--skip-initial-build` 进配置文档 ([#2949]({{ site.repository }}/issues/2949))
+- 修复模板文档页中一个小的错别字 ([#2959]({{ site.repository }}/issues/2959))
+- 添加 ditaa-ditaa 到插件页的 '其他' 部分里 ([#2967]({{ site.repository }}/issues/2967))
+- 添加 `build/serve -V` 选项进配置文档 ([#2948]({{ site.repository }}/issues/2948))
+- 添加 'Jekyll Twitter Plugin' 到第三方插件列表 ([#2979]({{ site.repository }}/issues/2979))
+- 文档: 更新 normalize.css 至 v3.0.2. ([#2981]({{ site.repository }}/issues/2981))
+- 修复持续集成文档中的错别字 ([#2984]({{ site.repository }}/issues/2984))
+- 澄清 permalinks 中 `:categories` 的行为 ([#3011]({{ site.repository }}/issues/3011))
 
 
 ## 2.4.0 / 2014-09-09
