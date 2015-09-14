@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: History
+title: 更新历史
 permalink: /docs/history/
 translator: UniFreak
 ---
