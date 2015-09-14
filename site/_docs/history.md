@@ -164,50 +164,48 @@ translator: UniFreak
 ### Minor Enhancements
 {: #minor-enhancements-v2-4-0}
 
-- Support a new `relative_include` tag ([#2870]({{ site.repository }}/issues/2870))
-- Auto-enable watch on 'serve' ([#2858]({{ site.repository }}/issues/2858))
-- Render Liquid in CoffeeScript files ([#2830]({{ site.repository }}/issues/2830))
-- Array Liquid filters: `push`, `pop`, `unshift`, `shift` ([#2895]({{ site.repository }}/issues/2895))
-- Add `:title` to collection URL template fillers ([#2864]({{ site.repository }}/issues/2864))
-- Add support for CSV files in the `_data` directory ([#2761]({{ site.repository }}/issues/2761))
-- Add the `name` variable to collection permalinks ([#2799]({{ site.repository }}/issues/2799))
-- Add `inspect` liquid filter. ([#2867]({{ site.repository }}/issues/2867))
-- Add a `slugify` Liquid filter ([#2880]({{ site.repository }}/issues/2880))
+- 新增 `relative_include` 标签支持 ([#2870]({{ site.repository }}/issues/2870))
+- 'serve' 时自动激活 watch ([#2858]({{ site.repository }}/issues/2858))
+- 在 CoffeeScript files 中渲染 Liquid ([#2830]({{ site.repository }}/issues/2830))
+- Liquid 数组过滤器: `push`, `pop`, `unshift`, `shift` ([#2895]({{ site.repository }}/issues/2895))
+- 增加 `:title` 到 URL 模板填充符集合 ([#2864]({{ site.repository }}/issues/2864))
+- 增加 `_data` 目录对 CSV 文件的支持 ([#2761]({{ site.repository }}/issues/2761))
+- ?增加 `name` 变量到集合永久链接 ([#2799]({{ site.repository }}/issues/2799))
+- 增加 `inspect` liquid 过滤器 ([#2867]({{ site.repository }}/issues/2867))
+- 增加 `slugify` Liquid 过滤器 ([#2880]({{ site.repository }}/issues/2880))
 
 ### Bug Fixes
 {: #bug-fixes-v2-4-0}
 
-- Use `Jekyll.sanitized_path` when adding static files to Collections ([#2849]({{ site.repository }}/issues/2849))
-- Fix encoding of `main.scss` in site template ([#2771]({{ site.repository }}/issues/2771))
-- Fix orientation bugs in default site template ([#2862]({{ site.repository }}/issues/2862))
+- 当增加静态文件到 Collections 的时候使用 `Jekyll.sanitized_path` ([#2849]({{ site.repository }}/issues/2849))
+- 修复站点模板 `main.scss` 的编码 ([#2771]({{ site.repository }}/issues/2771))
+- 修复默认站点模板的方向错误 ([#2862]({{ site.repository }}/issues/2862))
 
 ### Development Fixes
 {: #development-fixes-v2-4-0}
 
-- Update simplecov gem to 0.9 ([#2748]({{ site.repository }}/issues/2748))
-- Remove `docs/` dir ([#2768]({{ site.repository }}/issues/2768))
-- add class `<< self` idiom to `New` command ([#2817]({{ site.repository }}/issues/2817))
-- Allow Travis to 'parallelize' our tests ([#2859]({{ site.repository }}/issues/2859))
-- Fix test for Liquid rendering in Sass ([#2856]({{ site.repository }}/issues/2856))
-- Fixing "vertycal" typo in site template's `_base.scss` ([#2889]({{ site.repository }}/issues/2889))
+- 更新 simplecov gem 到 0.9 ([#2748]({{ site.repository }}/issues/2748))
+- 删除 `docs/` 目录 ([#2768]({{ site.repository }}/issues/2768))
+- 在 `New` 命令中增加 `<< self` 类 ([#2817]({{ site.repository }}/issues/2817))
+- 允许 Travis '并行化' 我们的测试 ([#2859]({{ site.repository }}/issues/2859))
+- 修复 Sass 中 Liquid 渲染测试 ([#2856]({{ site.repository }}/issues/2856))
+- 修复站点模板 `_base.scss` 中 "vertycal" 错别字 `_base.scss` ([#2889]({{ site.repository }}/issues/2889))
 
 ### Site Enhancements
 {: #site-enhancements-v2-4-0}
 
-- Document the `name` variable for collection permalinks ([#2829]({{ site.repository }}/issues/2829))
-- Adds info about installing jekyll in current dir ([#2839]({{ site.repository }}/issues/2839))
-- Remove deprecated `jekyll-projectlist` plugin from list of third-party
-    plugins ([#2742]({{ site.repository }}/issues/2742))
-- Remove tag plugins that are built in to Jekyll ([#2751]({{ site.repository }}/issues/2751))
-- Add `markdown-writer` package for Atom Editor to list of third-party
-    plugins ([#2763]({{ site.repository }}/issues/2763))
-- Fix typo in site documentation for collections ([#2764]({{ site.repository }}/issues/2764))
-- Fix minor typo on plugins docs page ([#2765]({{ site.repository }}/issues/2765))
-- Replace markdown with HTML in `sass_dir` note on assets page ([#2791]({{ site.repository }}/issues/2791))
-- Fixed "bellow" typo in datafiles docs ([#2879]({{ site.repository }}/issues/2879))
-- Fix code/markdown issue in documentation for variables ([#2877]({{ site.repository }}/issues/2877))
-- Remove Good Include third-party plugin from plugins page ([#2881]({{ site.repository }}/issues/2881))
-- Add some more docs on `include_relative` ([#2884]({{ site.repository }}/issues/2884))
+- 记录用于 Collection 永久链接的 `name` 变量到文档 ([#2829]({{ site.repository }}/issues/2829))
+- 增加关于安装 jekyll 到当前目录的信息 ([#2839]({{ site.repository }}/issues/2839))
+- 从第三方插件列表中删除已弃用的 `jekyll-projectlist` ([#2742]({{ site.repository }}/issues/2742))
+- 删除内建到 Jekyll 中的 tag 插件 ([#2751]({{ site.repository }}/issues/2751))
+- 增加用于 Atom 编辑器的 `markdown-writer` 包到第三方插件列表 ([#2763]({{ site.repository }}/issues/2763))
+- 修复站点集合文档中的错别字 ([#2764]({{ site.repository }}/issues/2764))
+- 修复插件文档中的错别字 ([#2765]({{ site.repository }}/issues/2765))
+- 在资源文档里关于 `sass_dir` 的说明中, 把 Markdown 语法替换为 HTML 语法 ([#2791]({{ site.repository }}/issues/2791))
+- 修复数据文件文档中 "bellow" 错别字 ([#2879]({{ site.repository }}/issues/2879))
+- 修复变量重用变量文档中 code/markdown 问题 ([#2877]({{ site.repository }}/issues/2877))
+- 从第三方插件列表中删除 Good Include ([#2881]({{ site.repository }}/issues/2881))
+- 增加更多的关于 `include_relative` 的文档 ([#2884]({{ site.repository }}/issues/2884))
 
 
 ## 2.3.0 / 2014-08-10
