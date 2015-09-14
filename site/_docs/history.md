@@ -2,7 +2,7 @@
 layout: docs
 title: 历史更新
 permalink: /docs/history/
-translator: [UniFreak]
+translators: [UniFreak]
 ---
 
 ## 2.5.3 / 2014-12-22
