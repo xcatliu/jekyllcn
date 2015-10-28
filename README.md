@@ -7,7 +7,7 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 
 [jekyllcn](http://jekyllcn.com/) 是 [jekyllrb](http://jekyllrb.com/) 的中文翻译网站。
 
-由于官方文档更新，现在中文文档落后于官方文档，欢迎参与[贡献翻译](https://github.com/xcatliu/jekyllcn#如何贡献翻译)。
+现已更新到 3.0，然而中文文档落后于官方文档，欢迎参与[贡献翻译](https://github.com/xcatliu/jekyllcn#如何贡献翻译)。
 
 ## 如何贡献翻译
 
@@ -31,7 +31,7 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 
 ## 项目进度
 
-总体进度：67 / 79 = 85%
+总体进度：62 / 78 = 79%
 
 ### 翻译进度
 
@@ -72,14 +72,14 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 - [x] 更新 quickstart
 - [x] 更新 installation
 - [x] 更新 usage
-- [x] 更新 structure
-- [x] 更新 configuration
-- [x] 更新 frontmatter
+- [ ] 更新 structure
+- [ ] 更新 configuration
+- [ ] 更新 frontmatter
 - [x] 更新 posts
 - [x] 更新 drafts
 - [x] 更新 pages
 - [x] 更新 static-files
-- [x] 更新 variables
+- [ ] 更新 variables
 - [x] 更新 collections
 - [x] 更新 datafiles
 - [x] 更新 assets
@@ -91,7 +91,7 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 - [x] 更新 extras
 - [ ] 更新 github-pages
 - [ ] 更新 deployment-methods
-- [x] 更新 continuous-integration
+- [ ] 更新 continuous-integration
 - [ ] 更新 troubleshooting
 - [ ] 更新 sites
 - [ ] 更新 resources
@@ -119,4 +119,3 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 - [x] 在 header 中加入贡献翻译链接
 - [x] 每篇文档加上翻译贡献者
 - [x] 在 header 中底色代表项目进度
-- [ ] 给每篇文档加上对应英文的 hash
