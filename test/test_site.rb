@@ -13,22 +13,22 @@ class TestSite < JekyllUnitTest
     end
 
     should "have an array for plugins if passed as a string" do
-      site = Site.new(Jekyll::Configuration::DEFAULTS.merge({'plugins' => '/tmp/plugins'}))
+      site = Site.new(Jekyll::Configuration::DEFAULTS.merge({'plugins_dir' => '/tmp/plugins'}))
       assert_equal ['/tmp/plugins'], site.plugins
     end
 
     should "have an array for plugins if passed as an array" do
-      site = Site.new(Jekyll::Configuration::DEFAULTS.merge({'plugins' => ['/tmp/plugins', '/tmp/otherplugins']}))
+      site = Site.new(Jekyll::Configuration::DEFAULTS.merge({'plugins_dir' => ['/tmp/plugins', '/tmp/otherplugins']}))
       assert_equal ['/tmp/plugins', '/tmp/otherplugins'], site.plugins
     end
 
     should "have an empty array for plugins if nothing is passed" do
-      site = Site.new(Jekyll::Configuration::DEFAULTS.merge({'plugins' => []}))
+      site = Site.new(Jekyll::Configuration::DEFAULTS.merge({'plugins_dir' => []}))
       assert_equal [], site.plugins
     end
 
     should "have an empty array for plugins if nil is passed" do
-      site = Site.new(Jekyll::Configuration::DEFAULTS.merge({'plugins' => nil}))
+      site = Site.new(Jekyll::Configuration::DEFAULTS.merge({'plugins_dir' => nil}))
       assert_equal [], site.plugins
     end
 
@@ -190,9 +190,9 @@ class TestSite < JekyllUnitTest
     end
 
     should "read posts" do
-      @site.posts.concat(PostReader.new(@site).read(''))
+      @site.posts.docs.concat(PostReader.new(@site).read_posts(''))
       posts = Dir[source_dir('_posts', '**', '*')]
-      posts.delete_if { |post| File.directory?(post) && !Post.valid?(post) }
+      posts.delete_if { |post| File.directory?(post) && !(post =~ Document::DATE_FILENAME_MATCHER) }
       assert_equal posts.size - @num_invalid_posts, @site.posts.size
     end
 
@@ -219,8 +219,8 @@ class TestSite < JekyllUnitTest
       @site.process
 
       posts = Dir[source_dir("**", "_posts", "**", "*")]
-      posts.delete_if { |post| File.directory?(post) && !Post.valid?(post) }
-      categories = %w(2013 bar baz category foo z_category MixedCase Mixedcase publish_test win).sort
+      posts.delete_if { |post| File.directory?(post) && !(post =~ Document::DATE_FILENAME_MATCHER) }
+      categories = %w(2013 bar baz category foo z_category MixedCase Mixedcase es publish_test win).sort
 
       assert_equal posts.size - @num_invalid_posts, @site.posts.size
       assert_equal categories, @site.categories.keys.sort
@@ -330,7 +330,7 @@ class TestSite < JekyllUnitTest
         end
 
         bad_processor = "Custom::Markdown"
-        s = Site.new(site_configuration('markdown' => bad_processor, 'full_rebuild' => true))
+        s = Site.new(site_configuration('markdown' => bad_processor, 'incremental' => false))
         assert_raises Jekyll::Errors::FatalException do
           s.process
         end
@@ -348,7 +348,7 @@ class TestSite < JekyllUnitTest
 
       should 'throw FatalException at process time' do
         bad_processor = 'not a processor name'
-        s = Site.new(site_configuration('markdown' => bad_processor, 'full_rebuild' => true))
+        s = Site.new(site_configuration('markdown' => bad_processor, 'incremental' => false))
         assert_raises Jekyll::Errors::FatalException do
           s.process
         end
@@ -429,7 +429,7 @@ class TestSite < JekyllUnitTest
     context "manipulating the Jekyll environment" do
       setup do
         @site = Site.new(site_configuration({
-          'full_rebuild' => true
+          'incremental' => false
         }))
         @site.process
         @page = @site.pages.find { |p| p.name == "environment.html" }
@@ -443,7 +443,7 @@ class TestSite < JekyllUnitTest
         setup do
           ENV["JEKYLL_ENV"] = "production"
           @site = Site.new(site_configuration({
-            'full_rebuild' => true
+            'incremental' => false
           }))
           @site.process
           @page = @site.pages.find { |p| p.name == "environment.html" }
@@ -473,7 +473,7 @@ class TestSite < JekyllUnitTest
     context "incremental build" do
       setup do
         @site = Site.new(site_configuration({
-          'full_rebuild' => false
+          'incremental' => true
         }))
         @site.read
       end
@@ -498,7 +498,7 @@ class TestSite < JekyllUnitTest
         sleep 1
         @site.process
         mtime3 = File.stat(dest).mtime.to_i
-        refute_equal mtime2, mtime3 # must be regenerated 
+        refute_equal mtime2, mtime3 # must be regenerated
 
         sleep 1
         @site.process
@@ -522,7 +522,7 @@ class TestSite < JekyllUnitTest
         @site.process
         assert File.file?(dest)
         mtime2 = File.stat(dest).mtime.to_i
-        refute_equal mtime1, mtime2 # must be regenerated 
+        refute_equal mtime1, mtime2 # must be regenerated
       end
 
     end

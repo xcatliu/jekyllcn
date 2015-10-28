@@ -4,7 +4,7 @@ require 'csv'
 module Jekyll
   class Site
     attr_reader   :source, :dest, :config
-    attr_accessor :layouts, :posts, :pages, :static_files, :drafts,
+    attr_accessor :layouts, :pages, :static_files, :drafts,
                   :exclude, :include, :lsi, :highlighter, :permalink_style,
                   :time, :future, :unpublished, :safe, :plugins, :limit_posts,
                   :show_drafts, :keep_files, :baseurl, :data, :file_read_opts,
@@ -74,7 +74,6 @@ module Jekyll
     def reset
       self.time = (config['time'] ? Utils.parse_date(config['time'].to_s, "Invalid time in _config.yml.") : Time.now)
       self.layouts = {}
-      self.posts = []
       self.pages = []
       self.static_files = []
       self.data = {}
@@ -86,7 +85,7 @@ module Jekyll
         raise ArgumentError, "limit_posts must be a non-negative number"
       end
 
-      Jekyll::Hooks.trigger self, :after_reset
+      Jekyll::Hooks.trigger :site, :after_reset, self
     end
 
     # Load necessary libraries, plugins, converters, and generators.
@@ -144,7 +143,7 @@ module Jekyll
     def read
       reader.read
       limit_posts!
-      Jekyll::Hooks.trigger self, :post_read
+      Jekyll::Hooks.trigger :site, :post_read, self
     end
 
     # Run each of the Generators.
@@ -164,20 +163,20 @@ module Jekyll
 
       payload = site_payload
 
-      Jekyll::Hooks.trigger self, :pre_render, payload
+      Jekyll::Hooks.trigger :site, :pre_render, self, payload
 
       collections.each do |label, collection|
         collection.docs.each do |document|
           if regenerator.regenerate?(document)
             document.output = Jekyll::Renderer.new(self, document, payload).run
-            Jekyll::Hooks.trigger document, :post_render
+            document.trigger_hooks(:post_render)
           end
         end
       end
 
-      [posts, pages].flatten.each do |page_or_post|
-        if regenerator.regenerate?(page_or_post)
-          page_or_post.render(layouts, payload)
+      pages.flatten.each do |page|
+        if regenerator.regenerate?(page)
+          page.render(layouts, payload)
         end
       end
     rescue Errno::ENOENT
@@ -199,7 +198,11 @@ module Jekyll
         item.write(dest) if regenerator.regenerate?(item)
       }
       regenerator.write_metadata
-      Jekyll::Hooks.trigger self, :post_write
+      Jekyll::Hooks.trigger :site, :post_write, self
+    end
+
+    def posts
+      collections['posts'] ||= Collection.new(self, 'posts')
     end
 
     # Construct a Hash of Posts indexed by the specified Post attribute.
@@ -219,7 +222,7 @@ module Jekyll
       # Build a hash map based on the specified post attribute ( post attr =>
       # array of posts ) then sort each array in reverse order.
       hash = Hash.new { |h, key| h[key] = [] }
-      posts.each { |p| p.send(post_attr.to_sym).each { |t| hash[t] << p } }
+      posts.docs.each { |p| p.data[post_attr].each { |t| hash[t] << p } }
       hash.values.each { |posts| posts.sort!.reverse! }
       hash
     end
@@ -262,7 +265,7 @@ module Jekyll
         "site"   => Utils.deep_merge_hashes(config,
           Utils.deep_merge_hashes(Hash[collections.map{|label, coll| [label, coll.docs]}], {
             "time"         => time,
-            "posts"        => posts.sort { |a, b| b <=> a },
+            "posts"        => posts.docs.sort { |a, b| b <=> a },
             "pages"        => pages,
             "static_files" => static_files,
             "html_pages"   => pages.select { |page| page.html? || page.url.end_with?("/") },
@@ -330,7 +333,7 @@ module Jekyll
     end
 
     def each_site_file
-      %w(posts pages static_files docs_to_write).each do |type|
+      %w(pages static_files docs_to_write).each do |type|
         send(type).each do |item|
           yield item
         end
@@ -348,8 +351,8 @@ module Jekyll
     # Whether to perform a full rebuild without incremental regeneration
     #
     # Returns a Boolean: true for a full rebuild, false for normal build
-    def full_rebuild?(override = {})
-      override['full_rebuild'] || config['full_rebuild']
+    def incremental?(override = {})
+      override['incremental'] || config['incremental']
     end
 
     # Returns the publisher or creates a new publisher if it doesn't
@@ -391,8 +394,8 @@ module Jekyll
     # Returns nothing
     def limit_posts!
       if limit_posts > 0
-        limit = posts.length < limit_posts ? posts.length : limit_posts
-        self.posts = posts[-limit, limit]
+        limit = posts.docs.length < limit_posts ? posts.docs.length : limit_posts
+        self.posts.docs = posts.docs[-limit, limit]
       end
     end
 

@@ -1,4 +1,4 @@
-## HEAD
+## 3.0.0 / 2015-10-26
 
 ### Major Enhancements
 
@@ -6,6 +6,7 @@
   * Incremental regeneration (#3116)
   * Add Hooks: a new kind of plugin (#3553)
   * Upgrade to Liquid 3.0.0 (#3002)
+  * `site.posts` is now a Collection instead of an Array (#4055)
   * Add basic support for JRuby (commit: 0f4477)
   * Drop support for Ruby 1.9.3. (#3235)
   * Support Ruby v2.2 (#3234)
@@ -18,9 +19,14 @@
   * Sunset (i.e. remove) Maruku (#3655)
   * Remove support for relative permalinks (#3679)
   * Iterate over `site.collections` as an array instead of a hash. (#3670)
+  * Adapt StaticFile for collections, config defaults (#3823)
+  * Add a Code of Conduct for the Jekyll project (#3925)
+  * Added permalink time variables (#3990)
+  * Add `--incremental` flag to enable incremental regen (disabled by default) (#4059)
 
 ### Minor Enhancements
 
+  * Deprecate access to Document#data properties and Collection#docs methods (#4058)
   * Sort static files just once, and call `site_payload` once for all collections (#3204)
   * Separate `jekyll docs` and optimize external gem handling (#3241)
   * Improve `Site#getConverterImpl` and call it `Site#find_converter_instance` (#3240)
@@ -56,7 +62,6 @@
   * Added build --destination and --source flags (#3418)
   * Site template: remove unused `page.meta` attribute (#3537)
   * Improve the error message when sorting null objects (#3520)
-  * Add jekyll-smartify plugin (#3572)
   * Added liquid-md5 plugin (#3598)
   * Documentation: RR replaced with RSpec Mocks (#3600)
   * Documentation: Fix subpath. (#3599)
@@ -80,9 +85,20 @@
   * Performance: Marshal metadata (#3706)
   * Upgrade highlight wrapper from `div` to `figure` (#3779)
   * Upgrade mime-types to `~> 2.6` (#3795)
+  * Update windows.md with Ruby version info (#3818)
+  * Make the directory for includes configurable (#3782)
+  * Rename directory configurations to match `*_dir` convention for consistency (#3782)
+  * Internal: trigger hooks by owner symbol (#3871)
+  * Update MIME types from mime-db (#3933)
+  * Add header to site template `_config.yml` for clarity & direction (#3997)
+  * Site template: add timezone offset to post date frontmatter (#4001)
+  * Make a constant for the regex to find hidden files (#4032)
+  * Site template: refactor github & twitter icons into includes (#4049)
+  * Site template: add background to Kramdown Rouge-ified backtick code blocks (#4053)
 
 ### Bug Fixes
 
+  * `post_url`: fix access deprecation warning & fix deprecation msg (#4060)
   * Perform jekyll-paginate deprecation warning correctly. (#3580)
   * Make permalink parsing consistent with pages (#3014)
   * `time()`pre-filter method should accept a `Date` object (#3299)
@@ -116,6 +132,23 @@
   * Incremental regeneration: handle deleted, renamed, and moved dependencies (#3717)
   * Fix typo on line 19 of pagination.md (#3760)
   * Fix it so that 'blog.html' matches 'blog.html' (#3732)
+  * Remove occasionally-problematic `ensure` in `LiquidRenderer` (#3811)
+  * Fixed an unclear code comment in site template SCSS (#3837)
+  * Fix reading of binary metadata file (#3845)
+  * Remove var collision with site template header menu iteration variable (#3838)
+  * Change non-existent `hl_linenos` to `hl_lines` to allow passthrough in safe mode (#3787)
+  * Add missing flag to disable the watcher (#3820)
+  * Update CI guide to include more direct explanations of the flow (#3891)
+  * Set `future` to `false` in the default config (#3892)
+  * filters: `where` should compare stringified versions of input & comparator (#3935)
+  * Read build options for `jekyll clean` command (#3828)
+  * Fix #3970: Use Gem::Version to compare versions, not `>`.
+  * Abort if no subcommand. Fixes confusing message. (#3992)
+  * Whole-post excerpts should match the post content (#4004)
+  * Change default font weight to 400 to fix bold/strong text issues (#4050)
+  * Document: Only auto-generate the excerpt if it's not overridden (#4062)
+  * Utils: `deep_merge_hashes` should also merge `default_proc` (45f69bb)
+  * Defaults: compare paths in `applies_path?` as `String`s to avoid confusion (7b81f00)
 
 ### Development Fixes
 
@@ -147,6 +180,14 @@
   * Update the way cucumber accesses Minitest assertions (#3678)
   * Add `script/rubyprof` to generate cachegrind callgraphs (#3692)
   * Upgrade cucumber to 2.x (#3795)
+  * Update Kramdown. (#3853)
+  * Updated the scripts shebang for portability (#3858)
+  * Update JRuby testing to 9K ([3ab386f](https://github.com/jekyll/jekyll/commit/3ab386f1b096be25a24fe038fc70fd0fb08d545d))
+  * Organize dependencies into dev and test groups. (#3852)
+  * Contributing.md should refer to `script/cucumber` (#3894)
+  * Update contributing documentation to reflect workflow updates (#3895)
+  * Add script to vendor mime types (#3933)
+  * Ignore .bundle dir in SimpleCov (#4033)
 
 ### Site Enhancements
 
@@ -213,6 +254,29 @@
   * Update link for navbars with data attributes tutorial (#3728)
   * Add `jekyll-asciinema` to list of third-party plugins (#3750)
   * Update pagination example to be agnostic to first pagination dir (#3763)
+  * Detailed instructions for rsync deployment method (#3848)
+  * Add Jekyll Portfolio Generator to list of plugins (#3883)
+  * Add `site.html_files` to variables docs (#3880)
+  * Add Static Publisher tool to list of deployment methods (#3865)
+  * Fix a few typos. (#3897)
+  * Add `jekyll-youtube` to the list of third-party plugins (#3931)
+  * Add Views Router plugin (#3950)
+  * Update install docs (Core dependencies, Windows reqs, etc) (#3769)
+  * Use Jekyll Feed for jekyllrb.com (#3736)
+  * Add jekyll-umlauts to plugins.md ($3966)
+  * Troubleshooting: fix broken link, add other mac-specific info (#3968)
+  * Add a new site for learning purposes (#3917)
+  * Added documentation for Jekyll environment variables (#3989)
+  * Fix broken configuration documentation page (#3994)
+  * Add troubleshooting docs for installing on El Capitan (#3999)
+  * Add Lazy Tweet Embedding to the list of third-party plugins (#4015)
+  * Add installation instructions for 2 of 3 options for plugins (#4013)
+  * Add alternative jekyll gem installation instructions (#4018)
+  * Fix a few typos and formatting problems. (#4022)
+  * Fix pretty permalink example (#4029)
+  * Note that `_config.yml` is not reloaded during regeneration (#4034)
+  * Apply code block figure syntax to blocks in CONTRIBUTING (#4046)
+  * Add jekyll-smartify to the list of third-party plugins (#3572)
 
 ## 2.5.3 / 2014-12-22
 

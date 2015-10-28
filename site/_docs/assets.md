@@ -54,7 +54,7 @@ Sass 转换器默认配置中的 `sass_dir` 为 `_sass`。
 
 {% highlight yaml %}
 sass:
-    style: :compressed
+    style: compressed
 {% endhighlight %}
 
 这些设置将传递给 Sass，因此所有 Sass 支持的输出样式在这里都可以使用。

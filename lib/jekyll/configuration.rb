@@ -5,14 +5,15 @@ module Jekyll
 
     # Default options. Overridden by values in _config.yml.
     # Strings rather than symbols are used for compatibility with YAML.
-    DEFAULTS = {
+    DEFAULTS = Configuration[{
       # Where things are
       'source'        => Dir.pwd,
       'destination'   => File.join(Dir.pwd, '_site'),
-      'plugins'       => '_plugins',
-      'layouts'       => '_layouts',
-      'data_source'   =>  '_data',
-      'collections'   => nil,
+      'plugins_dir'   => '_plugins',
+      'layouts_dir'   => '_layouts',
+      'data_dir'      => '_data',
+      'includes_dir'  => '_includes',
+      'collections'   => {},
 
       # Handling Reading
       'safe'          => false,
@@ -21,12 +22,11 @@ module Jekyll
       'keep_files'    => ['.git','.svn'],
       'encoding'      => 'utf-8',
       'markdown_ext'  => 'markdown,mkdown,mkdn,mkd,md',
-      'full_rebuild'  => false,
 
       # Filtering Content
       'show_drafts'   => nil,
       'limit_posts'   => 0,
-      'future'        => true,           # remove and make true just default
+      'future'        => false,
       'unpublished'   => false,
 
       # Plugins
@@ -38,6 +38,7 @@ module Jekyll
       'highlighter'   => 'rouge',
       'lsi'           => false,
       'excerpt_separator' => "\n\n",
+      'incremental'   => false,
 
       # Serving
       'detach'        => false,          # default to not detaching the server
@@ -79,7 +80,7 @@ module Jekyll
           'coderay_css'               => 'style'
         }
       }
-    }
+    }]
 
     # Public: Turn all keys into string
     #
@@ -185,7 +186,7 @@ module Jekyll
         $stderr.puts "#{err}"
       end
 
-      configuration.fix_common_issues.backwards_compatibilize
+      configuration.fix_common_issues.backwards_compatibilize.add_default_collections
     end
 
     # Public: Split a CSV string into an array containing its values
@@ -219,14 +220,10 @@ module Jekyll
         config.delete('server')
       end
 
-      if config.key? 'server_port'
-        Jekyll::Deprecator.deprecation_message "The 'server_port' configuration option" +
-                            " has been renamed to 'port'. Please update your config" +
-                            " file accordingly."
-        # copy but don't overwrite:
-        config['port'] = config['server_port'] unless config.key?('port')
-        config.delete('server_port')
-      end
+      renamed_key 'server_port', 'port', config
+      renamed_key 'plugins', 'plugins_dir', config
+      renamed_key 'layouts', 'layouts_dir', config
+      renamed_key 'data_source', 'data_dir', config
 
       if config.key? 'pygments'
         Jekyll::Deprecator.deprecation_message "The 'pygments' configuration option" +
@@ -276,6 +273,46 @@ module Jekyll
       end
 
       config
+    end
+
+    def add_default_collections
+      config = clone
+
+      return config if config['collections'].nil?
+
+      if config['collections'].is_a?(Array)
+        config['collections'] = Hash[config['collections'].map{|c| [c, {}]}]
+      end
+      config['collections']['posts'] ||= {}
+      config['collections']['posts']['output'] = true
+      config['collections']['posts']['permalink'] = style_to_permalink(config['permalink'])
+
+      config
+    end
+
+    def renamed_key(old, new, config, allowed_values = nil)
+      if config.key?(old)
+        Jekyll::Deprecator.deprecation_message "The '#{old}' configuration" +
+          "option has been renamed to '#{new}'. Please update your config " +
+          "file accordingly."
+        config[new] = config.delete(old)
+      end
+    end
+
+    private
+    def style_to_permalink(permalink_style)
+      case permalink_style.to_sym
+      when :pretty
+        "/:categories/:year/:month/:day/:title/"
+      when :none
+        "/:categories/:title.html"
+      when :date
+        "/:categories/:year/:month/:day/:title.html"
+      when :ordinal
+        "/:categories/:year/:y_day/:title.html"
+      else
+        permalink_style.to_s
+      end
     end
   end
 end
