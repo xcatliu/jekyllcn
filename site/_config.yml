@@ -13,9 +13,10 @@ collections:
   docs:
     output: true
 
-name: Jekyll • Simple, blog-aware, static sites
-description: Transform your plain text into static websites and blogs
-url: http://jekyllrb.com
+name: Jekyll • 简单静态博客网站生成器
+description: 将纯文本转换为静态博客网站
+# url: http://jekyllrb.com
+url: http://jekyllcn.com
 
 gems:
   - jekyll-feed
