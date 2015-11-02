@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 <generator uri="http://jekyllrb.com" version="3.0.0">Jekyll</generator>
-<link href="http://jekyllrb.com/feed.xml" rel="self" type="application/atom+xml" />
-<link href="http://jekyllrb.com/" rel="alternate" type="text/html" />
-<updated>2015-10-28T12:31:37+08:00</updated>
-<id>http://jekyllrb.com/</id>
-<title>Jekyll • Simple, blog-aware, static sites</title>
-<subtitle>Transform your plain text into static websites and blogs</subtitle>
+<link href="http://jekyllcn.com/feed.xml" rel="self" type="application/atom+xml" />
+<link href="http://jekyllcn.com/" rel="alternate" type="text/html" />
+<updated>2015-11-02T14:08:49+08:00</updated>
+<id>http://jekyllcn.com/</id>
+<title>Jekyll • 简单静态博客网站生成器</title>
+<subtitle>将纯文本转换为静态博客网站</subtitle>
 <entry>
 <title>Jekyll 3.0 Released</title>
-<link href="http://jekyllrb.com/news/2015/10/27/jekyll-3-0-released/" rel="alternate" type="text/html" title="Jekyll 3.0 Released" />
+<link href="http://jekyllcn.com/news/2015/10/27/jekyll-3-0-released/" rel="alternate" type="text/html" title="Jekyll 3.0 Released" />
 <published>2015-10-27T06:37:30+08:00</published>
 <updated>2015-10-27T06:37:30+08:00</updated>
-<id>http://jekyllrb.com/news/2015/10/27/jekyll-3-0-released</id>
-<content type="html" xml:base="http://jekyllrb.com/news/2015/10/27/jekyll-3-0-released/">&lt;p&gt;The much-anticipated Jekyll 3.0 has been released! Key changes:&lt;/p&gt;
+<id>http://jekyllcn.com/news/2015/10/27/jekyll-3-0-released</id>
+<content type="html" xml:base="http://jekyllcn.com/news/2015/10/27/jekyll-3-0-released/">&lt;p&gt;The much-anticipated Jekyll 3.0 has been released! Key changes:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Incremental regeneration (experimental, enable with &lt;code&gt;--incremental&lt;/code&gt;)&lt;/li&gt;
@@ -52,11 +52,11 @@
 </entry>
 <entry>
 <title>Join the Discussion at Jekyll Talk</title>
-<link href="http://jekyllrb.com/news/2015/02/27/introducing-jekyll-talk/" rel="alternate" type="text/html" title="Join the Discussion at Jekyll Talk" />
+<link href="http://jekyllcn.com/news/2015/02/27/introducing-jekyll-talk/" rel="alternate" type="text/html" title="Join the Discussion at Jekyll Talk" />
 <published>2015-02-27T13:06:51+08:00</published>
 <updated>2015-02-27T13:06:51+08:00</updated>
-<id>http://jekyllrb.com/news/2015/02/27/introducing-jekyll-talk</id>
-<content type="html" xml:base="http://jekyllrb.com/news/2015/02/27/introducing-jekyll-talk/">&lt;p&gt;We’re super excited to announce the launch of &lt;a href=&quot;https://talk.jekyllrb.com&quot;&gt;Jekyll Talk&lt;/a&gt;, a Discourse forum for anything related to Jekyll!&lt;/p&gt;
+<id>http://jekyllcn.com/news/2015/02/27/introducing-jekyll-talk</id>
+<content type="html" xml:base="http://jekyllcn.com/news/2015/02/27/introducing-jekyll-talk/">&lt;p&gt;We’re super excited to announce the launch of &lt;a href=&quot;https://talk.jekyllrb.com&quot;&gt;Jekyll Talk&lt;/a&gt;, a Discourse forum for anything related to Jekyll!&lt;/p&gt;
 
 &lt;p&gt;The forum was set up by &lt;a href=&quot;https://github.com/envygeeks&quot;&gt;@envygeeks&lt;/a&gt; to build a community more accessible to Jekyll users and more suitable for general discussion.&lt;/p&gt;
 
@@ -71,11 +71,11 @@
 </entry>
 <entry>
 <title>Jekyll 3.0.0.beta1 Released</title>
-<link href="http://jekyllrb.com/news/2015/01/24/jekyll-3-0-0-beta1-released/" rel="alternate" type="text/html" title="Jekyll 3.0.0.beta1 Released" />
+<link href="http://jekyllcn.com/news/2015/01/24/jekyll-3-0-0-beta1-released/" rel="alternate" type="text/html" title="Jekyll 3.0.0.beta1 Released" />
 <published>2015-01-24T16:42:31+08:00</published>
 <updated>2015-01-24T16:42:31+08:00</updated>
-<id>http://jekyllrb.com/news/2015/01/24/jekyll-3-0-0-beta1-released</id>
-<content type="html" xml:base="http://jekyllrb.com/news/2015/01/24/jekyll-3-0-0-beta1-released/">&lt;p&gt;Hey!&lt;/p&gt;
+<id>http://jekyllcn.com/news/2015/01/24/jekyll-3-0-0-beta1-released</id>
+<content type="html" xml:base="http://jekyllcn.com/news/2015/01/24/jekyll-3-0-0-beta1-released/">&lt;p&gt;Hey!&lt;/p&gt;
 
 &lt;p&gt;Exciting news! First beta for Jekyll 3 is out. Check out the &lt;a href=&quot;https://github.com/jekyll/jekyll/blob/v3.0.0.beta1/History.markdown#head&quot;&gt;sizable
 changelog&lt;/a&gt;
@@ -116,11 +116,11 @@ We’re always looking to make Jekyll easier to use!&lt;/p&gt;
 </entry>
 <entry>
 <title>Jekyll Meet &amp;amp; Greet at GitHub HQ</title>
-<link href="http://jekyllrb.com/news/2015/01/21/jekyll-meet-and-greet/" rel="alternate" type="text/html" title="Jekyll Meet &amp; Greet at GitHub HQ" />
+<link href="http://jekyllcn.com/news/2015/01/21/jekyll-meet-and-greet/" rel="alternate" type="text/html" title="Jekyll Meet &amp; Greet at GitHub HQ" />
 <published>2015-01-21T11:23:12+08:00</published>
 <updated>2015-01-21T11:23:12+08:00</updated>
-<id>http://jekyllrb.com/news/2015/01/21/jekyll-meet-and-greet</id>
-<content type="html" xml:base="http://jekyllrb.com/news/2015/01/21/jekyll-meet-and-greet/">&lt;p&gt;Hey! Our friends at GitHub have agreed to host a Jekyll meet &amp;amp; greet on
+<id>http://jekyllcn.com/news/2015/01/21/jekyll-meet-and-greet</id>
+<content type="html" xml:base="http://jekyllcn.com/news/2015/01/21/jekyll-meet-and-greet/">&lt;p&gt;Hey! Our friends at GitHub have agreed to host a Jekyll meet &amp;amp; greet on
 &lt;strong&gt;February 5, 2015 at 7pm&lt;/strong&gt;. The event will be hosted at
 &lt;a href=&quot;https://goo.gl/maps/Bmy7i&quot;&gt;GitHub’s Headquarters&lt;/a&gt;
 here in San Francisco, CA. Pizza &amp;amp; beer will be available for those interested,
@@ -140,11 +140,11 @@ all possible! You rock.&lt;/p&gt;
 </entry>
 <entry>
 <title>Jekyll Release for the Holidays! v2.5.3 Out</title>
-<link href="http://jekyllrb.com/news/2014/12/22/jekyll-2-5-3-released/" rel="alternate" type="text/html" title="Jekyll Release for the Holidays! v2.5.3 Out" />
+<link href="http://jekyllcn.com/news/2014/12/22/jekyll-2-5-3-released/" rel="alternate" type="text/html" title="Jekyll Release for the Holidays! v2.5.3 Out" />
 <published>2014-12-22T22:03:30+08:00</published>
 <updated>2014-12-22T22:03:30+08:00</updated>
-<id>http://jekyllrb.com/news/2014/12/22/jekyll-2-5-3-released</id>
-<content type="html" xml:base="http://jekyllrb.com/news/2014/12/22/jekyll-2-5-3-released/">&lt;p&gt;Happy Holidays, everyone.&lt;/p&gt;
+<id>http://jekyllcn.com/news/2014/12/22/jekyll-2-5-3-released</id>
+<content type="html" xml:base="http://jekyllcn.com/news/2014/12/22/jekyll-2-5-3-released/">&lt;p&gt;Happy Holidays, everyone.&lt;/p&gt;
 
 &lt;p&gt;Jekyll v2.5.3 is a quick patch release, containing some minor fixes. See the
 &lt;a href=&quot;/docs/history/&quot;&gt;full history&lt;/a&gt; for more info. If you notice any problems,
@@ -163,11 +163,11 @@ Feel free to chime in over on GitHub.&lt;/p&gt;
 </entry>
 <entry>
 <title>Alfred Xing has joined the Jekyll core team</title>
-<link href="http://jekyllrb.com/news/2014/12/18/alfredxing-welcome-to-jekyll-core/" rel="alternate" type="text/html" title="Alfred Xing has joined the Jekyll core team" />
+<link href="http://jekyllcn.com/news/2014/12/18/alfredxing-welcome-to-jekyll-core/" rel="alternate" type="text/html" title="Alfred Xing has joined the Jekyll core team" />
 <published>2014-12-18T03:16:21+08:00</published>
 <updated>2014-12-18T03:16:21+08:00</updated>
-<id>http://jekyllrb.com/news/2014/12/18/alfredxing-welcome-to-jekyll-core</id>
-<content type="html" xml:base="http://jekyllrb.com/news/2014/12/18/alfredxing-welcome-to-jekyll-core/">&lt;p&gt;We’re excited to announce that &lt;a href=&quot;https://github.com/alfredxing&quot;&gt;@alfredxing&lt;/a&gt; has joined the @jekyll/core
+<id>http://jekyllcn.com/news/2014/12/18/alfredxing-welcome-to-jekyll-core</id>
+<content type="html" xml:base="http://jekyllcn.com/news/2014/12/18/alfredxing-welcome-to-jekyll-core/">&lt;p&gt;We’re excited to announce that &lt;a href=&quot;https://github.com/alfredxing&quot;&gt;@alfredxing&lt;/a&gt; has joined the @jekyll/core
 team!&lt;/p&gt;
 
 &lt;p&gt;He hails from Vancouver, BC, Canada, where he is studying Economics and
@@ -191,11 +191,11 @@ place!&lt;/p&gt;
 </entry>
 <entry>
 <title>Jekyll 2.5.2 Released</title>
-<link href="http://jekyllrb.com/news/2014/11/13/jekyll-2-5-2-released/" rel="alternate" type="text/html" title="Jekyll 2.5.2 Released" />
+<link href="http://jekyllcn.com/news/2014/11/13/jekyll-2-5-2-released/" rel="alternate" type="text/html" title="Jekyll 2.5.2 Released" />
 <published>2014-11-13T10:49:08+08:00</published>
 <updated>2014-11-13T10:49:08+08:00</updated>
-<id>http://jekyllrb.com/news/2014/11/13/jekyll-2-5-2-released</id>
-<content type="html" xml:base="http://jekyllrb.com/news/2014/11/13/jekyll-2-5-2-released/">&lt;p&gt;A very minor release, 2.5.2 fixes a bug with path sanitation that 2.5.1
+<id>http://jekyllcn.com/news/2014/11/13/jekyll-2-5-2-released</id>
+<content type="html" xml:base="http://jekyllcn.com/news/2014/11/13/jekyll-2-5-2-released/">&lt;p&gt;A very minor release, 2.5.2 fixes a bug with path sanitation that 2.5.1
 introduced. It also improves the &lt;code&gt;post_url&lt;/code&gt; tag such that it checks the
 posts’ name (e.g. &lt;code&gt;2014-03-03-my-cool-post&lt;/code&gt;) instead of a compiled time and
 name. This fixes issues where posts are created and the day changes based
@@ -212,11 +212,11 @@ on timezone discrepancies.&lt;/p&gt;
 </entry>
 <entry>
 <title>Jekyll 2.5.1 Released</title>
-<link href="http://jekyllrb.com/news/2014/11/10/jekyll-2-5-1-released/" rel="alternate" type="text/html" title="Jekyll 2.5.1 Released" />
+<link href="http://jekyllcn.com/news/2014/11/10/jekyll-2-5-1-released/" rel="alternate" type="text/html" title="Jekyll 2.5.1 Released" />
 <published>2014-11-10T01:47:52+08:00</published>
 <updated>2014-11-10T01:47:52+08:00</updated>
-<id>http://jekyllrb.com/news/2014/11/10/jekyll-2-5-1-released</id>
-<content type="html" xml:base="http://jekyllrb.com/news/2014/11/10/jekyll-2-5-1-released/">&lt;p&gt;Hot on the heels of v2.5.0, this release brings relief to our Windows
+<id>http://jekyllcn.com/news/2014/11/10/jekyll-2-5-1-released</id>
+<content type="html" xml:base="http://jekyllcn.com/news/2014/11/10/jekyll-2-5-1-released/">&lt;p&gt;Hot on the heels of v2.5.0, this release brings relief to our Windows
 users. It includes a fix for a 2.5.0 path sanitation change that has been
 confirmed to work on Windows.&lt;/p&gt;
 
@@ -243,11 +243,11 @@ and Alfred Xing.&lt;/p&gt;
 </entry>
 <entry>
 <title>Jekyll’s Mid-Life Crisis (Or, Jekyll turns 2.5.0)</title>
-<link href="http://jekyllrb.com/news/2014/11/06/jekylls-midlife-crisis-jekyll-turns-2-5-0/" rel="alternate" type="text/html" title="Jekyll&#39;s Mid-Life Crisis (Or, Jekyll turns 2.5.0)" />
+<link href="http://jekyllcn.com/news/2014/11/06/jekylls-midlife-crisis-jekyll-turns-2-5-0/" rel="alternate" type="text/html" title="Jekyll&#39;s Mid-Life Crisis (Or, Jekyll turns 2.5.0)" />
 <published>2014-11-06T02:48:22+08:00</published>
 <updated>2014-11-06T02:48:22+08:00</updated>
-<id>http://jekyllrb.com/news/2014/11/06/jekylls-midlife-crisis-jekyll-turns-2-5-0</id>
-<content type="html" xml:base="http://jekyllrb.com/news/2014/11/06/jekylls-midlife-crisis-jekyll-turns-2-5-0/">&lt;p&gt;A new day, a new release! Jekyll just turned 2.5.0 and has gained a lot of
+<id>http://jekyllcn.com/news/2014/11/06/jekylls-midlife-crisis-jekyll-turns-2-5-0</id>
+<content type="html" xml:base="http://jekyllcn.com/news/2014/11/06/jekylls-midlife-crisis-jekyll-turns-2-5-0/">&lt;p&gt;A new day, a new release! Jekyll just turned 2.5.0 and has gained a lot of
 wisdom along the way. This 2.5.0 release also comes just a few weeks after
 Jekyll turned 6 years old! In fashion, we’re celebrating this huge
 milestone with a pretty big release. What’s changed in 2.5.0? Here are some
@@ -295,11 +295,11 @@ Custódio, Igor Kapkov, and Kevin Ndung’u!&lt;/p&gt;
 </entry>
 <entry>
 <title>A Wild Jekyll 2.4.0 Appeared!</title>
-<link href="http://jekyllrb.com/news/2014/09/10/jekyll-2-4-0-released/" rel="alternate" type="text/html" title="A Wild Jekyll 2.4.0 Appeared!" />
+<link href="http://jekyllcn.com/news/2014/09/10/jekyll-2-4-0-released/" rel="alternate" type="text/html" title="A Wild Jekyll 2.4.0 Appeared!" />
 <published>2014-09-10T12:10:33+08:00</published>
 <updated>2014-09-10T12:10:33+08:00</updated>
-<id>http://jekyllrb.com/news/2014/09/10/jekyll-2-4-0-released</id>
-<content type="html" xml:base="http://jekyllrb.com/news/2014/09/10/jekyll-2-4-0-released/">&lt;p&gt;Well, lookie here! A new release of Jekyll! v2.4.0 contains lots of goodies, including some brilliant new additions:&lt;/p&gt;
+<id>http://jekyllcn.com/news/2014/09/10/jekyll-2-4-0-released</id>
+<content type="html" xml:base="http://jekyllcn.com/news/2014/09/10/jekyll-2-4-0-released/">&lt;p&gt;Well, lookie here! A new release of Jekyll! v2.4.0 contains lots of goodies, including some brilliant new additions:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;A new &lt;code&gt;relative_include&lt;/code&gt; Liquid tag (&lt;a href=&quot;{{ site.repository }}/issues/2870&quot;&gt;#2870&lt;/a&gt;)&lt;/li&gt;
