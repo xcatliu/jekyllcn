@@ -1,6 +1,6 @@
 # source 'https://rubygems.org'
 # 中国用户使用 taobao 源比较快
-source 'http://ruby.taobao.org'
+source 'https://ruby.taobao.org'
 gemspec
 
 gem 'rake', '~> 10.1'
