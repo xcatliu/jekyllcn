@@ -10,7 +10,7 @@ hash: 5647b91
 
 ## 数学支持
 
-使用 Kramdown 时可以选择使用由 [MathJax](http://www.mathjax.org/) 提供的 LaTex 格式到 PNG 格式的数学区块渲染器。具体细节可查阅 Kramdown 文档中的 [math blocks (数学区块)](http://kramdown.gettalong.org/syntax.html#math-blocks) 以及 [math support (数学支持)](http://kramdown.gettalong.org/converter/html.html#math-support) 部分。
+使用 Kramdown 时可以选择使用由 [MathJax](http://www.mathjax.org/) 提供的 LaTeX 格式到 PNG 格式的数学区块渲染器。具体细节可查阅 Kramdown 文档中的 [math blocks (数学区块)](http://kramdown.gettalong.org/syntax.html#math-blocks) 以及 [math support (数学支持)](http://kramdown.gettalong.org/converter/html.html#math-support) 部分。
 
 ## 使用其它 Markdown 解析器
 
