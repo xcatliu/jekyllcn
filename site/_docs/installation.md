@@ -73,7 +73,7 @@ $ ls pkg/*.gem | head -n 1 | xargs gem install -l
 
 ## 附加功能
 
-根据每个人使用方式的不同，Jekyll 还支持你安装一些附加功能。包括了对 LaTex 的支持，以及使用动态内容渲染引擎。查看 [the extras page](../extras/) 获得更多信息。
+根据每个人使用方式的不同，Jekyll 还支持你安装一些附加功能。包括了对 LaTeX 的支持，以及使用动态内容渲染引擎。查看 [the extras page](../extras/) 获得更多信息。
 
 <div class="note">
   <h5>ProTip™: 允许代码高亮</h5>
