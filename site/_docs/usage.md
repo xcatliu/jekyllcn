@@ -24,14 +24,14 @@ $ jekyll build --watch
 {% endhighlight %}
 
 <div class="note info">
-  <h5>Changes to _config.yml are not included during automatic regeneration.</h5>
+  <h5>在自动构建过程中对 _config.yml 的修改将不会被包含其中。</h5>
   <p>
-    The <code>_config.yml</code> master configuration file contains global configurations
-    and variable definitions that are read once at execution time. Changes made to <code>_config.yml</code>
-    during automatic regeneration are not loaded until the next execution.
+    <code>_config.yml</code> 管理包含全局配置和变量定义在内的配置文件
+    并且这些变量定义在执行时会被读取. 所有 <code>_config.yml</code> 中的改动
+    在自动构建过程中，都不会被加载直到下一次执行开始。
   </p>
   <p>
-    Note <a href="../datafiles">Data Files</a> are included and reloaded during automatic regeneration.
+    注意 <a href="../datafiles">Data Files</a> 在自动构建过程中会被包含和加载。
   </p>
 </div>
 
