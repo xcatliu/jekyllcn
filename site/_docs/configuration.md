@@ -2,7 +2,7 @@
 layout: docs
 title: 配置
 permalink: /docs/configuration/
-translators: [debbbbie, chaucerling]
+translators: [debbbbie, chaucerling, archersmind]
 hash: 5647b91
 ---
 
@@ -422,7 +422,7 @@ The post text goes here...
 
 ## 默认配置
 
-Jekyll 默认使用以下的配置运行。可以显式指定这些选项子在配置文件中或在命令行中。
+Jekyll 默认使用以下的配置运行。也可以在配置文件或者命令行中显示地指定这些选项。
 
 <div class="note warning">
   <h5>有两个 kramdown 的选项不支持</h5>
@@ -433,7 +433,7 @@ Jekyll 默认使用以下的配置运行。可以显式指定这些选项子在�
 </div>
 
 {% highlight yaml %}
-# Where things are
+# 目录结构
 source:      .
 destination: ./_site
 plugins:     ./_plugins
@@ -441,7 +441,7 @@ layouts:     ./_layouts
 data_source: ./_data
 collections: null
 
-# Handling Reading
+# 阅读处理
 safe:         false
 include:      [".htaccess"]
 exclude:      []
@@ -449,29 +449,29 @@ keep_files:   [".git", ".svn"]
 encoding:     "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
-# Filtering Content
+# 内容过滤
 show_drafts: null
 limit_posts: 0
 future:      true
 unpublished: false
 
-# Plugins
+# 插件
 whitelist: []
 gems:      []
 
-# Conversion
+# 转换
 markdown:    kramdown
 highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
 
-# Serving
+# 服务器选项
 detach:  false
 port:    4000
 host:    127.0.0.1
 baseurl: "" # does not include hostname
 
-# Outputting
+# 输出
 permalink:     date
 paginate_path: /page:num
 timezone:      null
@@ -479,7 +479,7 @@ timezone:      null
 quiet:    false
 defaults: []
 
-# Markdown Processors
+# Markdown 处理器
 rdiscount:
   extensions: []
 
