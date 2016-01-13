@@ -2588,7 +2588,7 @@
 
 <h2 id="section-6">默认配置</h2>
 
-<p>Jekyll 默认使用以下的配置运行。可以显式指定这些选项子在配置文件中或在命令行中。</p>
+<p>Jekyll 默认使用以下的配置运行。也可以在配置文件或者命令行中显示地指定这些选项。</p>
 
 <div class="note warning">
   <h5>有两个 kramdown 的选项不支持</h5>
@@ -2598,7 +2598,7 @@
   </p>
 </div>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Where things are</span>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># 目录结构</span>
 <span class="l-Scalar-Plain">source</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">.</span>
 <span class="l-Scalar-Plain">destination</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">./_site</span>
 <span class="l-Scalar-Plain">plugins</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">./_plugins</span>
@@ -2606,7 +2606,7 @@
 <span class="l-Scalar-Plain">data_source</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">./_data</span>
 <span class="l-Scalar-Plain">collections</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">null</span>
 
-<span class="c1"># Handling Reading</span>
+<span class="c1"># 阅读处理</span>
 <span class="l-Scalar-Plain">safe</span><span class="p-Indicator">:</span>         <span class="l-Scalar-Plain">false</span>
 <span class="l-Scalar-Plain">include</span><span class="p-Indicator">:</span>      <span class="p-Indicator">[</span><span class="s">&quot;.htaccess&quot;</span><span class="p-Indicator">]</span>
 <span class="l-Scalar-Plain">exclude</span><span class="p-Indicator">:</span>      <span class="p-Indicator">[]</span>
@@ -2614,29 +2614,29 @@
 <span class="l-Scalar-Plain">encoding</span><span class="p-Indicator">:</span>     <span class="s">&quot;utf-8&quot;</span>
 <span class="l-Scalar-Plain">markdown_ext</span><span class="p-Indicator">:</span> <span class="s">&quot;markdown,mkdown,mkdn,mkd,md&quot;</span>
 
-<span class="c1"># Filtering Content</span>
+<span class="c1"># 内容过滤</span>
 <span class="l-Scalar-Plain">show_drafts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">null</span>
 <span class="l-Scalar-Plain">limit_posts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0</span>
 <span class="l-Scalar-Plain">future</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">true</span>
 <span class="l-Scalar-Plain">unpublished</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
 
-<span class="c1"># Plugins</span>
+<span class="c1"># 插件</span>
 <span class="l-Scalar-Plain">whitelist</span><span class="p-Indicator">:</span> <span class="p-Indicator">[]</span>
 <span class="l-Scalar-Plain">gems</span><span class="p-Indicator">:</span>      <span class="p-Indicator">[]</span>
 
-<span class="c1"># Conversion</span>
+<span class="c1"># 转换</span>
 <span class="l-Scalar-Plain">markdown</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">kramdown</span>
 <span class="l-Scalar-Plain">highlighter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">rouge</span>
 <span class="l-Scalar-Plain">lsi</span><span class="p-Indicator">:</span>         <span class="l-Scalar-Plain">false</span>
 <span class="l-Scalar-Plain">excerpt_separator</span><span class="p-Indicator">:</span> <span class="s">&quot;\n\n&quot;</span>
 
-<span class="c1"># Serving</span>
+<span class="c1"># 服务器选项</span>
 <span class="l-Scalar-Plain">detach</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">false</span>
 <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">4000</span>
 <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">127.0.0.1</span>
 <span class="l-Scalar-Plain">baseurl</span><span class="p-Indicator">:</span> <span class="s">&quot;&quot;</span> <span class="c1"># does not include hostname</span>
 
-<span class="c1"># Outputting</span>
+<span class="c1"># 输出</span>
 <span class="l-Scalar-Plain">permalink</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">date</span>
 <span class="l-Scalar-Plain">paginate_path</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/page:num</span>
 <span class="l-Scalar-Plain">timezone</span><span class="p-Indicator">:</span>      <span class="l-Scalar-Plain">null</span>
@@ -2644,7 +2644,7 @@
 <span class="l-Scalar-Plain">quiet</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">false</span>
 <span class="l-Scalar-Plain">defaults</span><span class="p-Indicator">:</span> <span class="p-Indicator">[]</span>
 
-<span class="c1"># Markdown Processors</span>
+<span class="c1"># Markdown 处理器</span>
 <span class="l-Scalar-Plain">rdiscount</span><span class="p-Indicator">:</span>
   <span class="l-Scalar-Plain">extensions</span><span class="p-Indicator">:</span> <span class="p-Indicator">[]</span>
 
@@ -2748,6 +2748,10 @@
               
               <a href="https://github.com/chaucerling" title="chaucerling">
                 <img src="https://github.com/chaucerling.png" class="avatar" alt="chaucerling avatar" width="24" height="24">
+              </a>
+              
+              <a href="https://github.com/archersmind" title="archersmind">
+                <img src="https://github.com/archersmind.png" class="avatar" alt="archersmind avatar" width="24" height="24">
               </a>
               
             </p>
