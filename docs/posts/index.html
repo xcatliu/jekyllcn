@@ -2211,7 +2211,7 @@
 
 <h3 id="section-2">内容格式</h3>
 
-<p>所有博客文章顶部必须有一段<a href="../frontmatter/">YAML头信息</a>(YAML front- matter)。在它下面，就可以选择你喜欢的格式来写文章。 Jekyll 支持 <a href="http://daringfireball.net/projects/markdown/">Markdown</a> ，以及以及<a href="/docs/plugins/#converters-1">其他众多格式的扩展</a>，其中就包括十分流行的 <a href="http://redcloth.org/textile">Textile</a> 。这些格式都有自己的方式来标记文章中不同类型的内容，所以你首先需要熟悉这些格式并选择一种最符合你需求的。</p>
+<p>所有博客文章顶部必须有一段<a href="../frontmatter/">YAML头信息</a>(YAML front- matter)。在它下面，就可以选择你喜欢的格式来写文章。 Jekyll 支持 <a href="http://daringfireball.net/projects/markdown/">Markdown</a> ，以及<a href="/docs/plugins/#converters-1">其他众多格式的扩展</a>，其中就包括十分流行的 <a href="http://redcloth.org/textile">Textile</a> 。这些格式都有自己的方式来标记文章中不同类型的内容，所以你首先需要熟悉这些格式并选择一种最符合你需求的。</p>
 
 <div class="note info">
   <h5>注意字符集</h5>
@@ -2275,7 +2275,7 @@
 
 <p>由于 Jekyll 会提取第一段的内容，你没有必要将摘要包裹在<code>p</code>标签中，它已经为你做了这项工作。如果你希望移除它们可以使用如下的代码：</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"></code></pre></figure>
+<figure class="highlight"><pre><code class="language-html" data-lang="html">{{ post.excerpt | remove: &#39;<span class="nt">&lt;p&gt;</span>&#39; | remove: &#39;<span class="nt">&lt;/p&gt;</span>&#39; }}</code></pre></figure>
 
 <p>如果你不喜欢自动生成摘要，你可以在文章的YAML头信息中增加<code>excerpt</code>来覆盖它。另外，你也可以选择在文章中自定义一个<code>excerpt_separator</code>：</p>
 
@@ -2339,6 +2339,10 @@ end
               
               <a href="https://github.com/LeuisKen" title="LeuisKen">
                 <img src="https://github.com/LeuisKen.png" class="avatar" alt="LeuisKen avatar" width="24" height="24">
+              </a>
+              
+              <a href="https://github.com/archersmind" title="archersmind">
+                <img src="https://github.com/archersmind.png" class="avatar" alt="archersmind avatar" width="24" height="24">
               </a>
               
             </p>
