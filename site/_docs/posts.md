@@ -2,7 +2,7 @@
 layout: docs
 title: 撰写博客
 permalink: /docs/posts/
-translators: [sdpfoue, LeuisKen]
+translators: [sdpfoue, LeuisKen, archersmind]
 ---
 
 Jeklly 的一个最好的特点是『关注 blog 本身』。这是指什么呢？简单的说就是写博客的过程被铸造进了 Jekyll 的功能中。你只需简单的管理你电脑中的一个文件夹下的文本文件就可以写文章并方便的在线上发布。与繁琐的配置和维护数据库和基于网站的内容管理系统 (CMS) 相比，这是一个非常受欢迎的改变。
@@ -33,7 +33,7 @@ Jeklly 的一个最好的特点是『关注 blog 本身』。这是指什么呢�
 
 ### 内容格式
 
-所有博客文章顶部必须有一段[YAML头信息](../frontmatter/)(YAML front- matter)。在它下面，就可以选择你喜欢的格式来写文章。 Jekyll 支持 [Markdown](http://daringfireball.net/projects/markdown/) ，以及以及[其他众多格式的扩展](/docs/plugins/#converters-1)，其中就包括十分流行的 [Textile](http://redcloth.org/textile) 。这些格式都有自己的方式来标记文章中不同类型的内容，所以你首先需要熟悉这些格式并选择一种最符合你需求的。
+所有博客文章顶部必须有一段[YAML头信息](../frontmatter/)(YAML front- matter)。在它下面，就可以选择你喜欢的格式来写文章。 Jekyll 支持 [Markdown](http://daringfireball.net/projects/markdown/) ，以及[其他众多格式的扩展](/docs/plugins/#converters-1)，其中就包括十分流行的 [Textile](http://redcloth.org/textile) 。这些格式都有自己的方式来标记文章中不同类型的内容，所以你首先需要熟悉这些格式并选择一种最符合你需求的。
 
 <div class="note info">
   <h5>注意字符集</h5>
@@ -106,7 +106,7 @@ Jekyll 会自动取每篇文章从开头到第一次出现`excerpt_separator`的
 由于 Jekyll 会提取第一段的内容，你没有必要将摘要包裹在`p`标签中，它已经为你做了这项工作。如果你希望移除它们可以使用如下的代码：
 
 {% highlight html %}
-{{ post.excerpt | remove: '<p>' | remove: '</p>' }}
+{% raw %}{{ post.excerpt | remove: '<p>' | remove: '</p>' }}{% endraw %}
 {% endhighlight %}
 
 如果你不喜欢自动生成摘要，你可以在文章的YAML头信息中增加`excerpt`来覆盖它。另外，你也可以选择在文章中自定义一个`excerpt_separator`：
