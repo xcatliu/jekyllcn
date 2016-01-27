@@ -2,7 +2,7 @@
 layout: docs
 title: 常用变量
 permalink: /docs/variables/
-translators: [yujingz, LeuisKen]
+translators: [yujingz, LeuisKen, archersmind]
 ---
 
 Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息](../frontmatter)的文件都是要处理的对象。对于每一个这样的文件，Jekyll 都会通过 [Liquid 模板工具](http://wiki.shopify.com/Liquid)来生成一系列的数据。下面就是这些可用数据变量的参考和文档。
@@ -246,7 +246,7 @@ Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息
       <td><p>
 
         这个帖子所属的 Categories。Categories 是从这个帖子的 <code>_posts</code> 以上
-        的目录结构中提取的。距离来说, 一个在 <code>/work/code/_posts/2008-12-24-closures.md</code>
+        的目录结构中提取的。举例来说, 一个在 <code>/work/code/_posts/2008-12-24-closures.md</code>
         目录下的 Post，这个属性就会被设置成 <code>['work', 'code']</code>。不过 Categories 也能在
         <a href="../frontmatter/">YAML 头文件信息</a> 中被设置。
 
@@ -294,7 +294,7 @@ Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息
   <p>
 
     任何你自定义的头文件信息都会在 <code>page</code> 中可用。
-    距离来说，如果你在一个 Page 的头文件中设置了 <code>custom_css: true</code>，
+    举例来说，如果你在一个 Page 的头文件中设置了 <code>custom_css: true</code>，
     这个变量就可以这样被取到 <code>page.custom_css</code>。
 
   </p>
