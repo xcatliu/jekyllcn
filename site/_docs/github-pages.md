@@ -2,7 +2,7 @@
 layout: docs
 title: GitHub Pages
 permalink: /docs/github-pages/
-translators: brickgao
+translators: [brickgao, archersmind]
 ---
 
 [Github Pages](http://pages.github.com) 是面向用户、组织和项目开放的公共静态页面搭建托管服
@@ -15,7 +15,7 @@ translators: brickgao
 
 Github Pages 依靠 Github 上项目的某些特定分支来工作。Github Pages
 分为两种基本类型：用户/组织的站点和项目的站点。搭建这两种类型站
-点的方法除了一小些细节之外基本一致。
+点的方法除了一些小细节之外基本一致。
 
 ### 用户和组织的站点
 
