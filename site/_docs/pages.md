@@ -2,14 +2,14 @@
 layout: docs
 title: 创建页面
 permalink: /docs/pages/
-translators: [sdpfoue, LeuisKen]
+translators: [sdpfoue, LeuisKen, archersmind]
 ---
 
 作为[写文章](../posts/)的补充，Jekyll 还可以创建静态页面。利用 Jekyll 带来的便利，你只需要复制文件或文件夹，就是这么简单。
 
 ## 主页
 
-像任何网站的配置一样，需要按约定在站点的要目录下找到 `index.html` 文件，这个文件将被做为主页显示出来。除非你的站点设置了其它的文件作为默认文件，这个文件就将是你的 Jekyll 生成站点的主页。
+像任何网站的配置一样，需要按约定在站点的根目录下找到 `index.html` 文件，这个文件将被做为主页显示出来。除非你的站点设置了其它的文件作为默认文件，这个文件就将是你的 Jekyll 生成站点的主页。
 
 <div class="note">
   <h5>提示™: 在主页上使用布局</h5>
