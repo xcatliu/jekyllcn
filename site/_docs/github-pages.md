@@ -19,7 +19,7 @@ translators: [brickgao, archersmind,ydcool]
 你最好在将 Jekyll 站点提交到 `gh-pages` 之前先预览一下。因为 Github
 上项目站点的子目录结构会使站点的网址结构变得复杂。为了正确构建站点，你的链接应该是这样的形式：`site.github.url`。
 
-
+```xml
  {% highlight html %}
  {% raw %}
  <!-- 用于静态名称的样式表... -->
@@ -28,6 +28,7 @@ translators: [brickgao, archersmind,ydcool]
  <a href="{{ page.url | prepend: site.github.url }}">{{ page.title }}</a>
  {% endraw %}
  {% endhighlight %}
+ ```
 
 
 用这种方法你就可以在本地从根地址预览站点，而在 Github 上以 
