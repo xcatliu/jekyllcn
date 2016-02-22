@@ -12,7 +12,7 @@ translators: [brickgao, archersmind, ydcool]
 点托管在 Github Pages 上是一个不错的选择。
 
 还没用过 Github Pages 制作网站?[通过 Jonathan McGlone 写的这篇奇妙的指南来创建和运行 Github Pages](http://jmcglone.com/guides/github-pages/)
-这篇指南将告诉你关于 Git,GitHub 和 Jekyll 的相关知识，来建立一个属于你自己的站点。
+这篇指南将告诉你关于 Git, GitHub 和 Jekyll 的相关知识，来建立一个属于你自己的站点。
 
 ### 项目站点的网址结构
 
