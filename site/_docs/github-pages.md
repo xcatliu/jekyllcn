@@ -2,7 +2,7 @@
 layout: docs
 title: GitHub Pages
 permalink: /docs/github-pages/
-translators: [brickgao, archersmind,ydcool]
+translators: [brickgao, archersmind, ydcool]
 ---
 
 [Github Pages](http://pages.github.com) 是面向用户、组织和项目开放的公共静态页面搭建托管服
@@ -11,8 +11,8 @@ translators: [brickgao, archersmind,ydcool]
 自动利用 Jekyll 生成站点，也同样支持纯 HTML 文档，将你的 Jekyll 站
 点托管在 Github Pages 上是一个不错的选择。
 
-还没用过Github Pages 制作网站?[通过Jonathan McGlone 写的这篇奇妙的指南来创建和运行Github Pages](http://jmcglone.com/guides/github-pages/)
-这篇指南将告诉你关于Git,GitHub和Jekyll的相关知识，来建立一个属于你自己的站点。
+还没用过 Github Pages 制作网站?[通过 Jonathan McGlone 写的这篇奇妙的指南来创建和运行 Github Pages](http://jmcglone.com/guides/github-pages/)
+这篇指南将告诉你关于 Git,GitHub 和 Jekyll 的相关知识，来建立一个属于你自己的站点。
 
 ### 项目站点的网址结构
 
