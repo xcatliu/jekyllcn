@@ -2,7 +2,7 @@
 layout: docs
 title: GitHub Pages
 permalink: /docs/github-pages/
-translators: [brickgao, archersmind]
+translators: [brickgao, archersmind, ydcool]
 ---
 
 [Github Pages](http://pages.github.com) 是面向用户、组织和项目开放的公共静态页面搭建托管服
@@ -10,6 +10,40 @@ translators: [brickgao, archersmind]
 认提供的域名 [github.io]() 或者自定义域名来发布站点。Github Pages 支持
 自动利用 Jekyll 生成站点，也同样支持纯 HTML 文档，将你的 Jekyll 站
 点托管在 Github Pages 上是一个不错的选择。
+
+还没用过 Github Pages 制作网站?[通过 Jonathan McGlone 写的这篇奇妙的指南来创建和运行 Github Pages](http://jmcglone.com/guides/github-pages/)
+这篇指南将告诉你关于 Git, GitHub 和 Jekyll 的相关知识，来建立一个属于你自己的站点。
+
+### 项目站点的网址结构
+
+你最好在将 Jekyll 站点提交到 `gh-pages` 之前先预览一下。因为 Github
+上项目站点的子目录结构会使站点的网址结构变得复杂。为了正确构建站点，你的链接应该是这样的形式：`site.github.url`。
+
+```xml
+ {% highlight html %}
+ {% raw %}
+ <!-- 用于静态名称的样式表... -->
+ <link href="{{ site.github.url }}/path/to/css.css" rel="stylesheet">
+ <!-- 用于动态URL的文档、页面... -->
+ <a href="{{ page.url | prepend: site.github.url }}">{{ page.title }}</a>
+ {% endraw %}
+ {% endhighlight %}
+ ```
+
+
+用这种方法你就可以在本地从根地址预览站点，而在 Github 上以 
+`gh-pages` 分支生成站点的时候能以 `/project-name` 为根地址并且正确地
+显示。
+
+<div class="note">
+  <h5>GitHub Pages 的文档，帮助和支持</h5>
+  <p>
+    想获得关于 Github Pages 的更多信息和解决方案，你应该访问
+    <a href="https://help.github.com/categories/github-pages-basics/">GitHub’s Pages 帮助部分</a>。
+    如果无法找到解决方案，你可以联系 <a
+    href="https://github.com/contact">GitHub 支持</a>。
+  </p>
+</div>
 
 ## 将 Jekyll 部署到 Github Pages 上
 
@@ -45,33 +79,6 @@ Github Pages 的相关文件。这个仓库应该根据用户/组织的名称来
 Jekyll 项目本身就是一个很好的例子，Jekyll 项目的代码存放在
 [master 分支]({{ site.repository }}) ， 而 Jekyll 的项目站点（就是你现在看见的网页）包含在同一仓库的 
 [gh-pages 分支]({{ site.repository }}/tree/gh-pages) 中。
-
-### 项目站点的网址结构
-
-你最好在将 Jekyll 站点提交到 `gh-pages` 之前先预览一下。因为 Github
-上项目站点的子目录结构会使站点的网址结构变得复杂。这里有一些处
-理 Github Pages 子目录结构（`username.github.io/project-name/`）的方法
-使你本地浏览的站点和部署在 Github Pages 上的站点一致，方便你的维
-护。
-
-1.  在 `_config.yml` 中，设置 `baseurl` 选项为 `/project-name` -- 注意必须存在头部的斜杠以及**不能**有尾部的斜杠。
-2.  JS 或者 CSS 文件的引用格式应该如下：`{% raw %}{{ site.baseurl}}/path/to/css.css{% endraw %}` -- 注意斜杠之后必须紧随变量（在 "Path" 之后）。
-3.  创建固定链接和内部链接的格式应该如下： `{% raw %}{{ site.baseurl }}{{ post.url }}{% endraw %}` -- 注意两个变量之间不存在斜杠。
-4.  最后，如果你想在提交/部署之前浏览的话，请使用 `jekyll serve --baseurl ''`命令，请确定在 `--baseurl` 的选项之后存在**空串**，这样的话你就可以在 `localhost:4000` 看到你的站点（站点根地址不存在 `/project-name`）。
-
-用这种方法你就可以在本地从根地址预览站点，而在 Github 上以 
-`gh-pages` 分支生成站点的时候能以 `/project-name` 为根地址并且正确地
-显示。
-
-<div class="note">
-  <h5>GitHub Pages 的文档，帮助和支持</h5>
-  <p>
-    想获得关于 Github Pages 的更多信息和解决方案，你应该访问
-    <a href="https://help.github.com/categories/20/articles">GitHub’s Pages 帮助部分</a>。
-    如果无法找到解决方案，你可以联系 <a
-    href="https://github.com/contact">GitHub 支持</a>。
-  </p>
-</div>
 
 ### 模仿 Github 风格 Markdown
 Github 风格 Markdown 与常规 Markdown 有
