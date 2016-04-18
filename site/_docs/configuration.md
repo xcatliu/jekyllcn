@@ -2,7 +2,7 @@
 layout: docs
 title: 配置
 permalink: /docs/configuration/
-translators: [debbbbie, chaucerling, archersmind]
+translators: [debbbbie, chaucerling, archersmind, TimoTokki]
 hash: 5647b91
 ---
 
@@ -105,7 +105,7 @@ Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵�
       <td>
         <p class='name'><strong>Encoding</strong></p>
         <p class="description">
-            设置文件的编码，仅 Ruby 1.9 以上可用。默认值为 nil ，使用 Ruby 默认的
+            设置文件的编码，仅 Ruby 1.9 以上可用。2.0.0版本以后默认值为 utf-8 ，之前版本默认值为 nil ,使用 Ruby 默认的
              <code>ASCII-8BIT</code>。可以用命令
              <code>ruby -e 'puts Encoding::list.join("\n")'</code> 查看 Ruby 可用的编码。
         </p>
@@ -178,6 +178,15 @@ Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵�
         <p><code class="flag">--drafts</code></p>
       </td>
     </tr>
+    <tr class="setting">
+      <td>
+        <p class="name"><strong>Environment</strong></p>
+        <p class="description">build时使用特定的环境变量。</p>
+      </td>
+      <td class="align-center">
+        <p><code class="flag">JEKYLL_ENV=production</code></p>
+      </td>
+    </tr>
     <tr class='setting'>
       <td>
         <p class='name'><strong>Future</strong></p>
@@ -233,6 +242,18 @@ Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵�
       </td>
       <td class="align-center">
         <p><code class="flag">-q, --quiet</code></p>
+      </td>
+    </tr>
+    <tr class="setting">
+      <td>
+        <p class="name"><strong>Incremental build</strong></p>
+        <p class="description">
+            启用实验特性incremental build。incremental build只重建修改过的posts和pages，对大型网站有显著的性能提升，但在特定情况下也会影响网站生成。
+        </p>
+      </td>
+      <td class="align-center">
+        <p><code class="option">incremental: BOOL</code></p>
+        <p><code class="flag">-I, --incremental</code></p>
       </td>
     </tr>
   </tbody>
@@ -301,6 +322,24 @@ Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵�
         <p><code class="flag">--skip-initial-build</code></p>
       </td>
     </tr>
+    <tr class="setting">
+      <td>
+        <p class="name"><strong>X.509 (SSL) Private Key</strong></p>
+        <p class="description">SSL私钥</p>
+      </td>
+      <td class="align-center">
+        <p><code class="flag">--ssl-key</code></p>
+      </td>
+    </tr>
+    <tr class="setting">
+      <td>
+        <p class="name"><strong>X.509 (SSL) Certificate</strong></p>
+        <p class="description">SSL公证</p>
+      </td>
+      <td class="align-center">
+        <p><code class="flag">--ssl-cert</code></p>
+      </td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -311,6 +350,50 @@ Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵�
     这将造成解析错误，或倒回到默认设置。请使用空格替代。
   </p>
 </div>
+
+## 自定义WEBRick标题
+<!-- WEBRick应该怎么翻译　-->
+你可以在`_config.yml`中为你的站点提供自定义标题
+
+{% highlight yaml %}
+# 文件: _config.yml
+webrick:
+  headers:
+    My-Header: My-Value
+    My-Other-Header: My-Other-Value
+{% endhighlight %}
+
+### 默认
+
+我们只提供一个默认，而且这是一个不能在开发模式里缓存的content-type 头，所以当你处于开发模式时，不用理会chrome的aggressive　caching
+
+## 指定Jekyll　build时的环境
+
+在build（或者serve）参数中，你能指定Jekyll的环境和参数。然后build会将参数应用在你内容中任意的条件语言。
+
+例如，在你代码中的条件语句中应用你的设置：
+
+{% highlight liquid %}
+{% raw %}
+{% if jekyll.environment == "production" %}
+   {% include disqus.html %}
+{% endif %}
+{% endraw %}
+{% endhighlight %}
+
+当你build你的Jekyll网站时，if语句块中的内容不会被执行除非你在build命令中还指定了一个`production`环境，像这样：
+
+{% highlight sh %}
+JEKYLL_ENV=production jekyll build
+{% endhighlight %}
+
+设置环境变量允许你只在特定环境下执行指定内容。
+
+`JEKYLL_ENV`的默认值是`development`。因此，如果你在build参数中省略`JEKYLL_ENV`，那么默认为`JEKYLL_ENV=development`。任何`{% raw %}{% if jekyll.environment == "development" %}{% endraw %}`中的内容在build时都会自动显现。
+
+你的环境参数可以任意设置（不光是`development`或者`production`）。你可能想在开发环境下一些隐藏的元素，比如评论功能、谷歌分析。你可能想在development environment开发环境扩展一个“在GitHub中编辑”的按钮，而不包括在production environments中。
+
+在build命令中指定参数，当你迁移环境时，可以避免更改你配置文件中的值。
 
 ## 头信息默认值
 
@@ -464,12 +547,13 @@ markdown:    kramdown
 highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
+incremental: false
 
 # 服务器选项
 detach:  false
 port:    4000
 host:    127.0.0.1
-baseurl: "" # does not include hostname
+baseurl: "" # 不包括宿主名hostname
 
 # 输出
 permalink:     date
@@ -521,17 +605,17 @@ Jekyll 处理两个特别的 Redcarpet 扩展：
         # ...ruby code
         ```
     
-有了 fenced code blocks 和 pygments ，就会直接高亮代码了；如果没有 pygments，将增加一个 `class="LANGUAGE"` 属性到 `<code>` 元素，用于给不同的 JavaScript 代码高亮库做后续处理。
+有了 fenced code blocks 和 highlighter enabled ，就会静态地高亮代码了；如果没有任何高亮语法syntax hightlighter，将增加一个 `class="LANGUAGE"` 属性到 `<code>` 元素，用于给不同的 JavaScript 代码高亮库做为提示。
 
-- `smart` --- 打开 SmartyPants ，将引号转为 &quot; 、连字符转为 em (`---`) 和 en (`--`) 破折号。
+- `smart` --- 这个伪扩展pseudo-extension会打开 SmartyPants ，将引号转为 &quot; 、连字符转为 em (`---`) 和 en (`--`) 破折号。
 
-Redcarpet 所有其他扩展保持他们本来的名字，并且在 Jekyll 中不能给 `smart` 加渲染选项。 [Redcarpet 的 README 中有可用扩展的列表。][redcarpet_extensions] 确保你看的 README 是正确的版本：Jekyll 当前用的是 v2.2.x ，其中 `footnotes` 和 `highlight` 在 3.0.0 以后才会支持。最常用的扩展是如下：
+Redcarpet 所有其他扩展保持他们本来的名字，并且在 Jekyll 中不能给 `smart` 加渲染选项。 [Redcarpet 的 README 中有可用扩展的列表。][redcarpet_extensions] 确保你看的 README 是正确的版本：Jekyll 当前用的是 v3.2.x。最常用的扩展是如下：
 
 - `tables`
 - `no_intra_emphasis`
 - `autolink`
 
-[redcarpet_extensions]: https://github.com/vmg/redcarpet/blob/v2.2.2/README.markdown#and-its-like-really-simple-to-use
+[redcarpet_extensions]: https://github.com/vmg/redcarpet/blob/v3.2.2/README.markdown#and-its-like-really-simple-to-use
 
 ### Kramdown
 
@@ -568,3 +652,19 @@ end
 {% highlight yaml %}
 markdown: MyCustomProcessor
 {% endhighlight %}
+
+## Incremental Regeneration
+<div class="note warning">
+  <h5>Incremental regeneration依旧是一个实验特性</h5>
+  <p>
+    incremental regeneration在大多数情况下可以工作，但不可能在所有情况下都能够正常工作。请一定小心使用该特性，报告任何未列出在下边的问题。<a href="https://github.com/jekyll/jekyll/issues/new">opening an issue on GitHub</a>.
+  </p>
+</div>
+
+Incremental regeneration只加载更新过的文件和页面来帮助缩短build时间。这是通过对文件修改次数和`.jekyll-metadata`文件中的依赖关系的追踪实现的。
+
+在目前的实现中，incremental regeneration会更新一个文件或者页面，仅当它或它其中之一的依赖被修改时。现今，被追踪的依赖类型仅有includes（{% raw %}`{% include %}`{% endraw %}标签）和layouts。这意味着对其它文件的plain　references（例如，在博客列表页面中常见的`site.posts`递归）不会被检测为依赖。
+
+为了补救其中一些缺陷，在文件的头信息中添加`regenerate: true`会强迫Jekyll重建文件，不管文件是否被修改。注意这样做仅重建指定文件；指向其它文件内容的references不会起作用，因为它们不会被再次执行。
+
+Incremental regeneration可以在命令行中经由`--incremental`flag（简写为`-I`）启用，或者在配置文件中写入`incremental: true` 启用。
