@@ -2,7 +2,7 @@
 layout: docs
 title: 快速指南
 permalink: /docs/quickstart/
-translators: [brickgao, chaucerling]
+translators: [brickgao, chaucerling, TimoTokki]
 hash: 5647b91
 ---
 
@@ -16,7 +16,7 @@ hash: 5647b91
 # => Now browse to http://localhost:4000
 {% endhighlight %}
 
-如果你希望把 jekyll 安装到当前目录，你可以运行 `jekyll new .` 来代替。
+如果你希望把 jekyll 安装到当前目录，你可以运行 `jekyll new .` 来代替。如果当前目录非空，你还需要增添`--force`参数，所以命令应为`jekyll new . --force`。
 
 就是这么简单。从现在开始，你可以通过创建文章、改变头信息来控制模板和输出、修改 Jekyll 设置来使你的站点变得更有趣～
 
