@@ -2,7 +2,7 @@
 layout: docs
 title: 安装
 permalink: /docs/installation/
-translators: [ Neo-J, xcatliu ]
+translators: [ Neo-J, xcatliu, TimoTokki ]
 hash: 5647b91
 ---
 
@@ -14,10 +14,11 @@ issue]({{ site.repository }}/issues/new) (或者提交一个 pull request)
 
 安装 Jekyll 相当简单，但是你得先做好一些准备工作。开始前你需要确保你在系统里已经有如下配置。
 
-- [Ruby](http://www.ruby-lang.org/en/downloads/)
+- [Ruby](http://www.ruby-lang.org/en/downloads/)（including development headers，Jekyll 2需要v1.9.3及以上版本，Jekyll 3需要v2及以上版本）
 - [RubyGems](http://rubygems.org/pages/download)
 - Linux, Unix, or Mac OS X
-- [NodeJS](http://nodejs.org), 或其他 JavaScript 运行环境
+- [NodeJS](http://nodejs.org), 或其他 JavaScript 运行环境（Jekyll 2或更早版本需要CoffeeScript支持）。
+- [Python 2.7](https://www.python.org/downloads/)　（Jekyll 2或更早版本）
 
 <div class="note info">
   <h5>在 Windows 下使用 Jekyll</h5>
