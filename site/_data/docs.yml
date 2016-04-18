@@ -1,0 +1,47 @@
+- title: 开始
+  docs:
+  - home
+  - quickstart
+  - installation
+  - usage
+  - structure
+  - configuration
+
+- title: 博客内容
+  docs:
+  - frontmatter
+  - posts
+  - drafts
+  - pages
+  - static-files
+  - variables
+  - collections
+  - datafiles
+  - assets
+  - migrations
+
+- title: 个性化
+  docs:
+  - templates
+  - permalinks
+  - pagination
+  - plugins
+  - extras
+
+- title: 发布
+  docs:
+  - github-pages
+  - deployment-methods
+  - continuous-integration
+
+- title: 杂项
+  docs:
+  - troubleshooting
+  - sites
+  - resources
+  - upgrading
+
+- title: 元信息
+  docs:
+  - contributing
+  - history

@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+  <section class="docs">
+    <div class="grid">
+
+      {% include docs_contents_mobile.html %}
+
+      <div class="unit four-fifths">
+        <article>
+          <div class="improve right hide-on-mobiles">
+            <a href="https://github.com/xcatliu/jekyllcn/edit/master/site/{{ page.path }}"><i class="fa fa-pencil"></i> &nbsp;发现错误或贡献翻译</a>
+          </div>
+          <h1>{{ page.title }}</h1>
+          {{ content }}
+
+          <div class="jekyllcn-doc-footer">
+            <p class="left"><a href="http://jekyllrb.com{{ page.url }}">原文链接</a></p>
+            <p class="right">
+              翻译贡献者：
+              {% for translator in page.translators %}
+              <a href="https://github.com/{{ translator }}" title="{{ translator }}">
+                <img src="https://github.com/{{ translator }}.png" class="avatar" alt="{{ translator }} avatar" width="24" height="24">
+              </a>
+              {% endfor %}
+            </p>
+            <div class="clear"></div>
+          </div>
+
+          {% include section_nav.html %}
+        </article>
+      </div>
+
+      {% include docs_contents.html %}
+
+      <div class="clear"></div>
+
+    </div>
+  </section>

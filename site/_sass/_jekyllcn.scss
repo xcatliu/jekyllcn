@@ -1,0 +1,46 @@
+.main-nav li a {
+  font-size: 18px;
+  text-transform: none;
+}
+
+aside h4 {
+  font-size: 18px;
+}
+
+em {
+  font-style: normal;
+  font-weight: bold;
+}
+
+.jekyllcn-header {
+  color: #222;
+  background-color: #fc0;
+  margin-top: -5px;
+  background-image: linear-gradient(
+    to right,
+    #fc0 0%,
+    #fc0 79%,
+    #fff0b3 79%,
+    #fff0b3 100%
+  );
+}
+
+.jekyllcn-header a {
+  color: #0389aa;
+}
+
+.jekyllcn-header a:hover {
+  text-decoration: underline;
+}
+
+.jekyllcn-header p {
+  margin: 0;
+}
+
+.jekyllcn-doc-footer {
+  font-size: 16px;
+}
+
+.section-nav {
+  margin-top: 0;
+}
