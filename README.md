@@ -9,6 +9,8 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 
 现已更新到 3.0，然而中文文档落后于官方文档，欢迎参与[贡献翻译](https://github.com/xcatliu/jekyllcn#如何贡献翻译)。
 
+注意，中文排版遵循这个规范：http://zhuanlan.zhihu.com/p/20506092
+
 ## 如何贡献翻译
 
 1. [新建一个 issue](https://github.com/xcatliu/jekyllcn/issues/new)，说明要贡献哪篇文档（可以是落后于官方版本的中文文档，也可以是还没有翻译的文档）
