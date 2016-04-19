@@ -105,9 +105,7 @@ Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵�
       <td>
         <p class='name'><strong>Encoding</strong></p>
         <p class="description">
-            设置文件的编码，仅 Ruby 1.9 以上可用。2.0.0版本以后默认值为 utf-8 ，之前版本默认值为 nil ,使用 Ruby 默认的
-             <code>ASCII-8BIT</code>。可以用命令
-             <code>ruby -e 'puts Encoding::list.join("\n")'</code> 查看 Ruby 可用的编码。
+            设置文件的编码，仅 Ruby 1.9 以上可用。2.0.0　版本以后默认值为 utf-8 ，之前版本默认值为 nil, 使用 Ruby 默认的 <code>ASCII-8BIT</code>。可以用命令 <code>ruby -e 'puts Encoding::list.join("\n")'</code> 查看 Ruby 可用的编码。
         </p>
       </td>
       <td class='align-center'>
@@ -118,8 +116,7 @@ Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵�
       <td>
         <p class='name'><strong>Defaults</strong></p>
         <p class='description'>
-            设置 <a href="../frontmatter/" title="YAML Front Matter">YAML 头信息</a>
-            的默认值。
+            设置 <a href="../frontmatter/" title="YAML Front Matter">YAML 头信息</a> 的默认值。
         </p>
       </td>
       <td class='align-center'>
@@ -248,7 +245,7 @@ Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵�
       <td>
         <p class="name"><strong>Incremental build</strong></p>
         <p class="description">
-            启用实验特性incremental build。incremental build只重建修改过的posts和pages，对大型网站有显著的性能提升，但在特定情况下也会影响网站生成。
+            启用实验特性 incremental build。Incremental build 只重建修改过的 posts 和 pages, 对大型网站有显著的性能提升，但在特定情况下也会影响网站生成。
         </p>
       </td>
       <td class="align-center">
@@ -353,7 +350,7 @@ Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵�
 
 ## 自定义WEBRick标题
 <!-- WEBRick应该怎么翻译　-->
-你可以在`_config.yml`中为你的站点提供自定义标题
+你可以在 `_config.yml` 中为你的站点提供自定义标题
 
 {% highlight yaml %}
 # 文件: _config.yml
@@ -365,11 +362,11 @@ webrick:
 
 ### 默认
 
-我们只提供一个默认，而且这是一个不能在开发模式里缓存的content-type 头，所以当你处于开发模式时，不用理会chrome的aggressive　caching
+我们只提供一个默认，而且这是一个不能在开发模式里缓存的 content-type 头，所以当你处于开发模式时，不用理会 chrome 的 aggressive　caching
 
-## 指定Jekyll　build时的环境
+## 指定 Jekyll　build 时的环境
 
-在build（或者serve）参数中，你能指定Jekyll的环境和参数。然后build会将参数应用在你内容中任意的条件语言。
+在 build（或者 serve）参数中，你能指定 Jekyll 的环境和参数。然后 build 会将参数应用在你内容中任意的条件语言。
 
 例如，在你代码中的条件语句中应用你的设置：
 
@@ -381,7 +378,7 @@ webrick:
 {% endraw %}
 {% endhighlight %}
 
-当你build你的Jekyll网站时，if语句块中的内容不会被执行除非你在build命令中还指定了一个`production`环境，像这样：
+当你 build 你的 Jekyll 网站时，if 语句块中的内容不会被执行除非你在 build 命令中还指定了一个 `production` 环境，像这样：
 
 {% highlight sh %}
 JEKYLL_ENV=production jekyll build
@@ -389,11 +386,11 @@ JEKYLL_ENV=production jekyll build
 
 设置环境变量允许你只在特定环境下执行指定内容。
 
-`JEKYLL_ENV`的默认值是`development`。因此，如果你在build参数中省略`JEKYLL_ENV`，那么默认为`JEKYLL_ENV=development`。任何`{% raw %}{% if jekyll.environment == "development" %}{% endraw %}`中的内容在build时都会自动显现。
+`JEKYLL_ENV` 的默认值是 `development`。因此，如果你在 build 参数中省略 `JEKYLL_ENV`, 那么默认为 `JEKYLL_ENV=development`。任何 `{% raw %}{% if jekyll.environment == "development" %}{% endraw %}` 中的内容在 build 时都会自动显现。
 
-你的环境参数可以任意设置（不光是`development`或者`production`）。你可能想在开发环境下一些隐藏的元素，比如评论功能、谷歌分析。你可能想在development environment开发环境扩展一个“在GitHub中编辑”的按钮，而不包括在production environments中。
+你的环境参数可以任意设置（不止是 `development` 或者 `production` ）。你可能想在开发环境下一些隐藏的元素，比如评论功能、谷歌分析。你可能想在 development environment 开发环境扩展一个“在 GitHub 中编辑”的按钮，而不包括在 production environments 中。
 
-在build命令中指定参数，当你迁移环境时，可以避免更改你配置文件中的值。
+在 build 命令中指定参数，当你迁移环境时，可以避免更改你配置文件中的值。
 
 ## 头信息默认值
 
@@ -469,7 +466,7 @@ defaults:
 
 ### 优先权
 
-Jekyll会应用你在 `_config.yml` 文件里 `defaults` 部分的所有配置设定。然而，你可以选择
+Jekyll 会应用你在 `_config.yml` 文件里 `defaults` 部分的所有配置设定。然而，你可以选择
 覆盖这些设定，通过在范围/值的对里指定一个更具体的路径。
 
 你可以观察上一个例子。一开始我们设置了 `my-site` 这一默认的布局。然后，使用一个更具体的路径，
@@ -553,7 +550,7 @@ incremental: false
 detach:  false
 port:    4000
 host:    127.0.0.1
-baseurl: "" # 不包括宿主名hostname
+baseurl: "" # 不包括宿主名 hostname
 
 # 输出
 permalink:     date
@@ -605,7 +602,7 @@ Jekyll 处理两个特别的 Redcarpet 扩展：
         # ...ruby code
         ```
     
-有了 fenced code blocks 和 highlighter enabled ，就会静态地高亮代码了；如果没有任何高亮语法syntax hightlighter，将增加一个 `class="LANGUAGE"` 属性到 `<code>` 元素，用于给不同的 JavaScript 代码高亮库做为提示。
+有了 fenced code blocks 和 highlighter enabled, 就会静态地高亮代码了；如果没有任何高亮语法 syntax hightlighter, 将增加一个 `class="LANGUAGE"` 属性到 `<code>` 元素，用于给不同的 JavaScript 代码高亮库做为提示。
 
 - `smart` --- 这个伪扩展pseudo-extension会打开 SmartyPants ，将引号转为 &quot; 、连字符转为 em (`---`) 和 en (`--`) 破折号。
 
@@ -654,17 +651,18 @@ markdown: MyCustomProcessor
 {% endhighlight %}
 
 ## Incremental Regeneration
+
 <div class="note warning">
-  <h5>Incremental regeneration依旧是一个实验特性</h5>
+  <h5>Incremental regeneration 依旧是一个实验特性</h5>
   <p>
-    incremental regeneration在大多数情况下可以工作，但不可能在所有情况下都能够正常工作。请一定小心使用该特性，报告任何未列出在下边的问题。<a href="https://github.com/jekyll/jekyll/issues/new">opening an issue on GitHub</a>.
+    incremental regeneration 在大多数情况下可以工作，但不可能在所有情况下都能够正常工作。请一定小心使用该特性，报告任何未列出在下边的问题。<a href="https://github.com/jekyll/jekyll/issues/new">opening an issue on GitHub</a>. 
   </p>
 </div>
 
-Incremental regeneration只加载更新过的文件和页面来帮助缩短build时间。这是通过对文件修改次数和`.jekyll-metadata`文件中的依赖关系的追踪实现的。
+Incremental regeneration 只加载更新过的文件和页面来帮助缩短 build 时间。这是通过对文件修改次数和 `.jekyll-metadata` 文件中的依赖关系的追踪实现的。
 
-在目前的实现中，incremental regeneration会更新一个文件或者页面，仅当它或它其中之一的依赖被修改时。现今，被追踪的依赖类型仅有includes（{% raw %}`{% include %}`{% endraw %}标签）和layouts。这意味着对其它文件的plain　references（例如，在博客列表页面中常见的`site.posts`递归）不会被检测为依赖。
+在目前的实现中，incremental regeneration 会更新一个文件或者页面，仅当它或它其中之一的依赖被修改时。现今，被追踪的依赖类型仅有 includes（{% raw %}`{% include %}`{% endraw %} 标签）和 layouts。这意味着对其它文件的 plain　references（例如，在博客列表页面中常见的 `site.posts` 递归）不会被检测为依赖。
 
-为了补救其中一些缺陷，在文件的头信息中添加`regenerate: true`会强迫Jekyll重建文件，不管文件是否被修改。注意这样做仅重建指定文件；指向其它文件内容的references不会起作用，因为它们不会被再次执行。
+为了补救其中一些缺陷，在文件的头信息中添加 `regenerate: true` 会强迫 Jekyll 重建文件，不管文件是否被修改。注意这样做仅重建指定文件；指向其它文件内容的 references 不会起作用，因为它们不会被再次执行。
 
-Incremental regeneration可以在命令行中经由`--incremental`flag（简写为`-I`）启用，或者在配置文件中写入`incremental: true` 启用。
+Incremental regeneration 可以在命令行中经由 `--incremental` flag（简写为 `-I`）启用，或者在配置文件中写入 `incremental: true` 启用。
