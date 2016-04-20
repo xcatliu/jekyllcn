@@ -7,7 +7,7 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 
 > [JekyllCN](http://jekyllcn.com/) 是 [Jekyll](http://jekyllrb.com/) 的中文翻译网站。
 
-现已更新到 3.0，然而中文文档落后于官方文档，欢迎参与[贡献翻译](https://github.com/xcatliu/jekyllcn#如何贡献翻译)。
+由于官方文档更新，现在中文文档落后于官方文档，欢迎参与[贡献翻译](https://github.com/xcatliu/jekyllcn#如何贡献翻译)。
 
 注意，中文排版遵循这个规范：http://zhuanlan.zhihu.com/p/20506092
 
