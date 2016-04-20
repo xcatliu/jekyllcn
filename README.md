@@ -1,11 +1,11 @@
-jekyllcn
+JekyllCN
 ========
 
-Forked from [jekyll](https://github.com/jekyll/jekyll).
+Forked from [Jekyll](https://github.com/jekyll/jekyll).
 
 网址：[http://jekyllcn.com/](http://jekyllcn.com/)
 
-[jekyllcn](http://jekyllcn.com/) 是 [jekyllrb](http://jekyllrb.com/) 的中文翻译网站。
+> [JekyllCN](http://jekyllcn.com/) 是 [Jekyll](http://jekyllrb.com/) 的中文翻译网站。
 
 现已更新到 3.0，然而中文文档落后于官方文档，欢迎参与[贡献翻译](https://github.com/xcatliu/jekyllcn#如何贡献翻译)。
 
@@ -33,9 +33,12 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 
 ## 项目进度
 
-总体进度：62 / 78 = 79%
+总体进度：49 / 76 = 64%
 
 ### 翻译进度
+
+- [ ] 翻译 upgrading/0-to-2
+- [ ] 翻译 upgrading/2-to-3
 
 - [x] 翻译 home
 - [x] 翻译 quickstart
@@ -49,7 +52,7 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 - [x] 翻译 pages
 - [x] 翻译 static-files
 - [x] 翻译 variables
-- [ ] 翻译 collections
+- [x] 翻译 collections
 - [x] 翻译 datafiles
 - [x] 翻译 assets
 - [x] 翻译 migrations
@@ -64,47 +67,44 @@ Forked from [jekyll](https://github.com/jekyll/jekyll).
 - [x] 翻译 troubleshooting
 - [x] 翻译 sites
 - [x] 翻译 resources
-- [x] 翻译 upgrading
-- [x] 翻译 contributing
-- [x] 翻译 history
 
 ### 更新进度
 
-- [x] 更新 home
-- [x] 更新 quickstart
-- [x] 更新 installation
-- [x] 更新 usage
-- [ ] 更新 structure
-- [ ] 更新 configuration
+- [ ] 更新 home
+- [ ] 更新 usage
 - [ ] 更新 frontmatter
-- [x] 更新 posts
-- [x] 更新 drafts
-- [x] 更新 pages
-- [x] 更新 static-files
+- [ ] 更新 posts
+- [ ] 更新 drafts
+- [ ] 更新 pages
+- [ ] 更新 static-files
 - [ ] 更新 variables
-- [x] 更新 collections
-- [x] 更新 datafiles
-- [x] 更新 assets
-- [x] 更新 migrations
-- [x] 更新 templates
+- [ ] 更新 collections
+- [ ] 更新 datafiles
+- [ ] 更新 assets
+- [ ] 更新 migrations
+- [ ] 更新 templates
 - [ ] 更新 permalinks
 - [ ] 更新 pagination
 - [ ] 更新 plugins
-- [x] 更新 extras
+- [ ] 更新 extras
 - [ ] 更新 github-pages
 - [ ] 更新 deployment-methods
 - [ ] 更新 continuous-integration
 - [ ] 更新 troubleshooting
 - [ ] 更新 sites
 - [ ] 更新 resources
-- [ ] 更新 upgrading
-- [ ] 更新 contributing
-- [x] 更新 history
+- [ ] 更新 upgrading/0-to-2
+- [ ] 更新 upgrading/2-to-3
+
+- [x] 更新 quickstart (2016-04-19)
+- [x] 更新 installation (2016-04-19)
+- [x] 更新 structure (2016-04-20)
+- [x] 更新 configuration (2016-04-20)
 
 ### 基础建设
 
-- [x] 跟进官方网站版本（2015-06-22）
-- [x] 首页中文适配（2015-06-22）
+- [x] 跟进官方网站版本（2016-04-20）
+- [x] 首页中文适配（2016-04-20）
 - [x] 页脚加上贡献翻译链接
 - [x] 导航加上贡献翻译链接
 - [x] 每篇文档加上贡献翻译链接
