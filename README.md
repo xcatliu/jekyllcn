@@ -37,9 +37,12 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 
 ### 翻译进度
 
+#### 未翻译
+
 - [ ] 翻译 upgrading/0-to-2
 - [ ] 翻译 upgrading/2-to-3
 
+#### 已翻译
 
 - [x] 翻译 home
 - [x] 翻译 quickstart
@@ -71,6 +74,8 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 
 ### 更新进度
 
+#### 未更新
+
 - [ ] 更新 home
 - [ ] 更新 usage
 - [ ] 更新 frontmatter
@@ -97,6 +102,7 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 - [ ] 更新 upgrading/0-to-2
 - [ ] 更新 upgrading/2-to-3
 
+#### 已更新
 
 - [x] 更新 quickstart (2016-04-19)
 - [x] 更新 installation (2016-04-19)
