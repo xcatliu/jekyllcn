@@ -245,7 +245,7 @@ Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵�
       <td>
         <p class="name"><strong>Incremental build</strong></p>
         <p class="description">
-            启用实验特性 incremental build。Incremental build 只重建修改过的 posts 和 pages, 对大型网站有显著的性能提升，但在特定情况下也会影响网站生成。
+            启用实验特性 incremental build。Incremental build 只重建修改过的 posts 和 pages，对大型网站有显著的性能提升，但在特定情况下也会影响网站生成。
         </p>
       </td>
       <td class="align-center">
@@ -348,7 +348,7 @@ Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵�
   </p>
 </div>
 
-## 自定义WEBRick标题
+## 自定义 WEBRick 标题
 <!-- WEBRick应该怎么翻译　-->
 你可以在 `_config.yml` 中为你的站点提供自定义标题
 
@@ -362,9 +362,9 @@ webrick:
 
 ### 默认
 
-我们只提供一个默认，而且这是一个不能在开发模式里缓存的 content-type 头，所以当你处于开发模式时，不用理会 chrome 的 aggressive　caching
+我们只提供一个默认，而且这是一个不能在开发模式里缓存的 content-type 头，所以当你处于开发模式时，不用理会 chrome 的 aggressive　caching。
 
-## 指定 Jekyll　build 时的环境
+## 指定 Jekyll build 时的环境
 
 在 build（或者 serve）参数中，你能指定 Jekyll 的环境和参数。然后 build 会将参数应用在你内容中任意的条件语言。
 
@@ -386,7 +386,7 @@ JEKYLL_ENV=production jekyll build
 
 设置环境变量允许你只在特定环境下执行指定内容。
 
-`JEKYLL_ENV` 的默认值是 `development`。因此，如果你在 build 参数中省略 `JEKYLL_ENV`, 那么默认为 `JEKYLL_ENV=development`。任何 `{% raw %}{% if jekyll.environment == "development" %}{% endraw %}` 中的内容在 build 时都会自动显现。
+`JEKYLL_ENV` 的默认值是 `development`。因此，如果你在 build 参数中省略 `JEKYLL_ENV`，那么默认为 `JEKYLL_ENV=development`。任何 `{% raw %}{% if jekyll.environment == "development" %}{% endraw %}` 中的内容在 build 时都会自动显现。
 
 你的环境参数可以任意设置（不止是 `development` 或者 `production` ）。你可能想在开发环境下一些隐藏的元素，比如评论功能、谷歌分析。你可能想在 development environment 开发环境扩展一个“在 GitHub 中编辑”的按钮，而不包括在 production environments 中。
 
@@ -602,7 +602,7 @@ Jekyll 处理两个特别的 Redcarpet 扩展：
         # ...ruby code
         ```
     
-有了 fenced code blocks 和 highlighter enabled, 就会静态地高亮代码了；如果没有任何高亮语法 syntax hightlighter, 将增加一个 `class="LANGUAGE"` 属性到 `<code>` 元素，用于给不同的 JavaScript 代码高亮库做为提示。
+有了 fenced code blocks 和 highlighter enabled，就会静态地高亮代码了；如果没有任何高亮语法 syntax hightlighter，将增加一个 `class="LANGUAGE"` 属性到 `<code>` 元素，用于给不同的 JavaScript 代码高亮库做为提示。
 
 - `smart` --- 这个伪扩展pseudo-extension会打开 SmartyPants ，将引号转为 &quot; 、连字符转为 em (`---`) 和 en (`--`) 破折号。
 
