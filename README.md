@@ -1,19 +1,23 @@
 JekyllCN
 ========
 
-Forked from [Jekyll](https://github.com/jekyll/jekyll).
-
 网址：[http://jekyllcn.com/](http://jekyllcn.com/)
+
+Forked from [Jekyll](https://github.com/jekyll/jekyll).
 
 > [JekyllCN](http://jekyllcn.com/) 是 [Jekyll](http://jekyllrb.com/) 的中文翻译网站。
 
+## 公告
+
 由于官方文档更新，现在中文文档落后于官方文档，欢迎参与[贡献翻译](https://github.com/xcatliu/jekyllcn#如何贡献翻译)。
 
-注意，中文排版遵循这个规范：http://zhuanlan.zhihu.com/p/20506092
+注意：中文排版遵循这个规范：[写给大家看的中文排版指南](http://zhuanlan.zhihu.com/p/20506092)
+
+注意：暂时放弃了翻译 contributing 和 history，因为他们是脚本生成的
 
 ## 如何贡献翻译
 
-1. [新建一个 issue](https://github.com/xcatliu/jekyllcn/issues/new)，说明要贡献哪篇文档（可以是落后于官方版本的中文文档，也可以是还没有翻译的文档）
+1. [新建一个 issue](https://github.com/xcatliu/jekyllcn/issues/new)，说明要贡献哪篇文档（可以是落后于官方版本的中文文档，也可以是还没有翻译的文档），注意翻译之前先看看 issues 里面有没有人已经认领了
 2. fork 之后，修改 `/site/_docs/` 中的对应文档进行翻译，并在本地预览，如果不知道如何在本地启动，可以参考[如何在本地启动](https://github.com/xcatliu/jekyllcn#如何在本地启动)
 3. 注意在 Front Matter 中将自己加入到 `translators` 字段，若无此字段，则添加一个
 4. 若要修改 css，请修改 `/site/_sass/_jekyllcn.scss`，新增的 css 以 `.jekyllcn-` 开头，尽量避免破坏 jekyll 的文件
