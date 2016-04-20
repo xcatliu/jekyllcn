@@ -11,9 +11,8 @@ class TestTags < JekyllUnitTest
   def create_post(content, override = {}, converter_class = Jekyll::Converters::Markdown)
     site = fixture_site({"highlighter" => "rouge"}.merge(override))
 
-    if override['read_posts']
-      site.posts.docs.concat(PostReader.new(site).read_posts(''))
-    end
+    site.posts.docs.concat(PostReader.new(site).read_posts('')) if override['read_posts']
+    CollectionReader.new(site).read if override['read_collections']
 
     info = { :filters => [Jekyll::Filters], :registers => { :site => site } }
     @converter = site.converters.find { |c| c.class == converter_class }
@@ -65,37 +64,37 @@ CONTENT
   context "highlight tag in unsafe mode" do
     should "set the no options with just a language name" do
       tag = highlight_block_with_opts('ruby ')
-      assert_equal({}, tag.instance_variable_get(:@options))
+      assert_equal({}, tag.instance_variable_get(:@highlight_options))
     end
 
     should "set the linenos option as 'inline' if no linenos value" do
       tag = highlight_block_with_opts('ruby linenos ')
-      assert_equal({ :linenos => 'inline' }, tag.instance_variable_get(:@options))
+      assert_equal({ :linenos => 'inline' }, tag.instance_variable_get(:@highlight_options))
     end
 
     should "set the linenos option to 'table' if the linenos key is given the table value" do
       tag = highlight_block_with_opts('ruby linenos=table ')
-      assert_equal({ :linenos => 'table' }, tag.instance_variable_get(:@options))
+      assert_equal({ :linenos => 'table' }, tag.instance_variable_get(:@highlight_options))
     end
 
     should "recognize nowrap option with linenos set" do
       tag = highlight_block_with_opts('ruby linenos=table nowrap ')
-      assert_equal({ :linenos => 'table', :nowrap => true }, tag.instance_variable_get(:@options))
+      assert_equal({ :linenos => 'table', :nowrap => true }, tag.instance_variable_get(:@highlight_options))
     end
 
     should "recognize the cssclass option" do
       tag = highlight_block_with_opts('ruby linenos=table cssclass=hl ')
-      assert_equal({ :cssclass => 'hl', :linenos => 'table' }, tag.instance_variable_get(:@options))
+      assert_equal({ :cssclass => 'hl', :linenos => 'table' }, tag.instance_variable_get(:@highlight_options))
     end
 
     should "recognize the hl_linenos option and its value" do
       tag = highlight_block_with_opts('ruby linenos=table cssclass=hl hl_linenos=3 ')
-      assert_equal({ :cssclass => 'hl', :linenos => 'table', :hl_linenos => '3' }, tag.instance_variable_get(:@options))
+      assert_equal({ :cssclass => 'hl', :linenos => 'table', :hl_linenos => '3' }, tag.instance_variable_get(:@highlight_options))
     end
 
     should "recognize multiple values of hl_linenos" do
       tag = highlight_block_with_opts('ruby linenos=table cssclass=hl hl_linenos="3 5 6" ')
-      assert_equal({ :cssclass => 'hl', :linenos => 'table', :hl_linenos => ['3', '5', '6'] }, tag.instance_variable_get(:@options))
+      assert_equal({ :cssclass => 'hl', :linenos => 'table', :hl_linenos => ['3', '5', '6'] }, tag.instance_variable_get(:@highlight_options))
     end
 
     should "treat language name as case insensitive" do
@@ -150,7 +149,7 @@ CONTENT
       end
 
       should "not cause a markdown error" do
-        refute_match /markdown\-html\-error/, @result
+        refute_match(/markdown\-html\-error/, @result)
       end
 
       should "render markdown with pygments" do
@@ -317,6 +316,27 @@ EOS
       end
     end
 
+    context "post content has highlight tag with linenumbers" do
+      setup do
+        create_post <<-EOS
+---
+title: This is a test
+---
+
+This is not yet highlighted
+{% highlight php linenos %}
+test
+{% endhighlight %}
+
+This should not be highlighted, right?
+EOS
+      end
+
+      should "should stop highlighting at boundary" do
+        assert_match "<p>This is not yet highlighted</p>\n\n<figure class=\"highlight\"><pre><code class=\"language-php\" data-lang=\"php\"><table style=\"border-spacing: 0\"><tbody><tr><td class=\"gutter gl\" style=\"text-align: right\"><pre class=\"lineno\">1</pre></td><td class=\"code\"><pre>test<span class=\"w\">\n</span></pre></td></tr></tbody></table></code></pre></figure>\n\n<p>This should not be highlighted, right?</p>", @result
+      end
+    end
+
     context "post content has highlight tag with preceding spaces & Windows-style newlines" do
       setup do
         fill_post "\r\n\r\n\r\n     [,1] [,2]"
@@ -422,7 +442,7 @@ CONTENT
     end
 
     should "not cause an error" do
-      refute_match /markdown\-html\-error/, @result
+      refute_match(/markdown\-html\-error/, @result)
     end
 
     should "have the url to the \"complex\" post from 2008-11-21" do
@@ -446,7 +466,7 @@ CONTENT
     end
 
     should "not cause an error" do
-      refute_match /markdown\-html\-error/, @result
+      refute_match(/markdown\-html\-error/, @result)
     end
 
     should "have the url to the \"complex\" post from 2008-11-21" do
@@ -455,8 +475,8 @@ CONTENT
     end
 
     should "have the url to the \"nested\" post from 2008-11-21" do
-      assert_match %r{3\s/es/2008/11/21/nested/}, @result
-      assert_match %r{4\s/es/2008/11/21/nested/}, @result
+      assert_match %r{3\s/2008/11/21/nested/}, @result
+      assert_match %r{4\s/2008/11/21/nested/}, @result
     end
   end
 
@@ -470,8 +490,95 @@ title: Invalid post name linking
 {% post_url abc2008-11-21-complex %}
 CONTENT
 
+      assert_raises Jekyll::Errors::PostURLError do
+        create_post(content, {
+          'permalink' => 'pretty',
+          'source' => source_dir,
+          'destination' => dest_dir,
+          'read_posts' => true
+        })
+      end
+    end
+
+    should "cause an error with a bad date" do
+      content = <<CONTENT
+---
+title: Invalid post name linking
+---
+
+{% post_url 2008-42-21-complex %}
+CONTENT
+
+      assert_raises Jekyll::Errors::InvalidDateError do
+        create_post(content, {
+          'permalink' => 'pretty',
+          'source' => source_dir,
+          'destination' => dest_dir,
+          'read_posts' => true
+        })
+      end
+    end
+  end
+
+  context "simple page with linking" do
+    setup do
+      content = <<CONTENT
+---
+title: linking
+---
+
+{% link _methods/yaml_with_dots.md %}
+CONTENT
+      create_post(content, {'source' => source_dir, 'destination' => dest_dir, 'collections' => { 'methods' => { 'output' => true }}, 'read_collections' => true})
+    end
+
+    should "not cause an error" do
+      refute_match /markdown\-html\-error/, @result
+    end
+
+    should "have the url to the \"yaml_with_dots\" item" do
+      assert_match %r{/methods/yaml_with_dots\.html}, @result
+    end
+  end
+
+  context "simple page with nested linking" do
+    setup do
+      content = <<CONTENT
+---
+title: linking
+---
+
+- 1 {% link _methods/sanitized_path.md %}
+- 2 {% link _methods/site/generate.md %}
+CONTENT
+      create_post(content, {'source' => source_dir, 'destination' => dest_dir, 'collections' => { 'methods' => { 'output' => true }}, 'read_collections' => true})
+    end
+
+    should "not cause an error" do
+      refute_match /markdown\-html\-error/, @result
+    end
+
+    should "have the url to the \"sanitized_path\" item" do
+      assert_match %r{1\s/methods/sanitized_path\.html}, @result
+    end
+
+    should "have the url to the \"site/generate\" item" do
+      assert_match %r{2\s/methods/site/generate\.html}, @result
+    end
+  end
+
+  context "simple page with invalid linking" do
+    should "cause an error" do
+      content = <<CONTENT
+---
+title: Invalid linking
+---
+
+{% link non-existent-collection-item %}
+CONTENT
+
       assert_raises ArgumentError do
-        create_post(content, {'permalink' => 'pretty', 'source' => source_dir, 'destination' => dest_dir, 'read_posts' => true})
+        create_post(content, {'source' => source_dir, 'destination' => dest_dir, 'collections' => { 'methods' => { 'output' => true }}, 'read_collections' => true})
       end
     end
   end
@@ -493,7 +600,8 @@ title: Include symlink
 CONTENT
           create_post(content, {'permalink' => 'pretty', 'source' => source_dir, 'destination' => dest_dir, 'read_posts' => true, 'safe' => true })
         end
-        refute_match /SYMLINK TEST/, @result
+        @result ||= ''
+        refute_match(/SYMLINK TEST/, @result)
       end
 
       should "not expose the existence of symlinked files" do
@@ -508,7 +616,7 @@ title: Include symlink
 CONTENT
           create_post(content, {'permalink' => 'pretty', 'source' => source_dir, 'destination' => dest_dir, 'read_posts' => true, 'safe' => true })
         end
-        assert_match /should exist and should not be a symlink/, ex.message
+        assert_match(/should exist and should not be a symlink/, ex.message)
       end
     end
 
@@ -770,7 +878,8 @@ title: Include symlink
 CONTENT
           create_post(content, {'permalink' => 'pretty', 'source' => source_dir, 'destination' => dest_dir, 'read_posts' => true, 'safe' => true })
         end
-        refute_match /SYMLINK TEST/, @result
+        @result ||= ''
+        refute_match(/SYMLINK TEST/, @result)
       end
 
       should "not expose the existence of symlinked files" do
@@ -785,7 +894,7 @@ title: Include symlink
 CONTENT
           create_post(content, {'permalink' => 'pretty', 'source' => source_dir, 'destination' => dest_dir, 'read_posts' => true, 'safe' => true })
         end
-        assert_match /should exist and should not be a symlink/, ex.message
+        assert_match(/should exist and should not be a symlink/, ex.message)
       end
     end
   end

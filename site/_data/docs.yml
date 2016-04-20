@@ -39,9 +39,11 @@
   - troubleshooting
   - sites
   - resources
-  - upgrading
+  - upgrading/0-to-2
+  - upgrading/2-to-3
 
 - title: 元信息
   docs:
   - contributing
+  - conduct
   - history

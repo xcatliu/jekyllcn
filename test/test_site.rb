@@ -174,9 +174,11 @@ class TestSite < JekyllUnitTest
         coffeescript.coffee
         contacts.html
         deal.with.dots.html
+        dynamic_file.php
         environment.html
         exploit.md
         foo.md
+        humans.txt
         index.html
         index.html
         main.scss
@@ -220,7 +222,7 @@ class TestSite < JekyllUnitTest
 
       posts = Dir[source_dir("**", "_posts", "**", "*")]
       posts.delete_if { |post| File.directory?(post) && !(post =~ Document::DATE_FILENAME_MATCHER) }
-      categories = %w(2013 bar baz category foo z_category MixedCase Mixedcase es publish_test win).sort
+      categories = %w(2013 bar baz category foo z_category MixedCase Mixedcase publish_test win).sort
 
       assert_equal posts.size - @num_invalid_posts, @site.posts.size
       assert_equal categories, @site.categories.keys.sort
@@ -230,13 +232,13 @@ class TestSite < JekyllUnitTest
     context 'error handling' do
       should "raise if destination is included in source" do
         assert_raises Jekyll::Errors::FatalException do
-          site = Site.new(site_configuration('destination' => source_dir))
+          Site.new(site_configuration('destination' => source_dir))
         end
       end
 
       should "raise if destination is source" do
         assert_raises Jekyll::Errors::FatalException do
-          site = Site.new(site_configuration('destination' => File.join(source_dir, "..")))
+          Site.new(site_configuration('destination' => File.join(source_dir, "..")))
         end
       end
     end
@@ -274,25 +276,25 @@ class TestSite < JekyllUnitTest
 
       should 'remove orphaned files in destination' do
         @site.process
-        assert !File.exist?(dest_dir('obsolete.html'))
-        assert !File.exist?(dest_dir('qux'))
-        assert !File.exist?(dest_dir('quux'))
-        assert File.exist?(dest_dir('.git'))
-        assert File.exist?(dest_dir('.git/HEAD'))
+        refute_exist dest_dir('obsolete.html')
+        refute_exist dest_dir('qux')
+        refute_exist dest_dir('quux')
+        assert_exist dest_dir('.git')
+        assert_exist dest_dir('.git', 'HEAD')
       end
 
       should 'remove orphaned files in destination - keep_files .svn' do
         config = site_configuration('keep_files' => %w{.svn})
         @site = Site.new(config)
         @site.process
-        assert !File.exist?(dest_dir('.htpasswd'))
-        assert !File.exist?(dest_dir('obsolete.html'))
-        assert !File.exist?(dest_dir('qux'))
-        assert !File.exist?(dest_dir('quux'))
-        assert !File.exist?(dest_dir('.git'))
-        assert !File.exist?(dest_dir('.git/HEAD'))
-        assert File.exist?(dest_dir('.svn'))
-        assert File.exist?(dest_dir('.svn/HEAD'))
+        refute_exist dest_dir('.htpasswd')
+        refute_exist dest_dir('obsolete.html')
+        refute_exist dest_dir('qux')
+        refute_exist dest_dir('quux')
+        refute_exist dest_dir('.git')
+        refute_exist dest_dir('.git', 'HEAD')
+        assert_exist dest_dir('.svn')
+        assert_exist dest_dir('.svn', 'HEAD')
       end
     end
 
@@ -464,8 +466,16 @@ class TestSite < JekyllUnitTest
         @site = Site.new(site_configuration('profile' => true))
       end
 
+      # Suppress output while testing
+      setup do
+        $stdout = StringIO.new
+      end
+      teardown do
+        $stdout = STDOUT
+      end
+
       should "print profile table" do
-        @site.liquid_renderer.should_receive(:stats_table)
+        expect(@site.liquid_renderer).to receive(:stats_table)
         @site.process
       end
     end
@@ -510,7 +520,6 @@ class TestSite < JekyllUnitTest
         contacts_html = @site.pages.find { |p| p.name == "contacts.html" }
         @site.process
 
-        source = @site.in_source_dir(contacts_html.path)
         dest = File.expand_path(contacts_html.destination(@site.dest))
         mtime1 = File.stat(dest).mtime.to_i # first run must generate dest file
 

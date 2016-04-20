@@ -17,23 +17,37 @@ module Jekyll
     #
     # config - A Hash containing site configuration details.
     def initialize(config)
+      # Source and destination may not be changed after the site has been created.
+      @source          = File.expand_path(config['source']).freeze
+      @dest            = File.expand_path(config['destination']).freeze
+
+      self.config = config
+
+      @reader          = Reader.new(self)
+      @regenerator     = Regenerator.new(self)
+      @liquid_renderer = LiquidRenderer.new(self)
+
+      Jekyll.sites << self
+
+      Jekyll::Hooks.trigger :site, :after_init, self
+
+      reset
+      setup
+    end
+
+    # Public: Set the site's configuration. This handles side-effects caused by
+    # changing values in the configuration.
+    #
+    # config - a Jekyll::Configuration, containing the new configuration.
+    #
+    # Returns the new configuration.
+    def config=(config)
       @config = config.clone
 
-      %w[safe lsi highlighter baseurl exclude include future unpublished
-        show_drafts limit_posts keep_files gems].each do |opt|
+      %w(safe lsi highlighter baseurl exclude include future unpublished
+        show_drafts limit_posts keep_files gems).each do |opt|
         self.send("#{opt}=", config[opt])
       end
-
-      # Source and destination may not be changed after the site has been created.
-      @source              = File.expand_path(config['source']).freeze
-      @dest                = File.expand_path(config['destination']).freeze
-
-      @reader = Jekyll::Reader.new(self)
-
-      # Initialize incremental regenerator
-      @regenerator = Regenerator.new(self)
-
-      @liquid_renderer = LiquidRenderer.new(self)
 
       self.plugin_manager = Jekyll::PluginManager.new(self)
       self.plugins        = plugin_manager.plugins_path
@@ -43,10 +57,7 @@ module Jekyll
 
       self.permalink_style = config['permalink'].to_sym
 
-      Jekyll.sites << self
-
-      reset
-      setup
+      @config
     end
 
     # Public: Read, process, and write this Site to output.
@@ -165,7 +176,7 @@ module Jekyll
 
       Jekyll::Hooks.trigger :site, :pre_render, self, payload
 
-      collections.each do |label, collection|
+      collections.each do |_, collection|
         collection.docs.each do |document|
           if regenerator.regenerate?(document)
             document.output = Jekyll::Renderer.new(self, document, payload).run
@@ -176,9 +187,12 @@ module Jekyll
 
       pages.flatten.each do |page|
         if regenerator.regenerate?(page)
-          page.render(layouts, payload)
+          page.output = Jekyll::Renderer.new(self, page, payload).run
+          page.trigger_hooks(:post_render)
         end
       end
+
+      Jekyll::Hooks.trigger :site, :post_render, self, payload
     rescue Errno::ENOENT
       # ignore missing layout dir
     end
@@ -194,9 +208,9 @@ module Jekyll
     #
     # Returns nothing.
     def write
-      each_site_file { |item|
+      each_site_file do |item|
         item.write(dest) if regenerator.regenerate?(item)
-      }
+      end
       regenerator.write_metadata
       Jekyll::Hooks.trigger :site, :post_write, self
     end
@@ -222,7 +236,7 @@ module Jekyll
       # Build a hash map based on the specified post attribute ( post attr =>
       # array of posts ) then sort each array in reverse order.
       hash = Hash.new { |h, key| h[key] = [] }
-      posts.docs.each { |p| p.data[post_attr].each { |t| hash[t] << p } }
+      posts.docs.each { |p| p.data[post_attr].each { |t| hash[t] << p } if p.data[post_attr] }
       hash.values.each { |posts| posts.sort!.reverse! }
       hash
     end
@@ -257,47 +271,25 @@ module Jekyll
     #   "tags"       - The Hash of tag values and Posts.
     #                  See Site#post_attr_hash for type info.
     def site_payload
-      {
-        "jekyll" => {
-          "version" => Jekyll::VERSION,
-          "environment" => Jekyll.env
-        },
-        "site"   => Utils.deep_merge_hashes(config,
-          Utils.deep_merge_hashes(Hash[collections.map{|label, coll| [label, coll.docs]}], {
-            "time"         => time,
-            "posts"        => posts.docs.sort { |a, b| b <=> a },
-            "pages"        => pages,
-            "static_files" => static_files,
-            "html_pages"   => pages.select { |page| page.html? || page.url.end_with?("/") },
-            "categories"   => post_attr_hash('categories'),
-            "tags"         => post_attr_hash('tags'),
-            "collections"  => collections.values.map(&:to_liquid),
-            "documents"    => documents,
-            "data"         => site_data
-        }))
-      }
+      Drops::UnifiedPayloadDrop.new self
     end
 
     # Get the implementation class for the given Converter.
-    #
-    # klass - The Class of the Converter to fetch.
-    #
     # Returns the Converter instance implementing the given Converter.
+    # klass - The Class of the Converter to fetch.
+
     def find_converter_instance(klass)
-      converters.find { |c| c.class == klass } || proc { raise "No converter for #{klass}" }.call
+      converters.find { |klass_| klass_.instance_of?(klass) } || \
+        raise("No Converters found for #{klass}")
     end
 
+    # klass - class or module containing the subclasses.
+    # Returns array of instances of subclasses of parameter.
     # Create array of instances of the subclasses of the class or module
-    #   passed in as argument.
-    #
-    # klass - class or module containing the subclasses which should be
-    #         instantiated
-    #
-    # Returns array of instances of subclasses of parameter
+    # passed in as argument.
+
     def instantiate_subclasses(klass)
-      klass.descendants.select do |c|
-        !safe || c.safe
-      end.sort.map do |c|
+      klass.descendants.select { |c| !safe || c.safe }.sort.map do |c|
         c.new(config)
       end
     end
@@ -308,10 +300,10 @@ module Jekyll
     # Returns
     def relative_permalinks_are_deprecated
       if config['relative_permalinks']
-        Jekyll.logger.abort_with "Since v3.0, permalinks for pages" +
-                                " in subfolders must be relative to the" +
-                                " site source directory, not the parent" +
-                                " directory. Check http://jekyllrb.com/docs/upgrading/"+
+        Jekyll.logger.abort_with "Since v3.0, permalinks for pages" \
+                                " in subfolders must be relative to the" \
+                                " site source directory, not the parent" \
+                                " directory. Check http://jekyllrb.com/docs/upgrading/"\
                                 " for more info."
       end
     end
