@@ -18,7 +18,7 @@
 <meta property="og:url" content="http://jekyllcn.com/docs/configuration/" />
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2016-04-20T00:01:25-07:00" />
+<meta property="article:published_time" content="2016-04-20T00:10:46-07:00" />
 <link rel="next" href="http://jekyllcn.com/docs/continuous-integration/" title="持续集成" />
 <link rel="prev" href="http://jekyllcn.com/docs/conduct/" title="Code of Conduct" />
 <meta name="twitter:card" content="summary" />
@@ -28,7 +28,7 @@
     "@context": "http://schema.org",
     "@type": "BlogPosting",
     "headline": "配置",
-    "datePublished": "2016-04-20T00:01:25-07:00",
+    "datePublished": "2016-04-20T00:10:46-07:00",
     "description": "将纯文本转换为静态博客网站",
     "logo": "http://jekyllcn.comimg/logo-2x.png",
     "url": "http://jekyllcn.com/docs/configuration/"
@@ -2636,9 +2636,7 @@
       <td>
         <p class="name"><strong>Encoding</strong></p>
         <p class="description">
-            设置文件的编码，仅 Ruby 1.9 以上可用。默认值为 nil ，使用 Ruby 默认的
-             <code>ASCII-8BIT</code>。可以用命令
-             <code>ruby -e 'puts Encoding::list.join("\n")'</code> 查看 Ruby 可用的编码。
+            设置文件的编码，仅 Ruby 1.9 以上可用。2.0.0　版本以后默认值为 utf-8，之前版本默认值为 nil，使用 Ruby 默认的 <code>ASCII-8BIT</code>。可以用命令 <code>ruby -e 'puts Encoding::list.join("\n")'</code> 查看 Ruby 可用的编码。
         </p>
       </td>
       <td class="align-center">
@@ -2649,8 +2647,7 @@
       <td>
         <p class="name"><strong>Defaults</strong></p>
         <p class="description">
-            设置 <a href="../frontmatter/" title="YAML Front Matter">YAML 头信息</a>
-            的默认值。
+            设置 <a href="../frontmatter/" title="YAML Front Matter">YAML 头信息</a> 的默认值。
         </p>
       </td>
       <td class="align-center">
@@ -2711,6 +2708,15 @@
     </tr>
     <tr class="setting">
       <td>
+        <p class="name"><strong>Environment</strong></p>
+        <p class="description">build　时使用特定的环境变量。</p>
+      </td>
+      <td class="align-center">
+        <p><code class="flag">JEKYLL_ENV=production</code></p>
+      </td>
+    </tr>
+    <tr class="setting">
+      <td>
         <p class="name"><strong>Future</strong></p>
         <p class="description">用将来的日期发布文章</p>
       </td>
@@ -2764,6 +2770,18 @@
       </td>
       <td class="align-center">
         <p><code class="flag">-q, --quiet</code></p>
+      </td>
+    </tr>
+    <tr class="setting">
+      <td>
+        <p class="name"><strong>Incremental build</strong></p>
+        <p class="description">
+            启用实验特性 incremental build。Incremental build 只重建修改过的 posts 和 pages，对大型网站有显著的性能提升，但在特定情况下也会影响网站生成。
+        </p>
+      </td>
+      <td class="align-center">
+        <p><code class="option">incremental: BOOL</code></p>
+        <p><code class="flag">-I, --incremental</code></p>
       </td>
     </tr>
   </tbody>
@@ -2832,6 +2850,24 @@
         <p><code class="flag">--skip-initial-build</code></p>
       </td>
     </tr>
+    <tr class="setting">
+      <td>
+        <p class="name"><strong>X.509 (SSL) Private Key</strong></p>
+        <p class="description">SSL私钥</p>
+      </td>
+      <td class="align-center">
+        <p><code class="flag">--ssl-key</code></p>
+      </td>
+    </tr>
+    <tr class="setting">
+      <td>
+        <p class="name"><strong>X.509 (SSL) Certificate</strong></p>
+        <p class="description">SSL公证</p>
+      </td>
+      <td class="align-center">
+        <p><code class="flag">--ssl-cert</code></p>
+      </td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -2843,7 +2879,43 @@
   </p>
 </div>
 
-<h2 id="section-4">头信息默认值</h2>
+<h2 id="webrick-">自定义 WEBRick 标题</h2>
+<!-- WEBRick应该怎么翻译　-->
+<p>你可以在 <code>_config.yml</code> 中为你的站点提供自定义标题</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># 文件: _config.yml</span>
+<span class="l-Scalar-Plain">webrick</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">headers</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">My-Header</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">My-Value</span>
+    <span class="l-Scalar-Plain">My-Other-Header</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">My-Other-Value</span></code></pre></figure>
+
+<h3 id="section-4">默认</h3>
+
+<p>我们只提供一个默认，而且这是一个不能在开发模式里缓存的 content-type 头，所以当你处于开发模式时，不用理会 chrome 的 aggressive　caching。</p>
+
+<h2 id="jekyll-build-">指定 Jekyll build 时的环境</h2>
+
+<p>在 build（或者 serve）参数中，你能指定 Jekyll 的环境和参数。然后 build 会将参数应用在你内容中任意的条件语言。</p>
+
+<p>例如，在你代码中的条件语句中应用你的设置：</p>
+
+<figure class="highlight"><pre><code class="language-liquid" data-lang="liquid"><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">jekyll</span><span class="p">.</span><span class="nv">environment</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;production&quot;</span><span class="w"> </span><span class="p">%}</span>
+   <span class="p">{%</span><span class="w"> </span><span class="nt">include</span><span class="w"> </span>disqus.html<span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span></code></pre></figure>
+
+<p>当你 build 你的 Jekyll 网站时，if 语句块中的内容不会被执行；除非你在 build 命令中还指定了一个 <code>production</code> 环境，像这样：</p>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">JEKYLL_ENV</span><span class="o">=</span>production jekyll build</code></pre></figure>
+
+<p>设置环境变量允许你只在特定环境下执行指定内容。</p>
+
+<p><code>JEKYLL_ENV</code> 的默认值是 <code>development</code>。因此，如果你在 build 参数中省略 <code>JEKYLL_ENV</code>，那么默认为 <code>JEKYLL_ENV=development</code>。任何 <code>{% if jekyll.environment == "development" %}</code> 中的内容在 build 时都会自动显现。</p>
+
+<p>你的环境参数可以任意设置（不止是 <code>development</code> 或者 <code>production</code> ）。你可能想在开发环境下一些隐藏的元素，比如评论功能、谷歌分析。你可能想在 development environment 开发环境扩展一个“在 GitHub 中编辑”的按钮，而不包括在 production environments 中。</p>
+
+<p>在 build 命令中指定参数，当你迁移环境时，可以避免更改你配置文件中的值。</p>
+
+<h2 id="section-5">头信息默认值</h2>
 
 <p>通过使用 <a href="../frontmatter/">YAML 头信息</a>可以指定站点的页面和文章的配置。设置一些东西例如布局或者自定义标题，亦或是给文章指定一个更精确的日期/时间，这都可以往页面或文章的头信息添加数据来实现。</p>
 
@@ -2907,9 +2979,9 @@
 
 <p>在这个例子中，在 <a href="../collections/">collection</a> 里面 <code>layout</code> 被设为 <code>default</code> ，用 <code>my_collection</code> 的名字。</p>
 
-<h3 id="section-5">优先权</h3>
+<h3 id="section-6">优先权</h3>
 
-<p>Jekyll会应用你在 <code>_config.yml</code> 文件里 <code>defaults</code> 部分的所有配置设定。然而，你可以选择
+<p>Jekyll 会应用你在 <code>_config.yml</code> 文件里 <code>defaults</code> 部分的所有配置设定。然而，你可以选择
 覆盖这些设定，通过在范围/值的对里指定一个更具体的路径。</p>
 
 <p>你可以观察上一个例子。一开始我们设置了 <code>my-site</code> 这一默认的布局。然后，使用一个更具体的路径，
@@ -2939,7 +3011,7 @@
 
 <p>在站点建立时 <code>projects/foo_project.md</code> 的布局会是 <code>foobar</code>而不是<code>project</code> ， <code>author</code> 是 <code>John Smith</code>而不是 <code>Mr. Hyde</code> 。</p>
 
-<h2 id="section-6">默认配置</h2>
+<h2 id="section-7">默认配置</h2>
 
 <p>Jekyll 默认使用以下的配置运行。也可以在配置文件或者命令行中显示地指定这些选项。</p>
 
@@ -2982,6 +3054,7 @@
 <span class="l-Scalar-Plain">highlighter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">rouge</span>
 <span class="l-Scalar-Plain">lsi</span><span class="p-Indicator">:</span>         <span class="l-Scalar-Plain">false</span>
 <span class="l-Scalar-Plain">excerpt_separator</span><span class="p-Indicator">:</span> <span class="s">&quot;\n\n&quot;</span>
+<span class="l-Scalar-Plain">incremental</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
 
 <span class="c1"># 服务器选项</span>
 <span class="l-Scalar-Plain">detach</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">false</span>
@@ -3041,13 +3114,13 @@
     ```
 </code></pre>
 
-<p>有了 fenced code blocks 和 pygments ，就会直接高亮代码了；如果没有 pygments，将增加一个 <code>class="LANGUAGE"</code> 属性到 <code>&lt;code&gt;</code> 元素，用于给不同的 JavaScript 代码高亮库做后续处理。</p>
+<p>有了 fenced code blocks 和 highlighter enabled，就会静态地高亮代码了；如果没有任何高亮语法 syntax hightlighter，将增加一个 <code>class="LANGUAGE"</code> 属性到 <code>&lt;code&gt;</code> 元素，用于给不同的 JavaScript 代码高亮库做为提示。</p>
 
 <ul>
-  <li><code>smart</code> — 打开 SmartyPants ，将引号转为 " 、连字符转为 em (<code>---</code>) 和 en (<code>--</code>) 破折号。</li>
+  <li><code>smart</code> — 这个伪扩展pseudo-extension会打开 SmartyPants ，将引号转为 " 、连字符转为 em (<code>---</code>) 和 en (<code>--</code>) 破折号。</li>
 </ul>
 
-<p>Redcarpet 所有其他扩展保持他们本来的名字，并且在 Jekyll 中不能给 <code>smart</code> 加渲染选项。 <a href="https://github.com/vmg/redcarpet/blob/v2.2.2/README.markdown#and-its-like-really-simple-to-use">Redcarpet 的 README 中有可用扩展的列表。</a> 确保你看的 README 是正确的版本：Jekyll 当前用的是 v2.2.x ，其中 <code>footnotes</code> 和 <code>highlight</code> 在 3.0.0 以后才会支持。最常用的扩展是如下：</p>
+<p>Redcarpet 所有其他扩展保持他们本来的名字，并且在 Jekyll 中不能给 <code>smart</code> 加渲染选项。 <a href="https://github.com/vmg/redcarpet/blob/v3.2.2/README.markdown#and-its-like-really-simple-to-use">Redcarpet 的 README 中有可用扩展的列表。</a> 确保你看的 README 是正确的版本：Jekyll 当前用的是 v3.2.x。最常用的扩展是如下：</p>
 
 <ul>
   <li><code>tables</code></li>
@@ -3088,6 +3161,22 @@
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">markdown</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">MyCustomProcessor</span></code></pre></figure>
 
+<h2 id="incremental-regeneration">Incremental Regeneration</h2>
+
+<div class="note warning">
+  <h5>Incremental regeneration 依旧是一个实验特性</h5>
+  <p>
+    incremental regeneration 在大多数情况下可以工作，但不可能在所有情况下都能够正常工作。请一定小心使用该特性，报告任何未列出在下边的问题。<a href="https://github.com/jekyll/jekyll/issues/new">opening an issue on GitHub</a>. 
+  </p>
+</div>
+
+<p>Incremental regeneration 只加载更新过的文件和页面来帮助缩短 build 时间。这是通过对文件修改次数和 <code>.jekyll-metadata</code> 文件中的依赖关系的追踪实现的。</p>
+
+<p>在目前的实现中，incremental regeneration 会更新一个文件或者页面，仅当它或它其中之一的依赖被修改时。现今，被追踪的依赖类型仅有 includes（<code>{% include %}</code> 标签）和 layouts。这意味着对其它文件的 plain　references（例如，在博客列表页面中常见的 <code>site.posts</code> 递归）不会被检测为依赖。</p>
+
+<p>为了补救其中一些缺陷，在文件的头信息中添加 <code>regenerate: true</code> 会强迫 Jekyll 重建文件，不管文件是否被修改。注意这样做仅重建指定文件；指向其它文件内容的 references 不会起作用，因为它们不会被再次执行。</p>
+
+<p>Incremental regeneration 可以在命令行中经由 <code>--incremental</code> flag（简写为 <code>-I</code>）启用，或者在配置文件中写入 <code>incremental: true</code> 启用。</p>
 
 
           <div class="jekyllcn-doc-footer">
@@ -3105,6 +3194,10 @@
               
               <a href="https://github.com/archersmind" title="archersmind">
                 <img src="https://github.com/archersmind.png" class="avatar" alt="archersmind avatar" width="24" height="24">
+              </a>
+              
+              <a href="https://github.com/TimoTokki" title="TimoTokki">
+                <img src="https://github.com/TimoTokki.png" class="avatar" alt="TimoTokki avatar" width="24" height="24">
               </a>
               
             </p>
