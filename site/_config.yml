@@ -34,3 +34,5 @@ gems:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-avatar
+
+host: 0.0.0.0

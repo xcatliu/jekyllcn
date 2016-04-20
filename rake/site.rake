@@ -57,7 +57,7 @@ namespace :site do
     puts "Checking for gh-pages dir..."
     unless File.exist?("./gh-pages")
       puts "Creating gh-pages dir..."
-      sh "git clone git@github.com:jekyll/jekyll gh-pages"
+      sh "git clone git@github.com:xcatliu/jekyllcn gh-pages"
     end
 
     # Ensure latest gh-pages branch history.
