@@ -10,15 +10,15 @@
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <!-- Begin Jekyll SEO tag v1.3.3 -->
-<title>Jekyll on Windows - Jekyll • 简单静态博客网站生成器</title>
-<meta property="og:title" content="Jekyll on Windows" />
+<title>Windows 运行Jekyll - Jekyll • 简单静态博客网站生成器</title>
+<meta property="og:title" content="Windows 运行Jekyll" />
 <meta name="description" content="将纯文本转换为静态博客网站" />
 <meta property="og:description" content="将纯文本转换为静态博客网站" />
 <link rel="canonical" href="http://jekyllcn.com/docs/windows/" />
 <meta property="og:url" content="http://jekyllcn.com/docs/windows/" />
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2016-04-20T04:25:59-07:00" />
+<meta property="article:published_time" content="2016-04-20T04:33:04-07:00" />
 <link rel="prev" href="http://jekyllcn.com/docs/variables/" title="常用变量" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@jekyllrb" />
@@ -26,8 +26,8 @@
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "Jekyll on Windows",
-    "datePublished": "2016-04-20T04:25:59-07:00",
+    "headline": "Windows 运行Jekyll",
+    "datePublished": "2016-04-20T04:33:04-07:00",
     "description": "将纯文本转换为静态博客网站",
     "logo": "http://jekyllcn.comimg/logo-2x.png",
     "url": "http://jekyllcn.com/docs/windows/"
@@ -2535,38 +2535,24 @@
           <div class="improve right hide-on-mobiles">
             <a href="https://github.com/xcatliu/jekyllcn/edit/master/site/_docs/windows.md"><i class="fa fa-pencil"></i> &nbsp;发现错误或贡献翻译</a>
           </div>
-          <h1>Jekyll on Windows</h1>
-          <p>While Windows is not an officially-supported platform, it can be used to run
-Jekyll with the proper tweaks. This page aims to collect some of the general
-knowledge and lessons that have been unearthed by Windows users.</p>
+          <h1>Windows 运行Jekyll</h1>
+          <p>虽然 Windows 并不是 Jekyll 官方支持的平台，但是也可以通过合适的方法使其运行在 Windows 平台上。这个页面旨在收集一些由 Windows 用户发掘出来的关于 Jekyll 相关的知识和课程。</p>
 
-<h2 id="installation">Installation</h2>
+<h2 id="section">安装</h2>
 
-<p>Julian Thilo has written up instructions to get
-<a href="http://jekyll-windows.juthilo.com/">Jekyll running on Windows</a> and it seems to work for most
-people. The instructions were written for Ruby 2.0.0, but should work for later
-versions <a href="https://github.com/copiousfreetime/hitimes/issues/40">prior to 2.2</a>.</p>
+<p>JuLian Thilo 已经写出关于 [Jekyll 运行于Windows上][windows-installation] 的指南，并且看来试用于绝大数情况。这个说明是为 Ruby 2.0.0 写的，但是应该也试用了之后的版本 <a href="https://github.com/copiousfreetime/hitimes/issues/40">2.2之前版本</a></p>
 
-<p>Alternatively David Burela has written instructions on <a href="https://davidburela.wordpress.com/2015/11/28/easily-install-jekyll-on-windows-with-3-command-prompt-entries-and-chocolatey/">how to install Jekyll via Chocolatey with 3 command prompt entries</a>.</p>
+<h2 id="section-1">编码</h2>
 
-<h2 id="encoding">Encoding</h2>
+<p>如果你使用 UTF-8 编码，请确保你的问题见中不存在 <code>BOM</code> 字符，否则 Jekyll 将会出现意想不到的情况。特别是你要在 Windows 上使用 Jekyll，这个问题就需要特别注意。</p>
 
-<p>If you use UTF-8 encoding, make sure that no <code>BOM</code> header
-characters exist in your files or very, very bad things will happen to
-Jekyll. This is especially relevant if you’re running Jekyll on Windows.</p>
-
-<p>Additionally, you might need to change the code page of the console window to UTF-8
-in case you get a “Liquid Exception: Incompatible character encoding” error during
-the site generation process. It can be done with the following command:</p>
+<p>另外，你可能需要将代码控制台页面的编码修改为 UTF-8，否则将会出现一个异常：在生成网页的时候，使用了不正确的编码。可以通过以下的命令解决：</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>chcp 65001</code></pre></figure>
 
-<h2 id="auto-regeneration">Auto-regeneration</h2>
+<h2 id="section-2">自动-重构建</h2>
 
-<p>As of v1.3.0, Jekyll uses the <code>listen</code> gem to watch for changes when the
-<code>--watch</code> switch is specified during a build or serve. While <code>listen</code> has
-built-in support for UNIX systems, it requires an extra gem for compatibility
-with Windows. Add the following to the Gemfile for your site:</p>
+<p>到 1.3.0 后，当 <code>--watch</code> 开关在编译和运行是指定后，Jekyll 使用 gem 的 <code>listen</code> 去监听变化。然而 <code>listen</code> 只支持基于 UNIX 的操作系统，在 Windows 上需要一个额外的 gem 才能与其兼容。将下面的命令加入你的站点的 gemfile 中。</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s1">&#39;wdm&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 0.1.0&#39;</span> <span class="k">if</span> <span class="no">Gem</span><span class="o">.</span><span class="n">win_platform?</span></code></pre></figure>
 
@@ -2576,6 +2562,18 @@ with Windows. Add the following to the Gemfile for your site:</p>
             <p class="left"><a href="http://jekyllrb.com/docs/windows/">原文链接</a></p>
             <p class="right">
               翻译贡献者：
+              
+              <a href="https://github.com/comsince" title="comsince">
+                <img src="https://github.com/comsince.png" class="avatar" alt="comsince avatar" width="24" height="24">
+              </a>
+              
+              <a href="https://github.com/StromKuo" title="StromKuo">
+                <img src="https://github.com/StromKuo.png" class="avatar" alt="StromKuo avatar" width="24" height="24">
+              </a>
+              
+              <a href="https://github.com/xcatliu" title="xcatliu">
+                <img src="https://github.com/xcatliu.png" class="avatar" alt="xcatliu avatar" width="24" height="24">
+              </a>
               
             </p>
             <div class="clear"></div>
