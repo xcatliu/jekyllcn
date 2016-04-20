@@ -40,6 +40,7 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 - [ ] 翻译 upgrading/0-to-2
 - [ ] 翻译 upgrading/2-to-3
 
+
 - [x] 翻译 home
 - [x] 翻译 quickstart
 - [x] 翻译 installation
@@ -95,6 +96,7 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 - [ ] 更新 resources
 - [ ] 更新 upgrading/0-to-2
 - [ ] 更新 upgrading/2-to-3
+
 
 - [x] 更新 quickstart (2016-04-19)
 - [x] 更新 installation (2016-04-19)
