@@ -114,7 +114,7 @@ Jekyll 的核心其实是一个文本转换引擎。它的概念其实就是：�
       <td>
         <p>
 
-          格式化好的网站数据应放在这里。jekyll 的引擎会自动加载在该目录下所有的 yaml 文件（后缀是 <code>.yml</code>, <code>.yaml</code>, <code>.json</code> 或者 <code>.csv</code> ）。这些文件可以经由　｀site.data｀　访问。如果有一个 <code>members.yml</code> 　文件在该目录下，你就可以通过 <code>site.data.members</code> 获取该文件的内容。
+          格式化好的网站数据应放在这里。jekyll 的引擎会自动加载在该目录下所有的 yaml 文件（后缀是 <code>.yml</code>, <code>.yaml</code>, <code>.json</code> 或者 <code>.csv</code> ）。这些文件可以经由 ｀site.data｀ 访问。如果有一个 <code>members.yml</code> 文件在该目录下，你就可以通过 <code>site.data.members</code> 获取该文件的内容。
 
         </p>
       </td>

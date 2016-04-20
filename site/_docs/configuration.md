@@ -105,7 +105,7 @@ Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵�
       <td>
         <p class='name'><strong>Encoding</strong></p>
         <p class="description">
-            设置文件的编码，仅 Ruby 1.9 以上可用。2.0.0　版本以后默认值为 utf-8 ，之前版本默认值为 nil, 使用 Ruby 默认的 <code>ASCII-8BIT</code>。可以用命令 <code>ruby -e 'puts Encoding::list.join("\n")'</code> 查看 Ruby 可用的编码。
+            设置文件的编码，仅 Ruby 1.9 以上可用。2.0.0　版本以后默认值为 utf-8，之前版本默认值为 nil，使用 Ruby 默认的 <code>ASCII-8BIT</code>。可以用命令 <code>ruby -e 'puts Encoding::list.join("\n")'</code> 查看 Ruby 可用的编码。
         </p>
       </td>
       <td class='align-center'>
@@ -178,7 +178,7 @@ Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵�
     <tr class="setting">
       <td>
         <p class="name"><strong>Environment</strong></p>
-        <p class="description">build时使用特定的环境变量。</p>
+        <p class="description">build　时使用特定的环境变量。</p>
       </td>
       <td class="align-center">
         <p><code class="flag">JEKYLL_ENV=production</code></p>
@@ -378,7 +378,7 @@ webrick:
 {% endraw %}
 {% endhighlight %}
 
-当你 build 你的 Jekyll 网站时，if 语句块中的内容不会被执行除非你在 build 命令中还指定了一个 `production` 环境，像这样：
+当你 build 你的 Jekyll 网站时，if 语句块中的内容不会被执行；除非你在 build 命令中还指定了一个 `production` 环境，像这样：
 
 {% highlight sh %}
 JEKYLL_ENV=production jekyll build
@@ -550,7 +550,7 @@ incremental: false
 detach:  false
 port:    4000
 host:    127.0.0.1
-baseurl: "" # 不包括宿主名 hostname
+baseurl: "" # does not include hostname
 
 # 输出
 permalink:     date
