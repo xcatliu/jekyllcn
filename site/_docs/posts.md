@@ -32,7 +32,7 @@ Jeklly 的一个最好的特点是『关注 blog 本身』。这是指什么呢�
 
 ### 内容格式
 
-所有博客文章顶部必须有一段[ YAML 头信息](../frontmatter/)(YAML front- matter)。在它下面，就可以选择你喜欢的格式来写文章。 Jekyll 支持 [Markdown](http://daringfireball.net/projects/markdown/)，以及[其他众多格式的扩展](/docs/plugins/#converters-1)，其中就包括十分流行的 [Textile](http://redcloth.org/textile)。这些格式都有自己的方式来标记文章中不同类型的内容，所以你首先需要熟悉这些格式并选择一种最符合你需求的。
+所有博客文章顶部必须有一段 [YAML 头信息](../frontmatter/)(YAML front- matter)。在它下面，就可以选择你喜欢的格式来写文章。 Jekyll 支持 [Markdown](http://daringfireball.net/projects/markdown/)，以及[其他众多格式的扩展](/docs/plugins/#converters-1)，其中就包括十分流行的 [Textile](http://redcloth.org/textile)。这些格式都有自己的方式来标记文章中不同类型的内容，所以你首先需要熟悉这些格式并选择一种最符合你需求的。
 
 <div class="note info">
   <h5>注意字符集</h5>
@@ -57,7 +57,7 @@ Jeklly 的一个最好的特点是『关注 blog 本身』。这是指什么呢�
 链接一个读者可下载的 PDF 文件：
 
 {% highlight text %}
-… 你可以直接 [下载 PDF　]({% raw %}{{ site.url }}{% endraw %}/assets/mydoc.pdf).
+… 你可以直接 [下载 PDF]({% raw %}{{ site.url }}{% endraw %}/assets/mydoc.pdf).
 {% endhighlight %}
 
 <div class="note">
@@ -69,7 +69,7 @@ Jeklly 的一个最好的特点是『关注 blog 本身』。这是指什么呢�
 
 ## 文章的目录
 
-所有文章都在一个目录中是没有问题的，但是如果你不将文章列表列出来博客文章是不会被人看到。在另一个页面上创建文章的列表（或者使用[模版](../templates/)）是很简单的。感谢[ Liquid 模版语言](https://docs.shopify.com/themes/liquid/basics)和它的标记，下面是如何创建文章列表的简单例子：
+所有文章都在一个目录中是没有问题的，但是如果你不将文章列表列出来博客文章是不会被人看到。在另一个页面上创建文章的列表（或者使用[模版](../templates/)）是很简单的。感谢 [Liquid 模版语言](https://docs.shopify.com/themes/liquid/basics)和它的标记，下面是如何创建文章列表的简单例子：
 
 {% highlight html %}
 <ul>
@@ -81,7 +81,7 @@ Jeklly 的一个最好的特点是『关注 blog 本身』。这是指什么呢�
 </ul>
 {% endhighlight %}
 
-当然，你可以完全控制怎样（在哪里）显示你的文章，如何管理你的站点。如果你想了解更多你需要读一下[ Jekyll 的模版是怎样工作的](../templates/)这篇文章。
+当然，你可以完全控制怎样（在哪里）显示你的文章，如何管理你的站点。如果你想了解更多你需要读一下 [Jekyll 的模版是怎样工作的](../templates/)这篇文章。
 
 请注意，`post` 变量仅在 `for` 循环中存在。如果你希望使用当前呈现的页面/博文中的变量（在 `for` 循环中的博文/页面的变量），请使用 `page` 变量来替代它。
 
