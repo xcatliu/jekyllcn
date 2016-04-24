@@ -2,10 +2,10 @@
 layout: docs
 title: 常用变量
 permalink: /docs/variables/
-translators: [yujingz, LeuisKen, archersmind]
+translators: [yujingz, LeuisKen, archersmind, TimoTokki]
 ---
 
-Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息](../frontmatter)的文件都是要处理的对象。对于每一个这样的文件，Jekyll 都会通过 [Liquid 模板工具](http://wiki.shopify.com/Liquid)来生成一系列的数据。下面就是这些可用数据变量的参考和文档。
+Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息](../frontmatter)的文件都是要处理的对象。对于每一个这样的文件，Jekyll 都会通过 [Liquid 模板工具](https://github.com/Shopify/liquid/wiki)来生成一系列的数据。下面就是这些可用数据变量的参考和文档。
 
 ## 全局(Global)变量
 
@@ -94,10 +94,8 @@ Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息
       <td><p><code>site.related_posts</code></p></td>
       <td><p>
 
-        如果当前被处理的页面是一个 Post，这个变量就会包含最多10个相关的 Post。默认的情况下，
-        相关性是低质量的，但是能被很快的计算出来。如果你需要高相关性，就要消耗更多的时间来计算。
-        用<code>jekyll</code> 这个命令带上 <code>--lsi</code> (latent semantic
-        indexing) 选项来计算高相关性的 Post。
+        如果当前被处理的页面是一个 Post，这个变量就会包含最多10个相关的 Post。默认的情况下，相关性是低质量的，但是能被很快的计算出来。如果你需要高相关性，就要消耗更多的时间来计算。用 <code>jekyll</code> 这个命令带上 <code>--lsi</code> (latent semantic
+        indexing) 选项来计算高相关性的 Post。注意，GitHub 在生成站点时不支持　<code>lsi</code>。
 
       </p></td>
     </tr>
