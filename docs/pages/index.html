@@ -18,7 +18,7 @@
 <meta property="og:url" content="http://jekyllcn.com/docs/pages/" />
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2016-04-20T04:48:21-07:00" />
+<meta property="article:published_time" content="2016-04-24T22:36:16-07:00" />
 <link rel="next" href="http://jekyllcn.com/docs/pagination/" title="分页功能" />
 <link rel="prev" href="http://jekyllcn.com/docs/migrations/" title="博客迁移" />
 <meta name="twitter:card" content="summary" />
@@ -28,7 +28,7 @@
     "@context": "http://schema.org",
     "@type": "BlogPosting",
     "headline": "创建页面",
-    "datePublished": "2016-04-20T04:48:21-07:00",
+    "datePublished": "2016-04-24T22:36:16-07:00",
     "description": "将纯文本转换为静态博客网站",
     "logo": "http://jekyllcn.comimg/logo-2x.png",
     "url": "http://jekyllcn.com/docs/pages/"
@@ -2552,11 +2552,11 @@
 
 <h2 id="section-1">其它的页面的位置</h2>
 
-<p>将 HTML 文件放在哪里取决于你想让它们如何工作。有两种方式可以创建页面：</p>
+<p>将 HTML 文件或者 <a href="https://daringfireball.net/projects/markdown/">Markdown</a> 放在哪里取决于你想让它们如何工作。有两种方式可以创建页面：</p>
 
 <ul>
-  <li>命名 HTML 文件：将命名好的为页面准备的 HTML 文件放在站点的根目录下。</li>
-  <li>命名文件夹：在站点的根目录下为每一个页面创建一个文件夹，并把 index.html 文件放在每个文件夹里。</li>
+  <li>将为页面准备的命名好的 HTML 文件或者 <a href="https://daringfireball.net/projects/markdown/">Markdown</a> 文件放在站点的根目录下。</li>
+  <li>在站点的根目录下为每一个页面创建一个文件夹，并把 index.html 文件或者 index.md 放在每个文件夹里。</li>
 </ul>
 
 <p>这两种方法都可以工作（并且可以混合使用），它们唯一的区别就是访问的 URL 样式不同。</p>
@@ -2571,9 +2571,10 @@
 <span class="p">|</span>-- _layouts/
 <span class="p">|</span>-- _posts/
 <span class="p">|</span>-- _site/
-<span class="p">|</span>-- about.html    <span class="c"># =&gt; http://yoursite.com/about.html</span>
-<span class="p">|</span>-- index.html    <span class="c"># =&gt; http://yoursite.com/</span>
-└── contact.html  <span class="c"># =&gt; http://yoursite.com/contact.html</span></code></pre></figure>
+<span class="p">|</span>-- about.html    <span class="c"># =&gt; http://example.com/about.html</span>
+<span class="p">|</span>-- index.html    <span class="c"># =&gt; http://example.com/</span>
+<span class="p">|</span>-- other.md      <span class="c"># =&gt; http://example.com/other.html</span>
+└── contact.html  <span class="c"># =&gt; http://example.com/contact.html</span></code></pre></figure>
 
 <h3 id="indexhtml-">命名一个文件夹并包含一个 index.html 文件</h3>
 
@@ -2586,12 +2587,21 @@
 ├── _posts/
 ├── _site/
 ├── about/
-<span class="p">|</span>   └── index.html  <span class="c"># =&gt; http://yoursite.com/about/</span>
+<span class="p">|</span>   └── index.html  <span class="c"># =&gt; http://example.com/about/</span>
 ├── contact/
-<span class="p">|</span>   └── index.html  <span class="c"># =&gt; http://yoursite.com/contact/</span>
-└── index.html      <span class="c"># =&gt; http://yoursite.com/</span></code></pre></figure>
+<span class="p">|</span>   └── index.html  <span class="c"># =&gt; http://example.com/contact/</span>
+<span class="p">|</span>── other/
+<span class="p">|</span>   └── index.md    <span class="c"># =&gt; http://example.com/other/</span>
+└── index.html      <span class="c"># =&gt; http://example.com/</span></code></pre></figure>
 
 <p>这种方式可能不适合每个人，对那些喜欢干净 URL 的人这是一种简单有效的方法。最终选择哪种方法完全由你来决定！</p>
+
+<div class="note">
+  <h5>提示™：使用头信息变量　permalink</h5>
+  <p>
+    干净的 URLs 也可以通过在头信息中定义　<code>permalink</code>　实现。就上边的第一个例子而言，在 other.md 文件的头信息中定义：<code>permalink: /other</code>，你就能得到 URL <code>http://example.com/other</code>  
+  </p>
+</div>
 
 
           <div class="jekyllcn-doc-footer">
