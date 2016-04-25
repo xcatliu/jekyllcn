@@ -20,10 +20,10 @@ translators: [sdpfoue, LeuisKen, archersmind]
 
 ## 其它的页面的位置
 
-将 HTML 文件放在哪里取决于你想让它们如何工作。有两种方式可以创建页面：
+将 HTML 文件或者 [Markdown](https://daringfireball.net/projects/markdown/) 放在哪里取决于你想让它们如何工作。有两种方式可以创建页面：
 
-- 命名 HTML 文件：将命名好的为页面准备的 HTML 文件放在站点的根目录下。
-- 命名文件夹：在站点的根目录下为每一个页面创建一个文件夹，并把 index.html 文件放在每个文件夹里。
+- 将为页面准备的命名好的 HTML 文件或者 [Markdown](https://daringfireball.net/projects/markdown/) 文件放在站点的根目录下。
+- 在站点的根目录下为每一个页面创建一个文件夹，并把 index.html 文件或者 index.md 放在每个文件夹里。
 
 这两种方法都可以工作（并且可以混合使用），它们唯一的区别就是访问的 URL 样式不同。
 
@@ -38,9 +38,10 @@ translators: [sdpfoue, LeuisKen, archersmind]
 |-- _layouts/
 |-- _posts/
 |-- _site/
-|-- about.html    # => http://yoursite.com/about.html
-|-- index.html    # => http://yoursite.com/
-└── contact.html  # => http://yoursite.com/contact.html
+|-- about.html    # => http://example.com/about.html
+|-- index.html    # => http://example.com/
+|-- other.md      # => http://example.com/other.html
+└── contact.html  # => http://example.com/contact.html
 {% endhighlight %}
 
 ### 命名一个文件夹并包含一个 index.html 文件
@@ -55,10 +56,19 @@ translators: [sdpfoue, LeuisKen, archersmind]
 ├── _posts/
 ├── _site/
 ├── about/
-|   └── index.html  # => http://yoursite.com/about/
+|   └── index.html  # => http://example.com/about/
 ├── contact/
-|   └── index.html  # => http://yoursite.com/contact/
-└── index.html      # => http://yoursite.com/
+|   └── index.html  # => http://example.com/contact/
+|── other/
+|   └── index.md    # => http://example.com/other/
+└── index.html      # => http://example.com/
 {% endhighlight %}
 
 这种方式可能不适合每个人，对那些喜欢干净 URL 的人这是一种简单有效的方法。最终选择哪种方法完全由你来决定！
+
+<div class="note">
+  <h5>提示™：使用头信息变量　permalink</h5>
+  <p>
+    干净的 URLs 也可以通过在头信息中定义　<code>permalink</code>　实现。就上边的第一个例子而言，在 other.md 文件的头信息中定义：<code>permalink: /other</code>，你就能得到 URL <code>http://example.com/other</code>  
+  </p>
+</div>
