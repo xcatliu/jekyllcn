@@ -2,11 +2,11 @@
 layout: docs
 title: 资源
 permalink: /docs/assets/
-translators: [yzyzsun, LeuisKen]
+translators: [yzyzsun, LeuisKen, TimoTokki]
 hash: 5647b91
 ---
 
-Jekyll 提供了对 Sass 和 CoffeeScript 的内建支持。使用时只需创建以 `.sass`、`.scss` 或 `.coffee` 为扩展名的文件，并以两行 `---` 开头即可，例如：
+Jekyll 提供了对 Sass 的内建支持，还能通过安装相应的 Ruby gem 支持 CoffeeScript。使用时只需创建以 `.sass`、`.scss` 或 `.coffee` 为扩展名的文件，***并以两行 `---` 开头即可***，例如：
 
 {% highlight sass %}
 ---
@@ -58,3 +58,17 @@ sass:
 {% endhighlight %}
 
 这些设置将传递给 Sass，因此所有 Sass 支持的输出样式在这里都可以使用。
+
+## Coffeescript
+
+为了确保 Coffeescript 能在 Jekyll 3.0 使用，你必须：
+
+* 安装 `jekyll-coffeescript` gem
+* 确保你的 `_config.yml` 包含下列设置并更新（即重新 `jekyll serve`）：
+
+{% highlight yaml %}
+gems:
+ - jekyll-coffeescript
+{% endhighlight %}
+
+
