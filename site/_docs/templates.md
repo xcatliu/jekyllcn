@@ -364,7 +364,7 @@ Jekyll 要求所有被引用的文件放在根目录的 `_includes` 文件夹，
 
 ### 代码高亮
 
-Jekyll 已经支持超过 60 种语言的代码高亮显示，在此感谢 [Rouge](http://rouge.jneen.net)。Rouge 在 Jekyll 3 及以上版本是默认高亮脚本。若想在 Jekyll 2 中使用 Rouge，需要设置 `highlighter` 为 `pygments` 并确保 `rouge` gem 正确安装。
+Jekyll 已经支持超过 60 种语言的代码高亮显示，在此感谢 [Rouge](http://rouge.jneen.net)。Rouge 在 Jekyll 3 及以上版本是默认高亮脚本。若想在 Jekyll 2 中使用 Rouge，需要设置 `highlighter` 为 `rouge` 并确保 `rouge` gem 正确安装。
 
 另外，你也可以使用 [Pygments](http://pygments.org) 实现代码高亮。要使用 Pygments，你必须在你系统上安装 Python，安装 `pygment.rb` gem 并在配置文件中设置 `highlighter` 为 `pygments`。Pygments 支持超过 [一百种语言](http://pygments.org/languages/)。
 
