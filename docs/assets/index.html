@@ -18,7 +18,7 @@
 <meta property="og:url" content="http://jekyllcn.com/docs/assets/" />
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2016-04-24T22:36:16-07:00" />
+<meta property="article:published_time" content="2016-04-25T17:44:43-07:00" />
 <link rel="next" href="http://jekyllcn.com/docs/collections/" title="集合（Collections）" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@jekyllrb" />
@@ -27,7 +27,7 @@
     "@context": "http://schema.org",
     "@type": "BlogPosting",
     "headline": "资源",
-    "datePublished": "2016-04-24T22:36:16-07:00",
+    "datePublished": "2016-04-25T17:44:43-07:00",
     "description": "将纯文本转换为静态博客网站",
     "logo": "http://jekyllcn.comimg/logo-2x.png",
     "url": "http://jekyllcn.com/docs/assets/"
@@ -2536,7 +2536,7 @@
             <a href="https://github.com/xcatliu/jekyllcn/edit/master/site/_docs/assets.md"><i class="fa fa-pencil"></i> &nbsp;发现错误或贡献翻译</a>
           </div>
           <h1>资源</h1>
-          <p>Jekyll 提供了对 Sass 和 CoffeeScript 的内建支持。使用时只需创建以 <code>.sass</code>、<code>.scss</code> 或 <code>.coffee</code> 为扩展名的文件，并以两行 <code>---</code> 开头即可，例如：</p>
+          <p>Jekyll 提供了对 Sass 的内建支持，还能通过安装相应的 Ruby gem 支持 CoffeeScript。使用时只需创建以 <code>.sass</code>、<code>.scss</code> 或 <code>.coffee</code> 为扩展名的文件，<strong><em>并以两行 <code>---</code> 开头即可</em></strong>，例如：</p>
 
 <figure class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="nt">---</span>
 <span class="nt">---</span>
@@ -2581,6 +2581,19 @@
 
 <p>这些设置将传递给 Sass，因此所有 Sass 支持的输出样式在这里都可以使用。</p>
 
+<h2 id="coffeescript">Coffeescript</h2>
+
+<p>为了确保 Coffeescript 能在 Jekyll 3.0 使用，你必须：</p>
+
+<ul>
+  <li>安装 <code>jekyll-coffeescript</code> gem</li>
+  <li>确保你的 <code>_config.yml</code> 包含下列设置并更新（即重新 <code>jekyll serve</code>）：</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">gems</span><span class="p-Indicator">:</span>
+ <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">jekyll-coffeescript</span></code></pre></figure>
+
+
 
           <div class="jekyllcn-doc-footer">
             <p class="left"><a href="http://jekyllrb.com/docs/assets/">原文链接</a></p>
@@ -2593,6 +2606,10 @@
               
               <a href="https://github.com/LeuisKen" title="LeuisKen">
                 <img src="https://github.com/LeuisKen.png" class="avatar" alt="LeuisKen avatar" width="24" height="24">
+              </a>
+              
+              <a href="https://github.com/TimoTokki" title="TimoTokki">
+                <img src="https://github.com/TimoTokki.png" class="avatar" alt="TimoTokki avatar" width="24" height="24">
               </a>
               
             </p>

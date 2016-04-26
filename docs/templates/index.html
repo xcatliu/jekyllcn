@@ -18,7 +18,7 @@
 <meta property="og:url" content="http://jekyllcn.com/docs/templates/" />
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2016-04-24T22:36:16-07:00" />
+<meta property="article:published_time" content="2016-04-25T17:44:43-07:00" />
 <link rel="next" href="http://jekyllcn.com/docs/troubleshooting/" title="常见问题" />
 <link rel="prev" href="http://jekyllcn.com/docs/structure/" title="目录结构" />
 <meta name="twitter:card" content="summary" />
@@ -28,7 +28,7 @@
     "@context": "http://schema.org",
     "@type": "BlogPosting",
     "headline": "模板",
-    "datePublished": "2016-04-24T22:36:16-07:00",
+    "datePublished": "2016-04-25T17:44:43-07:00",
     "description": "将纯文本转换为静态博客网站",
     "logo": "http://jekyllcn.comimg/logo-2x.png",
     "url": "http://jekyllcn.com/docs/templates/"
@@ -2619,6 +2619,22 @@
     </tr>
     <tr>
       <td>
+        <p class="name"><strong>判断</strong></p>
+        <p>选取表达式正确的所有对象，返回一个数组。</p>
+      </td>
+      <td class="align-center">
+        <p>
+         <code class="filter">{{ site.members | where_exp:"item",
+"item.graduation_year == 2014" }}</code>
+         <code class="filter">{{ site.members | where_exp:"item",
+"item.graduation_year &lt; 2014" }}</code>
+         <code class="filter">{{ site.members | where_exp:"item",
+"item.projects contains 'foo'" }}</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <p class="name"><strong>分组</strong></p>
         <p>根据所给属性将对象分组，返回一个数组。</p>
       </td>
@@ -2729,7 +2745,7 @@
     </tr>
     <tr>
       <td>
-        <p class="name"><strong>slugify</strong></p>
+        <p class="name"><strong>Slugify</strong></p>
         <p>将字符串转换为小写字母 URL “slug”。详见下面的参数。</p>
       </td>
       <td class="align-center">
@@ -2775,13 +2791,60 @@
         </p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <p class="name"><strong>样本</strong></p>
+        <p>从数组中选取一个随意值。可选参数为：选取个数 </p>
+      </td>
+      <td class="align-center">
+        <p>
+         <code class="filter">{{ site.pages | sample }}</code>
+        </p>
+        <p>
+         <code class="filter">{{ site.pages | sample:2 }}</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="name"><strong>数组筛选</strong></p>
+        <p>从一个数组中 Push, pop, shift, and unshift 元素。</p>
+        <p>这些命令对原数组是<strong>无影响的</strong>。它们不会改变数组本身，而是创建副本后，对副本进行操作。</p>
+      </td>
+      <td class="align-center">
+        <p>
+          <code class="filter">{{ page.tags | push: 'Spokane' }}</code>
+        </p>
+        <p>
+          <code class="output">['Seattle', 'Tacoma', 'Spokane']</code>
+        </p>
+        <p>
+          <code class="filter">{{ page.tags | pop }}</code>
+        </p>
+        <p>
+          <code class="output">['Seattle']</code>
+        </p>
+        <p>
+          <code class="filter">{{ page.tags | shift }}</code>
+        </p>
+        <p>
+          <code class="output">['Tacoma']</code>
+        </p>
+        <p>
+          <code class="filter">{{ page.tags | unshift: "Olympia" }}</code>
+        </p>
+        <p>
+          <code class="output">['Olympia', 'Seattle', 'Tacoma']</code>
+        </p>
+      </td>
+    </tr>
   </tbody>
 </table>
 </div>
 
-<h3 id="slugify-"><code>slugify</code> 的可选参数</h3>
+<h3 id="slugify-"><code>Slugify</code> 的可选参数</h3>
 
-<p><code>slugify</code>接受一个参数，用来设定具体的过滤字符。默认值为<code>default</code>。可选参数如下（含过滤字符）：</p>
+<p><code>Slugify</code> 接受一个参数，用来设定具体的过滤字符。默认值为<code>default</code>。可选参数如下（含过滤字符）：</p>
 
 <ul>
   <li><code>none</code>：不过滤字符</li>
@@ -2827,9 +2890,9 @@
 
 <h3 id="section-3">代码高亮</h3>
 
-<p>Jekyll 已经支持<a href="http://pygments.org/languages/">超过 100 种语言</a>代码高亮显示，在此感谢 <a href="http://pygments.org/">Pygments</a>。要使用 Pygments ，你必须安装 Python 并且在配置文件中设置 <code>highlighter</code> 为 <code>pygments</code>。</p>
+<p>Jekyll 已经支持超过 60 种语言的代码高亮显示，在此感谢 <a href="http://rouge.jneen.net">Rouge</a>。Rouge 在 Jekyll 3 及以上版本是默认高亮脚本。若想在 Jekyll 2 中使用 Rouge，需要设置 <code>highlighter</code> 为 <code>rouge</code> 并确保 <code>rouge</code> gem 正确安装。</p>
 
-<p>另外，你也可以使用 Rouge 实现代码高亮。虽然它不像 Pygments 支持那么多语言，但也可以胜任大多数场景。而且，由于 Rouge 基于 Ruby ，你无须在系统中配置 Python 环境。</p>
+<p>另外，你也可以使用 <a href="http://pygments.org">Pygments</a> 实现代码高亮。要使用 Pygments，你必须在你系统上安装 Python，安装 <code>pygment.rb</code> gem 并在配置文件中设置 <code>highlighter</code> 为 <code>pygments</code>。Pygments 支持超过 <a href="http://pygments.org/languages/">一百种语言</a>。</p>
 
 <p>使用代码高亮的例子如下：</p>
 
@@ -2839,7 +2902,7 @@ def foo
 end
 {% endhighlight %}</code></pre></figure>
 
-<p><code>highlight</code> 的参数 (本例中的 <code>ruby</code>) 是识别所用语言。为了确定最适合你所用语言的高亮方式，你可以在 <a href="http://pygments.org/docs/lexers/">Pygments’ Lexers page</a> 和 <a href="https://github.com/jayferd/rouge/wiki/List-of-supported-languages-and-lexers">Rouge wiki</a> 寻找对应语言的 “short name”。</p>
+<p><code>highlight</code> 的参数 (本例中的 <code>ruby</code>) 是识别所用语言。为了确定最适合你所用语言的高亮方式，你可以在 <a href="https://github.com/jayferd/rouge/wiki/List-of-supported-languages-and-lexers">Rouge wiki</a> 和 <a href="http://pygments.org/docs/lexers/">Pygments’ Lexers page</a> 寻找对应语言的 “short name”。</p>
 
 <h4 id="section-4">行号</h4>
 
@@ -2855,7 +2918,7 @@ end
 
 <p>要使用代码高亮，你还需要包含一个样式表。例如 <a href="http://github.com/mojombo/tpw/tree/master/css/syntax.css">syntax.css</a> 。它包含了和 GitHub 一样的样式，并且免费。如果你使用了 <code>linenos</code> ，可能还需要在 <code>syntax.css</code> 加入 <code>.lineno</code> 样式。</p>
 
-<h3 id="post-url">博文链接(Post URL)</h3>
+<h3 id="post-url">博文链接（Post URL）</h3>
 
 <p>如果你想使用你某篇文章的链接，标签 <code>post_url</code> 可以满足你的需求。</p>
 
@@ -2881,6 +2944,7 @@ end
 
 <figure class="highlight"><pre><code class="language-text" data-lang="text">{% gist parkr/931c1c8d465a04042403 jekyll-private-gist.markdown %}</code></pre></figure>
 
+<p>为使用 <code>gist</code> 标签，你需要添加 <a href="https://github.com/jekyll/jekyll-gist">jekyll-gist</a> gem 到你的项目中。</p>
 
 
           <div class="jekyllcn-doc-footer">
@@ -2894,6 +2958,10 @@ end
               
               <a href="https://github.com/archersmind" title="archersmind">
                 <img src="https://github.com/archersmind.png" class="avatar" alt="archersmind avatar" width="24" height="24">
+              </a>
+              
+              <a href="https://github.com/TimoTokki" title="TimoTokki">
+                <img src="https://github.com/TimoTokki.png" class="avatar" alt="TimoTokki avatar" width="24" height="24">
               </a>
               
             </p>
