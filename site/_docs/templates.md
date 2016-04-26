@@ -2,7 +2,7 @@
 layout: docs
 title: 模板
 permalink: /docs/templates/
-translators: [debbbbie, archersmind]
+translators: [debbbbie, archersmind, TimoTokki]
 ---
 
 Jekyll 使用 [Liquid](http://wiki.shopify.com/Liquid) 模板语言，支持所有标准的 Liquid [标签](http://wiki.shopify.com/Logic)和[过滤器](http://wiki.shopify.com/Filters)。Jekyll 甚至增加了几个过滤器和标签，方便使用。
@@ -82,6 +82,22 @@ Jekyll 使用 [Liquid](http://wiki.shopify.com/Liquid) 模板语言，支持所�
       <td class='align-center'>
         <p>
          <code class='filter'>{% raw %}{{ site.members | where:"graduation_year","2014" }}{% endraw %}</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="name"><strong>判断</strong></p>
+        <p>选取表达式正确的所有对象，返回一个数组。</p>
+      </td>
+      <td class="align-center">
+        <p>
+         <code class="filter">{% raw %}{{ site.members | where_exp:"item",
+"item.graduation_year == 2014" }}{% endraw %}</code>
+         <code class="filter">{% raw %}{{ site.members | where_exp:"item",
+"item.graduation_year < 2014" }}{% endraw %}</code>
+         <code class="filter">{% raw %}{{ site.members | where_exp:"item",
+"item.projects contains 'foo'" }}{% endraw %}</code>
         </p>
       </td>
     </tr>
@@ -197,7 +213,7 @@ Jekyll 使用 [Liquid](http://wiki.shopify.com/Liquid) 模板语言，支持所�
     </tr>
     <tr>
       <td>
-        <p class='name'><strong>slugify</strong></p>
+        <p class='name'><strong>Slugify</strong></p>
         <p>将字符串转换为小写字母 URL “slug”。详见下面的参数。</p>
       </td>
       <td class='align-center'>
@@ -243,13 +259,60 @@ Jekyll 使用 [Liquid](http://wiki.shopify.com/Liquid) 模板语言，支持所�
         </p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <p class="name"><strong>样本</strong></p>
+        <p>从数组中选取一个随意值。可选参数为：选取个数 </p>
+      </td>
+      <td class="align-center">
+        <p>
+         <code class="filter">{% raw %}{{ site.pages | sample }}{% endraw %}</code>
+        </p>
+        <p>
+         <code class="filter">{% raw %}{{ site.pages | sample:2 }}{% endraw %}</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="name"><strong>数组筛选</strong></p>
+        <p>从一个数组中 Push, pop, shift, and unshift 元素。</p>
+        <p>这些命令对原数组是<strong>无影响的</strong>。它们不会改变数组本身，而是创建副本后，对副本进行操作。</p>
+      </td>
+      <td class="align-center">
+        <p>
+          <code class="filter">{% raw %}{{ page.tags | push: 'Spokane' }}{% endraw %}</code>
+        </p>
+        <p>
+          <code class="output">['Seattle', 'Tacoma', 'Spokane']</code>
+        </p>
+        <p>
+          <code class="filter">{% raw %}{{ page.tags | pop }}{% endraw %}</code>
+        </p>
+        <p>
+          <code class="output">['Seattle']</code>
+        </p>
+        <p>
+          <code class="filter">{% raw %}{{ page.tags | shift }}{% endraw %}</code>
+        </p>
+        <p>
+          <code class="output">['Tacoma']</code>
+        </p>
+        <p>
+          <code class="filter">{% raw %}{{ page.tags | unshift: "Olympia" }}{% endraw %}</code>
+        </p>
+        <p>
+          <code class="output">['Olympia', 'Seattle', 'Tacoma']</code>
+        </p>
+      </td>
+    </tr>
   </tbody>
 </table>
 </div>
 
-### `slugify` 的可选参数
+### `Slugify` 的可选参数
 
-`slugify`接受一个参数，用来设定具体的过滤字符。默认值为`default`。可选参数如下（含过滤字符）：
+`Slugify` 接受一个参数，用来设定具体的过滤字符。默认值为`default`。可选参数如下（含过滤字符）：
 
 - `none`：不过滤字符
 - `raw`：空格
@@ -301,9 +364,9 @@ Jekyll 要求所有被引用的文件放在根目录的 `_includes` 文件夹，
 
 ### 代码高亮
 
-Jekyll 已经支持[超过 100 种语言](http://pygments.org/languages/)代码高亮显示，在此感谢 [Pygments](http://pygments.org/)。要使用 Pygments ，你必须安装 Python 并且在配置文件中设置 `highlighter` 为 `pygments`。
+Jekyll 已经支持超过 60 种语言的代码高亮显示，在此感谢 [Rouge](http://rouge.jneen.net)。Rouge 在 Jekyll 3 及以上版本是默认高亮脚本。若想在 Jekyll 2 中使用 Rouge，需要设置 `highlighter` 为 `rouge` 并确保 `rouge` gem 正确安装。
 
-另外，你也可以使用 Rouge 实现代码高亮。虽然它不像 Pygments 支持那么多语言，但也可以胜任大多数场景。而且，由于 Rouge 基于 Ruby ，你无须在系统中配置 Python 环境。
+另外，你也可以使用 [Pygments](http://pygments.org) 实现代码高亮。要使用 Pygments，你必须在你系统上安装 Python，安装 `pygment.rb` gem 并在配置文件中设置 `highlighter` 为 `pygments`。Pygments 支持超过 [一百种语言](http://pygments.org/languages/)。
 
 使用代码高亮的例子如下：
 
@@ -317,7 +380,7 @@ end
 {% endraw %}
 {% endhighlight %}
 
-`highlight` 的参数 (本例中的 `ruby`) 是识别所用语言。为了确定最适合你所用语言的高亮方式，你可以在 [Pygments’ Lexers page](http://pygments.org/docs/lexers/) 和 [Rouge wiki](https://github.com/jayferd/rouge/wiki/List-of-supported-languages-and-lexers) 寻找对应语言的 “short name”。
+`highlight` 的参数 (本例中的 `ruby`) 是识别所用语言。为了确定最适合你所用语言的高亮方式，你可以在 [Rouge wiki](https://github.com/jayferd/rouge/wiki/List-of-supported-languages-and-lexers) 和 [Pygments’ Lexers page](http://pygments.org/docs/lexers/) 寻找对应语言的 “short name”。
 
 #### 行号
 
@@ -337,7 +400,7 @@ end
 
 要使用代码高亮，你还需要包含一个样式表。例如 [syntax.css](http://github.com/mojombo/tpw/tree/master/css/syntax.css) 。它包含了和 GitHub 一样的样式，并且免费。如果你使用了 `linenos` ，可能还需要在 `syntax.css` 加入 `.lineno` 样式。
 
-### 博文链接(Post URL)
+### 博文链接（Post URL）
 
 如果你想使用你某篇文章的链接，标签 `post_url` 可以满足你的需求。
 
@@ -382,3 +445,5 @@ end
 {% gist parkr/931c1c8d465a04042403 jekyll-private-gist.markdown %}
 {% endraw %}
 {% endhighlight %}
+
+为使用 `gist` 标签，你需要添加 [jekyll-gist](https://github.com/jekyll/jekyll-gist) gem 到你的项目中。
