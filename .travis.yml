@@ -1,4 +1,7 @@
 language: ruby
 rvm:
   - 2.2
-script: bundle exec rake site:publish
+install:
+  - gem install bundler
+script:
+  - bundle exec rake site:publish
