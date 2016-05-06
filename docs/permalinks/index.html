@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <!-- Begin Jekyll SEO tag v1.3.3 -->
+  <!-- Begin Jekyll SEO tag v1.4.0 -->
 <title>永久链接 - Jekyll • 简单静态博客网站生成器</title>
 <meta property="og:title" content="永久链接" />
 <meta name="description" content="将纯文本转换为静态博客网站" />
@@ -18,7 +18,7 @@
 <meta property="og:url" content="http://jekyllcn.com/docs/permalinks/" />
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2016-04-25T17:44:43-07:00" />
+<meta property="article:published_time" content="2016-05-05T23:17:20-07:00" />
 <link rel="next" href="http://jekyllcn.com/docs/plugins/" title="插件" />
 <link rel="prev" href="http://jekyllcn.com/docs/pagination/" title="分页功能" />
 <meta name="twitter:card" content="summary" />
@@ -28,7 +28,7 @@
     "@context": "http://schema.org",
     "@type": "BlogPosting",
     "headline": "永久链接",
-    "datePublished": "2016-04-25T17:44:43-07:00",
+    "datePublished": "2016-05-05T23:17:20-07:00",
     "description": "将纯文本转换为静态博客网站",
     "logo": "http://jekyllcn.comimg/logo-2x.png",
     "url": "http://jekyllcn.com/docs/permalinks/"
@@ -2557,7 +2557,7 @@
         <p><code>year</code></p>
       </td>
       <td>
-        <p>文章所在文件的年份</p>
+        <p>文章文件名中的年份，格式如 `2013`</p>
       </td>
     </tr>
     <tr>
@@ -2565,7 +2565,7 @@
         <p><code>month</code></p>
       </td>
       <td>
-        <p>文章所在文件的月份，格式如 `01, 10` </p>
+        <p>文章文件名中的月份，格式如 `01`</p>
       </td>
     </tr>
     <tr>
@@ -2573,7 +2573,7 @@
         <p><code>i_month</code></p>
       </td>
       <td>
-        <p>文章所在文件的月份，格式如 `1, 10` </p>
+        <p>文章文件名中的月份，不包含首位的零，格式如 `1`</p>
       </td>
     </tr>
     <tr>
@@ -2581,7 +2581,7 @@
         <p><code>day</code></p>
       </td>
       <td>
-        <p>文章所在文件的日期，格式如 `01, 20`</p>
+        <p>文章文件名中的日期，格式如 `08`</p>
       </td>
     </tr>
     <tr>
@@ -2589,7 +2589,46 @@
         <p><code>i_day</code></p>
       </td>
       <td>
-        <p>文章所在文件的日期，格式如 `1, 20`</p>
+        <p>文章文件名中的日期，不包含首位的零，格式如 `8`</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>short_year</code></p>
+      </td>
+      <td>
+        <p>文章文件名中的年份，后两位，格式如 `13`</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>hour</code></p>
+      </td>
+      <td>
+        <p>
+          时钟，24 小时制，日期以文章的头信息中的 <code>date</code> 为基准。（00..23）
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>minute</code></p>
+      </td>
+      <td>
+        <p>
+          当前时钟内的分钟，日期以文章的头信息中的 <code>date</code> 为基准。（00..59）
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>second</code></p>
+      </td>
+      <td>
+        <p>
+          当前分钟内的秒钟，日期以文章的头信息中的 <code>date</code> 为基准。（00..59）
+        </p>
+        &lt;/p&gt;
       </td>
     </tr>
     <tr>
@@ -2597,7 +2636,17 @@
         <p><code>title</code></p>
       </td>
       <td>
-        <p>文章所在文件的标题</p>
+        <p>由文件的文件名中确定的标题，可以被文件头信息中的 <code>slug</code> 覆盖。</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>slug</code></p>
+      </td>
+      <td>
+        <p>
+            由文件的文件名中确定的　Slugified title（除数字和字母之外的字符们会被取代为连字符），可以被文件头信息中的 <code>slug</code> 覆盖。
+        </p>
       </td>
     </tr>
     <tr>
@@ -2606,7 +2655,7 @@
       </td>
       <td>
         <p>
-          为文章配置的目录，Jekyll 可以自动将 `//` 转换为 `/` ，所以如果没有目录，会自动忽略
+          文章类型。如果一篇文章有多个类型，Jekyll 会创建一个目录（例如，<code>/category1/category2</code>）。Jekyll 也可以自动解析 URLs 中的双斜线 `//`，所以如果当前文章没有设定类型，则忽略该项。
         </p>
       </td>
     </tr>
@@ -2614,13 +2663,15 @@
 </table>
 </div>
 
-<h2 id="section-1">已经建好的链接类型</h2>
+<h2 id="section-1">内建永久链接类型</h2>
+
+<p>当你能够通过 <a href="#template-variables">template variables</a> 来指定一个自定义永久链接时，方便起见，Jekyll 还提供了下列的内建类型。</p>
 
 <div class="mobile-side-scroller">
 <table>
   <thead>
     <tr>
-      <th>链接类型</th>
+      <th>永久链接类型</th>
       <th> URL 模板</th>
     </tr>
   </thead>
@@ -2643,6 +2694,14 @@
     </tr>
     <tr>
       <td>
+        <p><code>ordinal</code></p>
+      </td>
+      <td>
+        <p><code>/:categories/:year/:y_day/:title.html</code></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <p><code>none</code></p>
       </td>
       <td>
@@ -2653,7 +2712,17 @@
 </table>
 </div>
 
-<h2 id="section-2">举例</h2>
+<h2 id="pages-collections">页面（Pages） 和集合（collections）</h2>
+
+<p><code>permalink</code> 配置用来指定博客的永久链接模板。页面和集合同样有它们自己的默认永久链接模板；页面的默认模板是 <code>/:path/:basename</code>，集合的默认模板是 /:collection/:path`。</p>
+
+<p>这些样式被修改用来匹配在文章永久链接设置里的后缀式。例如，含有反斜杠 <code>/</code> 的永久链接模板 <code>pretty</code> 会更新页面的永久链接，使其同样包含一个反斜杠：
+<code>/:path/:basename/</code>。含有文件扩展名的永久链接模板 <code>date</code> 会更新页面的永久链接，使其同样包含文件扩展名：
+<code>/:path/:basename:output_ext</code>。这对任意自定义永久链接模板同样适用。</p>
+
+<p>单独页面或集合文件的永久链接总能够在页面或者文件的<a href="../frontmatter/">头信息</a>里重写覆盖。另外，给定的集合的永久链接能在<a href="../collections/">集合配置</a>中自定义设置。</p>
+
+<h2 id="section-2">永久链接模板举例</h2>
 
 <p>比如文件名： <code>/2009-04-29-slap-chop.textile</code></p>
 
@@ -2661,8 +2730,8 @@
 <table>
   <thead>
     <tr>
-      <th>设置</th>
-      <th>对应的 URL </th>
+      <th>URL 模板</th>
+      <th>对应的永久链接 URL </th>
     </tr>
   </thead>
   <tbody>
@@ -2676,15 +2745,15 @@
     </tr>
     <tr>
       <td>
-        <p><code>permalink: pretty</code></p>
+        <p><code>pretty</code></p>
       </td>
       <td>
-        <p><code>/2009/04/29/slap-chop/index.html</code></p>
+        <p><code>/2009/04/29/slap-chop/</code></p>
       </td>
     </tr>
     <tr>
       <td>
-        <p><code>permalink: /:month-:day-:year/:title.html</code></p>
+        <p><code>/:month-:day-:year/:title.html</code></p>
       </td>
       <td>
         <p><code>/04-29-2009/slap-chop.html</code></p>
@@ -2692,15 +2761,43 @@
     </tr>
     <tr>
       <td>
-        <p><code>permalink: /blog/:year/:month/:day/:title</code></p>
+        <p><code>/blog/:year/:month/:day/:title</code></p>
       </td>
       <td>
         <p><code>/blog/2009/04/29/slap-chop/index.html</code></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <p><code>/:year/:month/:title</code></p>
+        <p>具体细节见于 <a href="#extensionless-permalinks">无扩展名链接（Extensionless permalinks）</a>。</p>
+      </td>
+      <td>
+        <p><code>/2009/04/slap-chop</code></p>
+      </td>
+    </tr>
   </tbody>
 </table>
 </div>
+
+<h2 id="extensionless-permalinks">无扩展名永久链接（Extensionless permalinks）</h2>
+
+<p>Jekyll 支持即不包含反斜杠也不包含文件扩展名的永久链接，但这需要网络服务端的额外支持才能正常工作。当使用无扩展名永久链接时，写到硬盘上的输出文件依然会保留正确的文件扩展名（典型的比如，<code>.html</code>），所以网络服务端必须能够 map 那些没有文件扩展名的文件的请求。</p>
+
+<p>无论 <a href="../github-pages/">GitHub Pages</a> 还是 Jekyll 内置的 WEBrick server 都能够正确处理这些请求，不需要任何额外工作。</p>
+
+<h3 id="apache">Apache</h3>
+
+<p>Apache 网络服务端对内容协商（content negotiation）有着非常广泛的支持，而且能够通过在你的 <code>httpd.conf</code> 或者 <code>.htaccess</code> 文件中设置 <a href="https://httpd.apache.org/docs/current/content-negotiation.html#multiviews">multiviews</a> 选项来处理无扩展名的 URLs：</p>
+
+<figure class="highlight"><pre><code class="language-apache" data-lang="apache"><span class="nb">Options</span> +MultiViews</code></pre></figure>
+
+<h3 id="nginx">Nginx</h3>
+
+<p><a href="http://nginx.org/en/docs/http/ngx_http_core_module.html#try_files">try_files</a> 指令允许你指定一个文件列表搜索，用来处理请求。如果请求的 URL 的精确匹配未找到的的话，下列配置会让 nginx 搜索含有 <code>.html</code> 扩展名的文件。</p>
+
+<figure class="highlight"><pre><code class="language-nginx" data-lang="nginx"><span class="k">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri.html</span> <span class="nv">$uri/</span> <span class="p">=</span><span class="mi">404</span><span class="p">;</span></code></pre></figure>
+
 
 
           <div class="jekyllcn-doc-footer">
@@ -2710,6 +2807,10 @@
               
               <a href="https://github.com/debbbbie" title="debbbbie">
                 <img src="https://github.com/debbbbie.png" class="avatar" alt="debbbbie avatar" width="24" height="24">
+              </a>
+              
+              <a href="https://github.com/TimoTokki" title="TimoTokki">
+                <img src="https://github.com/TimoTokki.png" class="avatar" alt="TimoTokki avatar" width="24" height="24">
               </a>
               
             </p>
