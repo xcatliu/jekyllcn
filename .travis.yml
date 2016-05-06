@@ -1,9 +1,11 @@
 language: ruby
 rvm:
-- 2.2
+  - 2.2
 before_install:
-- openssl aes-256-cbc -K $encrypted_4fddfda5b09c_key -iv $encrypted_4fddfda5b09c_iv
-  -in deploy_key.enc -out deploy_key -d
-- gem install bundler
+  - openssl aes-256-cbc -K $encrypted_4fddfda5b09c_key -iv $encrypted_4fddfda5b09c_iv -in deploy_key.enc -out deploy_key -d
+  - gem install bundler
+  - chmod 600 deploy_key
+  - mv deploy_key ~/.ssh/id_rsa
 script:
-- bundle exec rake site:publish
+  - bundle exec rake site:publish
+
