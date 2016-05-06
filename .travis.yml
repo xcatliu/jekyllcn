@@ -6,6 +6,8 @@ before_install:
   - gem install bundler
   - chmod 600 deploy_key
   - mv deploy_key ~/.ssh/id_rsa
+  - git config --global user.email "xcatliu@gmail.com"
+  - git config --global user.name "xcatliu"
 script:
   - bundle exec rake site:publish
 
