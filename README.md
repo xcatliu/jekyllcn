@@ -1,6 +1,8 @@
 JekyllCN
 ========
 
+[![Build Status](https://travis-ci.org/xcatliu/jekyllcn.svg?branch=master)](https://travis-ci.org/xcatliu/jekyllcn)
+
 网址：[http://jekyllcn.com/](http://jekyllcn.com/)
 
 Forked from [Jekyll](https://github.com/jekyll/jekyll).
