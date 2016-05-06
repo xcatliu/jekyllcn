@@ -1,6 +1,6 @@
 # 中国用户使用 taobao 源比较快
-source 'https://ruby.taobao.org'
-# source "https://rubygems.org"
+# source 'https://ruby.taobao.org'
+source "https://rubygems.org"
 gemspec :name => "jekyll"
 
 gem "rake", "~> 11.0"
