@@ -35,11 +35,11 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 
 ## 如何发布到 jekyllcn.com
 
-1. 执行 `bundle exec rake site:publish`
+使用 Travis CI 自动发布：https://travis-ci.org/xcatliu/jekyllcn
 
 ## 项目进度
 
-总体进度：57 / 76 = 75%
+总体进度：60 / 77 = 78%
 
 ### 翻译进度
 
@@ -87,8 +87,6 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 - [ ] 更新 static-files
 - [ ] 更新 datafiles
 - [ ] 更新 migrations
-- [ ] 更新 permalinks
-- [ ] 更新 pagination
 - [ ] 更新 plugins
 - [ ] 更新 extras
 - [ ] 更新 github-pages
@@ -114,6 +112,8 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 - [x] 更新 assets (2016-04-26)
 - [x] 更新 templates (2016-04-26)
 - [x] 更新 variables (2016-04-26)
+- [x] 更新 permalinks (2016-05-04)
+- [x] 更新 pagination (2016-05-04)
 
 ### 基础建设
 
@@ -135,3 +135,4 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 - [x] 在 header 中加入贡献翻译链接
 - [x] 每篇文档加上翻译贡献者
 - [x] 在 header 中底色代表项目进度
+- [x] 使用 Travis CI 自动发布
