@@ -10,15 +10,15 @@
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <!-- Begin Jekyll SEO tag v1.4.0 -->
-<title>Upgrading from 0.x to 2.x - Jekyll • 简单静态博客网站生成器</title>
-<meta property="og:title" content="Upgrading from 0.x to 2.x" />
+<title>从 0.x 升级到 2.x 版本 - Jekyll • 简单静态博客网站生成器</title>
+<meta property="og:title" content="从 0.x 升级到 2.x 版本" />
 <meta name="description" content="将纯文本转换为静态博客网站" />
 <meta property="og:description" content="将纯文本转换为静态博客网站" />
 <link rel="canonical" href="http://jekyllcn.com/docs/upgrading/0-to-2/" />
 <meta property="og:url" content="http://jekyllcn.com/docs/upgrading/0-to-2/" />
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2016-05-05T23:28:16-07:00" />
+<meta property="article:published_time" content="2016-05-09T05:16:25-07:00" />
 <link rel="next" href="http://jekyllcn.com/docs/upgrading/2-to-3/" title="Upgrading from 2.x to 3.x" />
 <link rel="prev" href="http://jekyllcn.com/docs/upgrading/" title="升级" />
 <meta name="twitter:card" content="summary" />
@@ -27,8 +27,8 @@
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "Upgrading from 0.x to 2.x",
-    "datePublished": "2016-05-05T23:28:16-07:00",
+    "headline": "从 0.x 升级到 2.x 版本",
+    "datePublished": "2016-05-09T05:16:25-07:00",
     "description": "将纯文本转换为静态博客网站",
     "logo": "http://jekyllcn.comimg/logo-2x.png",
     "url": "http://jekyllcn.com/docs/upgrading/0-to-2/"
@@ -2209,7 +2209,7 @@
     
   
     
-      <option value="http://jekyllcn.com/docs/upgrading/0-to-2/">Upgrading from 0.x to 2.x</option>
+      <option value="http://jekyllcn.com/docs/upgrading/0-to-2/">从 0.x 升级到 2.x 版本</option>
     
   
     
@@ -2536,107 +2536,93 @@
           <div class="improve right hide-on-mobiles">
             <a href="https://github.com/xcatliu/jekyllcn/edit/master/site/_docs/upgrading/0-to-2.md"><i class="fa fa-pencil"></i> &nbsp;发现错误或贡献翻译</a>
           </div>
-          <h1>Upgrading from 0.x to 2.x</h1>
-          <p>Upgrading from an older version of Jekyll? A few things have changed in 1.0
-and 2.0 that you’ll want to know about.</p>
+          <h1>从 0.x 升级到 2.x 版本</h1>
+          <p>如果您打算升级一个早先版本的 Jekyll，那么一些发生在 1.0 及 2.0 版本中的相关变化，您需要首先了解下。</p>
 
-<p>Before we dive in, go ahead and fetch the latest version of Jekyll:</p>
+<p>在我们开始动手之前，请先获取最新版本的 Jekyll：</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>gem update jekyll</code></pre></figure>
 
 <div class="note feature">
-  <h5>Diving in</h5>
-  <p>Want to get a new Jekyll site up and running quickly? Simply
-   run <code>jekyll new SITENAME</code> to create a new folder with a bare bones
-   Jekyll site.</p>
+  <h5>立即开始</h5>
+  <p>想快速构建并运行一个全新的 Jekyll 站点吗？那么只要执行
+   <code>jekyll new SITENAME</code> 即可！该命令会创建一个包含了 Jekyll
+   最基础框架的文件夹。</p>
 </div>
 
-<h3 id="the-jekyll-command">The Jekyll Command</h3>
+<h3 id="jekyll-">Jekyll 命令行</h3>
 
-<p>For better clarity, Jekyll now accepts the commands <code>build</code> and <code>serve</code>.
-Whereas before you might simply run the command <code>jekyll</code> to generate a site
-and <code>jekyll --server</code> to view it locally, in v2.0 (and later) you should
-use the subcommands <code>jekyll build</code> and <code>jekyll serve</code> to build and preview
-your site.</p>
+<p>为提升可读性, Jekyll 现已支持 <code>build</code> 和 <code>serve</code> 命令。在此之前，您可能通过执行 <code>jekyll</code> 来生成一个站点，并使用 <code>jekyll --server</code> 进行本地预览。
+在 v2.0（及之后的版本）中请您使用 <code>jekyll build</code> 和 <code>jekyll serve</code> 命令来创建并预览您的站点。</p>
 
 <div class="note info">
-  <h5>Watching and Serving</h5>
-  <p>With the new subcommands, the way sites are previewed locally
-   changed a bit. Instead of specifying <code>server: true</code> in the site’s
-   configuration file, use <code>jekyll serve</code>. The same holds true for
-   <code>watch: true</code>. Instead, use the <code>--watch</code> flag with either <code>jekyll serve</code>
-    or <code>jekyll build</code>.</p>
+  <h5>运行并浏览</h5>
+  <p>由于全新的命令行，您在本地预览站点的方式将发生些小小的变化。
+    目前站点配置文件中已使用 <code>jekyll serve</code> 来取代早先的<code>server: true</code>。
+    类似的也针对于 <code>watch: true</code>。取而代之地，请结合 <code>jekyll serve</code> 或 <code>jekyll build</code>
+    使用 <code>--watch</code> 标识。</p>
 </div>
 
-<h3 id="absolute-permalinks">Absolute Permalinks</h3>
+<h3 id="section">绝对永久链接</h3>
 
-<p>In Jekyll v1.0, we introduced absolute permalinks for pages in
-subdirectories. Starting with v2.0, absolute permalinks are opt-out,
-meaning Jekyll will default to using absolute permalinks instead of
-relative permalinks. Relative permalink backwards-compatibility was removed in v3.0.</p>
+<p>在 Jekyll v1.0 中，我们对于子目录下的页面推出了绝对永久链接。而从 v2.0 开始，
+绝对永久链接的选项将会不再可用。这便意味着 Jekyll 将默认使用绝对永久链接来取代相对永久链接。相对永久链接的向后兼容性也会在 v3.0 中被移除。</p>
 
 <div class="note warning" id="absolute-permalinks-warning">
-  <h5>Absolute permalinks will be required in v3.0 and on</h5>
+  <h5>在 v3.0 中将使用绝对永久链接</h5>
   <p>
-    Starting with Jekyll v3.0, relative permalinks functionality will be removed and thus unavailable for use.
+    从 Jekyll v3.0 起, 相对永久链接的功能将会被移除。因此它将不再可用。
   </p>
 </div>
 
-<h3 id="draft-posts">Draft Posts</h3>
+<h3 id="section-1">草稿文章</h3>
 
-<p>Jekyll now lets you write draft posts, and allows you to easily preview how
-they will look prior to publishing. To start a draft, simply create a folder
-called <code>_drafts</code> in your site’s source directory (e.g., alongside <code>_posts</code>),
-and add a new markdown file to it. To preview your new post, simply run the
-<code>jekyll serve</code> command with the <code>--drafts</code> flag.</p>
+<p>Jekyll 现在支持使用草稿。且能让您更佳方便地在发布前预览它们。
+若需要使用草稿, 只需要在您的站点资源目录下建立一个名为 <code>_drafts</code> 的文件夹（例如就在 <code>_posts</code> 文件夹旁），
+同时加入一个新的 markdown 文件。
+若想预览您的草稿文章, 只要执行 <code>jekyll serve</code> 并带上 <code>--drafts</code> 即可。</p>
 
 <div class="note info">
-  <h5>Drafts don’t have dates</h5>
+  <h5>草稿不具备日期</h5>
   <p>
-    Unlike posts, drafts don’t have a date, since they haven’t
-    been published yet. Rather than naming your draft something like
-    <code>2013-07-01-my-draft-post.md</code>, simply name the file what you’d like your
-    post to eventually be titled, here <code>my-draft-post.md</code>.</p>
+    不像一般您撰写的文章，草稿并不具备日期，这是因为它们仍未被发布。
+    因此，与其将您的草稿命名为 <code>2013-07-01-my-draft-post.md</code> 这样的形式，
+    不如简单地命名成 <code>my-draft-post.md</code> 便可。</p>
 </div>
 
-<h3 id="custom-config-file">Custom Config File</h3>
+<h3 id="section-2">自定义配置文件</h3>
 
-<p>Rather than passing individual flags via the command line, you can now pass
-an entire custom Jekyll config file. This helps to distinguish between
-environments, or lets you programmatically override user-specified
-defaults. Simply add the <code>--config</code> flag to the <code>jekyll</code> command, followed
-by the path to one or more config files (comma-delimited, no spaces).</p>
+<p>在过去您可能需要通过命令行传递一个个独立的标识选项，而现在您能通过传递一整个配置文件来配置 Jekyll。
+这将帮助您在不同的环境及场景中进行区分，也让您更编程性地覆盖用户指定的默认值。
+您只要在 <code>jekyll</code> 命令后添加 <code>--config</code> 标识，然后紧跟一个或多个配置文件的路径即可（用没有空格的逗号隔开）。</p>
 
-<h4 id="as-a-result-the-following-command-line-flags-are-now-deprecated">As a result, the following command line flags are now deprecated:</h4>
+<h4 id="section-3">因此, 以下的命令行标识现已弃用:</h4>
 
 <ul>
   <li><code>--no-server</code></li>
-  <li><code>--no-auto</code> (now <code>--no-watch</code>)</li>
-  <li><code>--auto</code> (now <code>--watch</code>)</li>
+  <li><code>--no-auto</code> (现为 <code>--no-watch</code>)</li>
+  <li><code>--auto</code> (现为 <code>--watch</code>)</li>
   <li><code>--server</code></li>
   <li><code>--url=</code></li>
-  <li><code>--maruku</code>, <code>--rdiscount</code>, and <code>--redcarpet</code></li>
+  <li><code>--maruku</code>, <code>--rdiscount</code>, 及 <code>--redcarpet</code></li>
   <li><code>--pygments</code></li>
   <li><code>--permalink=</code></li>
   <li><code>--paginate</code></li>
 </ul>
 
 <div class="note info">
-  <h5>The config flag explicitly specifies your configuration file(s)</h5>
-  <p>If you use the <code>--config</code> flag, Jekyll will ignore your
-    <code>_config.yml</code> file. Want to merge a custom configuration with the normal
-    configuration? No problem. Jekyll will accept more than one custom config
-    file via the command line. Config files cascade from right to left, such
-    that if I run <code>jekyll serve --config _config.yml,_config-dev.yml</code>,
-    the values in the config files on the right (<code>_config-dev.yml</code>) overwrite
-    those on the left (<code>_config.yml</code>) when both contain the same key.</p>
+  <h5>配置标识会明确说明你的配置文件</h5>
+  <p>若您正使用 <code>--config</code> 标识，Jekyll 将会忽略您的 <code>_config.yml</code> 文件。
+  那么您是否希望自定义的配置文件能与常规的配置文件一起使用呢？没问题！通过命令行，
+  Jekyll 能同时支持多个配置文件。 配置文件将以从右到左的瀑布流分布，例如执行
+  <code>jekyll serve --config _config.yml,_config-dev.yml</code>，那么位居右侧的配置文件的变量 (<code>_config-dev.yml</code>)
+  将会覆盖左侧 (<code>_config.yml</code>) 文件中两者同时包含的配置选项.</p>
 </div>
 
-<h3 id="new-config-file-options">New Config File Options</h3>
+<h3 id="section-4">全新的配置文件选项</h3>
 
-<p>Jekyll 1.0 introduced several new config file options. Before you upgrade,
-you should check to see if any of these are present in your pre-1.0 config
-file, and if so, make sure that you’re using them properly:</p>
+<p>在 1.0 版本中，Jekyll 推出了几个全新的配置文件选项。在您升级之前,
+您应该仔细检查您的配置文件是否存在以下配置选项。若存在，请确保它们能正常使用:</p>
 
 <ul>
   <li><code>excerpt_separator</code></li>
@@ -2651,26 +2637,20 @@ file, and if so, make sure that you’re using them properly:</p>
 
 <h3 id="baseurl">Baseurl</h3>
 
-<p>Often, you’ll want the ability to run a Jekyll site in multiple places,
-such as previewing locally before pushing to GitHub Pages. Jekyll 1.0 makes
-that easier with the new <code>--baseurl</code> flag. To take advantage of this
-feature, first add the production <code>baseurl</code> to your site’s <code>_config.yml</code>
-file. Then, throughout the site, simply prefix relative URLs
-with <code>{{ site.baseurl }}</code>.
-When you’re ready to preview your site locally, pass along the <code>--baseurl</code>
-flag with your local baseurl (most likely <code>/</code>) to <code>jekyll serve</code> and Jekyll
-will swap in whatever you’ve passed along, ensuring all your links work as
-you’d expect in both environments.</p>
+<p>通常你会喜欢在多个场景中共同管理同一个 Jekyll 站点。例如您会在将文章发布到 Github Pages 之前，
+先在本地进行预览。 Jekyll 1.0 通过 <code>--baseurl</code> 标识让这一切变得更加简单。
+若想利用这一特性，只需先将 <code>baseurl</code> 添加到您站点的 <code>_config.yml</code> 文件中。然后在全站范围内，
+通过 <code>{{ site.baseurl }}</code> 简单修正下您的相对 URL 即可。当您准备在本地预览您的站点时，
+请使用 <code>jekyll serve</code> 并带上 <code>--baseurl</code> 和您的本地 baseurl （一般是 <code>/</code>）。Jekyll 将会修改您的链接,
+并确保您的所有链接在不同环境中都正常工作。</p>
 
 <div class="note warning">
-  <h5>All page and post URLs contain leading slashes</h5>
-  <p>If you use the method described above, please remember
-  that the URLs for all posts and pages contain a leading slash. Therefore,
-  concatenating the site baseurl and the post/page url where
-  <code>site.baseurl = /</code> and <code>post.url = /2013/06/05/my-fun-post/</code> will
-  result in two leading slashes, which will break links. It is thus
-  suggested that prefixing with <code>site.baseurl</code> only be used when the
-  <code>baseurl</code> is something other than the default of <code>/</code>.</p>
+  <h5>所有页面和文章的 URL 都将包含有前置斜杠</h5>
+  <p>如果您使用上述的方法进行操作, 那请注意所有页面及文章的 URL
+  都将包含有前置斜杠。如此一来，所有链接到站点的 baseurl 如 <code>site.baseurl = /</code>，
+  以及文章或页面的 url 如 <code>post.url = /2013/06/05/my-fun-post/</code>，
+  就将产生两个前置斜杠。这将会导致链接失效！因此建议，只有当 <code>baseurl</code> 不是默认的 <code>/</code> 时，
+  才对 <code>site.baseurl</code> 进行修改。</p>
 </div>
 
 
@@ -2678,6 +2658,10 @@ you’d expect in both environments.</p>
             <p class="left"><a href="http://jekyllrb.com/docs/upgrading/0-to-2/">原文链接</a></p>
             <p class="right">
               翻译贡献者：
+              
+              <a href="https://github.com/AlanTanis" title="AlanTanis">
+                <img src="https://github.com/AlanTanis.png" class="avatar" alt="AlanTanis avatar" width="24" height="24">
+              </a>
               
             </p>
             <div class="clear"></div>
@@ -3054,7 +3038,7 @@ you’d expect in both environments.</p>
   
 
   
-  <li class="current"><a href="http://jekyllcn.com/docs/upgrading/0-to-2/">Upgrading from 0.x to 2.x</a></li>
+  <li class="current"><a href="http://jekyllcn.com/docs/upgrading/0-to-2/">从 0.x 升级到 2.x 版本</a></li>
 
 
   
