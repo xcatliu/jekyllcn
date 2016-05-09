@@ -2,7 +2,7 @@
 layout: docs
 title: 附加功能
 permalink: /docs/extras/
-translators: [ikenbe,AlanTanis]
+translators: [ikenbe, AlanTanis]
 hash: 5647b91
 ---
 
