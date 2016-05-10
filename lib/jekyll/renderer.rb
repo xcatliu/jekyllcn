@@ -52,7 +52,6 @@ module Jekyll
       document.trigger_hooks(:pre_render, payload)
 
       info = {
-        :filters   => [Jekyll::Filters],
         :registers => { :site => site, :page => payload['page'] }
       }
 
@@ -146,7 +145,7 @@ module Jekyll
           layout.content,
           payload,
           info,
-          File.join(site.config['layouts_dir'], layout.name)
+          layout.relative_path
         )
 
         # Add layout to dependency tree
