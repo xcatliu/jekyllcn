@@ -39,14 +39,13 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 
 ## 项目进度
 
-总体进度：65 / 79 = 82%
+总体进度：66 / 79 = 84%
 
 ### 翻译进度
 
 #### 未翻译
 
 - [ ] 翻译 upgrading/2-to-3
-- [ ] 翻译 Theme
 
 #### 已翻译
 
@@ -78,6 +77,7 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 - [x] 翻译 sites
 - [x] 翻译 resources
 - [x] 翻译 upgrading/0-to-2
+- [x] 翻译 Theme
 
 ### 更新进度
 
