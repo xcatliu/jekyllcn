@@ -10,4 +10,3 @@ before_install:
   - git config --global user.name "xcatliu"
 script:
   - bundle exec rake site:publish
-

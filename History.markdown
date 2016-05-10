@@ -20,6 +20,10 @@
   * Add `:after_init` hook & add `Site#config=` to make resetting config easy (#4703)
   * DocumentDrop: add `#<=>` which sorts by date (falling back to path) (#4741)
   * Add a where_exp filter for filtering by expression (#4478)
+  * Globalize Jekyll's Filters. (#4792)
+  * Gem-based themes (#4595)
+  * Allow symlinks if they point to stuff inside site.source (#4710)
+  * Update colorator dependency to v1.x (#4855)
 
 ### Bug Fixes
 
@@ -33,6 +37,9 @@
   * Cleaner: `keep_files` should only apply to the beginning of paths, not substrings with index > 0 (#3849)
   * Use SSLEnable instead of EnableSSL and make URL HTTPS. (#4693)
   * convertible: use Document::YAML_FRONT_MATTER_REGEXP to parse transformable files (#4786)
+  * Example in the site template should be IANA-approved example.com (#4793)
+  * 3.2.x/master: Fix defaults for Documents (posts/collection docs) (#4808)
+  * Don't rescue LoadError or bundler load errors for Bundler. (#4857)
 
 ### Development Fixes
 
@@ -76,6 +83,10 @@
   * Added an explicit rerun note to configuration.md, defaults section (#4734)
   * Update Rack-Jekyll Heroku deployment blog post url (#4789)
   * Added missing single quote on rsync client side command (#4813)
+  * Organize Form Platforms-as-a-Service into unified list & add FormSpree.io (#4754)
+  * Fixed typo on Configuration page (#4804)
+  * Update FormKeep URL on the Resources doc (#4844)
+  * site: use liquid & reduce some whitespace noise (#4854)
 
 ## 3.1.3 / 2016-04-18
 
@@ -228,6 +239,10 @@
   * Added the Wordpress2Jekyll Wordpress plugin (#4377)
   * Add Contentful Extension to list of third-party plugins (#4390)
   * Correct Minor spelling error (#4394)
+
+## 3.0.5 / 2016-04-26
+
+  * Remove call to `#backwards_compatibilize` in `Configuration.from` (#4846)
 
 ## 3.0.4 / 2016-04-18
 

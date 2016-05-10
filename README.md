@@ -39,14 +39,14 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 
 ## 项目进度
 
-总体进度：60 / 77 = 78%
+总体进度：63 / 79 = 80%
 
 ### 翻译进度
 
 #### 未翻译
 
-- [ ] 翻译 upgrading/0-to-2
 - [ ] 翻译 upgrading/2-to-3
+- [ ] 翻译 Theme
 
 #### 已翻译
 
@@ -77,6 +77,7 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 - [x] 翻译 troubleshooting
 - [x] 翻译 sites
 - [x] 翻译 resources
+- [x] 翻译 upgrading/0-to-2
 
 ### 更新进度
 
@@ -88,15 +89,14 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 - [ ] 更新 datafiles
 - [ ] 更新 migrations
 - [ ] 更新 plugins
-- [ ] 更新 extras
 - [ ] 更新 github-pages
 - [ ] 更新 deployment-methods
 - [ ] 更新 continuous-integration
 - [ ] 更新 troubleshooting
 - [ ] 更新 sites
 - [ ] 更新 resources
-- [ ] 更新 upgrading/0-to-2
 - [ ] 更新 upgrading/2-to-3
+- [ ] 更新 Theme
 
 #### 已更新
 
@@ -114,11 +114,13 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 - [x] 更新 variables (2016-04-26)
 - [x] 更新 permalinks (2016-05-04)
 - [x] 更新 pagination (2016-05-04)
+- [x] 更新 upgrading/0-to-2 (2016-05-09)
+- [x] 更新 extras (2016-05-09)
 
 ### 基础建设
 
-- [x] 跟进官方网站版本（2016-04-20）
-- [x] 首页中文适配（2016-04-20）
+- [x] 跟进官方网站版本 (2016-05-10)
+- [x] 首页中文适配 (2016-04-20)
 - [x] 页脚加上贡献翻译链接
 - [x] 导航加上贡献翻译链接
 - [x] 每篇文档加上贡献翻译链接
