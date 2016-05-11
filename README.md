@@ -38,39 +38,7 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 
 使用 Travis CI 自动发布：https://travis-ci.org/xcatliu/jekyllcn
 
-## 项目进度
-
-### 更新进度
-- [ ] home
-- [x] quickstart (2016-04-19)
-- [x] installation (2016-04-19)
-- [ ] usage
-- [x] structure (2016-04-20)
-- [x] configuration (2016-04-20)
-- [x] drafts (2016-04-22)
-- [x] frontmatter (2016-04-22)
-- [x] pages (2016-04-22)
-- [ ] static-files
-- [x] posts (2016-04-22)
-- [x] collections (2016-04-26)
-- [ ] datafiles
-- [x] assets (2016-04-26)
-- [ ] migrations
-- [x] templates (2016-04-26)
-- [x] variables (2016-04-26)
-- [x] permalinks (2016-05-04)
-- [x] pagination (2016-05-04)
-- [ ] plugins
-- [x] extras (2016-05-09)
-- [ ] github-pages
-- [ ] deployment-methods
-- [ ] continuous-integration
-- [ ] troubleshooting
-- [ ] sites
-- [ ] resources
-- [x] Theme (2016-05-10)
-- [x] upgrading/0-to-2 (2016-05-09)
-- [ ] upgrading/2-to-3 (2016-05-10)
+## [项目进度汇总](http://jekyllcn.com/docs/info-of-docs/)
 
 ### 基础建设
 
