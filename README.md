@@ -38,7 +38,9 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 
 使用 Travis CI 自动发布：https://travis-ci.org/xcatliu/jekyllcn
 
-## [项目进度汇总](http://jekyllcn.com/docs/info-of-docs/)
+## 项目进度
+
+### [项目进度汇总](http://jekyllcn.com/docs/info-of-docs/)
 
 ### 基础建设
 
