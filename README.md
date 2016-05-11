@@ -38,6 +38,8 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 
 使用 Travis CI 自动发布：https://travis-ci.org/xcatliu/jekyllcn
 
+## 项目进度
+
 ### 更新进度
 - [ ] home
 - [x] quickstart (2016-04-19)
@@ -68,7 +70,7 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 - [ ] resources
 - [x] Theme (2016-05-10)
 - [x] upgrading/0-to-2 (2016-05-09)
-- [x] upgrading/2-to-3 (2016-05-10)
+- [ ] upgrading/2-to-3 (2016-05-10)
 
 ### 基础建设
 
