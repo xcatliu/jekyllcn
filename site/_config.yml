@@ -36,3 +36,13 @@ gems:
   - jekyll-avatar
 
 host: 0.0.0.0
+
+# default settings of contents` layout
+defaults:
+  -
+    scope:
+      path: ""
+      type: docs
+    values:
+      layout: docs
+      update_date: 2016-01-01

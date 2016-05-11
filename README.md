@@ -22,8 +22,9 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 1. [新建一个 issue](https://github.com/xcatliu/jekyllcn/issues/new)，说明要贡献哪篇文档（可以是落后于官方版本的中文文档，也可以是还没有翻译的文档），注意翻译之前先看看 issues 里面有没有人已经认领了
 2. fork 之后，修改 `/site/_docs/` 中的对应文档进行翻译，并在本地预览，如果不知道如何在本地启动，可以参考[如何在本地启动](https://github.com/xcatliu/jekyllcn#如何在本地启动)
 3. 注意在 Front Matter 中将自己加入到 `translators` 字段，若无此字段，则添加一个
-4. 若要修改 css，请修改 `/site/_sass/_jekyllcn.scss`，新增的 css 以 `.jekyllcn-` 开头，尽量避免破坏 jekyll 的文件
-4. 提交一个 pull-request，等待审核
+4. 注意在 Front Matter 中更新 `update_date`，若无此字段，则添加一个
+5. 若要修改 css，请修改 `/site/_sass/_jekyllcn.scss`，新增的 css 以 `.jekyllcn-` 开头，尽量避免破坏 jekyll 的文件
+6. 提交一个 pull-request，等待审核
 
 ## 如何在本地启动
 
@@ -37,85 +38,37 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 
 使用 Travis CI 自动发布：https://travis-ci.org/xcatliu/jekyllcn
 
-## 项目进度
-
-总体进度：66 / 79 = 84%
-
-### 翻译进度
-
-#### 未翻译
-
-- [ ] 翻译 upgrading/2-to-3
-
-#### 已翻译
-
-- [x] 翻译 home
-- [x] 翻译 quickstart
-- [x] 翻译 installation
-- [x] 翻译 usage
-- [x] 翻译 structure
-- [x] 翻译 configuration
-- [x] 翻译 frontmatter
-- [x] 翻译 posts
-- [x] 翻译 drafts
-- [x] 翻译 pages
-- [x] 翻译 static-files
-- [x] 翻译 variables
-- [x] 翻译 collections
-- [x] 翻译 datafiles
-- [x] 翻译 assets
-- [x] 翻译 migrations
-- [x] 翻译 templates
-- [x] 翻译 permalinks
-- [x] 翻译 pagination
-- [x] 翻译 plugins
-- [x] 翻译 extras
-- [x] 翻译 github-pages
-- [x] 翻译 deployment-methods
-- [x] 翻译 continuous-integration
-- [x] 翻译 troubleshooting
-- [x] 翻译 sites
-- [x] 翻译 resources
-- [x] 翻译 upgrading/0-to-2
-- [x] 翻译 Theme
-
 ### 更新进度
-
-#### 未更新
-
-- [ ] 更新 home
-- [ ] 更新 usage
-- [ ] 更新 static-files
-- [ ] 更新 datafiles
-- [ ] 更新 migrations
-- [ ] 更新 plugins
-- [ ] 更新 github-pages
-- [ ] 更新 deployment-methods
-- [ ] 更新 continuous-integration
-- [ ] 更新 troubleshooting
-- [ ] 更新 sites
-- [ ] 更新 resources
-
-#### 已更新
-
-- [x] 更新 quickstart (2016-04-19)
-- [x] 更新 installation (2016-04-19)
-- [x] 更新 structure (2016-04-20)
-- [x] 更新 configuration (2016-04-20)
-- [x] 更新 drafts (2016-04-22)
-- [x] 更新 frontmatter (2016-04-22)
-- [x] 更新 pages (2016-04-22)
-- [x] 更新 posts (2016-04-22)
-- [x] 更新 collections (2016-04-26)
-- [x] 更新 assets (2016-04-26)
-- [x] 更新 templates (2016-04-26)
-- [x] 更新 variables (2016-04-26)
-- [x] 更新 permalinks (2016-05-04)
-- [x] 更新 pagination (2016-05-04)
-- [x] 更新 upgrading/0-to-2 (2016-05-09)
-- [x] 更新 extras (2016-05-09)
-- [x] 更新 Theme (2016-05-10)
-- [x] 更新 upgrading/2-to-3 (2016-05-10)
+- [ ] home
+- [x] quickstart (2016-04-19)
+- [x] installation (2016-04-19)
+- [ ] usage
+- [x] structure (2016-04-20)
+- [x] configuration (2016-04-20)
+- [x] drafts (2016-04-22)
+- [x] frontmatter (2016-04-22)
+- [x] pages (2016-04-22)
+- [ ] static-files
+- [x] posts (2016-04-22)
+- [x] collections (2016-04-26)
+- [ ] datafiles
+- [x] assets (2016-04-26)
+- [ ] migrations
+- [x] templates (2016-04-26)
+- [x] variables (2016-04-26)
+- [x] permalinks (2016-05-04)
+- [x] pagination (2016-05-04)
+- [ ] plugins
+- [x] extras (2016-05-09)
+- [ ] github-pages
+- [ ] deployment-methods
+- [ ] continuous-integration
+- [ ] troubleshooting
+- [ ] sites
+- [ ] resources
+- [x] Theme (2016-05-10)
+- [x] upgrading/0-to-2 (2016-05-09)
+- [x] upgrading/2-to-3 (2016-05-10)
 
 ### 基础建设
 
