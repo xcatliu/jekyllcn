@@ -3,6 +3,7 @@ layout: docs
 title: 头信息 
 permalink: /docs/frontmatter/
 translators: [liul85, LeuisKen, TimoTokki]
+update_date: 2016-04-22
 ---
 
 正是头信息开始让 Jekyll 变的很酷。任何只要包含 [YAML](http://yaml.org/) 头信息的文件在 Jekyll 中都能被当做一个特殊的文件来处理。头信息必须在文件的开始部分，并且需要按照 YAML 的格式写在两行三虚线之间。下面是一个基本的例子：

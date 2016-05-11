@@ -3,6 +3,7 @@ layout: docs
 title: 附加功能
 permalink: /docs/extras/
 translators: [ikenbe, AlanTanis]
+update_date: 2016-05-09
 hash: 5647b91
 ---
 

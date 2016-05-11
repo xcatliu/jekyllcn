@@ -3,6 +3,7 @@ layout: docs
 title: 主题
 permalink: /docs/themes/
 translators: [AlanTanis]
+update_date: 2016-05-10
 ---
 
 Jekyll 包含有一个强大的主题系统，因此您可以使用社区的模板和样式来定制自己的站点。Jekyll 主题打包了布局文件、包含文件及样式表。同时您也可以使用自己站点的内容去覆盖它们的默认内容。

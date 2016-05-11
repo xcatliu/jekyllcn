@@ -3,6 +3,7 @@ layout: docs
 title: 永久链接
 permalink: /docs/permalinks/
 translators: [debbbbie, TimoTokki]
+update_date: 2016-05-04
 ---
 
 Jekyll 支持以灵活的方式管理你网站的链接，你可以通过 [Configuration](../configuration/) 或 [YAML 头信息](../frontmatter/) 为每篇文章设置永久链接。你可以随心所欲地选择内建链接格式，或者自定义链接格式。默认配置为 `date`。

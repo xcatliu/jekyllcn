@@ -3,6 +3,7 @@ layout: docs
 title: 分页功能
 permalink: /docs/pagination/
 translators: [debbbbie, TimoTokki]
+update_date: 2016-05-04
 ---
 
 对于大多数网站（尤其是博客），当文章越来越多的时候，就会有分页显示文章列表的需求。Jekyll 已经自建分页功能，你只需要根据约定放置文件即可。

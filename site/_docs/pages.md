@@ -3,6 +3,7 @@ layout: docs
 title: 创建页面
 permalink: /docs/pages/
 translators: [sdpfoue, LeuisKen, archersmind]
+update_date: 2016-04-22
 ---
 
 作为[写文章](../posts/)的补充，Jekyll 还可以创建静态页面。利用 Jekyll 带来的便利，你只需要复制文件或文件夹，就是这么简单。
