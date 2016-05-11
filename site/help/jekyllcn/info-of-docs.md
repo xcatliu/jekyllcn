@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 项目进度汇总
-permalink: /docs/jekyllcn-info-of-docs/
+permalink: /help/jekyllcn/info-of-docs/
 ---
 {% for post in site.docs %}
 <h2>
