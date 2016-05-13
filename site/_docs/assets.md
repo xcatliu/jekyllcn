@@ -3,6 +3,7 @@ layout: docs
 title: 资源
 permalink: /docs/assets/
 translators: [yzyzsun, LeuisKen, TimoTokki]
+update_date: 2016-04-26
 hash: 5647b91
 ---
 

@@ -3,6 +3,7 @@ layout: docs
 title: 目录结构
 permalink: /docs/structure/
 translators: [Neo-J, chaucerling, TimoTokki ]
+update_date: 2016-04-20
 hash: 5647b91
 ---
 

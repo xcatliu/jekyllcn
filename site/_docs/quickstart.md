@@ -3,6 +3,7 @@ layout: docs
 title: 快速指南
 permalink: /docs/quickstart/
 translators: [brickgao, chaucerling, TimoTokki]
+update_date: 2016-04-19
 hash: 5647b91
 ---
 

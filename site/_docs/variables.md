@@ -3,6 +3,7 @@ layout: docs
 title: 常用变量
 permalink: /docs/variables/
 translators: [yujingz, LeuisKen, archersmind, TimoTokki]
+update_date: 2016-04-26
 ---
 
 Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息](../frontmatter)的文件都是要处理的对象。对于每一个这样的文件，Jekyll 都会通过 [Liquid 模板工具](https://github.com/Shopify/liquid/wiki)来生成一系列的数据。下面就是这些可用数据变量的参考和文档。
