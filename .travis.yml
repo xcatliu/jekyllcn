@@ -17,8 +17,6 @@ before_install:
 - cp .travis/ssh_config ~/.ssh/config
 - git config --global user.email "xcatliu@gmail.com"
 - git config --global user.name "xcatliu"
-
-install:
 - gem install bundler
 
 script:
