@@ -18,7 +18,7 @@
 <meta property="og:url" content="http://jekyllcn.com/docs/github-pages/" />
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2016-05-13T07:23:58-07:00" />
+<meta property="article:published_time" content="2016-07-03T22:06:24-07:00" />
 <link rel="next" href="http://jekyllcn.com/docs/history/" title="History" />
 <link rel="prev" href="http://jekyllcn.com/docs/frontmatter/" title="头信息" />
 <meta name="twitter:card" content="summary" />
@@ -28,7 +28,7 @@
     "@context": "http://schema.org",
     "@type": "BlogPosting",
     "headline": "GitHub Pages",
-    "datePublished": "2016-05-13T07:23:58-07:00",
+    "datePublished": "2016-07-03T22:06:24-07:00",
     "description": "将纯文本转换为静态博客网站",
     "logo": "http://jekyllcn.comimg/logo-2x.png",
     "url": "http://jekyllcn.com/docs/github-pages/"
@@ -305,17 +305,14 @@
 <p>你最好在将 Jekyll 站点提交到 <code class="highlighter-rouge">gh-pages</code> 之前先预览一下。因为 Github
 上项目站点的子目录结构会使站点的网址结构变得复杂。为了正确构建站点，你的链接应该是这样的形式：<code class="highlighter-rouge">site.github.url</code>。</p>
 
-<p>```xml</p>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code>
+<span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"highlight"</span><span class="nt">&gt;&lt;pre&gt;&lt;code</span> <span class="na">class=</span><span class="s">"language-html"</span> <span class="na">data-lang=</span><span class="s">"html"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"c"</span><span class="nt">&gt;</span><span class="ni">&amp;lt;</span>!-- 用于静态名称的样式表... --<span class="ni">&amp;gt;</span><span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"nt"</span><span class="nt">&gt;</span><span class="ni">&amp;lt;</span>link<span class="nt">&lt;/span&gt;</span> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"na"</span><span class="nt">&gt;</span>href=<span class="nt">&lt;/span&gt;&lt;span</span> <span class="na">class=</span><span class="s">"s"</span><span class="nt">&gt;</span>"{{ site.github.url }}/path/to/css.css"<span class="nt">&lt;/span&gt;</span> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"na"</span><span class="nt">&gt;</span>rel=<span class="nt">&lt;/span&gt;&lt;span</span> <span class="na">class=</span><span class="s">"s"</span><span class="nt">&gt;</span>"stylesheet"<span class="nt">&lt;/span&gt;&lt;span</span> <span class="na">class=</span><span class="s">"nt"</span><span class="nt">&gt;</span><span class="ni">&amp;gt;</span><span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"c"</span><span class="nt">&gt;</span><span class="ni">&amp;lt;</span>!-- 用于动态URL的文档、页面... --<span class="ni">&amp;gt;</span><span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"nt"</span><span class="nt">&gt;</span><span class="ni">&amp;lt;</span>a<span class="nt">&lt;/span&gt;</span> <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"na"</span><span class="nt">&gt;</span>href=<span class="nt">&lt;/span&gt;&lt;span</span> <span class="na">class=</span><span class="s">"s"</span><span class="nt">&gt;</span>"{{ page.url | prepend: site.github.url }}"<span class="nt">&lt;/span&gt;&lt;span</span> <span class="na">class=</span><span class="s">"nt"</span><span class="nt">&gt;</span><span class="ni">&amp;gt;</span><span class="nt">&lt;/span&gt;</span>{{ page.title }}<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"nt"</span><span class="nt">&gt;</span><span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span><span class="nt">&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</span>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"> 
- <span class="c">&lt;!-- 用于静态名称的样式表... --&gt;</span>
- <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"{{ site.github.url }}/path/to/css.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
- <span class="c">&lt;!-- 用于动态URL的文档、页面... --&gt;</span>
- <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"{{ page.url | prepend: site.github.url }}"</span><span class="nt">&gt;</span>{{ page.title }}<span class="nt">&lt;/a&gt;</span>
- 
- </code></pre></figure>
-
-<p>```</p>
+</code></pre>
+</div>
 
 <p>用这种方法你就可以在本地从根地址预览站点，而在 Github 上以 
 <code class="highlighter-rouge">gh-pages</code> 分支生成站点的时候能以 <code class="highlighter-rouge">/project-name</code> 为根地址并且正确地
