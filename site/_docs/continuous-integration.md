@@ -107,7 +107,7 @@ Travis 允许用户运行任意自定义 shell 脚本来测试你的站点。惯
 
 {% highlight yaml %}
 install: gem install jekyll html-proofer
-script: jekyll build && htmlproof ./_site
+script: jekyll build && htmlproofer ./_site
 {% endhighlight %}
 
 此处的 `script` 指令可以是任何合法的 shell 命令。
