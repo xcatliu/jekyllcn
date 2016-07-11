@@ -18,7 +18,7 @@
 <meta property="og:url" content="http://jekyllcn.com/docs/continuous-integration/" />
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2016-07-03T22:06:24-07:00" />
+<meta property="article:published_time" content="2016-07-10T19:33:25-07:00" />
 <link rel="next" href="http://jekyllcn.com/docs/contributing/" title="Contributing" />
 <link rel="prev" href="http://jekyllcn.com/docs/configuration/" title="配置" />
 <meta name="twitter:card" content="summary" />
@@ -28,7 +28,7 @@
     "@context": "http://schema.org",
     "@type": "BlogPosting",
     "headline": "持续集成",
-    "datePublished": "2016-07-03T22:06:24-07:00",
+    "datePublished": "2016-07-10T19:33:25-07:00",
     "description": "将纯文本转换为静态博客网站",
     "logo": "http://jekyllcn.comimg/logo-2x.png",
     "url": "http://jekyllcn.com/docs/continuous-integration/"
@@ -374,7 +374,7 @@ bundle <span class="nb">exec </span>htmlproof ./_site</code></pre></figure>
 <p>Travis 允许用户运行任意自定义 shell 脚本来测试你的站点。惯用的一种方式是将项目的所有脚本放在 <code class="highlighter-rouge">script</code> 目录下，并将你的测试代码命名为 <code class="highlighter-rouge">cibuild</code>。当然这些都是可以完全自定义的。如果你的代码变化并不大，你也可以把你的测试语句这样写：</p>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="s">install</span><span class="pi">:</span> <span class="s">gem install jekyll html-proofer</span>
-<span class="s">script</span><span class="pi">:</span> <span class="s">jekyll build &amp;&amp; htmlproof ./_site</span></code></pre></figure>
+<span class="s">script</span><span class="pi">:</span> <span class="s">jekyll build &amp;&amp; htmlproofer ./_site</span></code></pre></figure>
 
 <p>此处的 <code class="highlighter-rouge">script</code> 指令可以是任何合法的 shell 命令。</p>
 
