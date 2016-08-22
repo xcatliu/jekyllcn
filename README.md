@@ -38,6 +38,15 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 
 使用 Travis CI 自动发布：https://travis-ci.org/xcatliu/jekyllcn
 
+## 如何同步最新的 Jekyllrb
+
+```shell
+git remote add jekyllrb git@github.com:jekyll/jekyll.git
+git fetch jekyllrb master
+git merge jekyllrb/master
+# 解决冲突
+```
+
 ## 项目进度
 
 ### [项目进度汇总](http://jekyllcn.com/help/jekyllcn/info-of-docs/)
