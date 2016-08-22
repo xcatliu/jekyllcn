@@ -1,6 +1,7 @@
 require "webrick"
 require "mercenary"
 require "helper"
+require "openssl"
 
 class TestCommandsServe < JekyllUnitTest
   def custom_opts(what)
@@ -11,7 +12,8 @@ class TestCommandsServe < JekyllUnitTest
 
   context "with a program" do
     setup do
-      @merc, @cmd = nil, Jekyll::Commands::Serve
+      @merc = nil
+      @cmd = Jekyll::Commands::Serve
       Mercenary.program(:jekyll) do |p|
         @merc = @cmd.init_with_program(
           p
@@ -63,7 +65,7 @@ class TestCommandsServe < JekyllUnitTest
 
       should "use user port" do
         # WHAT?!?!1 Over 9000? That's impossible.
-        assert_equal 9001, custom_opts( { "port" => 9001 })[
+        assert_equal 9001, custom_opts({ "port" => 9001 })[
           :Port
         ]
       end
@@ -71,6 +73,20 @@ class TestCommandsServe < JekyllUnitTest
       should "use empty directory index list when show_dir_listing is true" do
         opts = { "show_dir_listing" => true }
         assert custom_opts(opts)[:DirectoryIndex].empty?
+      end
+
+      should "keep config between build and serve" do
+        custom_options = {
+          "config"  => %w(_config.yml _development.yml),
+          "serving" => true,
+          "watch"   => false # for not having guard output when running the tests
+        }
+        allow(SafeYAML).to receive(:load_file).and_return({})
+        allow(Jekyll::Commands::Build).to receive(:build).and_return("")
+
+        expect(Jekyll::Commands::Serve).to receive(:process).with(custom_options)
+        @merc.execute(:serve, { "config" => %w(_config.yml _development.yml),
+                                "watch"  => false })
       end
 
       context "verbose" do
@@ -83,7 +99,7 @@ class TestCommandsServe < JekyllUnitTest
         end
       end
 
-      context "enabling ssl" do
+      context "enabling SSL" do
         should "raise if enabling without key or cert" do
           assert_raises RuntimeError do
             custom_opts({
@@ -104,10 +120,10 @@ class TestCommandsServe < JekyllUnitTest
           allow(File).to receive(:read).and_return("foo")
 
           result = custom_opts({
-            "ssl_cert" => "foo",
-            "source" => "bar",
+            "ssl_cert"   => "foo",
+            "source"     => "bar",
             "enable_ssl" => true,
-            "ssl_key" => "bar"
+            "ssl_key"    => "bar"
           })
 
           assert result[:SSLEnable]

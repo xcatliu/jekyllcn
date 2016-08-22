@@ -36,6 +36,16 @@ Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息
       </p></td>
     </tr>
     <tr>
+      <td><p><code>layout</code></p></td>
+      <td><p>
+
+        Layout specific information + the <a href="../frontmatter/">YAML front
+        matter</a>. Custom variables set via the YAML Front Matter in
+        layouts will be available here.
+
+      </p></td>
+    </tr>
+    <tr>
       <td><p><code>content</code></p></td>
       <td><p>
 
@@ -295,6 +305,14 @@ Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息
     任何你自定义的头文件信息都会在 <code>page</code> 中可用。
     举例来说，如果你在一个 Page 的头文件中设置了 <code>custom_css: true</code>，
     这个变量就可以这样被取到 <code>page.custom_css</code>。
+
+  </p>
+  <p>
+
+    If you specify front matter in a layout, access that via <code>layout</code>.
+    For example, if you specify <code>class: full_page</code>
+    in a page’s front matter, that value will be available as
+    <code>layout.class</code> in the layout and its parents.
 
   </p>
 </div>

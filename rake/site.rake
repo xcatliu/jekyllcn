@@ -36,6 +36,7 @@ namespace :site do
   task :generate => :generated_pages do
     require "jekyll"
     Jekyll::Commands::Build.process({
+      "profile" => true,
       "source"      => File.expand_path("site"),
       "destination" => File.expand_path("site/_site")
     })

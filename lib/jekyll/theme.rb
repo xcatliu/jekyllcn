@@ -10,7 +10,11 @@ module Jekyll
     end
 
     def root
-      @root ||= gemspec.full_gem_path
+      # Must use File.realpath to resolve symlinks created by rbenv
+      # Otherwise, Jekyll.sanitized path with prepend the unresolved root
+      @root ||= File.realpath(gemspec.full_gem_path)
+    rescue Errno::ENOENT, Errno::EACCES, Errno::ELOOP
+      nil
     end
 
     def includes_path
@@ -27,18 +31,15 @@ module Jekyll
 
     def configure_sass
       return unless sass_path
-      require 'sass'
+      require "sass"
       Sass.load_paths << sass_path
     end
 
     private
 
     def path_for(folder)
-      resolved_dir = realpath_for(folder)
-      return unless resolved_dir
-
-      path = Jekyll.sanitized_path(root, resolved_dir)
-      path if Dir.exists?(path)
+      path = realpath_for(folder)
+      path if path && File.directory?(path)
     end
 
     def realpath_for(folder)
@@ -50,7 +51,8 @@ module Jekyll
     def gemspec
       @gemspec ||= Gem::Specification.find_by_name(name)
     rescue Gem::LoadError
-      raise Jekyll::Errors::MissingDependencyException, "The #{name} theme could not be found."
+      raise Jekyll::Errors::MissingDependencyException,
+        "The #{name} theme could not be found."
     end
   end
 end
