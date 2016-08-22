@@ -1,34 +1,33 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="generator" content="Jekyll v3.1.2">
-  <link type="application/atom+xml" rel="alternate" href="http://jekyllcn.com/feed.xml" />
+  <meta name="generator" content="Jekyll v3.2.1">
+  <link type="application/atom+xml" rel="alternate" href="http://jekyllcn.com/feed.xml" title="Jekyll • 简单静态博客网站生成器">
   <link rel="alternate" type="application/atom+xml" title="Recent commits to Jekyll’s master branch" href="https://github.com/jekyll/jekyll/commits/master.atom">
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <!-- Begin Jekyll SEO tag v1.4.0 -->
+  <!-- Begin Jekyll SEO tag v2.0.0 -->
 <title>升级 - Jekyll • 简单静态博客网站生成器</title>
-<meta property="og:title" content="升级" />
-<meta name="description" content="将纯文本转换为静态博客网站" />
-<meta property="og:description" content="将纯文本转换为静态博客网站" />
-<link rel="canonical" href="http://jekyllcn.com/docs/upgrading/" />
-<meta property="og:url" content="http://jekyllcn.com/docs/upgrading/" />
-<meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2016-07-10T19:33:25-07:00" />
-<link rel="next" href="http://jekyllcn.com/docs/upgrading/0-to-2/" title="从 0.x 升级到 2.x 版本" />
-<link rel="prev" href="http://jekyllcn.com/docs/troubleshooting/" title="常见问题" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@jekyllrb" />
+<meta property="og:title" content="升级">
+<meta name="description" content="将纯文本转换为静态博客网站">
+<meta property="og:description" content="将纯文本转换为静态博客网站">
+<link rel="canonical" href="http://jekyllcn.com/docs/upgrading/">
+<meta property="og:url" content="http://jekyllcn.com/docs/upgrading/">
+<meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2016-08-21T23:18:30-07:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jekyllrb">
 <script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
     "headline": "升级",
-    "datePublished": "2016-07-10T19:33:25-07:00",
+    "datePublished": "2016-08-21T23:18:30-07:00",
     "description": "将纯文本转换为静态博客网站",
     "logo": "http://jekyllcn.comimg/logo-2x.png",
     "url": "http://jekyllcn.com/docs/upgrading/"
@@ -43,16 +42,7 @@
 
 
 <body class="wrap">
-　　<!--
-<div class="jekyllcn-header">
-  <div class="grid">
-    <div class="unit whole">
-      <p>由于官方文档更新，现在中文文档落后于官方文档，欢迎参与<a href="https://github.com/xcatliu/jekyllcn#如何贡献翻译">贡献翻译</a>（底色表示<a href="https://github.com/xcatliu/jekyllcn#项目进度">项目进度</a>）</p>
-    </div>
-  </div>
-</div>
--->
-<header role="banner">
+　　<header>
   <nav class="mobile-nav show-on-mobiles">
     <ul>
   <li class="">
@@ -65,10 +55,10 @@
     <a href="/news/">新闻</a>
   </li>
   <li class="">
-    <a href="/help/">帮助</a>
+    <a href="/community/">社区</a>
   </li>
-  <li>
-    <a href="https://github.com/jekyll/jekyll">GitHub</a>
+  <li class="">
+    <a href="/help/">帮助</a>
   </li>
   <li>
     <a href="https://github.com/xcatliu/jekyllcn">jekyllCN</a>
@@ -97,10 +87,10 @@
     <a href="/news/">新闻</a>
   </li>
   <li class="">
-    <a href="/help/">帮助</a>
+    <a href="/community/">社区</a>
   </li>
-  <li>
-    <a href="https://github.com/jekyll/jekyll">GitHub</a>
+  <li class="">
+    <a href="/help/">帮助</a>
   </li>
   <li>
     <a href="https://github.com/xcatliu/jekyllcn">jekyllCN</a>
@@ -288,7 +278,7 @@
       <div class="unit four-fifths">
         <article>
           <div class="improve right hide-on-mobiles">
-            <a href="https://github.com/xcatliu/jekyllcn/edit/master/site/_docs/upgrading.md"><i class="fa fa-pencil"></i> &nbsp;发现错误或贡献翻译</a>
+            <a href="https://github.com/xcatliu/jekyllcn/edit/master/site/_docs/upgrading.md"><i class="fa fa-pencil"></i>  发现错误或贡献翻译</a>
           </div>
           <h1>升级</h1>
           <p>是时候该升级你的 Jekyll 了，升级之前为你介绍一下版本 1.0 的更新内容。</p>
@@ -359,10 +349,13 @@
 <ul>
   <li><code class="highlighter-rouge">--no-server</code></li>
   <li><code class="highlighter-rouge">--no-auto</code></li>
-  <li><code class="highlighter-rouge">--auto</code> (现在的 <code class="highlighter-rouge">--watch</code>)</li>
+  <li>
+<code class="highlighter-rouge">--auto</code> (现在的 <code class="highlighter-rouge">--watch</code>)</li>
   <li><code class="highlighter-rouge">--server</code></li>
   <li><code class="highlighter-rouge">--url=</code></li>
-  <li><code class="highlighter-rouge">--maruku</code>，<code class="highlighter-rouge">--rdiscount</code> ，和 <code class="highlighter-rouge">--redcarpet</code></li>
+  <li>
+<code class="highlighter-rouge">--maruku</code>，<code class="highlighter-rouge">--rdiscount</code> ，和 <code class="highlighter-rouge">--redcarpet</code>
+</li>
   <li><code class="highlighter-rouge">--pygments</code></li>
   <li><code class="highlighter-rouge">--permalink=</code></li>
   <li><code class="highlighter-rouge">--paginate</code></li>
@@ -712,10 +705,10 @@
   </section>
 
 
-  <footer role="contentinfo">
+  <footer>
   <div class="grid">
     <div class="unit one-third center-on-mobiles">
-      <p>The contents of this website are <br />&copy;&nbsp;2016 under the terms of the <a href="https://github.com/jekyll/jekyll/blob/master/LICENSE">MIT&nbsp;License</a>.</p>
+      <p>The contents of this website are <br>© 2016 under the terms of the <a href="https://github.com/jekyll/jekyll/blob/master/LICENSE">MIT License</a>.</p>
     </div>
     <div class="unit two-thirds align-right center-on-mobiles">
       <p>

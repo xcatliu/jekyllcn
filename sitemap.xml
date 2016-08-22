@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://jekyllcn.com/news/2016/08/02/jekyll-3-2-1-released/</loc>
+<lastmod>2016-08-02T13:20:11-07:00</lastmod>
+</url>
+<url>
+<loc>http://jekyllcn.com/news/2016/07/26/jekyll-3-2-0-released/</loc>
+<lastmod>2016-07-26T15:06:49-07:00</lastmod>
+</url>
+<url>
+<loc>http://jekyllcn.com/news/2016/06/03/update-on-jekyll-s-google-summer-of-code-projects/</loc>
+<lastmod>2016-06-03T13:21:02-07:00</lastmod>
+</url>
+<url>
+<loc>http://jekyllcn.com/news/2016/05/19/jekyll-3-1-6-released/</loc>
+<lastmod>2016-05-19T12:48:14-07:00</lastmod>
+</url>
+<url>
+<loc>http://jekyllcn.com/news/2016/05/18/jekyll-3-1-5-released/</loc>
+<lastmod>2016-05-18T21:35:27-07:00</lastmod>
+</url>
+<url>
+<loc>http://jekyllcn.com/news/2016/05/18/jekyll-3-1-4-released/</loc>
+<lastmod>2016-05-18T16:50:37-07:00</lastmod>
+</url>
+<url>
 <loc>http://jekyllcn.com/news/2016/04/26/jekyll-3-0-5-released/</loc>
 <lastmod>2016-04-26T17:40:44-07:00</lastmod>
 </url>
@@ -192,6 +216,9 @@
 </url>
 <url>
 <loc>http://jekyllcn.com/</loc>
+</url>
+<url>
+<loc>http://jekyllcn.com/community/</loc>
 </url>
 <url>
 <loc>http://jekyllcn.com/help/</loc>

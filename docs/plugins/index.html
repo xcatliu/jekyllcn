@@ -1,34 +1,33 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="generator" content="Jekyll v3.1.2">
-  <link type="application/atom+xml" rel="alternate" href="http://jekyllcn.com/feed.xml" />
+  <meta name="generator" content="Jekyll v3.2.1">
+  <link type="application/atom+xml" rel="alternate" href="http://jekyllcn.com/feed.xml" title="Jekyll • 简单静态博客网站生成器">
   <link rel="alternate" type="application/atom+xml" title="Recent commits to Jekyll’s master branch" href="https://github.com/jekyll/jekyll/commits/master.atom">
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <!-- Begin Jekyll SEO tag v1.4.0 -->
+  <!-- Begin Jekyll SEO tag v2.0.0 -->
 <title>插件 - Jekyll • 简单静态博客网站生成器</title>
-<meta property="og:title" content="插件" />
-<meta name="description" content="将纯文本转换为静态博客网站" />
-<meta property="og:description" content="将纯文本转换为静态博客网站" />
-<link rel="canonical" href="http://jekyllcn.com/docs/plugins/" />
-<meta property="og:url" content="http://jekyllcn.com/docs/plugins/" />
-<meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2016-07-10T19:33:25-07:00" />
-<link rel="next" href="http://jekyllcn.com/docs/posts/" title="撰写博客" />
-<link rel="prev" href="http://jekyllcn.com/docs/permalinks/" title="永久链接" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@jekyllrb" />
+<meta property="og:title" content="插件">
+<meta name="description" content="将纯文本转换为静态博客网站">
+<meta property="og:description" content="将纯文本转换为静态博客网站">
+<link rel="canonical" href="http://jekyllcn.com/docs/plugins/">
+<meta property="og:url" content="http://jekyllcn.com/docs/plugins/">
+<meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2016-08-21T23:18:30-07:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@jekyllrb">
 <script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
     "headline": "插件",
-    "datePublished": "2016-07-10T19:33:25-07:00",
+    "datePublished": "2016-08-21T23:18:30-07:00",
     "description": "将纯文本转换为静态博客网站",
     "logo": "http://jekyllcn.comimg/logo-2x.png",
     "url": "http://jekyllcn.com/docs/plugins/"
@@ -43,16 +42,7 @@
 
 
 <body class="wrap">
-　　<!--
-<div class="jekyllcn-header">
-  <div class="grid">
-    <div class="unit whole">
-      <p>由于官方文档更新，现在中文文档落后于官方文档，欢迎参与<a href="https://github.com/xcatliu/jekyllcn#如何贡献翻译">贡献翻译</a>（底色表示<a href="https://github.com/xcatliu/jekyllcn#项目进度">项目进度</a>）</p>
-    </div>
-  </div>
-</div>
--->
-<header role="banner">
+　　<header>
   <nav class="mobile-nav show-on-mobiles">
     <ul>
   <li class="">
@@ -65,10 +55,10 @@
     <a href="/news/">新闻</a>
   </li>
   <li class="">
-    <a href="/help/">帮助</a>
+    <a href="/community/">社区</a>
   </li>
-  <li>
-    <a href="https://github.com/jekyll/jekyll">GitHub</a>
+  <li class="">
+    <a href="/help/">帮助</a>
   </li>
   <li>
     <a href="https://github.com/xcatliu/jekyllcn">jekyllCN</a>
@@ -97,10 +87,10 @@
     <a href="/news/">新闻</a>
   </li>
   <li class="">
-    <a href="/help/">帮助</a>
+    <a href="/community/">社区</a>
   </li>
-  <li>
-    <a href="https://github.com/jekyll/jekyll">GitHub</a>
+  <li class="">
+    <a href="/help/">帮助</a>
   </li>
   <li>
     <a href="https://github.com/xcatliu/jekyllcn">jekyllCN</a>
@@ -288,7 +278,7 @@
       <div class="unit four-fifths">
         <article>
           <div class="improve right hide-on-mobiles">
-            <a href="https://github.com/xcatliu/jekyllcn/edit/master/site/_docs/plugins.md"><i class="fa fa-pencil"></i> &nbsp;发现错误或贡献翻译</a>
+            <a href="https://github.com/xcatliu/jekyllcn/edit/master/site/_docs/plugins.md"><i class="fa fa-pencil"></i>  发现错误或贡献翻译</a>
           </div>
           <h1>插件</h1>
           <p>Jekyll 支持插件功能，你可以很容易的加入自己的代码。</p>
@@ -296,7 +286,7 @@
 <div class="note info">
   <h5>在 GitHub Pages 使用插件</h5>
   <p>
-    <a href="http://pages.github.com/">GitHub Pages</a> 是由 Jekyll 提供技术支持的，考虑到安全因素，所有的 Pages 通过 <code>--safe</code> 选项禁用了插件功能，因此如果你的网站部署在 Github Pages ，那么你的插件不会工作。<br /><br />
+    <a href="http://pages.github.com/">GitHub Pages</a> 是由 Jekyll 提供技术支持的，考虑到安全因素，所有的 Pages 通过 <code>--safe</code> 选项禁用了插件功能，因此如果你的网站部署在 Github Pages ，那么你的插件不会工作。<br><br>
     不过仍然有办法发布到 GitHub Pages，你只需在本地做一些转换，并把生成好的文件上传到 Github 替代 Jekyll 就可以了。
   </p>
 </div>
@@ -578,121 +568,211 @@
 <h4 id="section-5">生成器</h4>
 
 <ul>
-  <li><a href="https://gist.github.com/707909">ArchiveGenerator by Ilkka Laukkanen</a>：用<a href="https://gist.github.com/707020">这里的方法</a>生成档案。</li>
-  <li><a href="https://gist.github.com/642739">LESS.js Generator by Andy Fowler</a>：生成的时候产生 LESS.js 文件。</li>
-  <li><a href="https://gist.github.com/449491">Version Reporter by Blake Smith</a>：创建包含 Jekyll 版本的文件 version.html 。</li>
-  <li><a href="https://github.com/kinnetica/jekyll-plugins">Sitemap.xml Generator by Michael Levin</a>：遍历所有的页面和文章，生成 sitemap.xml 。</li>
-  <li><a href="https://github.com/PascalW/jekyll_indextank">Full-text search by Pascal Widdershoven</a>：全文搜索。</li>
-  <li><a href="https://github.com/tsmango/jekyll_alias_generator">AliasGenerator by Thomas Mango</a>：根据YAML头信息中的 alias　生成跳转页面。</li>
-  <li><a href="https://github.com/nquinlan/jekyll-pageless-redirects">Pageless Redirect Generator by Nick Quinlan</a>：根据 Jekyll 跟路径做出跳转，支持分布式。</li>
-  <li><a href="https://github.com/fhemberger/jekyll-projectlist">Projectlist by Frederic Hemberger</a>：一个文件夹生成一个页面</li>
-  <li><a href="https://github.com/agelber/jekyll-rss">RssGenerator by Assaf Gelber</a>：自动生成 RSS 2.0 。</li>
+  <li>
+<a href="https://gist.github.com/707909">ArchiveGenerator by Ilkka Laukkanen</a>：用<a href="https://gist.github.com/707020">这里的方法</a>生成档案。</li>
+  <li>
+<a href="https://gist.github.com/642739">LESS.js Generator by Andy Fowler</a>：生成的时候产生 LESS.js 文件。</li>
+  <li>
+<a href="https://gist.github.com/449491">Version Reporter by Blake Smith</a>：创建包含 Jekyll 版本的文件 version.html 。</li>
+  <li>
+<a href="https://github.com/kinnetica/jekyll-plugins">Sitemap.xml Generator by Michael Levin</a>：遍历所有的页面和文章，生成 sitemap.xml 。</li>
+  <li>
+<a href="https://github.com/PascalW/jekyll_indextank">Full-text search by Pascal Widdershoven</a>：全文搜索。</li>
+  <li>
+<a href="https://github.com/tsmango/jekyll_alias_generator">AliasGenerator by Thomas Mango</a>：根据YAML头信息中的 alias　生成跳转页面。</li>
+  <li>
+<a href="https://github.com/nquinlan/jekyll-pageless-redirects">Pageless Redirect Generator by Nick Quinlan</a>：根据 Jekyll 跟路径做出跳转，支持分布式。</li>
+  <li>
+<a href="https://github.com/fhemberger/jekyll-projectlist">Projectlist by Frederic Hemberger</a>：一个文件夹生成一个页面</li>
+  <li>
+<a href="https://github.com/agelber/jekyll-rss">RssGenerator by Assaf Gelber</a>：自动生成 RSS 2.0 。</li>
 </ul>
 
 <h4 id="section-6">转换器</h4>
 
 <ul>
-  <li><a href="https://github.com/snappylabs/jade-jekyll-plugin">Jade plugin by John Papandriopoulos</a>： Jade 转换器。</li>
-  <li><a href="https://gist.github.com/517556">HAML plugin by Sam Z</a>: HAML转换器。</li>
-  <li><a href="https://gist.github.com/481456">HAML-Sass Converter by Adam Pearson</a>: HAML-Sass 转换器。 <a href="https://gist.github.com/528642">Fork</a> by Sam X.</li>
-  <li><a href="https://gist.github.com/960150">Sass SCSS Converter by Mark Wolfe</a>：在Sam X 的基础上，一个兼容 CSS 的 Sass 转换器。</li>
-  <li><a href="https://gist.github.com/639920">LESS Converter by Jason Graham</a>: 将 LESS 转换为 CSS。</li>
-  <li><a href="https://gist.github.com/760265">LESS Converter by Josh Brown</a>: 简单的 LESS 转换器。</li>
-  <li><a href="https://gist.github.com/449463">Upcase Converter by Blake Smith</a>: 一个例子 。</li>
-  <li><a href="https://gist.github.com/959938">CoffeeScript Converter by phaer</a>: <a href="http://coffeescript.org">CoffeeScript</a> 转换到 JavaScript 。</li>
-  <li><a href="https://github.com/olov/jekyll-references">Markdown References by Olov Lassus</a>: 记录所有的超链接到 _references.md 文件。</li>
-  <li><a href="https://gist.github.com/988201">Stylus Converter</a>: 将 .styl 转换为 .css 。</li>
-  <li><a href="https://github.com/xdissent/jekyll-rst">ReStructuredText Converter</a>: 用 Pygments 语法将 ReST 文档转换为 HTML 。</li>
-  <li><a href="https://github.com/dsanson/jekyll-pandoc-plugin">Jekyll-pandoc-plugin</a>: 用 pandoc 转换 markdown 。</li>
-  <li><a href="https://github.com/fauno/jekyll-pandoc-multiple-formats">Jekyll-pandoc-multiple-formats</a> by <a href="https://github.com/edsl">edsl</a>:用 pandoc 生成网站，支持多种格式，并支持 pandoc 的后缀名。</li>
-  <li><a href="https://github.com/xdissent/jekyll-rst">ReStructuredText Converter</a>: 又一个用 Pygments 语法将 ReST 文档转换为 HTML 。</li>
-  <li><a href="https://gist.github.com/1472645">Transform Layouts</a>: 允许使用 HAML 布局（需要 HAML 转换器的配合）</li>
+  <li>
+<a href="https://github.com/snappylabs/jade-jekyll-plugin">Jade plugin by John Papandriopoulos</a>： Jade 转换器。</li>
+  <li>
+<a href="https://gist.github.com/517556">HAML plugin by Sam Z</a>: HAML转换器。</li>
+  <li>
+<a href="https://gist.github.com/481456">HAML-Sass Converter by Adam Pearson</a>: HAML-Sass 转换器。 <a href="https://gist.github.com/528642">Fork</a> by Sam X.</li>
+  <li>
+<a href="https://gist.github.com/960150">Sass SCSS Converter by Mark Wolfe</a>：在Sam X 的基础上，一个兼容 CSS 的 Sass 转换器。</li>
+  <li>
+<a href="https://gist.github.com/639920">LESS Converter by Jason Graham</a>: 将 LESS 转换为 CSS。</li>
+  <li>
+<a href="https://gist.github.com/760265">LESS Converter by Josh Brown</a>: 简单的 LESS 转换器。</li>
+  <li>
+<a href="https://gist.github.com/449463">Upcase Converter by Blake Smith</a>: 一个例子 。</li>
+  <li>
+<a href="https://gist.github.com/959938">CoffeeScript Converter by phaer</a>: <a href="http://coffeescript.org">CoffeeScript</a> 转换到 JavaScript 。</li>
+  <li>
+<a href="https://github.com/olov/jekyll-references">Markdown References by Olov Lassus</a>: 记录所有的超链接到 _references.md 文件。</li>
+  <li>
+<a href="https://gist.github.com/988201">Stylus Converter</a>: 将 .styl 转换为 .css 。</li>
+  <li>
+<a href="https://github.com/xdissent/jekyll-rst">ReStructuredText Converter</a>: 用 Pygments 语法将 ReST 文档转换为 HTML 。</li>
+  <li>
+<a href="https://github.com/dsanson/jekyll-pandoc-plugin">Jekyll-pandoc-plugin</a>: 用 pandoc 转换 markdown 。</li>
+  <li>
+<a href="https://github.com/fauno/jekyll-pandoc-multiple-formats">Jekyll-pandoc-multiple-formats</a> by <a href="https://github.com/edsl">edsl</a>:用 pandoc 生成网站，支持多种格式，并支持 pandoc 的后缀名。</li>
+  <li>
+<a href="https://github.com/xdissent/jekyll-rst">ReStructuredText Converter</a>: 又一个用 Pygments 语法将 ReST 文档转换为 HTML 。</li>
+  <li>
+<a href="https://gist.github.com/1472645">Transform Layouts</a>: 允许使用 HAML 布局（需要 HAML 转换器的配合）</li>
 </ul>
 
 <h4 id="section-7">过滤器</h4>
 
 <ul>
-  <li><a href="https://github.com/MattHall/truncatehtml">Truncate HTML</a> by <a href="http://codebeef.com">Matt Hall</a>: 为保持 markup 结构，删除 HTML 标签。</li>
-  <li><a href="https://github.com/LawrenceWoodman/domain_name-liquid_filter">Domain Name Filter by Lawrence Woodman</a>: 过滤出域名。</li>
-  <li><a href="https://gist.github.com/731597">Summarize Filter by Mathieu Arnold</a>: 去掉 <code class="highlighter-rouge">&lt;div id="extended"&gt;</code> 后边的内容。</li>
-  <li><a href="https://gist.github.com/919275">URL encoding by James An</a>:为地址编码，如 <code class="highlighter-rouge">' ' #=&gt; '%20'</code> 。</li>
-  <li><a href="https://gist.github.com/1850654">JSON Filter</a> by <a href="https://github.com/joelverhagen">joelverhagen</a>: 转换为 JSON 格式。</li>
-  <li><a href="https://github.com/gacha/gacha.id.lv/blob/master/_plugins/i18n_filter.rb">i18n_filter</a>:实现了 I18n 国际化的 Liquid 过滤器。</li>
-  <li><a href="https://github.com/SaswatPadhi/jekyll_smilify">Smilify</a> by <a href="https://github.com/SaswatPadhi">SaswatPadhi</a>: 将表情符号转换为表情图片 (<a href="http://saswatpadhi.github.com/">例子</a>)。</li>
-  <li><a href="https://gist.github.com/zachleat/5792681">Read in X Minutes</a> by <a href="https://github.com/zachleat">zachleat</a>: 估计读完文章需要的时间。</li>
-  <li><a href="https://github.com/markets/jekyll-timeago">Jekyll-timeago</a>: 把时间转换为 time ago 格式。</li>
-  <li><a href="https://github.com/bdesham/pluralize">pluralize</a>: 根据单词前边的数字按需转换成复数形式。</li>
-  <li><a href="https://github.com/bdesham/reading_time">reading_time</a>: 统计字数，并估计需要读的时间（已忽略HTML标签）。</li>
-  <li><a href="https://github.com/dafi/jekyll-toc-generator">Table of Content Generator</a>: 生成包含表格（ TOC ）的 HTML 代码，支持自定义。</li>
+  <li>
+<a href="https://github.com/MattHall/truncatehtml">Truncate HTML</a> by <a href="http://codebeef.com">Matt Hall</a>: 为保持 markup 结构，删除 HTML 标签。</li>
+  <li>
+<a href="https://github.com/LawrenceWoodman/domain_name-liquid_filter">Domain Name Filter by Lawrence Woodman</a>: 过滤出域名。</li>
+  <li>
+<a href="https://gist.github.com/731597">Summarize Filter by Mathieu Arnold</a>: 去掉 <code class="highlighter-rouge">&lt;div id="extended"&gt;</code> 后边的内容。</li>
+  <li>
+<a href="https://gist.github.com/919275">URL encoding by James An</a>:为地址编码，如 <code class="highlighter-rouge">' ' #=&gt; '%20'</code> 。</li>
+  <li>
+<a href="https://gist.github.com/1850654">JSON Filter</a> by <a href="https://github.com/joelverhagen">joelverhagen</a>: 转换为 JSON 格式。</li>
+  <li>
+<a href="https://github.com/gacha/gacha.id.lv/blob/master/_plugins/i18n_filter.rb">i18n_filter</a>:实现了 I18n 国际化的 Liquid 过滤器。</li>
+  <li>
+<a href="https://github.com/SaswatPadhi/jekyll_smilify">Smilify</a> by <a href="https://github.com/SaswatPadhi">SaswatPadhi</a>: 将表情符号转换为表情图片 (<a href="http://saswatpadhi.github.com/">例子</a>)。</li>
+  <li>
+<a href="https://gist.github.com/zachleat/5792681">Read in X Minutes</a> by <a href="https://github.com/zachleat">zachleat</a>: 估计读完文章需要的时间。</li>
+  <li>
+<a href="https://github.com/markets/jekyll-timeago">Jekyll-timeago</a>: 把时间转换为 time ago 格式。</li>
+  <li>
+<a href="https://github.com/bdesham/pluralize">pluralize</a>: 根据单词前边的数字按需转换成复数形式。</li>
+  <li>
+<a href="https://github.com/bdesham/reading_time">reading_time</a>: 统计字数，并估计需要读的时间（已忽略HTML标签）。</li>
+  <li>
+<a href="https://github.com/dafi/jekyll-toc-generator">Table of Content Generator</a>: 生成包含表格（ TOC ）的 HTML 代码，支持自定义。</li>
 </ul>
 
 <h4 id="section-8">标签</h4>
 
 <ul>
-  <li><a href="https://github.com/christianhellsten/jekyll-plugins">Delicious Plugin by Christian Hellsten</a>: 从 delicious.com 获取书签并展示。</li>
-  <li><a href="https://gist.github.com/480380">Ultraviolet Plugin by Steve Alex</a>: <a href="http://ultraviolet.rubyforge.org/">Ultraviolet</a> 插件。</li>
-  <li><a href="https://gist.github.com/710577">Tag Cloud Plugin by Ilkka Laukkanen</a>: 生成云状的标签列表。</li>
-  <li><a href="https://gist.github.com/730347">GIT Tag by Alexandre Girard</a>: 添加 Git activity 。</li>
-  <li><a href="https://gist.github.com/834610">MathJax Liquid Tags by Jessy Cowan-Sharp</a>:用合适的 MathJax 标签替代相应的数学公式或方程式。</li>
-  <li><a href="https://gist.github.com/1027674">Non-JS Gist Tag by Brandon Tilley</a>: 嵌入 Gists ，显示给禁用 JavaScript 的用户。</li>
-  <li><a href="https://gist.github.com/449509">Render Time Tag by Blake Smith</a>: 显示页面的创建时间。</li>
-  <li><a href="https://gist.github.com/912466">Status.net/OStatus Tag by phaer</a>: 显示 status.net/ostatus 的通知。</li>
-  <li><a href="https://gist.github.com/1020852">Raw Tag by phaer</a>: 阻止转换 <code class="highlighter-rouge">raw</code> 标签的内容。</li>
-  <li><a href="https://github.com/robb/jekyll-embedly-client">Embed.ly client by Robert Böhnke</a>: Embed.ly 的实现。</li>
-  <li><a href="https://gist.github.com/2290195">Logarithmic Tag Cloud</a>: 支持对数。</li>
-  <li><a href="https://gist.github.com/1455726">oEmbed Tag by Tammo van Lessen</a>: 通过 oEmbed 支持内嵌第三方代码 (例如 YouTube, Flickr, Slideshare) 。</li>
-  <li><a href="https://github.com/tsmango/jekyll_flickr_set_tag">FlickrSetTag by Thomas Mango</a>: 将 Flickr 的图片生成画廊。</li>
-  <li><a href="https://github.com/scottwb/jekyll-tweet-tag">Tweet Tag by Scott W. Bradley</a>: <a href="https://dev.twitter.com/docs/embedded-tweets">Tweets 支持</a> 。</li>
-  <li><a href="https://github.com/rustygeldmacher/jekyll-contentblocks">Jekyll-contentblocks</a>: 支持使用 Rails 风格的 content_for 标签。</li>
-  <li><a href="https://gist.github.com/1805814">Generate YouTube Embed</a> by <a href="https://github.com/joelverhagen">joelverhagen</a>:支持以 YouTube ID 嵌入 YouTube 视频，宽高可配置。</li>
-  <li><a href="https://github.com/okeeblow/jekyll-beastiepress">Jekyll-beastiepress</a>: 可轻松连接到 FreeBSD 官网。</li>
-  <li><a href="https://gist.github.com/1895282">Jsonball</a>: 读取json文件并生成地图。</li>
-  <li><a href="https://github.com/pablooliveira/bibjekyll">Bibjekyll</a>: Render BibTeX-formatted bibliographies/citations included in posts and pages using bibtex2html.</li>
-  <li><a href="https://github.com/archome/jekyll-citation">Jekyll-citation</a>: 生成 BibTeX格式（ Holy shit! 还有多少要翻译）。</li>
-  <li><a href="https://github.com/ericdfields/Jekyll-Dribbble-Set-Tag">Jekyll Dribbble Set Tag</a>: 生成 Dribbble 画廊。</li>
-  <li><a href="https://gist.github.com/2218470">Debbugs</a>:可以轻松的链接到 Debian BTS 。</li>
-  <li><a href="https://github.com/aburdette/refheap_tag">Refheap_tag</a>: 支持<a href="https://refheap.com">refheap</a>.</li>
-  <li><a href="https://gist.github.com/2403522">Jekyll-devonly_tag</a>: 仅在开发环境使用的情况下可以考虑一下。</li>
-  <li><a href="https://github.com/redwallhp/JekyllGalleryTag">JekyllGalleryTag</a> by <a href="https://github.com/redwallhp">redwallhp</a>: 生成缩略图，并展示。</li>
-  <li><a href="https://gist.github.com/Yexiaoxing/5891929">Youku and Tudou Embed</a>: 支持内嵌 Youku 和 Tudou 视频。</li>
-  <li><a href="https://github.com/sectore/jekyll-swfobject">Jekyll-swfobject</a>: 通过 <a href="http://code.google.com/p/swfobject/">SWFObject</a> 支持内嵌 flash 。</li>
-  <li><a href="https://github.com/robwierzbowski/jekyll-picture-tag">Jekyll Picture Tag</a>: 相应式的图片，推荐 <a href="http://picture.responsiveimages.org/"><code class="highlighter-rouge">&lt;picture&gt;</code></a> ，改编自 Scott Jehl 的 <a href="https://github.com/scottjehl/picturefill">Picturefill</a>.</li>
-  <li><a href="https://github.com/robwierzbowski/jekyll-image-tag">Jekyll Image Tag</a>: 更好的图片处理插件，预先保存，生成调整大小后的图片，并且加好 <code class="highlighter-rouge">classes</code> 和 <code class="highlighter-rouge">alt</code> 等属性。</li>
-  <li><a href="https://github.com/matze/jekyll-ditaa">Ditaa Tag</a> by <a href="https://github.com/matze">matze</a>: 将 ditta 格式的 ASCII 图片转换成 PNG。</li>
-  <li><a href="https://github.com/penibelst/jekyll-good-include">Good Include</a> by <a href="http://penibelst.de/">Anatol Broder</a>: 去掉文件末尾的空行空格。</li>
-  <li><a href="https://github.com/davidensinger/jekyll-suggested-tweet">Jekyll Suggested Tweet</a> by <a href="https://github.com/davidensinger/">David Ensinger</a>: 通过 Twitter 的 API 支持内嵌感兴趣的 tweets。</li>
+  <li>
+<a href="https://github.com/christianhellsten/jekyll-plugins">Delicious Plugin by Christian Hellsten</a>: 从 delicious.com 获取书签并展示。</li>
+  <li>
+<a href="https://gist.github.com/480380">Ultraviolet Plugin by Steve Alex</a>: <a href="http://ultraviolet.rubyforge.org/">Ultraviolet</a> 插件。</li>
+  <li>
+<a href="https://gist.github.com/710577">Tag Cloud Plugin by Ilkka Laukkanen</a>: 生成云状的标签列表。</li>
+  <li>
+<a href="https://gist.github.com/730347">GIT Tag by Alexandre Girard</a>: 添加 Git activity 。</li>
+  <li>
+<a href="https://gist.github.com/834610">MathJax Liquid Tags by Jessy Cowan-Sharp</a>:用合适的 MathJax 标签替代相应的数学公式或方程式。</li>
+  <li>
+<a href="https://gist.github.com/1027674">Non-JS Gist Tag by Brandon Tilley</a>: 嵌入 Gists ，显示给禁用 JavaScript 的用户。</li>
+  <li>
+<a href="https://gist.github.com/449509">Render Time Tag by Blake Smith</a>: 显示页面的创建时间。</li>
+  <li>
+<a href="https://gist.github.com/912466">Status.net/OStatus Tag by phaer</a>: 显示 status.net/ostatus 的通知。</li>
+  <li>
+<a href="https://gist.github.com/1020852">Raw Tag by phaer</a>: 阻止转换 <code class="highlighter-rouge">raw</code> 标签的内容。</li>
+  <li>
+<a href="https://github.com/robb/jekyll-embedly-client">Embed.ly client by Robert Böhnke</a>: Embed.ly 的实现。</li>
+  <li>
+<a href="https://gist.github.com/2290195">Logarithmic Tag Cloud</a>: 支持对数。</li>
+  <li>
+<a href="https://gist.github.com/1455726">oEmbed Tag by Tammo van Lessen</a>: 通过 oEmbed 支持内嵌第三方代码 (例如 YouTube, Flickr, Slideshare) 。</li>
+  <li>
+<a href="https://github.com/tsmango/jekyll_flickr_set_tag">FlickrSetTag by Thomas Mango</a>: 将 Flickr 的图片生成画廊。</li>
+  <li>
+<a href="https://github.com/scottwb/jekyll-tweet-tag">Tweet Tag by Scott W. Bradley</a>: <a href="https://dev.twitter.com/docs/embedded-tweets">Tweets 支持</a> 。</li>
+  <li>
+<a href="https://github.com/rustygeldmacher/jekyll-contentblocks">Jekyll-contentblocks</a>: 支持使用 Rails 风格的 content_for 标签。</li>
+  <li>
+<a href="https://gist.github.com/1805814">Generate YouTube Embed</a> by <a href="https://github.com/joelverhagen">joelverhagen</a>:支持以 YouTube ID 嵌入 YouTube 视频，宽高可配置。</li>
+  <li>
+<a href="https://github.com/okeeblow/jekyll-beastiepress">Jekyll-beastiepress</a>: 可轻松连接到 FreeBSD 官网。</li>
+  <li>
+<a href="https://gist.github.com/1895282">Jsonball</a>: 读取json文件并生成地图。</li>
+  <li>
+<a href="https://github.com/pablooliveira/bibjekyll">Bibjekyll</a>: Render BibTeX-formatted bibliographies/citations included in posts and pages using bibtex2html.</li>
+  <li>
+<a href="https://github.com/archome/jekyll-citation">Jekyll-citation</a>: 生成 BibTeX格式（ Holy shit! 还有多少要翻译）。</li>
+  <li>
+<a href="https://github.com/ericdfields/Jekyll-Dribbble-Set-Tag">Jekyll Dribbble Set Tag</a>: 生成 Dribbble 画廊。</li>
+  <li>
+<a href="https://gist.github.com/2218470">Debbugs</a>:可以轻松的链接到 Debian BTS 。</li>
+  <li>
+<a href="https://github.com/aburdette/refheap_tag">Refheap_tag</a>: 支持<a href="https://refheap.com">refheap</a>.</li>
+  <li>
+<a href="https://gist.github.com/2403522">Jekyll-devonly_tag</a>: 仅在开发环境使用的情况下可以考虑一下。</li>
+  <li>
+<a href="https://github.com/redwallhp/JekyllGalleryTag">JekyllGalleryTag</a> by <a href="https://github.com/redwallhp">redwallhp</a>: 生成缩略图，并展示。</li>
+  <li>
+<a href="https://gist.github.com/Yexiaoxing/5891929">Youku and Tudou Embed</a>: 支持内嵌 Youku 和 Tudou 视频。</li>
+  <li>
+<a href="https://github.com/sectore/jekyll-swfobject">Jekyll-swfobject</a>: 通过 <a href="http://code.google.com/p/swfobject/">SWFObject</a> 支持内嵌 flash 。</li>
+  <li>
+<a href="https://github.com/robwierzbowski/jekyll-picture-tag">Jekyll Picture Tag</a>: 相应式的图片，推荐 <a href="http://picture.responsiveimages.org/"><code class="highlighter-rouge">&lt;picture&gt;</code></a> ，改编自 Scott Jehl 的 <a href="https://github.com/scottjehl/picturefill">Picturefill</a>.</li>
+  <li>
+<a href="https://github.com/robwierzbowski/jekyll-image-tag">Jekyll Image Tag</a>: 更好的图片处理插件，预先保存，生成调整大小后的图片，并且加好 <code class="highlighter-rouge">classes</code> 和 <code class="highlighter-rouge">alt</code> 等属性。</li>
+  <li>
+<a href="https://github.com/matze/jekyll-ditaa">Ditaa Tag</a> by <a href="https://github.com/matze">matze</a>: 将 ditta 格式的 ASCII 图片转换成 PNG。</li>
+  <li>
+<a href="https://github.com/penibelst/jekyll-good-include">Good Include</a> by <a href="http://penibelst.de/">Anatol Broder</a>: 去掉文件末尾的空行空格。</li>
+  <li>
+<a href="https://github.com/davidensinger/jekyll-suggested-tweet">Jekyll Suggested Tweet</a> by <a href="https://github.com/davidensinger/">David Ensinger</a>: 通过 Twitter 的 API 支持内嵌感兴趣的 tweets。</li>
 </ul>
 
 <h4 id="section-9">集合</h4>
 
 <ul>
-  <li><a href="http://recursive-design.com/projects/jekyll-plugins/">Jekyll Plugins by Recursive Design</a>: 生成 readme 说明文档，列表页以及网站地图。</li>
-  <li><a href="https://github.com/flatterline/jekyll-plugins">Company website and blog plugins</a> by Flatterline, a <a href="http://flatterline.com/">Ruby on Rails development company</a>: Portfolio/project 的生成器, team/individual 的生成器，等等。</li>
-  <li><a href="https://github.com/aucor/jekyll-plugins">Jekyll plugins by Aucor</a>: 移除不需要的空格空行，并根据 weight 属性给页面排序。</li>
+  <li>
+<a href="http://recursive-design.com/projects/jekyll-plugins/">Jekyll Plugins by Recursive Design</a>: 生成 readme 说明文档，列表页以及网站地图。</li>
+  <li>
+<a href="https://github.com/flatterline/jekyll-plugins">Company website and blog plugins</a> by Flatterline, a <a href="http://flatterline.com/">Ruby on Rails development company</a>: Portfolio/project 的生成器, team/individual 的生成器，等等。</li>
+  <li>
+<a href="https://github.com/aucor/jekyll-plugins">Jekyll plugins by Aucor</a>: 移除不需要的空格空行，并根据 weight 属性给页面排序。</li>
 </ul>
 
 <h4 id="section-10">其他</h4>
 
 <ul>
-  <li><a href="https://github.com/rsim/blog.rayapps.com/blob/master/_plugins/pygments_cache_patch.rb">Pygments Cache Path by Raimonds Simanovskis</a>: 缓存高亮代码核心模块。</li>
-  <li><a href="https://gist.github.com/49630">Draft/Publish Plugin by Michael Ivey</a>: 保存到草稿。</li>
-  <li><a href="https://gist.github.com/490101">Growl Notification Generator by Tate Johnson</a>: Jekyll 通知发送到 Growl 。</li>
-  <li><a href="https://gist.github.com/525267">Growl Notification Hook by Tate Johnson</a>: 同上，推荐指数更高一点，但是需要他的 “hook” 。</li>
-  <li><a href="https://github.com/LawrenceWoodman/related_posts-jekyll_plugin">Related Posts by Lawrence Woodman</a>: 重新实现关联，覆盖 <code class="highlighter-rouge">site.related_posts</code> 。</li>
-  <li><a href="https://gist.github.com/88cda643aa7e3b0ca1e5">Tiered Archives by Eli Naeher</a>: 创建 tiered 模板变量，允许按年月分组。</li>
-  <li><a href="https://github.com/blackwinter/jekyll-localization">Jekyll-localization</a>: 支持本地化。</li>
-  <li><a href="https://github.com/blackwinter/jekyll-rendering">Jekyll-rendering</a>: 一个渲染引擎。</li>
-  <li><a href="https://github.com/blackwinter/jekyll-pagination">Jekyll-pagination</a>: 支持分页。</li>
-  <li><a href="https://github.com/pattex/jekyll-tagging">Jekyll-tagging</a>: 生成云状标签。</li>
-  <li><a href="https://github.com/inukshuk/jekyll-scholar">Jekyll-scholar</a>: 为学者定制。</li>
-  <li><a href="https://github.com/moshen/jekyll-asset_bundler">Jekyll-asset_bundler</a>: 将 JavaScript 和 CSS 最小化。</li>
-  <li><a href="http://ixti.net/jekyll-assets/">Jekyll-assets</a> by <a href="https://github.com/ixti">ixti</a>: Rails 风格的 assets pipeline（支持的资源 CoffeeScript, Sass, LESS 等等；设置依赖；最小化压缩；JST 模板；缓存处理等等）。</li>
-  <li><a href="https://gist.github.com/2758691">File compressor</a> by <a href="https://github.com/mytharcher">mytharcher</a>: 压缩 HTML 和 JavaScript 。</li>
-  <li><a href="https://github.com/tkareine/jekyll-minibundle">Jekyll-minibundle</a>: 根据你选择的最小化工具绑定资源和处理缓存。</li>
-  <li><a href="https://github.com/JCB-K/singlepage-jekyll">Singlepage-jekyll</a> by <a href="https://github.com/JCB-K">JCB-K</a>: 转换为单页网站。</li>
-  <li><a href="https://github.com/robwierzbowski/generator-jekyllrb">generator-jekyllrb</a>: <a href="http://yeoman.io/">Yeoman</a> 的包装，一个工具集，还有工作流，用来创建现代化的网站。</li>
-  <li><a href="https://github.com/dannygarcia/grunt-jekyll">grunt-jekyll</a>：<a href="http://gruntjs.com/">Grunt</a> 插件。</li>
-  <li><a href="https://github.com/indirect/jekyll-postfiles">jekyll-postfiles</a>：添加目录 <code class="highlighter-rouge">_postfiles</code>　和标签 <code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">postfile</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code>以保证所有的指向正确。</li>
+  <li>
+<a href="https://github.com/rsim/blog.rayapps.com/blob/master/_plugins/pygments_cache_patch.rb">Pygments Cache Path by Raimonds Simanovskis</a>: 缓存高亮代码核心模块。</li>
+  <li>
+<a href="https://gist.github.com/49630">Draft/Publish Plugin by Michael Ivey</a>: 保存到草稿。</li>
+  <li>
+<a href="https://gist.github.com/490101">Growl Notification Generator by Tate Johnson</a>: Jekyll 通知发送到 Growl 。</li>
+  <li>
+<a href="https://gist.github.com/525267">Growl Notification Hook by Tate Johnson</a>: 同上，推荐指数更高一点，但是需要他的 “hook” 。</li>
+  <li>
+<a href="https://github.com/LawrenceWoodman/related_posts-jekyll_plugin">Related Posts by Lawrence Woodman</a>: 重新实现关联，覆盖 <code class="highlighter-rouge">site.related_posts</code> 。</li>
+  <li>
+<a href="https://gist.github.com/88cda643aa7e3b0ca1e5">Tiered Archives by Eli Naeher</a>: 创建 tiered 模板变量，允许按年月分组。</li>
+  <li>
+<a href="https://github.com/blackwinter/jekyll-localization">Jekyll-localization</a>: 支持本地化。</li>
+  <li>
+<a href="https://github.com/blackwinter/jekyll-rendering">Jekyll-rendering</a>: 一个渲染引擎。</li>
+  <li>
+<a href="https://github.com/blackwinter/jekyll-pagination">Jekyll-pagination</a>: 支持分页。</li>
+  <li>
+<a href="https://github.com/pattex/jekyll-tagging">Jekyll-tagging</a>: 生成云状标签。</li>
+  <li>
+<a href="https://github.com/inukshuk/jekyll-scholar">Jekyll-scholar</a>: 为学者定制。</li>
+  <li>
+<a href="https://github.com/moshen/jekyll-asset_bundler">Jekyll-asset_bundler</a>: 将 JavaScript 和 CSS 最小化。</li>
+  <li>
+<a href="http://ixti.net/jekyll-assets/">Jekyll-assets</a> by <a href="https://github.com/ixti">ixti</a>: Rails 风格的 assets pipeline（支持的资源 CoffeeScript, Sass, LESS 等等；设置依赖；最小化压缩；JST 模板；缓存处理等等）。</li>
+  <li>
+<a href="https://gist.github.com/2758691">File compressor</a> by <a href="https://github.com/mytharcher">mytharcher</a>: 压缩 HTML 和 JavaScript 。</li>
+  <li>
+<a href="https://github.com/tkareine/jekyll-minibundle">Jekyll-minibundle</a>: 根据你选择的最小化工具绑定资源和处理缓存。</li>
+  <li>
+<a href="https://github.com/JCB-K/singlepage-jekyll">Singlepage-jekyll</a> by <a href="https://github.com/JCB-K">JCB-K</a>: 转换为单页网站。</li>
+  <li>
+<a href="https://github.com/robwierzbowski/generator-jekyllrb">generator-jekyllrb</a>: <a href="http://yeoman.io/">Yeoman</a> 的包装，一个工具集，还有工作流，用来创建现代化的网站。</li>
+  <li>
+<a href="https://github.com/dannygarcia/grunt-jekyll">grunt-jekyll</a>：<a href="http://gruntjs.com/">Grunt</a> 插件。</li>
+  <li>
+<a href="https://github.com/indirect/jekyll-postfiles">jekyll-postfiles</a>：添加目录 <code class="highlighter-rouge">_postfiles</code>　和标签 <code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">postfile</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code>以保证所有的指向正确。</li>
 </ul>
 
 <div class="note info">
@@ -983,10 +1063,10 @@
   </section>
 
 
-  <footer role="contentinfo">
+  <footer>
   <div class="grid">
     <div class="unit one-third center-on-mobiles">
-      <p>The contents of this website are <br />&copy;&nbsp;2016 under the terms of the <a href="https://github.com/jekyll/jekyll/blob/master/LICENSE">MIT&nbsp;License</a>.</p>
+      <p>The contents of this website are <br>© 2016 under the terms of the <a href="https://github.com/jekyll/jekyll/blob/master/LICENSE">MIT License</a>.</p>
     </div>
     <div class="unit two-thirds align-right center-on-mobiles">
       <p>
