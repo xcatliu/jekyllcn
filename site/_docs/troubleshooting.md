@@ -32,7 +32,7 @@ RB_USER_INSTALL=true gem install jekyll
 sudo gem update --system
 {% endhighlight %}
 
-如果你还是遇到问题，你可能需要[使用 XCode 来安装命令行工具](http://www.zlu.me/blog/2012/02/21/install-native-ruby-gem-in-mountain-lion-preview/)
+如果你还是遇到问题，你可能需要[使用 XCode 来安装命令行工具](https://blog.zlu.me/ruby/os%20x/gem/mountain%20lion/2012/02/21/install-native-ruby-gem-in-mountain-lion-preview.html)
 
 {% highlight bash %}
 sudo gem install jekyll
