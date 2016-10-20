@@ -19,7 +19,7 @@
 <meta property="og:url" content="http://jekyllcn.com/docs/configuration/">
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2016-10-19T04:12:47-07:00">
+<meta property="article:published_time" content="2016-10-20T01:05:45-07:00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@jekyllrb">
 <script type="application/ld+json">
@@ -27,7 +27,7 @@
     "@context": "http://schema.org",
     "@type": "BlogPosting",
     "headline": "配置",
-    "datePublished": "2016-10-19T04:12:47-07:00",
+    "datePublished": "2016-10-20T01:05:45-07:00",
     "description": "将纯文本转换为静态博客网站",
     "logo": "http://jekyllcn.comimg/logo-2x.png",
     "url": "http://jekyllcn.com/docs/configuration/"
@@ -530,6 +530,18 @@
         <p><code class="flag">-I, --incremental</code></p>
       </td>
     </tr>
+    <tr class="setting">
+      <td>
+        <p class="name"><strong>Liquid profiler</strong></p>
+        <p class="description">
+            生成一个Liquid概述文档来帮助你发现性能瓶颈
+        </p>
+      </td>
+      <td class="align-center">
+        <p><code class="option">profile: BOOL</code></p>
+        <p><code class="flag">--profile</code></p>
+      </td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -681,6 +693,17 @@
       <span class="s">path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span> <span class="c1"># 一个空的字符串代表项目中所有的文件</span>
     <span class="s">values</span><span class="pi">:</span>
       <span class="s">layout</span><span class="pi">:</span> <span class="s2">"</span><span class="s">default"</span></code></pre></figure>
+
+<div class="note info">
+  <h5>请重新运行命令： `jekyll serve` </h5>
+  <p>
+    主要配置文件 <code>_config.yml</code> 包括一些在运行时一次性读入的全局配置和变量定义，
+    在自动生成的过程中并不会重新加载 <code>_config.yml</code> 文件所发生的改变，除非重新运行。
+  </p>
+  <p>
+    注意 <a href="../datafiles">Data Files</a> 包括在自动生成范围内，可以在更改后自动重新加载。
+  </p>
+</div>
 
 <p>在这里，我们把 <code class="highlighter-rouge">values</code> 应用给 scope 路径里的所有文件。因为路径被设为空字符串，它将会应用到你项目里的<strong>全部文件</strong>。你可能不想给项目在的每个文件都设置一个布局，例如 css 文件，所以你可以在 <code class="highlighter-rouge">scope</code> 下指定 <code class="highlighter-rouge">type</code> 的值。</p>
 
@@ -841,6 +864,19 @@
     <span class="s">coderay_bold_every</span><span class="pi">:</span>        <span class="s">10</span>
     <span class="s">coderay_css</span><span class="pi">:</span>               <span class="s">style</span></code></pre></figure>
 
+<h2 id="liquid-">Liquid 选项</h2>
+
+<p>Liquid的错误处理方式可以通过 <code>error_mode</code> 来配置，可选项有：</p>
+
+<ul>
+  <li>
+<code class="highlighter-rouge">lax</code> — 忽略所有错误</li>
+  <li>
+<code class="highlighter-rouge">warn</code> — 针对每个错误在控制台中输出警告信息</li>
+  <li>
+<code class="highlighter-rouge">strict</code> — 输出错误信息并停止构建过程</li>
+</ul>
+
 <h2 id="markdown-">Markdown 选项</h2>
 
 <p>Jekyll 支持的 Markdown 渲染器中有的有额外的选项。</p>
@@ -952,6 +988,10 @@
               
               <a href="https://github.com/TimoTokki" title="TimoTokki">
                 <img src="https://github.com/TimoTokki.png" class="avatar" alt="TimoTokki avatar" width="24" height="24">
+              </a>
+              
+              <a href="https://github.com/baiyangcao" title="baiyangcao">
+                <img src="https://github.com/baiyangcao.png" class="avatar" alt="baiyangcao avatar" width="24" height="24">
               </a>
               
             </p>

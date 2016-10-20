@@ -19,7 +19,7 @@
 <meta property="og:url" content="http://jekyllcn.com/docs/plugins/">
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2016-10-19T04:12:47-07:00">
+<meta property="article:published_time" content="2016-10-20T01:05:45-07:00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@jekyllrb">
 <script type="application/ld+json">
@@ -27,7 +27,7 @@
     "@context": "http://schema.org",
     "@type": "BlogPosting",
     "headline": "插件",
-    "datePublished": "2016-10-19T04:12:47-07:00",
+    "datePublished": "2016-10-20T01:05:45-07:00",
     "description": "将纯文本转换为静态博客网站",
     "logo": "http://jekyllcn.comimg/logo-2x.png",
     "url": "http://jekyllcn.com/docs/plugins/"
@@ -293,19 +293,89 @@
 
 <h2 id="section">安装插件</h2>
 
-<p>在网站根下目录建立 <code class="highlighter-rouge">_plugins</code> 文件夹，插件放在这里即可。 Jekyll 运行之前，会加载此目录下所有以 <code class="highlighter-rouge">*.rb</code> 结尾的文件。</p>
+<p>可以使用以下三种方式安装插件：</p>
+
+<ol>
+  <li>在网站根下目录建立 <code class="highlighter-rouge">_plugins</code> 文件夹，插件放在这里即可。 Jekyll 运行之前，会加载此目录下所有以 <code class="highlighter-rouge">*.rb</code> 结尾的文件。</li>
+  <li>
+    <p>在你的<code class="highlighter-rouge">_config.yml</code>文件，添加一个键为<code class="highlighter-rouge">gems</code>的新数组，其值为你想要使用的gem插件的名字，例如：</p>
+
+    <div class="highlighter-rouge">
+<pre class="highlight"><code> gems: [jekyll-coffeescript, jekyll-watch, jekyll-assets]
+ # This will require each of these gems automatically.
+</code></pre>
+    </div>
+
+    <p>然后安装插件使用命令 <code class="highlighter-rouge">gem install jekyll-coffeescript jekyll-watch jekyll-assets</code></p>
+  </li>
+  <li>
+    <p>在 <code class="highlighter-rouge">Gemfile</code> 中的一个Bundler组里添加相关的插件，例如：</p>
+
+    <div class="highlighter-rouge">
+<pre class="highlight"><code> group :jekyll_plugins do
+   gem "my-jekyll-plugin"
+   gem "another-jekyll-plugin"
+ end
+</code></pre>
+    </div>
+
+    <p>然后需要从Bundler组中安装所有插件，使用命令<code class="highlighter-rouge">bundle install</code></p>
+  </li>
+</ol>
+
+<div class="note info">
+  <h5>
+    <code>_plugins</code>, <code>_config.yml</code> and <code>Gemfile</code>
+    可以同时使用
+  </h5>
+  <p>
+    如果你愿意，可以在网站中同时使用上述安装插件的方法，使用一种安装方法并不会影响别的方法生效。
+  </p>
+</div>
 
 <p>通常，插件最终会被放在以下的目录中：</p>
 
 <ol>
-  <li>Generators</li>
-  <li>Converters</li>
-  <li>Tags</li>
+  <li><a href="#generators">生成器 - Generators</a></li>
+  <li><a href="#converters">转换器 - Converters</a></li>
+  <li><a href="#commands">命令 - Commands</a></li>
+  <li><a href="#tags">标签 - Tags</a></li>
+  <li><a href="#hooks">钩子 - Hooks</a></li>
 </ol>
 
-<h2 id="section-1">生成</h2>
+<h2 id="generators">生成器 - Generators</h2>
 
-<p>你可以像下边这样编写一个生成器：</p>
+<p>当你需要Jekyll根据你自己的规则来添加额外的内容时，你可以创建一个生成器。</p>
+
+<p>生成器是 <code class="highlighter-rouge">Jekyll:Generator</code> 的子类，定义了一个 <code class="highlighter-rouge">generate</code> 方法，
+接收一个<a href="https://github.com/jekyll/jekyll/blob/master/lib/jekyll/site.rb"><code class="highlighter-rouge">Jekyll::Site</code></a>类型的实例，
+方法的返回值会被忽略。</p>
+
+<p>生成器在Jekyll生成现存内容详细目录之后，网站生成之前运行，
+含有YAML头信息的页面储存为<a href="https://github.com/jekyll/jekyll/blob/master/lib/jekyll/page.rb"><code class="highlighter-rouge">Jekyll::Page</code></a>实例，可以通过<code class="highlighter-rouge">site.pages</code>变量获取，
+静态文件储存为<a href="https://github.com/jekyll/jekyll/blob/master/lib/jekyll/static_file.rb"><code class="highlighter-rouge">Jekyll::StaticFile</code></a>实例，可以通过<code class="highlighter-rouge">site.static_files</code>变量获取，
+详情见<a href="/docs/variables/">变量文档</a> 和
+<a href="https://github.com/jekyll/jekyll/blob/master/lib/jekyll/site.rb"><code class="highlighter-rouge">Jekyll::Site</code></a></p>
+
+<p>比如，生成器可以为模板变量注入构建过程中计算出的变量值，在下面的例子中，
+我们在生成器中为模板<code class="highlighter-rouge">reading.html</code>的两个变量<code class="highlighter-rouge">ongoing</code>和<code class="highlighter-rouge">done</code>赋了值：</p>
+
+<div class="language-ruby highlighter-rouge">
+<pre class="highlight"><code><span class="k">module</span> <span class="nn">Reading</span>
+  <span class="k">class</span> <span class="nc">Generator</span> <span class="o">&lt;</span> <span class="no">Jekyll</span><span class="o">::</span><span class="no">Generator</span>
+    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">site</span><span class="p">)</span>
+      <span class="n">ongoing</span><span class="p">,</span> <span class="n">done</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">all</span><span class="p">.</span><span class="nf">partition</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:ongoing?</span><span class="p">)</span>
+
+      <span class="n">reading</span> <span class="o">=</span> <span class="n">site</span><span class="p">.</span><span class="nf">pages</span><span class="p">.</span><span class="nf">detect</span> <span class="p">{</span><span class="o">|</span><span class="n">page</span><span class="o">|</span> <span class="n">page</span><span class="p">.</span><span class="nf">name</span> <span class="o">==</span> <span class="s1">'reading.html'</span><span class="p">}</span>
+      <span class="n">reading</span><span class="p">.</span><span class="nf">data</span><span class="p">[</span><span class="s1">'ongoing'</span><span class="p">]</span> <span class="o">=</span> <span class="n">ongoing</span>
+      <span class="n">reading</span><span class="p">.</span><span class="nf">data</span><span class="p">[</span><span class="s1">'done'</span><span class="p">]</span> <span class="o">=</span> <span class="n">done</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<p>下面是一个更复杂的生成器例子，可以生成新的页面：</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">module</span> <span class="nn">Jekyll</span>
 
@@ -365,7 +435,7 @@
 </table>
 </div>
 
-<h2 id="section-2">转换器</h2>
+<h2 id="converters">转换器 - Converters</h2>
 
 <p>如果想使用一个新的标记语言，可以用你自己的转换器实现，Markdown 和 Textile 就是这样实现的。</p>
 
@@ -438,7 +508,66 @@
 
 <p>在上边的例子中， <code class="highlighter-rouge">UpcaseConverter#matches</code> 检查文件后缀名是不是 <code class="highlighter-rouge">.upcase</code> ;<code class="highlighter-rouge">UpcaseConverter#convert</code> 会处理检查成功文件的内容，即将所有的字符串变成大写；最终，保存的结果将以作为后缀名 <code class="highlighter-rouge">.html</code> 。</p>
 
-<h2 id="section-3">标记</h2>
+<h2 id="commands">命令 - Commands</h2>
+
+<p>从2.5.0版本开始，Jekyll可以使用插件提供的子命令来扩展<code class="highlighter-rouge">jekyll</code>命令。
+可以通过在<code class="highlighter-rouge">Gemfile</code>中<code class="highlighter-rouge">:jekyll_plugins</code>组中包括相关的插件来实现：</p>
+
+<div class="language-ruby highlighter-rouge">
+<pre class="highlight"><code><span class="n">group</span> <span class="ss">:jekyll_plugins</span> <span class="k">do</span>
+  <span class="n">gem</span> <span class="s2">"my_fancy_jekyll_plugin"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<p>每个<code class="highlighter-rouge">Command</code>必须是<code class="highlighter-rouge">Jekyll::Command</code>类的子类，而且必须要包含类方法<code class="highlighter-rouge">init_with_program</code>，例如：</p>
+
+<div class="language-ruby highlighter-rouge">
+<pre class="highlight"><code><span class="k">class</span> <span class="nc">MyNewCommand</span> <span class="o">&lt;</span> <span class="no">Jekyll</span><span class="o">::</span><span class="no">Command</span>
+  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
+    <span class="k">def</span> <span class="nf">init_with_program</span><span class="p">(</span><span class="n">prog</span><span class="p">)</span>
+      <span class="n">prog</span><span class="p">.</span><span class="nf">command</span><span class="p">(</span><span class="ss">:new</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span>
+        <span class="n">c</span><span class="p">.</span><span class="nf">syntax</span> <span class="s2">"new [options]"</span>
+        <span class="n">c</span><span class="p">.</span><span class="nf">description</span> <span class="s1">'Create a new Jekyll site.'</span>
+
+        <span class="n">c</span><span class="p">.</span><span class="nf">option</span> <span class="s1">'dest'</span><span class="p">,</span> <span class="s1">'-d DEST'</span><span class="p">,</span> <span class="s1">'Where the site should go.'</span>
+
+        <span class="n">c</span><span class="p">.</span><span class="nf">action</span> <span class="k">do</span> <span class="o">|</span><span class="n">args</span><span class="p">,</span> <span class="n">options</span><span class="o">|</span>
+          <span class="no">Jekyll</span><span class="o">::</span><span class="no">Site</span><span class="p">.</span><span class="nf">new_site_at</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="s1">'dest'</span><span class="p">])</span>
+        <span class="k">end</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<p>命令应该实现这个单例方法：</p>
+
+<div class="mobile-side-scroller">
+<table>
+  <thead>
+    <tr>
+      <th>方法</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <p><code>init_with_program</code></p>
+      </td>
+      <td><p>
+        这个方法接受一个参数，
+        <code><a href="https://github.com/jekyll/mercenary#readme">Mercenary::Program</a></code>
+        实例，表示Jekyll程序本身，程序之上，命令可以通过上述方式创建，详情可以参见Github.com上的Mercenary库。
+      </p></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="section-1">标记</h2>
 
 <p>如果你想使用 liquid 标记，你可以这样做。 Jekyll 官方的例子有 <code class="highlighter-rouge">highlight</code> 和 <code class="highlighter-rouge">include</code> 等标记。下边的例子中，自定义了一个 liquid 标记，用来输出当前时间：</p>
 
@@ -561,11 +690,11 @@
   <span class="nf">end</span>
 <span class="k">end</span></code></pre></figure>
 
-<h2 id="section-4">可用的插件</h2>
+<h2 id="section-2">可用的插件</h2>
 
 <p>下边的插件，你可以按需索取：</p>
 
-<h4 id="section-5">生成器</h4>
+<h4 id="section-3">生成器</h4>
 
 <ul>
   <li>
@@ -588,7 +717,7 @@
 <a href="https://github.com/agelber/jekyll-rss">RssGenerator by Assaf Gelber</a>：自动生成 RSS 2.0 。</li>
 </ul>
 
-<h4 id="section-6">转换器</h4>
+<h4 id="section-4">转换器</h4>
 
 <ul>
   <li>
@@ -623,7 +752,7 @@
 <a href="https://gist.github.com/1472645">Transform Layouts</a>: 允许使用 HAML 布局（需要 HAML 转换器的配合）</li>
 </ul>
 
-<h4 id="section-7">过滤器</h4>
+<h4 id="section-5">过滤器</h4>
 
 <ul>
   <li>
@@ -652,7 +781,7 @@
 <a href="https://github.com/dafi/jekyll-toc-generator">Table of Content Generator</a>: 生成包含表格（ TOC ）的 HTML 代码，支持自定义。</li>
 </ul>
 
-<h4 id="section-8">标签</h4>
+<h4 id="section-6">标签</h4>
 
 <ul>
   <li>
@@ -721,7 +850,7 @@
 <a href="https://github.com/davidensinger/jekyll-suggested-tweet">Jekyll Suggested Tweet</a> by <a href="https://github.com/davidensinger/">David Ensinger</a>: 通过 Twitter 的 API 支持内嵌感兴趣的 tweets。</li>
 </ul>
 
-<h4 id="section-9">集合</h4>
+<h4 id="section-7">集合</h4>
 
 <ul>
   <li>
@@ -732,7 +861,7 @@
 <a href="https://github.com/aucor/jekyll-plugins">Jekyll plugins by Aucor</a>: 移除不需要的空格空行，并根据 weight 属性给页面排序。</li>
 </ul>
 
-<h4 id="section-10">其他</h4>
+<h4 id="section-8">其他</h4>
 
 <ul>
   <li>
@@ -790,6 +919,10 @@
               
               <a href="https://github.com/debbbbie" title="debbbbie">
                 <img src="https://github.com/debbbbie.png" class="avatar" alt="debbbbie avatar" width="24" height="24">
+              </a>
+              
+              <a href="https://github.com/baiyangcao" title="baiyangcao">
+                <img src="https://github.com/baiyangcao.png" class="avatar" alt="baiyangcao avatar" width="24" height="24">
               </a>
               
             </p>
