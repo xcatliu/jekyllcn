@@ -2,7 +2,7 @@
 layout: docs
 title: 插件
 permalink: /docs/plugins/
-translators: debbbbie
+translators: [debbbbie, baiyangcao]
 ---
 
 Jekyll 支持插件功能，你可以很容易的加入自己的代码。
@@ -17,17 +17,78 @@ Jekyll 支持插件功能，你可以很容易的加入自己的代码。
 
 ## 安装插件
 
-在网站根下目录建立 `_plugins` 文件夹，插件放在这里即可。 Jekyll 运行之前，会加载此目录下所有以 `*.rb` 结尾的文件。
+可以使用以下三种方式安装插件：
+
+1. 在网站根下目录建立 `_plugins` 文件夹，插件放在这里即可。 Jekyll 运行之前，会加载此目录下所有以 `*.rb` 结尾的文件。
+2. 在你的`_config.yml`文件，添加一个键为`gems`的新数组，其值为你想要使用的gem插件的名字，例如：
+
+
+        gems: [jekyll-coffeescript, jekyll-watch, jekyll-assets]
+        # This will require each of these gems automatically.
+
+    然后安装插件使用命令 `gem install jekyll-coffeescript jekyll-watch jekyll-assets`
+
+3. 在 `Gemfile` 中的一个Bundler组里添加相关的插件，例如：
+
+        group :jekyll_plugins do
+          gem "my-jekyll-plugin"
+          gem "another-jekyll-plugin"
+        end
+
+    然后需要从Bundler组中安装所有插件，使用命令`bundle install`
+
+
+<div class="note info">
+  <h5>
+    <code>_plugins</code>, <code>_config.yml</code> and <code>Gemfile</code>
+    可以同时使用
+  </h5>
+  <p>
+    如果你愿意，可以在网站中同时使用上述安装插件的方法，使用一种安装方法并不会影响别的方法生效。
+  </p>
+</div>
+
 
 通常，插件最终会被放在以下的目录中：
 
-1. Generators
-2. Converters
-3. Tags
+1. [生成器 - Generators](#generators)
+2. [转换器 - Converters](#converters)
+3. [命令 - Commands](#commands)
+4. [标签 - Tags](#tags)
+5. [钩子 - Hooks](#hooks)
 
-## 生成
+## 生成器 - Generators
 
-你可以像下边这样编写一个生成器：
+当你需要Jekyll根据你自己的规则来添加额外的内容时，你可以创建一个生成器。
+
+生成器是 `Jekyll:Generator` 的子类，定义了一个 `generate` 方法，
+接收一个[`Jekyll::Site`]({{ site.repository }}/blob/master/lib/jekyll/site.rb)类型的实例，
+方法的返回值会被忽略。
+
+生成器在Jekyll生成现存内容详细目录之后，网站生成之前运行，
+含有YAML头信息的页面储存为[`Jekyll::Page`]({{ site.repository }}/blob/master/lib/jekyll/page.rb)实例，可以通过`site.pages`变量获取，
+静态文件储存为[`Jekyll::StaticFile`]({{ site.repository }}/blob/master/lib/jekyll/static_file.rb)实例，可以通过`site.static_files`变量获取，
+详情见[变量文档](/docs/variables/) 和
+[`Jekyll::Site`]({{ site.repository }}/blob/master/lib/jekyll/site.rb)
+
+比如，生成器可以为模板变量注入构建过程中计算出的变量值，在下面的例子中，
+我们在生成器中为模板`reading.html`的两个变量`ongoing`和`done`赋了值：
+
+```ruby
+module Reading
+  class Generator < Jekyll::Generator
+    def generate(site)
+      ongoing, done = Book.all.partition(&:ongoing?)
+
+      reading = site.pages.detect {|page| page.name == 'reading.html'}
+      reading.data['ongoing'] = ongoing
+      reading.data['done'] = done
+    end
+  end
+end
+```
+
+下面是一个更复杂的生成器例子，可以生成新的页面：
 
 {% highlight ruby %}
 module Jekyll
@@ -89,7 +150,7 @@ end
 </table>
 </div>
 
-## 转换器
+## 转换器 - Converters
 
 如果想使用一个新的标记语言，可以用你自己的转换器实现，Markdown 和 Textile 就是这样实现的。
 
@@ -163,6 +224,64 @@ end
 </div>
 
 在上边的例子中， `UpcaseConverter#matches` 检查文件后缀名是不是 `.upcase` ;`UpcaseConverter#convert` 会处理检查成功文件的内容，即将所有的字符串变成大写；最终，保存的结果将以作为后缀名 `.html` 。
+
+
+## 命令 - Commands
+
+从2.5.0版本开始，Jekyll可以使用插件提供的子命令来扩展`jekyll`命令。
+可以通过在`Gemfile`中`:jekyll_plugins`组中包括相关的插件来实现：
+
+```ruby
+group :jekyll_plugins do
+  gem "my_fancy_jekyll_plugin"
+end
+```
+
+每个`Command`必须是`Jekyll::Command`类的子类，而且必须要包含类方法`init_with_program`，例如：
+
+```ruby
+class MyNewCommand < Jekyll::Command
+  class << self
+    def init_with_program(prog)
+      prog.command(:new) do |c|
+        c.syntax "new [options]"
+        c.description 'Create a new Jekyll site.'
+
+        c.option 'dest', '-d DEST', 'Where the site should go.'
+
+        c.action do |args, options|
+          Jekyll::Site.new_site_at(options['dest'])
+        end
+      end
+    end
+  end
+end
+```
+
+命令应该实现这个单例方法：
+
+<div class="mobile-side-scroller">
+<table>
+  <thead>
+    <tr>
+      <th>方法</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <p><code>init_with_program</code></p>
+      </td>
+      <td><p>
+        这个方法接受一个参数，
+        <code><a href="https://github.com/jekyll/mercenary#readme">Mercenary::Program</a></code>
+        实例，表示Jekyll程序本身，程序之上，命令可以通过上述方式创建，详情可以参见Github.com上的Mercenary库。
+      </p></td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 ## 标记
 
