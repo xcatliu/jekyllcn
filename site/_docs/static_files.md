@@ -3,6 +3,7 @@ layout: docs
 title: 静态文件
 permalink: /docs/static-files/
 translators: [yzyzsun, baiyangcao]
+update_date: 2016-10-20
 hash: 5647b91
 ---
 
