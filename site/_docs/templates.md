@@ -2,7 +2,7 @@
 layout: docs
 title: 模板
 permalink: /docs/templates/
-translators: [debbbbie, archersmind, TimoTokki]
+translators: [debbbbie, archersmind, TimoTokki, baiyangcao]
 update_date: 2016-04-26
 ---
 
@@ -307,6 +307,17 @@ Jekyll 使用 [Liquid](http://wiki.shopify.com/Liquid) 模板语言，支持所�
         </p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <p class="name"><strong>Inspect</strong></p>
+        <p>将对象转换为其字符串表示形式，用于调试</p>
+      </td>
+      <td class="align-center">
+        <p>
+         <code class="filter">{% raw %}{{ some_var | inspect }}{% endraw %}</code>
+        </p>
+      </td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -400,6 +411,30 @@ end
 #### 代码高亮的样式
 
 要使用代码高亮，你还需要包含一个样式表。例如 [syntax.css](http://github.com/mojombo/tpw/tree/master/css/syntax.css) 。它包含了和 GitHub 一样的样式，并且免费。如果你使用了 `linenos` ，可能还需要在 `syntax.css` 加入 `.lineno` 样式。
+
+### 链接  
+
+如果你要创建一组文档、博文、页面或文件的链接，使用 `link` 标签可以正确生成指定路径的永久链接。
+
+```liquid
+{% raw %}
+{% link _collection/name-of-document.md %}
+{% link _posts/2016-07-26-name-of-post.md %}
+{% link news/index.html %}
+{% link /assets/files/doc.pdf %}
+{% endraw %}
+```
+
+还可以使用这个标签在MarkDown文件中创建一个链接：
+
+```liquid
+{% raw %}
+[Link to a document]({% link _collection/name-of-document.md %})
+[Link to a post]({% link _posts/2016-07-26-name-of-post.md %})
+[Link to a page]({% link news/index.html %})
+[Link to a file]({% link /assets/files/doc.pdf %})
+{% endraw %}
+```
 
 ### 博文链接（Post URL）
 
