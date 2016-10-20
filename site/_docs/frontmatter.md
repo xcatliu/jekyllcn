@@ -2,7 +2,7 @@
 layout: docs
 title: 头信息 
 permalink: /docs/frontmatter/
-translators: [liul85, LeuisKen, TimoTokki]
+translators: [liul85, LeuisKen, TimoTokki, baiyangcao]
 update_date: 2016-04-22
 ---
 
@@ -78,32 +78,7 @@ title: Blogging Like a Hacker
         </p>
       </td>
     </tr>
-    <tr>
-      <td>
-        <p style="margin-bottom: 5px;"><code>category</code></p>
-        <p><code>categories</code></p>
-      </td>
-      <td>
-        <p>
-
-          除过将博客文章放在某个文件夹下面外，你还可以指定博客的一个或者多个分类属性。这样当你的站点生成后，这些文章就可以根据这些分类来阅读。<code>categories</code> 可以通过 <a href="http://en.wikipedia.org/wiki/YAML#Lists">YAML list</a>，或者以逗号隔开的字符串指定。
-
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <p><code>tags</code></p>
-      </td>
-      <td>
-        <p>
-
-          类似分类 <code>categories</code>，一篇文章也可以给它增加一个或者多个标签。同样，<code>tags</code> 可以通过 YAML 列表或者以逗号隔开的字符串指定。
-
-        </p>
-      </td>
-    </tr>
-  </tbody>
+ </tbody>
 </table>
 </div>
 
@@ -142,6 +117,31 @@ title: Blogging Like a Hacker
       <td>
         <p>
           这里的日期会覆盖文章名字中的日期。这样就可以用来保障文章排序的正确。日期的具体格式为<code>YYYY-MM-DD HH:MM:SS +/-TTTT</code>；时，分，秒和时区都是可选的。
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p style="margin-bottom: 5px;"><code>category</code></p>
+        <p><code>categories</code></p>
+      </td>
+      <td>
+        <p>
+
+          除过将博客文章放在某个文件夹下面外，你还可以指定博客的一个或者多个分类属性。这样当你的站点生成后，这些文章就可以根据这些分类来阅读。<code>categories</code> 可以通过 <a href="http://en.wikipedia.org/wiki/YAML#Lists">YAML list</a>，或者以逗号隔开的字符串指定。
+
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>tags</code></p>
+      </td>
+      <td>
+        <p>
+
+          类似分类 <code>categories</code>，一篇文章也可以给它增加一个或者多个标签。同样，<code>tags</code> 可以通过 YAML 列表或者以逗号隔开的字符串指定。
+
         </p>
       </td>
     </tr>

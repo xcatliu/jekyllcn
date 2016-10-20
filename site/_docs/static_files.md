@@ -2,7 +2,7 @@
 layout: docs
 title: 静态文件
 permalink: /docs/static-files/
-translators: yzyzsun
+translators: [yzyzsun, baiyangcao]
 hash: 5647b91
 ---
 
@@ -25,7 +25,7 @@ hash: 5647b91
       <td><p><code>file.path</code></p></td>
       <td><p>
 
-        文件的相对路径
+        文件的相对路径，如：<code>/assets/img/image.jpg</code>
 
       </p></td>
     </tr>
@@ -33,7 +33,23 @@ hash: 5647b91
       <td><p><code>file.modified_time</code></p></td>
       <td><p>
 
-        文件的最后修改时间
+        文件的最后修改时间，如：<code>2016-04-01 16:35:26 +0200</code>
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>file.name</code></p></td>
+      <td><p>
+
+         文件名称（带扩展名），如：文件<code>image.jpg</code>对应<code>image.jpg</code>
+
+      </p></td>
+    </tr>
+    <tr>
+      <td><p><code>file.basename</code></p></td>
+      <td><p>
+
+       文件名称（不带扩展名） 如：文件<code>image.jpg</code>对应<code>image</code>
 
       </p></td>
     </tr>

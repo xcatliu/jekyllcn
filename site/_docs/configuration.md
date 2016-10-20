@@ -2,7 +2,7 @@
 layout: docs
 title: 配置
 permalink: /docs/configuration/
-translators: [debbbbie, chaucerling, archersmind, TimoTokki]
+translators: [debbbbie, chaucerling, archersmind, TimoTokki, baiyangcao]
 hash: 5647b91
 ---
 
@@ -253,6 +253,18 @@ Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵�
         <p><code class="flag">-I, --incremental</code></p>
       </td>
     </tr>
+    <tr class="setting">
+      <td>
+        <p class="name"><strong>Liquid profiler</strong></p>
+        <p class="description">
+            生成一个Liquid概述文档来帮助你发现性能瓶颈
+        </p>
+      </td>
+      <td class="align-center">
+        <p><code class="option">profile: BOOL</code></p>
+        <p><code class="flag">--profile</code></p>
+      </td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -412,6 +424,17 @@ defaults:
     values:
       layout: "default"
 {% endhighlight %}
+
+<div class="note info">
+  <h5>请重新运行命令： `jekyll serve` </h5>
+  <p>
+    主要配置文件 <code>_config.yml</code> 包括一些在运行时一次性读入的全局配置和变量定义，
+    在自动生成的过程中并不会重新加载 <code>_config.yml</code> 文件所发生的改变，除非重新运行。
+  </p>
+  <p>
+    注意 <a href="../datafiles">Data Files</a> 包括在自动生成范围内，可以在更改后自动重新加载。
+  </p>
+</div>
 
 在这里，我们把 `values` 应用给 scope 路径里的所有文件。因为路径被设为空字符串，它将会应用到你项目里的**全部文件**。你可能不想给项目在的每个文件都设置一个布局，例如 css 文件，所以你可以在 `scope` 下指定 `type` 的值。
 
@@ -583,6 +606,14 @@ kramdown:
     coderay_bold_every:        10
     coderay_css:               style
 {% endhighlight %}
+
+## Liquid 选项
+
+Liquid的错误处理方式可以通过 <code>error_mode</code> 来配置，可选项有：
+
+ - `lax` --- 忽略所有错误
+ - `warn` --- 针对每个错误在控制台中输出警告信息
+ - `strict` --- 输出错误信息并停止构建过程
 
 ## Markdown 选项
 

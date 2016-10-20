@@ -2,7 +2,7 @@
 layout: docs
 title: 安装
 permalink: /docs/installation/
-translators: [ Neo-J, xcatliu, TimoTokki ]
+translators: [ Neo-J, xcatliu, TimoTokki, baiyangcao ]
 update_date: 2016-04-19
 hash: 5647b91
 ---
@@ -85,5 +85,27 @@ $ ls pkg/*.gem | head -n 1 | xargs gem install -l
     <a href="../templates/#code_snippet_highlighting">文档</a>。
   </p>
 </div>
+
+## 已经安装老版本Jekyll？
+
+在使用Jekyll开发之前，你可能想要检查一下你的Jekyll是不是最新版本，想要查看你的Jekyll版本，执行下面命令之一：
+
+{% highlight bash %}
+$ jekyll --version
+$ gem list jekyll
+{% endhighlight %}
+
+你可以在[RubyGem](https://rubygems.org/gems/jekyll)找到任何gem软件包的最新版本，同时也可以通过`gem`命令行工具来查看：
+
+{% highlight bash %}
+$ gem search jekyll --remote
+{% endhighlight %}
+
+这样你会查到名为`jekyll`的gem包，并且在方括号中显示最新版本。另一个检查本机是否是最新版本的办法是执行命令`gem outdated`，
+它会显示出当前系统中所有需要更新的gem包列表，如果你的jekyll不是最新版本，执行命令：
+
+{% highlight bash %}
+$ gem update jekyll
+{% endhighlight %}
 
 哦耶～你已经安装了所有需要的东西了，开始玩转 Jekyll 吧！
