@@ -19,7 +19,7 @@
 <meta property="og:url" content="http://jekyllcn.com/docs/plugins/">
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2016-10-20T01:05:45-07:00">
+<meta property="article:published_time" content="2016-10-20T23:29:13-07:00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@jekyllrb">
 <script type="application/ld+json">
@@ -27,7 +27,7 @@
     "@context": "http://schema.org",
     "@type": "BlogPosting",
     "headline": "插件",
-    "datePublished": "2016-10-20T01:05:45-07:00",
+    "datePublished": "2016-10-20T23:29:13-07:00",
     "description": "将纯文本转换为静态博客网站",
     "logo": "http://jekyllcn.comimg/logo-2x.png",
     "url": "http://jekyllcn.com/docs/plugins/"
@@ -339,7 +339,7 @@
   <li><a href="#generators">生成器 - Generators</a></li>
   <li><a href="#converters">转换器 - Converters</a></li>
   <li><a href="#commands">命令 - Commands</a></li>
-  <li><a href="#tags">标签 - Tags</a></li>
+  <li><a href="#tags">标记 - Tags</a></li>
   <li><a href="#hooks">钩子 - Hooks</a></li>
 </ol>
 
@@ -567,7 +567,7 @@
 </table>
 </div>
 
-<h2 id="section-1">标记</h2>
+<h2 id="tags">标记 - Tags</h2>
 
 <p>如果你想使用 liquid 标记，你可以这样做。 Jekyll 官方的例子有 <code class="highlighter-rouge">highlight</code> 和 <code class="highlighter-rouge">include</code> 等标记。下边的例子中，自定义了一个 liquid 标记，用来输出当前时间：</p>
 
@@ -690,11 +690,247 @@
   <span class="nf">end</span>
 <span class="k">end</span></code></pre></figure>
 
-<h2 id="section-2">可用的插件</h2>
+<h2 id="hooks">钩子 - Hooks</h2>
+
+<p>通过使用钩子，你的插件可以精细控制构建过程中的各个方面。
+如果你的插件定义了钩子，Jekyll就会在预定义时调用钩子。</p>
+
+<p>钩子需要注册一个容器名称和事件名称，可以使用 Jekyll::Hooks.register 来注册，
+传递一个容器名称、事件名称，以及钩子触发时调用的代码。
+比如，假设你想要在 Jekyll 每次渲染博客时执行一些自定义的功能代码，你可以这样注册钩子：</p>
+
+<div class="language-ruby highlighter-rouge">
+<pre class="highlight"><code><span class="no">Jekyll</span><span class="o">::</span><span class="no">Hooks</span><span class="p">.</span><span class="nf">register</span> <span class="ss">:posts</span><span class="p">,</span> <span class="ss">:post_render</span> <span class="k">do</span> <span class="o">|</span><span class="n">post</span><span class="o">|</span>
+  <span class="c1"># Jekyll 渲染博客后要调用的代码</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<p>Jekyll 分别为 <code>:site</code>，<code>:pages</code>，<code>:posts</code>和 <code>:documents</code> 提供了钩子。
+在任何情况下，Jekyll 都会以容器对象作为第一个回调参数来调用你的钩子，
+但是所有的 <code class="highlighter-rouge">:pre_render</code>，<code class="highlighter-rouge">:site, :post_render</code>钩子都会提供一个负载哈希值作为第二个参数。
+如果是 <code class="highlighter-rouge">:pre_render</code>，负载可以让你完全掌控渲染过程中的变量。
+若是 <code class="highlighter-rouge">:site, :pre_render</code>，负载包括渲染所有网站的最后值（可以用于站点地图，订阅等）</p>
+
+<p>完整的钩子列表如下：</p>
+
+<div class="mobile-side-scroller">
+<table>
+  <thead>
+    <tr>
+      <th>容器名</th>
+      <th>事件名</th>
+      <th>调用时机</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <p><code>:site</code></p>
+      </td>
+      <td>
+        <p><code>:after_init</code></p>
+      </td>
+      <td>
+        <p> 在网站初始化时，但是在设置和渲染之前，适合用来修改网站的配置项</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:site</code></p>
+      </td>
+      <td>
+        <p><code>:after_reset</code></p>
+      </td>
+      <td>
+        <p>网站重置之后</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:site</code></p>
+      </td>
+      <td>
+        <p><code>:post_read</code></p>
+      </td>
+      <td>
+        <p>在网站数据从磁盘中读取并加载之后</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:site</code></p>
+      </td>
+      <td>
+        <p><code>:pre_render</code></p>
+      </td>
+      <td>
+        <p>在渲染整个网站之前</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:site</code></p>
+      </td>
+      <td>
+        <p><code>:post_render</code></p>
+      </td>
+      <td>
+        <p>在渲染整个网站之后，但是在写入任何文件之前</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:site</code></p>
+      </td>
+      <td>
+        <p><code>:post_write</code></p>
+      </td>
+      <td>
+        <p>在将整个网站写入磁盘之后</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:pages</code></p>
+      </td>
+      <td>
+        <p><code>:post_init</code></p>
+      </td>
+      <td>
+        <p>每次页面被初始化的时候</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:pages</code></p>
+      </td>
+      <td>
+        <p><code>:pre_render</code></p>
+      </td>
+      <td>
+        <p>在渲染页面之前</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:pages</code></p>
+      </td>
+      <td>
+        <p><code>:post_render</code></p>
+      </td>
+      <td>
+        <p>在页面渲染之后，但是在页面写入磁盘之前</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:pages</code></p>
+      </td>
+      <td>
+        <p><code>:post_write</code></p>
+      </td>
+      <td>
+        <p>在页面写入磁盘之后</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:posts</code></p>
+      </td>
+      <td>
+        <p><code>:post_init</code></p>
+      </td>
+      <td>
+        <p>每次博客被初始化的时候</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:posts</code></p>
+      </td>
+      <td>
+        <p><code>:pre_render</code></p>
+      </td>
+      <td>
+        <p>在博客被渲染之前</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:posts</code></p>
+      </td>
+      <td>
+        <p><code>:post_render</code></p>
+      </td>
+      <td>
+        <p>在博客渲染之后，但是在被写入磁盘之前</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:posts</code></p>
+      </td>
+      <td>
+        <p><code>:post_write</code></p>
+      </td>
+      <td>
+        <p>在博客被写入磁盘之后</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:documents</code></p>
+      </td>
+      <td>
+        <p><code>:post_init</code></p>
+      </td>
+      <td>
+        <p>每次文档被初始化的时候</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:documents</code></p>
+      </td>
+      <td>
+        <p><code>:pre_render</code></p>
+      </td>
+      <td>
+        <p>在渲染文档之前</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:documents</code></p>
+      </td>
+      <td>
+        <p><code>:post_render</code></p>
+      </td>
+      <td>
+        <p>在渲染文档之后，但是在被写入磁盘之前</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:documents</code></p>
+      </td>
+      <td>
+        <p><code>:post_write</code></p>
+      </td>
+      <td>
+        <p>在文档被写入磁盘之后</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="section-1">可用的插件</h2>
 
 <p>下边的插件，你可以按需索取：</p>
 
-<h4 id="section-3">生成器</h4>
+<h4 id="section-2">生成器</h4>
 
 <ul>
   <li>
@@ -717,7 +953,7 @@
 <a href="https://github.com/agelber/jekyll-rss">RssGenerator by Assaf Gelber</a>：自动生成 RSS 2.0 。</li>
 </ul>
 
-<h4 id="section-4">转换器</h4>
+<h4 id="section-3">转换器</h4>
 
 <ul>
   <li>
@@ -752,7 +988,7 @@
 <a href="https://gist.github.com/1472645">Transform Layouts</a>: 允许使用 HAML 布局（需要 HAML 转换器的配合）</li>
 </ul>
 
-<h4 id="section-5">过滤器</h4>
+<h4 id="section-4">过滤器</h4>
 
 <ul>
   <li>
@@ -781,7 +1017,7 @@
 <a href="https://github.com/dafi/jekyll-toc-generator">Table of Content Generator</a>: 生成包含表格（ TOC ）的 HTML 代码，支持自定义。</li>
 </ul>
 
-<h4 id="section-6">标签</h4>
+<h4 id="section-5">标签</h4>
 
 <ul>
   <li>
@@ -850,7 +1086,7 @@
 <a href="https://github.com/davidensinger/jekyll-suggested-tweet">Jekyll Suggested Tweet</a> by <a href="https://github.com/davidensinger/">David Ensinger</a>: 通过 Twitter 的 API 支持内嵌感兴趣的 tweets。</li>
 </ul>
 
-<h4 id="section-7">集合</h4>
+<h4 id="section-6">集合</h4>
 
 <ul>
   <li>
@@ -861,7 +1097,7 @@
 <a href="https://github.com/aucor/jekyll-plugins">Jekyll plugins by Aucor</a>: 移除不需要的空格空行，并根据 weight 属性给页面排序。</li>
 </ul>
 
-<h4 id="section-8">其他</h4>
+<h4 id="section-7">其他</h4>
 
 <ul>
   <li>

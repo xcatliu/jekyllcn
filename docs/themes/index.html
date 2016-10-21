@@ -19,7 +19,7 @@
 <meta property="og:url" content="http://jekyllcn.com/docs/themes/">
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2016-10-20T01:05:45-07:00">
+<meta property="article:published_time" content="2016-10-20T23:29:13-07:00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@jekyllrb">
 <script type="application/ld+json">
@@ -27,7 +27,7 @@
     "@context": "http://schema.org",
     "@type": "BlogPosting",
     "headline": "主题",
-    "datePublished": "2016-10-20T01:05:45-07:00",
+    "datePublished": "2016-10-20T23:29:13-07:00",
     "description": "将纯文本转换为静态博客网站",
     "logo": "http://jekyllcn.comimg/logo-2x.png",
     "url": "http://jekyllcn.com/docs/themes/"
@@ -315,12 +315,17 @@
 <p>在下列文件夹中，Jekyll 会优先查看您站点中的内容，然后查看主题的默认内容：</p>
 
 <ul>
+  <li><code class="highlighter-rouge">/assets</code></li>
   <li><code class="highlighter-rouge">/_layouts</code></li>
   <li><code class="highlighter-rouge">/_includes</code></li>
   <li><code class="highlighter-rouge">/_sass</code></li>
 </ul>
 
 <p class="note info">关于允许用户覆盖的主题内容，请参考您所选主题的文档和源仓库来获取更多信息。</p>
+
+<p>如果想要定位电脑上主题文件的位置，执行命令 <code class="highlighter-rouge">bundle show</code> 加上主题包的名称，
+如： <code class="highlighter-rouge">bundle show minima</code> 命令来查询 Jekyll 默认主题包的位置，
+然后从返回的路径拷贝你想要重写的文件到你的网站根目录中。</p>
 
 <h2 id="section-2">创建一套主题</h2>
 
@@ -392,6 +397,10 @@
               
               <a href="https://github.com/AlanTanis" title="AlanTanis">
                 <img src="https://github.com/AlanTanis.png" class="avatar" alt="AlanTanis avatar" width="24" height="24">
+              </a>
+              
+              <a href="https://github.com/baiyangcao" title="baiyangcao">
+                <img src="https://github.com/baiyangcao.png" class="avatar" alt="baiyangcao avatar" width="24" height="24">
               </a>
               
             </p>
