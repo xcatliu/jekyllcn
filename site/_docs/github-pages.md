@@ -2,7 +2,8 @@
 layout: docs
 title: GitHub Pages
 permalink: /docs/github-pages/
-translators: [brickgao, archersmind, ydcool]
+translators: [brickgao, archersmind, ydcool, baiyangcao]
+update_date: 2016-10-21
 ---
 
 [Github Pages](http://pages.github.com) 是面向用户、组织和项目开放的公共静态页面搭建托管服
@@ -35,21 +36,61 @@ translators: [brickgao, archersmind, ydcool]
 `gh-pages` 分支生成站点的时候能以 `/project-name` 为根地址并且正确地
 显示。
 
-<div class="note">
-  <h5>GitHub Pages 的文档，帮助和支持</h5>
-  <p>
-    想获得关于 Github Pages 的更多信息和解决方案，你应该访问
-    <a href="https://help.github.com/categories/github-pages-basics/">GitHub’s Pages 帮助部分</a>。
-    如果无法找到解决方案，你可以联系 <a
-    href="https://github.com/contact">GitHub 支持</a>。
-  </p>
-</div>
-
 ## 将 Jekyll 部署到 Github Pages 上
 
 Github Pages 依靠 Github 上项目的某些特定分支来工作。Github Pages
 分为两种基本类型：用户/组织的站点和项目的站点。搭建这两种类型站
 点的方法除了一些小细节之外基本一致。
+
+
+<div class="note protip">
+  <h5>使用 <code>github-pages</code> gem包</h5>
+  <p>
+    Our friends at GitHub have provided the
+    我们在Github的朋友提供了
+    <a href="https://github.com/github/pages-gem">github-pages</a>
+    gem包来管理Jekyll和其在Github Pages上的依赖。使用这个包可以让你在将网站部署到Github Pages上时，
+    不会因为各种不同版本的gem包而导致意外报错。想要在你的项目中使用当前部署版本的gem包，
+    在你的 <code>Gemfile</code> 中添加如下内容：  
+
+{% highlight ruby %}
+{% raw %}
+source 'https://rubygems.org'
+
+require 'json'
+require 'open-uri'
+versions = JSON.parse(open('https://pages.github.com/versions.json').read)
+
+gem 'github-pages', versions['github-pages']
+{% endraw %}
+{% endhighlight %}
+
+    这回保证你再运行 <code>bundle install</code> 命令时，
+    你能够安装正确版本的 <code>github-pages</code> gem包。
+
+    如果执行失败，将上述内容简化为：
+
+{% highlight ruby %}
+{% raw %}
+source 'https://rubygems.org'
+
+gem 'github-pages'
+{% endraw %}
+{% endhighlight %}
+
+    不过你要经常执行 <code>bundle update</code> 命令哦~~
+
+    如果你想要在 Windows 上安装 <code>pages-gem</code> ，你可以参考 Jens Willmer 的这篇博文 <a href="http://jwillmer.de/blog/tutorial/how-to-install-jekyll-and-pages-gem-on-windows-10-x46#github-pages-and-plugins">how to install github-pages gem on Windows (x64)</a>。
+  </p>
+</div>
+
+<div class="note info">
+  <h5>在Windows上安装 <code>github-pages</code> gem包</h5>
+  <p>
+    尽管官方并不支持 Windows 系统，但还是可以在 Windows 系统上安装 <code>github-pages</code>滴！
+    可以在我们提供的 <a href="../windows/#installation">Windows-specific docs page</a> 中找到一些参考。
+  </p>
+</div>
 
 ### 用户和组织的站点
 
@@ -80,42 +121,19 @@ Jekyll 项目本身就是一个很好的例子，Jekyll 项目的代码存放在
 [master 分支]({{ site.repository }}) ， 而 Jekyll 的项目站点（就是你现在看见的网页）包含在同一仓库的 
 [gh-pages 分支]({{ site.repository }}/tree/gh-pages) 中。
 
-### 模仿 Github 风格 Markdown
-Github 风格 Markdown 与常规 Markdown 有
-[些许差异](https://help.github.com/articles/github-flavored-markdown)。你可以在本地用
-以下的[设置]({{ site.url }}/docs/configuration)
-来模仿 Github 风格 Markdown。
-
-{% highlight yaml %}
-pygments: true
-markdown: redcarpet
-redcarpet:
-  extensions:
-    - hard_wrap
-    - no_intra_emphasis
-    - autolink
-    - strikethrough
-    - fenced_code_blocks
-{% endhighlight %}
-
-这些设置将为 Markdown 引擎引入以下来自 Github 风格 Markdown 的特性：
-
-*   [换行](https://help.github.com/articles/github-flavored-markdown#newlines)
-*   [语句中的多个下划线](https://help.github.com/articles/github-flavored-markdown#multiple-underscores-in-words)
-*   [网址自动链接](https://help.github.com/articles/github-flavored-markdown#url-autolinking)
-*   [删除线](https://help.github.com/articles/github-flavored-markdown#strikethrough)
-*   [代码块](https://help.github.com/articles/github-flavored-markdown#fenced-code-blocks)
-*   [代码高亮](https://help.github.com/articles/github-flavored-markdown#syntax-highlighting)
-
-<div class="note info">
-  <h5>Github 风格 Markdown 并不适用于较长的文章</h5>
+<div class="note warning">
+  <h5>源文件必须在根目录</h5>
   <p>
-    注意 Github 风格 Markdown 是为方便评论和报告bug而创造的，并不适用于一个网站或blog。
+GitHub Pages <a href="https://help.github.com/articles/troubleshooting-github-pages-build-failures#source-setting">重载</a> 了 <a href="/docs/configuration/#global-configuration">“Site Source”</a> 配置的默认值，所以如果你将文件放在除了根目录之外的任何位置，都可能导致网站不能正确构建。
   </p>
 </div>
 
-如果你没有[Redcarpet](https://github.com/vmg/redcarpet)，你可以用以下的命令来安装。
+<div class="note">
+  <h5>GitHub Pages 文档，帮助和支持</h5>
+  <p>
+    关于 Github Pages 用法的更多相关信息，以及相关问题处理，你可以查看 <a
+    href="https://help.github.com/categories/github-pages-basics/">GitHub’s Pages 帮助
+    section</a>. 如果找不到相关内容，你可以联系 <a href="https://github.com/contact">GitHub Support</a>.
+  </p>
+</div>
 
-{% highlight sh %}
-gem install redcarpet
-{% endhighlight %}

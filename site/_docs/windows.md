@@ -2,7 +2,8 @@
 layout: docs
 title: Windows 运行Jekyll
 permalink: /docs/windows/
-translators: [comsince, StromKuo, xcatliu] 
+translators: [comsince, StromKuo, xcatliu, baiyangcao] 
+update_date: 2016-10-14
 ---
 
 虽然 Windows 并不是 Jekyll 官方支持的平台，但是也可以通过合适的方法使其运行在 Windows 平台上。这个页面旨在收集一些由 Windows 用户发掘出来的关于 Jekyll 相关的知识和课程。

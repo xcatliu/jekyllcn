@@ -2,8 +2,8 @@
 layout: docs
 title: 主题
 permalink: /docs/themes/
-translators: [AlanTanis]
-update_date: 2016-05-10
+translators: [AlanTanis, baiyangcao]
+update_date: 2016-10-21
 ---
 
 Jekyll 包含有一个强大的主题系统，因此您可以使用社区的模板和样式来定制自己的站点。Jekyll 主题打包了布局文件、包含文件及样式表。同时您也可以使用自己站点的内容去覆盖它们的默认内容。
@@ -29,12 +29,17 @@ Jekyll 主题含有主题默认的布局文件、包含文件和样式表，但�
 
 在下列文件夹中，Jekyll 会优先查看您站点中的内容，然后查看主题的默认内容：
 
+* `/assets`
 * `/_layouts`
 * `/_includes`
 * `/_sass`
 
 关于允许用户覆盖的主题内容，请参考您所选主题的文档和源仓库来获取更多信息。
 {: .note .info}
+
+如果想要定位电脑上主题文件的位置，执行命令 `bundle show` 加上主题包的名称，
+如： `bundle show minima` 命令来查询 Jekyll 默认主题包的位置，
+然后从返回的路径拷贝你想要重写的文件到你的网站根目录中。
 
 ## 创建一套主题
 

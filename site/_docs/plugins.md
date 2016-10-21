@@ -3,6 +3,7 @@ layout: docs
 title: 插件
 permalink: /docs/plugins/
 translators: [debbbbie, baiyangcao]
+update_date: 2016-10-20
 ---
 
 Jekyll 支持插件功能，你可以很容易的加入自己的代码。
@@ -54,7 +55,7 @@ Jekyll 支持插件功能，你可以很容易的加入自己的代码。
 1. [生成器 - Generators](#generators)
 2. [转换器 - Converters](#converters)
 3. [命令 - Commands](#commands)
-4. [标签 - Tags](#tags)
+4. [标记 - Tags](#tags)
 5. [钩子 - Hooks](#hooks)
 
 ## 生成器 - Generators
@@ -283,7 +284,7 @@ end
 </table>
 </div>
 
-## 标记
+## 标记 - Tags
 
 如果你想使用 liquid 标记，你可以这样做。 Jekyll 官方的例子有 `highlight` 和 `include` 等标记。下边的例子中，自定义了一个 liquid 标记，用来输出当前时间：
 
@@ -419,6 +420,242 @@ module Jekyll
   end
 end
 {% endhighlight %}
+
+
+## 钩子 - Hooks
+
+通过使用钩子，你的插件可以精细控制构建过程中的各个方面。
+如果你的插件定义了钩子，Jekyll就会在预定义时调用钩子。
+
+钩子需要注册一个容器名称和事件名称，可以使用 Jekyll::Hooks.register 来注册，
+传递一个容器名称、事件名称，以及钩子触发时调用的代码。
+比如，假设你想要在 Jekyll 每次渲染博客时执行一些自定义的功能代码，你可以这样注册钩子：
+
+```ruby
+Jekyll::Hooks.register :posts, :post_render do |post|
+  # Jekyll 渲染博客后要调用的代码
+end
+```
+
+Jekyll 分别为 <code>:site</code>，<code>:pages</code>，<code>:posts</code>和 <code>:documents</code> 提供了钩子。
+在任何情况下，Jekyll 都会以容器对象作为第一个回调参数来调用你的钩子，
+但是所有的 `:pre_render`，`:site, :post_render`钩子都会提供一个负载哈希值作为第二个参数。
+如果是 `:pre_render`，负载可以让你完全掌控渲染过程中的变量。
+若是 `:site, :pre_render`，负载包括渲染所有网站的最后值（可以用于站点地图，订阅等）
+
+完整的钩子列表如下：
+
+<div class="mobile-side-scroller">
+<table>
+  <thead>
+    <tr>
+      <th>容器名</th>
+      <th>事件名</th>
+      <th>调用时机</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <p><code>:site</code></p>
+      </td>
+      <td>
+        <p><code>:after_init</code></p>
+      </td>
+      <td>
+        <p> 在网站初始化时，但是在设置和渲染之前，适合用来修改网站的配置项</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:site</code></p>
+      </td>
+      <td>
+        <p><code>:after_reset</code></p>
+      </td>
+      <td>
+        <p>网站重置之后</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:site</code></p>
+      </td>
+      <td>
+        <p><code>:post_read</code></p>
+      </td>
+      <td>
+        <p>在网站数据从磁盘中读取并加载之后</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:site</code></p>
+      </td>
+      <td>
+        <p><code>:pre_render</code></p>
+      </td>
+      <td>
+        <p>在渲染整个网站之前</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:site</code></p>
+      </td>
+      <td>
+        <p><code>:post_render</code></p>
+      </td>
+      <td>
+        <p>在渲染整个网站之后，但是在写入任何文件之前</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:site</code></p>
+      </td>
+      <td>
+        <p><code>:post_write</code></p>
+      </td>
+      <td>
+        <p>在将整个网站写入磁盘之后</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:pages</code></p>
+      </td>
+      <td>
+        <p><code>:post_init</code></p>
+      </td>
+      <td>
+        <p>每次页面被初始化的时候</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:pages</code></p>
+      </td>
+      <td>
+        <p><code>:pre_render</code></p>
+      </td>
+      <td>
+        <p>在渲染页面之前</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:pages</code></p>
+      </td>
+      <td>
+        <p><code>:post_render</code></p>
+      </td>
+      <td>
+        <p>在页面渲染之后，但是在页面写入磁盘之前</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:pages</code></p>
+      </td>
+      <td>
+        <p><code>:post_write</code></p>
+      </td>
+      <td>
+        <p>在页面写入磁盘之后</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:posts</code></p>
+      </td>
+      <td>
+        <p><code>:post_init</code></p>
+      </td>
+      <td>
+        <p>每次博客被初始化的时候</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:posts</code></p>
+      </td>
+      <td>
+        <p><code>:pre_render</code></p>
+      </td>
+      <td>
+        <p>在博客被渲染之前</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:posts</code></p>
+      </td>
+      <td>
+        <p><code>:post_render</code></p>
+      </td>
+      <td>
+        <p>在博客渲染之后，但是在被写入磁盘之前</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:posts</code></p>
+      </td>
+      <td>
+        <p><code>:post_write</code></p>
+      </td>
+      <td>
+        <p>在博客被写入磁盘之后</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:documents</code></p>
+      </td>
+      <td>
+        <p><code>:post_init</code></p>
+      </td>
+      <td>
+        <p>每次文档被初始化的时候</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:documents</code></p>
+      </td>
+      <td>
+        <p><code>:pre_render</code></p>
+      </td>
+      <td>
+        <p>在渲染文档之前</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:documents</code></p>
+      </td>
+      <td>
+        <p><code>:post_render</code></p>
+      </td>
+      <td>
+        <p>在渲染文档之后，但是在被写入磁盘之前</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p><code>:documents</code></p>
+      </td>
+      <td>
+        <p><code>:post_write</code></p>
+      </td>
+      <td>
+        <p>在文档被写入磁盘之后</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 ## 可用的插件
 

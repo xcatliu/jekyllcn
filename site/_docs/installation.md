@@ -3,7 +3,7 @@ layout: docs
 title: 安装
 permalink: /docs/installation/
 translators: [ Neo-J, xcatliu, TimoTokki, baiyangcao ]
-update_date: 2016-04-19
+update_date: 2016-10-20
 hash: 5647b91
 ---
 
