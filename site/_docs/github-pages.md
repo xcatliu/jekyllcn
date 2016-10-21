@@ -51,9 +51,10 @@ Github Pages 依靠 Github 上项目的某些特定分支来工作。Github Page
     <a href="https://github.com/github/pages-gem">github-pages</a>
     gem包来管理Jekyll和其在Github Pages上的依赖。使用这个包可以让你在将网站部署到Github Pages上时，
     不会因为各种不同版本的gem包而导致意外报错。想要在你的项目中使用当前部署版本的gem包，
-    在你的 <code>Gemfile</code> 中添加如下内容：
+    在你的 <code>Gemfile</code> 中添加如下内容：  
 
-```ruby
+{% highlight ruby %}
+{% raw %}
 source 'https://rubygems.org'
 
 require 'json'
@@ -61,18 +62,21 @@ require 'open-uri'
 versions = JSON.parse(open('https://pages.github.com/versions.json').read)
 
 gem 'github-pages', versions['github-pages']
-```
+{% endraw %}
+{% endhighlight %}
 
     这回保证你再运行 <code>bundle install</code> 命令时，
     你能够安装正确版本的 <code>github-pages</code> gem包。
 
     如果执行失败，将上述内容简化为：
 
-```ruby
+{% highlight ruby %}
+{% raw %}
 source 'https://rubygems.org'
 
 gem 'github-pages'
-```
+{% endraw %}
+{% endhighlight %}
 
     不过你要经常执行 <code>bundle update</code> 命令哦~~
 
