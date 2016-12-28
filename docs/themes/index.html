@@ -10,30 +10,30 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <!-- Begin Jekyll SEO tag v2.0.0 -->
+  <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>主题 - Jekyll • 简单静态博客网站生成器</title>
 <meta property="og:title" content="主题">
 <meta name="description" content="将纯文本转换为静态博客网站">
 <meta property="og:description" content="将纯文本转换为静态博客网站">
-<link rel="canonical" href="http://jekyllcn.com/docs/themes/">
-<meta property="og:url" content="http://jekyllcn.com/docs/themes/">
+<link rel="canonical" href="/docs/themes/">
+<meta property="og:url" content="/docs/themes/">
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2016-10-20T23:29:13-07:00">
+<meta property="article:published_time" content="2016-12-28T01:40:43-08:00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@jekyllrb">
 <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "BlogPosting",
-    "headline": "主题",
-    "datePublished": "2016-10-20T23:29:13-07:00",
-    "description": "将纯文本转换为静态博客网站",
-    "logo": "http://jekyllcn.comimg/logo-2x.png",
-    "url": "http://jekyllcn.com/docs/themes/"
-  }
-</script>
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "主题",
+"datePublished": "2016-12-28T01:40:43-08:00",
+"description": "将纯文本转换为静态博客网站",
+"publisher": {"@type": "Organization",
+"logo": {"@type": "ImageObject",
+"url": "img/logo-2x.png"}},
+"url": "/docs/themes/"}</script>
 <!-- End Jekyll SEO tag -->
+
   <!--[if lt IE 9]>
   <script src="/js/html5shiv.min.js"></script>
   <script src="/js/respond.min.js"></script>
@@ -283,7 +283,7 @@
           <h1>主题</h1>
           <p>Jekyll 包含有一个强大的主题系统，因此您可以使用社区的模板和样式来定制自己的站点。Jekyll 主题打包了布局文件、包含文件及样式表。同时您也可以使用自己站点的内容去覆盖它们的默认内容。</p>
 
-<h2 id="section">安装主题</h2>
+<h2 id="安装主题">安装主题</h2>
 
 <ol>
   <li>
@@ -308,7 +308,7 @@
 
 <p class="note info">您可以在站点的 Gemfile 中留有多套主题，但在 <code class="highlighter-rouge">_config.yml</code> 中您只能选择一套来激活使用。</p>
 
-<h2 id="section-1">覆盖主题默认内容</h2>
+<h2 id="覆盖主题默认内容">覆盖主题默认内容</h2>
 
 <p>Jekyll 主题含有主题默认的布局文件、包含文件和样式表，但您可以使用自己站点的内容去覆盖它们。举个例子，如果您选择使用一个具有 <code class="highlighter-rouge">page</code> 布局的主题，您能通过在 <code class="highlighter-rouge">_layouts</code> 文件夹下创建一个属于自己的 <code class="highlighter-rouge">page</code> 布局文件(例如 <code class="highlighter-rouge">_layouts/page.html</code>)来覆盖当前主题的布局。</p>
 
@@ -327,7 +327,7 @@
 如： <code class="highlighter-rouge">bundle show minima</code> 命令来查询 Jekyll 默认主题包的位置，
 然后从返回的路径拷贝你想要重写的文件到你的网站根目录中。</p>
 
-<h2 id="section-2">创建一套主题</h2>
+<h2 id="创建一套主题">创建一套主题</h2>
 
 <p>Jekyll 的主题通过 Ruby gems 进行分发。同时 <a href="http://guides.rubygems.org/specification-reference/">Ruby Gemspec</a> 是唯一必需的文件。这里有个 <code class="highlighter-rouge">my-awesome-jekyll-theme</code> 主题简短的小例子，它保存在 <code class="highlighter-rouge">/my-awsome-jekyll-theme.gemspec</code> 下:</p>
 
@@ -342,31 +342,31 @@
   <span class="n">s</span><span class="p">.</span><span class="nf">files</span>    <span class="o">=</span> <span class="sb">`git ls-files -z`</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\x0</span><span class="s2">"</span><span class="p">).</span><span class="nf">grep</span><span class="p">(</span><span class="sr">%r{^_(sass|includes|layouts)/}</span><span class="p">)</span>
 <span class="k">end</span></code></pre></figure>
 
-<h3 id="layoutsincludes">布局（Layouts）和包含文件（includes）</h3>
+<h3 id="布局layouts和包含文件includes">布局（Layouts）和包含文件（includes）</h3>
 
 <p>主题的布局文件和包含文件起到的作用，与它们在 Jekyll 站点中时无异。请将布局文件放置在 <code class="highlighter-rouge">/_layouts</code> 文件夹中，同时将包含文件放置在您主题的 <code class="highlighter-rouge">/_includes</code> 文件夹中。</p>
 
 <p>举个例子，假设您的主题拥有一个 <code class="highlighter-rouge">/_layouts/page.html</code> 文件，和一个带有 <code class="highlighter-rouge">layout: page</code> 头信息的页面。Jekyll 将优先检查站点中 <code class="highlighter-rouge">_layouts</code> 文件夹下关于 <code class="highlighter-rouge">page</code> 的布局。如果没有，那就会使用您主题中关于 <code class="highlighter-rouge">page</code> 的布局。</p>
 
-<h3 id="section-3">样式表</h3>
+<h3 id="样式表">样式表</h3>
 
 <p>您主题的样式表应当放置在您主题的 <code class="highlighter-rouge">/_sass</code> 文件夹中。就像在制作您的 Jekyll 站点时那样。通过使用 <code class="highlighter-rouge">@import</code> 指令，用户能将您主题中的样式包含到他的样式表中。</p>
 
-<h3 id="section-4">为主题撰写文档</h3>
+<h3 id="为主题撰写文档">为主题撰写文档</h3>
 
 <p>您的主题应当包含有一份 <code class="highlighter-rouge">/README.md</code> 文件，其说明了类似这些内容，比如，用户该如何安装并使用您的主题？里面有怎样的布局文件？有哪些包含文件？以及是否要对站点的配置文件做额外的修改？</p>
 
-<h3 id="section-5">附上一个截图</h3>
+<h3 id="附上一个截图">附上一个截图</h3>
 
 <p>主题是一种视觉形象化的表达。为了向用户展示您主题的样式，您可以在主题的仓库（repository）中包含一个 <code class="highlighter-rouge">/screenshot.png</code> 的截图。因为在那儿您可以便捷地修改相关内容。同时，您也可以在主题的文档中附上主题的相关截图。</p>
 
-<h3 id="section-6">预览您的主题</h3>
+<h3 id="预览您的主题">预览您的主题</h3>
 
 <p>在您制作主题的过程中，若想要预览它，那么向其加入一些假内容（dummy content）或许会对您有所帮助，比如 <code class="highlighter-rouge">/index.html</code> 和 <code class="highlighter-rouge">/page.html</code> 文件。这将允许您使用 <code class="highlighter-rouge">jekyll build</code> 和 <code class="highlighter-rouge">jekyll serve</code> 命令来预览您的主题，就像预览一个 Jekyll 站点那样。</p>
 
 <p class="info note">如果在本地预览您的主题，请确保已将 <code class="highlighter-rouge">/_site</code> 添加到您主题的 <code class="highlighter-rouge">.gitignore</code> 文件中。这会让您避免在分发主题的过程中，把自己已生成的站点也包含进去。</p>
 
-<h3 id="section-7">发布您的主题</h3>
+<h3 id="发布您的主题">发布您的主题</h3>
 
 <p>主题均通过 <a href="https://rubygems.org">RubyGems.org</a> 进行发布。在这过程中会要求您拥有一个 RubyGems 账户。当然，您可以 <a href="https://rubygems.org/sign_up">免费创建</a> 一个账户。</p>
 

@@ -10,30 +10,30 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <!-- Begin Jekyll SEO tag v2.0.0 -->
+  <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>部署方法 - Jekyll • 简单静态博客网站生成器</title>
 <meta property="og:title" content="部署方法">
 <meta name="description" content="将纯文本转换为静态博客网站">
 <meta property="og:description" content="将纯文本转换为静态博客网站">
-<link rel="canonical" href="http://jekyllcn.com/docs/deployment-methods/">
-<meta property="og:url" content="http://jekyllcn.com/docs/deployment-methods/">
+<link rel="canonical" href="/docs/deployment-methods/">
+<meta property="og:url" content="/docs/deployment-methods/">
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2016-10-20T23:29:13-07:00">
+<meta property="article:published_time" content="2016-12-28T01:40:43-08:00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@jekyllrb">
 <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "BlogPosting",
-    "headline": "部署方法",
-    "datePublished": "2016-10-20T23:29:13-07:00",
-    "description": "将纯文本转换为静态博客网站",
-    "logo": "http://jekyllcn.comimg/logo-2x.png",
-    "url": "http://jekyllcn.com/docs/deployment-methods/"
-  }
-</script>
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "部署方法",
+"datePublished": "2016-12-28T01:40:43-08:00",
+"description": "将纯文本转换为静态博客网站",
+"publisher": {"@type": "Organization",
+"logo": {"@type": "ImageObject",
+"url": "img/logo-2x.png"}},
+"url": "/docs/deployment-methods/"}</script>
 <!-- End Jekyll SEO tag -->
+
   <!--[if lt IE 9]>
   <script src="/js/html5shiv.min.js"></script>
   <script src="/js/respond.min.js"></script>
@@ -283,27 +283,27 @@
           <h1>部署方法</h1>
           <p>Jekyll 生成的网站是静态的，因此有很多种部署方法。下面列出了一些常见的部署方法。</p>
 
-<h2 id="ftp">网站托管服务商 (FTP)</h2>
+<h2 id="网站托管服务商-ftp">网站托管服务商 (FTP)</h2>
 
 <p>传统的网络托管服务商允许你使用 FTP 上传文件到他们的服务器。想通过 FTP 上传一个 Jekyll 站点，只需要运行 <code class="highlighter-rouge">jekyll</code> 命令然后复制生成的 <code class="highlighter-rouge">_site</code> 目录到你的托管账号根目录。多数托管服务商的跟目录会是 <code class="highlighter-rouge">httpdocs</code> 或 <code class="highlighter-rouge">public_html</code> 目录。</p>
 
-<h3 id="glynn--ftp-">使用 Glynn 进行 FTP 上传</h3>
+<h3 id="使用-glynn-进行-ftp-上传">使用 Glynn 进行 FTP 上传</h3>
 
 <p>有一个叫 <a href="https://github.com/dmathieu/glynn">Glynn</a> 的项目，可以帮助你简单的生成 Jekyll 站点并通过 FTP 发送到你的主机。</p>
 
-<h2 id="section">自己的网络服务器</h2>
+<h2 id="自己的网络服务器">自己的网络服务器</h2>
 
 <p>如果你能够直接连接到部署的网络服务器，你可能有其它的方法传输文件 (如 <code class="highlighter-rouge">scp</code>，或者直接操作文件系统)，而其它过程都一样。要记住保证生成的 <code class="highlighter-rouge">_site</code> 目录放到网络服务器正确的根目录下。</p>
 
-<h2 id="section-1">自动化部署</h2>
+<h2 id="自动化部署">自动化部署</h2>
 
 <p>也有一些自动化部署 Jekyll 站点的方法。下面列出了几种，如果你还有其它的，欢迎 <a href="../contributing">贡献</a>，这样其它人就也能知道它了。</p>
 
-<h3 id="git-post-update-">Git post-update 钩子</h3>
+<h3 id="git-post-update-钩子">Git post-update 钩子</h3>
 
 <p>如果你使用 <a href="http://git-scm.com">Git</a> 管理你的 jekyll 站点，自动化部署非常简单，只需要给你的 Git 仓库设置一个 post-update 钩子，<a href="http://web.archive.org/web/20091223025644/http://www.taknado.com/en/2009/03/26/deploying-a-jekyll-generated-site/">就像这样</a></p>
 
-<h3 id="git-post-receive-">Git post-receive 钩子</h3>
+<h3 id="git-post-receive-钩子">Git post-receive 钩子</h3>
 
 <p>要让一个远程服务器在你每次用 Git 推送修改时进行部署，可以创建一个拥有所有要部署机器公钥的账号，然后设置 post-receive 钩子，其余的跟上面方法一样。</p>
 
@@ -356,7 +356,7 @@ rm -Rf <span class="nv">$TMP_GIT_CLONE</span>
 <p>基于证书的验证是简化发布流程的另一种方式，限制 rsync 仅能访问你想要同步的目录也更合理，
 这可以使用 rrsync 来实现。</p>
 
-<h4 id="home--rrsync-">第一步：在 home 目录安装 rrsync （服务端）</h4>
+<h4 id="第一步在-home-目录安装-rrsync-服务端">第一步：在 home 目录安装 rrsync （服务端）</h4>
 
 <p>如果你的主机上没有安装 rrsync ，你可以自行安装：</p>
 
@@ -366,7 +366,7 @@ rm -Rf <span class="nv">$TMP_GIT_CLONE</span>
   <li>使之可执行（ <code class="highlighter-rouge">chmod +x</code> ）</li>
 </ul>
 
-<h4 id="ssh-">第二步：设置基于证书的 SSH 访问权限（服务端）</h4>
+<h4 id="第二步设置基于证书的-ssh-访问权限服务端">第二步：设置基于证书的 SSH 访问权限（服务端）</h4>
 
 <p>这个<a href="https://wiki.gentoo.org/wiki/SSH#Passwordless_Authentication">流程</a>网上随处可见，
 与典型方法不同的是需要在 <code class="highlighter-rouge">~/.ssh/authorized_keys</code> 文件中加入基于证书验证的限制。
@@ -379,7 +379,7 @@ rm -Rf <span class="nv">$TMP_GIT_CLONE</span>
 
 <p><code class="highlighter-rouge">&lt;folder&gt;</code> 是指你的网站目录，比如： <code class="highlighter-rouge">~/public_html/you.org/blog-html/</code>。</p>
 
-<h4 id="rsync-1">第三步：Rsync（客户端）</h4>
+<h4 id="第三步rsync客户端">第三步：Rsync（客户端）</h4>
 
 <p>在网站源码目录中添加 <code class="highlighter-rouge">deploy</code> 脚本：</p>
 
@@ -412,7 +412,7 @@ rsync -crvz --rsh<span class="o">=</span><span class="s1">'ssh -p2222'</span> --
 
 <p>不要忘了服务器名称后的一栏 <code class="highlighter-rouge">:</code> !</p>
 
-<h4 id="section-2">第四步（可选）：排除迁移脚本防止被拷贝到输出目录</h4>
+<h4 id="第四步可选排除迁移脚本防止被拷贝到输出目录">第四步（可选）：排除迁移脚本防止被拷贝到输出目录</h4>
 
 <p>如果你使用这个教程部署你的网站的话建议你执行这一步，如果你把 <code class="highlighter-rouge">deploy</code> 脚本放在项目的根目录，
 Jekyll 会把它拷贝到输出目录，可以通过设置 <code class="highlighter-rouge">_config.yml</code> 来改变这一行为。</p>
@@ -427,7 +427,7 @@ Jekyll 会把它拷贝到输出目录，可以通过设置 <code class="highligh
 
 <p>此外，你可以使用 <code class="highlighter-rouge">rsync-exclude.txt</code> 文件来控制哪个文件会被发送到你的服务器上。</p>
 
-<h4 id="section-3">完成!</h4>
+<h4 id="完成">完成!</h4>
 
 <p>现在你可以通过执行 <code class="highlighter-rouge">deploy</code> 脚本来发布你的网站啦~
 如果你的 SSH 证书是<a href="https://martin.kleppmann.com/2013/05/24/improving-security-of-ssh-private-keys.html">受密码短语保护的</a>，

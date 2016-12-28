@@ -10,30 +10,30 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <!-- Begin Jekyll SEO tag v2.0.0 -->
+  <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>创建页面 - Jekyll • 简单静态博客网站生成器</title>
 <meta property="og:title" content="创建页面">
 <meta name="description" content="将纯文本转换为静态博客网站">
 <meta property="og:description" content="将纯文本转换为静态博客网站">
-<link rel="canonical" href="http://jekyllcn.com/docs/pages/">
-<meta property="og:url" content="http://jekyllcn.com/docs/pages/">
+<link rel="canonical" href="/docs/pages/">
+<meta property="og:url" content="/docs/pages/">
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2016-10-20T23:29:13-07:00">
+<meta property="article:published_time" content="2016-12-28T01:40:43-08:00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@jekyllrb">
 <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "BlogPosting",
-    "headline": "创建页面",
-    "datePublished": "2016-10-20T23:29:13-07:00",
-    "description": "将纯文本转换为静态博客网站",
-    "logo": "http://jekyllcn.comimg/logo-2x.png",
-    "url": "http://jekyllcn.com/docs/pages/"
-  }
-</script>
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "创建页面",
+"datePublished": "2016-12-28T01:40:43-08:00",
+"description": "将纯文本转换为静态博客网站",
+"publisher": {"@type": "Organization",
+"logo": {"@type": "ImageObject",
+"url": "img/logo-2x.png"}},
+"url": "/docs/pages/"}</script>
 <!-- End Jekyll SEO tag -->
+
   <!--[if lt IE 9]>
   <script src="/js/html5shiv.min.js"></script>
   <script src="/js/respond.min.js"></script>
@@ -283,7 +283,7 @@
           <h1>创建页面</h1>
           <p>作为<a href="../posts/">写文章</a>的补充，Jekyll 还可以创建静态页面。利用 Jekyll 带来的便利，你只需要复制文件或文件夹，就是这么简单。</p>
 
-<h2 id="section">主页</h2>
+<h2 id="主页">主页</h2>
 
 <p>像任何网站的配置一样，需要按约定在站点的根目录下找到 <code class="highlighter-rouge">index.html</code> 文件，这个文件将被做为主页显示出来。除非你的站点设置了其它的文件作为默认文件，这个文件就将是你的 Jekyll 生成站点的主页。</p>
 
@@ -294,7 +294,7 @@
   </p>
 </div>
 
-<h2 id="section-1">其它的页面的位置</h2>
+<h2 id="其它的页面的位置">其它的页面的位置</h2>
 
 <p>将 HTML 文件或者 <a href="https://daringfireball.net/projects/markdown/">Markdown</a> 放在哪里取决于你想让它们如何工作。有两种方式可以创建页面：</p>
 
@@ -305,7 +305,7 @@
 
 <p>这两种方法都可以工作（并且可以混合使用），它们唯一的区别就是访问的 URL 样式不同。</p>
 
-<h3 id="html-">命名 HTML 文件</h3>
+<h3 id="命名-html-文件">命名 HTML 文件</h3>
 
 <p>增加一个新页面的最简单方法就是把给 HTML 文件起一个适当的名字并放在根目录下。一般来说，一个站点下通常会有：主页 (homepage), 关于 (about), 和一个联系 (contact) 页。根目录下的文件结构和对应生成的 URL 会是下面的样子：</p>
 
@@ -320,7 +320,7 @@
 |-- other.md      <span class="c"># =&gt; http://example.com/other.html</span>
 └── contact.html  <span class="c"># =&gt; http://example.com/contact.html</span></code></pre></figure>
 
-<h3 id="indexhtml-">命名一个文件夹并包含一个 index.html 文件</h3>
+<h3 id="命名一个文件夹并包含一个-indexhtml-文件">命名一个文件夹并包含一个 index.html 文件</h3>
 
 <p>上面的方法可以很好的工作，但是有些人不喜欢在 URL 中显示文件的扩展名。用 Jekyll 达到这种效果，你只需要为每个顶级页面创建一个文件夹，并包含一个 <code class="highlighter-rouge">index.html</code> 文件。这样，每个 URL 就将以文件夹的名字作为结尾，网站服务器会将对应的 <code class="highlighter-rouge">index.html</code> 展示给用户。下面是一个示例来展示这种结构的样子：</p>
 

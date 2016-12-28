@@ -10,30 +10,30 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <!-- Begin Jekyll SEO tag v2.0.0 -->
+  <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>永久链接 - Jekyll • 简单静态博客网站生成器</title>
 <meta property="og:title" content="永久链接">
 <meta name="description" content="将纯文本转换为静态博客网站">
 <meta property="og:description" content="将纯文本转换为静态博客网站">
-<link rel="canonical" href="http://jekyllcn.com/docs/permalinks/">
-<meta property="og:url" content="http://jekyllcn.com/docs/permalinks/">
+<link rel="canonical" href="/docs/permalinks/">
+<meta property="og:url" content="/docs/permalinks/">
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2016-10-20T23:29:13-07:00">
+<meta property="article:published_time" content="2016-12-28T01:40:43-08:00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@jekyllrb">
 <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "BlogPosting",
-    "headline": "永久链接",
-    "datePublished": "2016-10-20T23:29:13-07:00",
-    "description": "将纯文本转换为静态博客网站",
-    "logo": "http://jekyllcn.comimg/logo-2x.png",
-    "url": "http://jekyllcn.com/docs/permalinks/"
-  }
-</script>
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "永久链接",
+"datePublished": "2016-12-28T01:40:43-08:00",
+"description": "将纯文本转换为静态博客网站",
+"publisher": {"@type": "Organization",
+"logo": {"@type": "ImageObject",
+"url": "img/logo-2x.png"}},
+"url": "/docs/permalinks/"}</script>
 <!-- End Jekyll SEO tag -->
+
   <!--[if lt IE 9]>
   <script src="/js/html5shiv.min.js"></script>
   <script src="/js/respond.min.js"></script>
@@ -285,7 +285,7 @@
 
 <p>永久链接的模板用以冒号为前缀的关键词标记动态内容，比如 <code class="highlighter-rouge">date</code> 代表 <code class="highlighter-rouge">/:categories/:year/:month/:day/:title.html</code>。</p>
 
-<h2 id="section">模板变量</h2>
+<h2 id="模板变量">模板变量</h2>
 
 <div class="mobile-side-scroller">
 <table>
@@ -406,7 +406,7 @@
 </table>
 </div>
 
-<h2 id="section-1">内建永久链接类型</h2>
+<h2 id="内建永久链接类型">内建永久链接类型</h2>
 
 <p>当你能够通过 <a href="#template-variables">template variables</a> 来指定一个自定义永久链接时，方便起见，Jekyll 还提供了下列的内建类型。</p>
 
@@ -455,7 +455,7 @@
 </table>
 </div>
 
-<h2 id="pages-collections">页面（Pages） 和集合（collections）</h2>
+<h2 id="页面pages-和集合collections">页面（Pages） 和集合（collections）</h2>
 
 <p><code class="highlighter-rouge">permalink</code> 配置用来指定博客的永久链接模板。页面和集合同样有它们自己的默认永久链接模板；页面的默认模板是 <code class="highlighter-rouge">/:path/:basename</code>，集合的默认模板是 /:collection/:path`。</p>
 
@@ -465,7 +465,7 @@
 
 <p>单独页面或集合文件的永久链接总能够在页面或者文件的<a href="../frontmatter/">头信息</a>里重写覆盖。另外，给定的集合的永久链接能在<a href="../collections/">集合配置</a>中自定义设置。</p>
 
-<h2 id="section-2">永久链接模板举例</h2>
+<h2 id="永久链接模板举例">永久链接模板举例</h2>
 
 <p>比如文件名： <code class="highlighter-rouge">/2009-04-29-slap-chop.textile</code></p>
 
@@ -523,7 +523,7 @@
 </table>
 </div>
 
-<h2 id="extensionless-permalinks">无扩展名永久链接（Extensionless permalinks）</h2>
+<h2 id="无扩展名永久链接extensionless-permalinks">无扩展名永久链接（Extensionless permalinks）</h2>
 
 <p>Jekyll 支持即不包含反斜杠也不包含文件扩展名的永久链接，但这需要网络服务端的额外支持才能正常工作。当使用无扩展名永久链接时，写到硬盘上的输出文件依然会保留正确的文件扩展名（典型的比如，<code class="highlighter-rouge">.html</code>），所以网络服务端必须能够 map 那些没有文件扩展名的文件的请求。</p>
 

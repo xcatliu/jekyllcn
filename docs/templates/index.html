@@ -10,30 +10,30 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <!-- Begin Jekyll SEO tag v2.0.0 -->
+  <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>模板 - Jekyll • 简单静态博客网站生成器</title>
 <meta property="og:title" content="模板">
 <meta name="description" content="将纯文本转换为静态博客网站">
 <meta property="og:description" content="将纯文本转换为静态博客网站">
-<link rel="canonical" href="http://jekyllcn.com/docs/templates/">
-<meta property="og:url" content="http://jekyllcn.com/docs/templates/">
+<link rel="canonical" href="/docs/templates/">
+<meta property="og:url" content="/docs/templates/">
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2016-10-20T23:29:13-07:00">
+<meta property="article:published_time" content="2016-12-28T01:40:43-08:00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@jekyllrb">
 <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "BlogPosting",
-    "headline": "模板",
-    "datePublished": "2016-10-20T23:29:13-07:00",
-    "description": "将纯文本转换为静态博客网站",
-    "logo": "http://jekyllcn.comimg/logo-2x.png",
-    "url": "http://jekyllcn.com/docs/templates/"
-  }
-</script>
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "模板",
+"datePublished": "2016-12-28T01:40:43-08:00",
+"description": "将纯文本转换为静态博客网站",
+"publisher": {"@type": "Organization",
+"logo": {"@type": "ImageObject",
+"url": "img/logo-2x.png"}},
+"url": "/docs/templates/"}</script>
 <!-- End Jekyll SEO tag -->
+
   <!--[if lt IE 9]>
   <script src="/js/html5shiv.min.js"></script>
   <script src="/js/respond.min.js"></script>
@@ -283,7 +283,7 @@
           <h1>模板</h1>
           <p>Jekyll 使用 <a href="http://wiki.shopify.com/Liquid">Liquid</a> 模板语言，支持所有标准的 Liquid <a href="http://wiki.shopify.com/Logic">标签</a>和<a href="http://wiki.shopify.com/Filters">过滤器</a>。Jekyll 甚至增加了几个过滤器和标签，方便使用。</p>
 
-<h2 id="section">过滤器</h2>
+<h2 id="过滤器">过滤器</h2>
 
 <div class="mobile-side-scroller">
 <table>
@@ -599,7 +599,7 @@
 </table>
 </div>
 
-<h3 id="slugify-">
+<h3 id="slugify-的可选参数">
 <code class="highlighter-rouge">Slugify</code> 的可选参数</h3>
 
 <p><code class="highlighter-rouge">Slugify</code> 接受一个参数，用来设定具体的过滤字符。默认值为<code class="highlighter-rouge">default</code>。可选参数如下（含过滤字符）：</p>
@@ -615,9 +615,9 @@
 <code class="highlighter-rouge">pretty</code>：空格和非字母数字字符，<code class="highlighter-rouge">._~!$&amp;'()+,;=@</code>除外</li>
 </ul>
 
-<h2 id="section-1">标签</h2>
+<h2 id="标签">标签</h2>
 
-<h3 id="section-2">引用</h3>
+<h3 id="引用">引用</h3>
 
 <p>如果你需要在多个地方引用一小代码片段，可以使用 <code class="highlighter-rouge">include</code> 标签。</p>
 
@@ -640,7 +640,7 @@
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">{{</span> <span class="kp">include</span><span class="p">.</span><span class="nf">param</span> <span class="p">}}</span></code></pre></figure>
 
-<h4 id="permalink-">相对于其他文件的 Permalink 引入</h4>
+<h4 id="相对于其他文件的-permalink-引入">相对于其他文件的 Permalink 引入</h4>
 
 <p>你也可以选择相对当前文件，引入其他文件的片段：</p>
 
@@ -650,7 +650,7 @@
 
 <p><code class="highlighter-rouge">include</code> 标签的其他特征也同样适用于 <code class="highlighter-rouge">include_relative</code> 标签，如使用变量。</p>
 
-<h3 id="section-3">代码高亮</h3>
+<h3 id="代码高亮">代码高亮</h3>
 
 <p>Jekyll 已经支持超过 60 种语言的代码高亮显示，在此感谢 <a href="http://rouge.jneen.net">Rouge</a>。Rouge 在 Jekyll 3 及以上版本是默认高亮脚本。若想在 Jekyll 2 中使用 Rouge，需要设置 <code class="highlighter-rouge">highlighter</code> 为 <code class="highlighter-rouge">rouge</code> 并确保 <code class="highlighter-rouge">rouge</code> gem 正确安装。</p>
 
@@ -666,7 +666,7 @@ end
 
 <p><code class="highlighter-rouge">highlight</code> 的参数 (本例中的 <code class="highlighter-rouge">ruby</code>) 是识别所用语言。为了确定最适合你所用语言的高亮方式，你可以在 <a href="https://github.com/jayferd/rouge/wiki/List-of-supported-languages-and-lexers">Rouge wiki</a> 和 <a href="http://pygments.org/docs/lexers/">Pygments’ Lexers page</a> 寻找对应语言的 “short name”。</p>
 
-<h4 id="section-4">行号</h4>
+<h4 id="行号">行号</h4>
 
 <p><code class="highlighter-rouge">highlight</code> 的第二个可选参数是 <code class="highlighter-rouge">linenos</code> 。使用了 <code class="highlighter-rouge">linenos</code> 会强制在代码上加入行号。例如：</p>
 
@@ -676,11 +676,11 @@ def foo
 end
 {% endhighlight %}</code></pre></figure>
 
-<h4 id="section-5">代码高亮的样式</h4>
+<h4 id="代码高亮的样式">代码高亮的样式</h4>
 
 <p>要使用代码高亮，你还需要包含一个样式表。例如 <a href="http://github.com/mojombo/tpw/tree/master/css/syntax.css">syntax.css</a> 。它包含了和 GitHub 一样的样式，并且免费。如果你使用了 <code class="highlighter-rouge">linenos</code> ，可能还需要在 <code class="highlighter-rouge">syntax.css</code> 加入 <code class="highlighter-rouge">.lineno</code> 样式。</p>
 
-<h3 id="section-6">链接</h3>
+<h3 id="链接">链接</h3>
 
 <p>如果你要创建一组文档、博文、页面或文件的链接，使用 <code class="highlighter-rouge">link</code> 标签可以正确生成指定路径的永久链接。</p>
 
@@ -706,7 +706,7 @@ end
 </code></pre>
 </div>
 
-<h3 id="post-url">博文链接（Post URL）</h3>
+<h3 id="博文链接post-url">博文链接（Post URL）</h3>
 
 <p>如果你想使用你某篇文章的链接，标签 <code class="highlighter-rouge">post_url</code> 可以满足你的需求。</p>
 

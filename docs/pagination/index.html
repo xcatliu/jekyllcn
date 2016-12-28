@@ -10,30 +10,30 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <!-- Begin Jekyll SEO tag v2.0.0 -->
+  <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>分页功能 - Jekyll • 简单静态博客网站生成器</title>
 <meta property="og:title" content="分页功能">
 <meta name="description" content="将纯文本转换为静态博客网站">
 <meta property="og:description" content="将纯文本转换为静态博客网站">
-<link rel="canonical" href="http://jekyllcn.com/docs/pagination/">
-<meta property="og:url" content="http://jekyllcn.com/docs/pagination/">
+<link rel="canonical" href="/docs/pagination/">
+<meta property="og:url" content="/docs/pagination/">
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2016-10-20T23:29:13-07:00">
+<meta property="article:published_time" content="2016-12-28T01:40:43-08:00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@jekyllrb">
 <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "BlogPosting",
-    "headline": "分页功能",
-    "datePublished": "2016-10-20T23:29:13-07:00",
-    "description": "将纯文本转换为静态博客网站",
-    "logo": "http://jekyllcn.comimg/logo-2x.png",
-    "url": "http://jekyllcn.com/docs/pagination/"
-  }
-</script>
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "分页功能",
+"datePublished": "2016-12-28T01:40:43-08:00",
+"description": "将纯文本转换为静态博客网站",
+"publisher": {"@type": "Organization",
+"logo": {"@type": "ImageObject",
+"url": "img/logo-2x.png"}},
+"url": "/docs/pagination/"}</script>
 <!-- End Jekyll SEO tag -->
+
   <!--[if lt IE 9]>
   <script src="/js/html5shiv.min.js"></script>
   <script src="/js/respond.min.js"></script>
@@ -292,7 +292,7 @@
   </p>
 </div>
 
-<h2 id="section">开启分页功能</h2>
+<h2 id="开启分页功能">开启分页功能</h2>
 
 <p>开启分页功能很简单，只需要在 <code class="highlighter-rouge">_config.yml</code> 里边加一行，指明每页该展示多少项目：</p>
 
@@ -313,7 +313,7 @@
   </p>
 </div>
 
-<h2 id="liquid-">可用的 Liquid 属性</h2>
+<h2 id="可用的-liquid-属性">可用的 Liquid 属性</h2>
 
 <p>分页功能插件使得 <code class="highlighter-rouge">paginator</code> liquid 对象具有下列属性：</p>
 
@@ -387,7 +387,7 @@
   <p>分页功能遍历 <code>posts</code> 下的所有文章，而忽略定义在文章内的头信息中的变量。现在不支持对“标签”和“类别”分页。也不支持任何文件集合，因为该功能被限制在 posts 中。</p>
 </div>
 
-<h2 id="section-1">生成带分页功能的文章</h2>
+<h2 id="生成带分页功能的文章">生成带分页功能的文章</h2>
 
 <p>接下来你需要做的事情，就是使用你已经掌握的 <code class="highlighter-rouge">paginator</code> 变量，列表展示你的文章。下边是一个简单的例子，在 HTML 文件中生成带分页功能的文章：</p>
 

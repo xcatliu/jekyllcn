@@ -10,30 +10,30 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <!-- Begin Jekyll SEO tag v2.0.0 -->
+  <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>配置 - Jekyll • 简单静态博客网站生成器</title>
 <meta property="og:title" content="配置">
 <meta name="description" content="将纯文本转换为静态博客网站">
 <meta property="og:description" content="将纯文本转换为静态博客网站">
-<link rel="canonical" href="http://jekyllcn.com/docs/configuration/">
-<meta property="og:url" content="http://jekyllcn.com/docs/configuration/">
+<link rel="canonical" href="/docs/configuration/">
+<meta property="og:url" content="/docs/configuration/">
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2016-10-20T23:29:13-07:00">
+<meta property="article:published_time" content="2016-12-28T01:40:43-08:00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@jekyllrb">
 <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "BlogPosting",
-    "headline": "配置",
-    "datePublished": "2016-10-20T23:29:13-07:00",
-    "description": "将纯文本转换为静态博客网站",
-    "logo": "http://jekyllcn.comimg/logo-2x.png",
-    "url": "http://jekyllcn.com/docs/configuration/"
-  }
-</script>
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "配置",
+"datePublished": "2016-12-28T01:40:43-08:00",
+"description": "将纯文本转换为静态博客网站",
+"publisher": {"@type": "Organization",
+"logo": {"@type": "ImageObject",
+"url": "img/logo-2x.png"}},
+"url": "/docs/configuration/"}</script>
 <!-- End Jekyll SEO tag -->
+
   <!--[if lt IE 9]>
   <script src="/js/html5shiv.min.js"></script>
   <script src="/js/respond.min.js"></script>
@@ -284,9 +284,9 @@
           <p>Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵活强大的配置功能。既可以配置在网站根目录下的
  <code class="highlighter-rouge">_config.yml</code> 文件，也可以作为命令行的标记来配置。</p>
 
-<h2 id="section">配置设置</h2>
+<h2 id="配置设置">配置设置</h2>
 
-<h3 id="section-1">全局配置</h3>
+<h3 id="全局配置">全局配置</h3>
 
 <p>下表中列举了所有 Jekyll 可用的设置，和多种多样的 <code class="option">选项</code> (配置文件中)
 及 <code class="flag">标记</code> (命令行中)。</p>
@@ -412,7 +412,7 @@
   </p>
 </div>
 
-<h3 id="section-2">编译选项</h3>
+<h3 id="编译选项">编译选项</h3>
 
 <div class="mobile-side-scroller">
 <table>
@@ -546,7 +546,7 @@
 </table>
 </div>
 
-<h3 id="section-3">服务选项</h3>
+<h3 id="服务选项">服务选项</h3>
 
 <p>除了下边的选项， <code class="highlighter-rouge">serve</code> 命令还可以接收 <code class="highlighter-rouge">build</code> 的选项，当运行网站服务之前的编译时候使用。</p>
 
@@ -639,7 +639,7 @@
   </p>
 </div>
 
-<h2 id="webrick-">自定义 WEBRick 标题</h2>
+<h2 id="自定义-webrick-标题">自定义 WEBRick 标题</h2>
 <!-- WEBRick应该怎么翻译　-->
 <p>你可以在 <code class="highlighter-rouge">_config.yml</code> 中为你的站点提供自定义标题</p>
 
@@ -649,11 +649,11 @@
     <span class="s">My-Header</span><span class="pi">:</span> <span class="s">My-Value</span>
     <span class="s">My-Other-Header</span><span class="pi">:</span> <span class="s">My-Other-Value</span></code></pre></figure>
 
-<h3 id="section-4">默认</h3>
+<h3 id="默认">默认</h3>
 
 <p>我们只提供一个默认，而且这是一个不能在开发模式里缓存的 content-type 头，所以当你处于开发模式时，不用理会 chrome 的 aggressive　caching。</p>
 
-<h2 id="jekyll-build-">指定 Jekyll build 时的环境</h2>
+<h2 id="指定-jekyll-build-时的环境">指定 Jekyll build 时的环境</h2>
 
 <p>在 build（或者 serve）参数中，你能指定 Jekyll 的环境和参数。然后 build 会将参数应用在你内容中任意的条件语言。</p>
 
@@ -675,7 +675,7 @@
 
 <p>在 build 命令中指定参数，当你迁移环境时，可以避免更改你配置文件中的值。</p>
 
-<h2 id="section-5">头信息默认值</h2>
+<h2 id="头信息默认值">头信息默认值</h2>
 
 <p>通过使用 <a href="../frontmatter/">YAML 头信息</a>可以指定站点的页面和文章的配置。设置一些东西例如布局或者自定义标题，亦或是给文章指定一个更精确的日期/时间，这都可以往页面或文章的头信息添加数据来实现。</p>
 
@@ -750,7 +750,7 @@
 
 <p>在这个例子中，在 <a href="../collections/">collection</a> 里面 <code class="highlighter-rouge">layout</code> 被设为 <code class="highlighter-rouge">default</code> ，用 <code class="highlighter-rouge">my_collection</code> 的名字。</p>
 
-<h3 id="section-6">优先权</h3>
+<h3 id="优先权">优先权</h3>
 
 <p>Jekyll 会应用你在 <code class="highlighter-rouge">_config.yml</code> 文件里 <code class="highlighter-rouge">defaults</code> 部分的所有配置设定。然而，你可以选择
 覆盖这些设定，通过在范围/值的对里指定一个更具体的路径。</p>
@@ -782,7 +782,7 @@
 
 <p>在站点建立时 <code class="highlighter-rouge">projects/foo_project.md</code> 的布局会是 <code class="highlighter-rouge">foobar</code>而不是<code class="highlighter-rouge">project</code> ， <code class="highlighter-rouge">author</code> 是 <code class="highlighter-rouge">John Smith</code>而不是 <code class="highlighter-rouge">Mr. Hyde</code> 。</p>
 
-<h2 id="section-7">默认配置</h2>
+<h2 id="默认配置">默认配置</h2>
 
 <p>Jekyll 默认使用以下的配置运行。也可以在配置文件或者命令行中显示地指定这些选项。</p>
 
@@ -864,7 +864,7 @@
     <span class="s">coderay_bold_every</span><span class="pi">:</span>        <span class="s">10</span>
     <span class="s">coderay_css</span><span class="pi">:</span>               <span class="s">style</span></code></pre></figure>
 
-<h2 id="liquid-">Liquid 选项</h2>
+<h2 id="liquid-选项">Liquid 选项</h2>
 
 <p>Liquid的错误处理方式可以通过 <code>error_mode</code> 来配置，可选项有：</p>
 
@@ -877,7 +877,7 @@
 <code class="highlighter-rouge">strict</code> — 输出错误信息并停止构建过程</li>
 </ul>
 
-<h2 id="markdown-">Markdown 选项</h2>
+<h2 id="markdown-选项">Markdown 选项</h2>
 
 <p>Jekyll 支持的 Markdown 渲染器中有的有额外的选项。</p>
 
@@ -928,7 +928,7 @@
 </code></pre>
 </div>
 
-<h3 id="markdown--1">自定义 Markdown 处理器</h3>
+<h3 id="自定义-markdown-处理器">自定义 Markdown 处理器</h3>
 
 <p>如果你对创建一个自定义 Markdown 处理器感兴趣，你真的很幸运！在 <code class="highlighter-rouge">Jekyll::Converters::Markdown</code> 的命名空间下新建一个类：</p>
 

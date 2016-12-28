@@ -10,30 +10,30 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <!-- Begin Jekyll SEO tag v2.0.0 -->
+  <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>集合（Collections） - Jekyll • 简单静态博客网站生成器</title>
 <meta property="og:title" content="集合（Collections）">
 <meta name="description" content="将纯文本转换为静态博客网站">
 <meta property="og:description" content="将纯文本转换为静态博客网站">
-<link rel="canonical" href="http://jekyllcn.com/docs/collections/">
-<meta property="og:url" content="http://jekyllcn.com/docs/collections/">
+<link rel="canonical" href="/docs/collections/">
+<meta property="og:url" content="/docs/collections/">
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2016-10-20T23:29:13-07:00">
+<meta property="article:published_time" content="2016-12-28T01:40:43-08:00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@jekyllrb">
 <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "BlogPosting",
-    "headline": "集合（Collections）",
-    "datePublished": "2016-10-20T23:29:13-07:00",
-    "description": "将纯文本转换为静态博客网站",
-    "logo": "http://jekyllcn.comimg/logo-2x.png",
-    "url": "http://jekyllcn.com/docs/collections/"
-  }
-</script>
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "集合（Collections）",
+"datePublished": "2016-12-28T01:40:43-08:00",
+"description": "将纯文本转换为静态博客网站",
+"publisher": {"@type": "Organization",
+"logo": {"@type": "ImageObject",
+"url": "img/logo-2x.png"}},
+"url": "/docs/collections/"}</script>
 <!-- End Jekyll SEO tag -->
+
   <!--[if lt IE 9]>
   <script src="/js/html5shiv.min.js"></script>
   <script src="/js/respond.min.js"></script>
@@ -283,9 +283,9 @@
           <h1>集合（Collections）</h1>
           <p>并非所有的都会是文章或页面。也许您想要记录您开源项目中涉及的各种解决方案，团队成员，或是某次会议记录。集合（Collection）允许您定义一种新的文档类型，它既可以像页面和文章那样工作，也可以拥有它们特有的属性和命名空间。</p>
 
-<h2 id="section">使用集合</h2>
+<h2 id="使用集合">使用集合</h2>
 
-<h3 id="jekyll-">第一步：让 Jekyll 读取您的集合</h3>
+<h3 id="第一步让-jekyll-读取您的集合">第一步：让 Jekyll 读取您的集合</h3>
 
 <p>将下面的代码加入您的 <code class="highlighter-rouge">_config.yml</code> 文件，将 <code class="highlighter-rouge">my_collection</code> 替换为您集合的名字。</p>
 
@@ -307,7 +307,7 @@
     <span class="s">values</span><span class="pi">:</span>
       <span class="s">layout</span><span class="pi">:</span> <span class="s">page</span></code></pre></figure>
 
-<h3 id="section-1">第二步：加入您的内容</h3>
+<h3 id="第二步加入您的内容">第二步：加入您的内容</h3>
 
 <p>创建对应的文件夹（如 <code class="highlighter-rouge">&lt;source&gt;/_my_collection</code>）并添加文件。若 YAML 头信息存在，他将被作为数据读入，并且其后的任何信息都将被保存在文档的<code class="highlighter-rouge">content</code> 属性中。如果没有任何 YAML 头信息存在， Jekyll 将不会在您的集合中生成任何文件。</p>
 
@@ -318,7 +318,7 @@
   </p>
 </div>
 
-<h3 id="section-2">第三步：选择性渲染你的集合文件为独立文件</h3>
+<h3 id="第三步选择性渲染你的集合文件为独立文件">第三步：选择性渲染你的集合文件为独立文件</h3>
 
 <p>如果你希望 Jekyll 对每一个你集合中的文件，都创建一个公开的，渲染后的版本，请在<code class="highlighter-rouge">_config.yml</code>中，将你集合的元数据中将<code class="highlighter-rouge">output</code>键设置为<code class="highlighter-rouge">true</code>：</p>
 
@@ -397,9 +397,9 @@
 </table>
 </div>
 
-<h2 id="liquid-">Liquid 属性</h2>
+<h2 id="liquid-属性">Liquid 属性</h2>
 
-<h3 id="section-3">集合</h3>
+<h3 id="集合">集合</h3>
 
 <p>每个集合均可访问 Liquid 的<code class="highlighter-rouge">site</code>变量。例如，若你希望获取<code class="highlighter-rouge">_albums</code>中的集合<code class="highlighter-rouge">albums</code>，请使用<code class="highlighter-rouge">site.albums</code>变量。每个集合都具有一个他本身的文档数组（例如，<code class="highlighter-rouge">site.albums</code>就是一个文档组成的数组，和<code class="highlighter-rouge">site.pages</code>、<code class="highlighter-rouge">site.posts</code>类似）。下面会介绍如何获取这些文档的属性。</p>
 
@@ -480,7 +480,7 @@
 </table>
 </div>
 
-<h3 id="section-4">文档</h3>
+<h3 id="文档">文档</h3>
 
 <p>作为文档 YAML 头信息的补充，每一个文档还具有以下属性。</p>
 
@@ -557,7 +557,7 @@
 </table>
 </div>
 
-<h2 id="section-5">获取集合的属性</h2>
+<h2 id="获取集合的属性">获取集合的属性</h2>
 
 <p>在站点的任何位置，你都可以获取在 YAML 头重的属性。通过上面的示例，配置一个<code class="highlighter-rouge">site.albums</code>集合，并在对应的文件的头信息中创建如下结构的数据（需要使用引擎支持的标记语言，且不能以<code class="highlighter-rouge">.yaml</code>作为扩展名）：</p>
 

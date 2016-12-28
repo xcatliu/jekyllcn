@@ -10,30 +10,30 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <!-- Begin Jekyll SEO tag v2.0.0 -->
+  <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>常见问题 - Jekyll • 简单静态博客网站生成器</title>
 <meta property="og:title" content="常见问题">
 <meta name="description" content="将纯文本转换为静态博客网站">
 <meta property="og:description" content="将纯文本转换为静态博客网站">
-<link rel="canonical" href="http://jekyllcn.com/docs/troubleshooting/">
-<meta property="og:url" content="http://jekyllcn.com/docs/troubleshooting/">
+<link rel="canonical" href="/docs/troubleshooting/">
+<meta property="og:url" content="/docs/troubleshooting/">
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2016-10-20T23:29:13-07:00">
+<meta property="article:published_time" content="2016-12-28T01:40:43-08:00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@jekyllrb">
 <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "BlogPosting",
-    "headline": "常见问题",
-    "datePublished": "2016-10-20T23:29:13-07:00",
-    "description": "将纯文本转换为静态博客网站",
-    "logo": "http://jekyllcn.comimg/logo-2x.png",
-    "url": "http://jekyllcn.com/docs/troubleshooting/"
-  }
-</script>
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "常见问题",
+"datePublished": "2016-12-28T01:40:43-08:00",
+"description": "将纯文本转换为静态博客网站",
+"publisher": {"@type": "Organization",
+"logo": {"@type": "ImageObject",
+"url": "img/logo-2x.png"}},
+"url": "/docs/troubleshooting/"}</script>
 <!-- End Jekyll SEO tag -->
+
   <!--[if lt IE 9]>
   <script src="/js/html5shiv.min.js"></script>
   <script src="/js/respond.min.js"></script>
@@ -283,7 +283,7 @@
           <h1>常见问题</h1>
           <p>如果你在安装或者使用 Jekyll 的过程中遇到了问题，这里有一些建议也许可以帮助到你。如果你所遇到的问题没有包含在下面，请<a href="https://github.com/jekyll/jekyll/issues/new">提交一个 issue</a>，这样 Jekyll 团队才能让每个人有更好的使用体验。</p>
 
-<h2 id="section">安装问题</h2>
+<h2 id="安装问题">安装问题</h2>
 <p>如果你在安装 gem 的过程中遇到问题，可能你需要安装为 ruby 1.9.1 的拓展模块编译所需要的头文件，在 Ubuntu 或 Debian 系统中安装可以通过运行：</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get install ruby1.9.1-dev</code></pre></figure>
@@ -311,11 +311,11 @@
 <p>在 Windows 下你可能需要安装 <a href="http://wiki.github.com/oneclick/rubyinstaller/development-kit">RubyInstaller
 DevKit</a>。</p>
 
-<h2 id="jekyll-">运行 Jekyll 时的问题</h2>
+<h2 id="运行-jekyll-时的问题">运行 Jekyll 时的问题</h2>
 <p>在 Debian 或者 Ubuntu 系统中，你可能需要在 path 里添加 <code class="highlighter-rouge">/var/lib/gems/1.8/bin/</code> 来使
 <code class="highlighter-rouge">jekyll</code> 命令可以在终端中执行。</p>
 
-<h2 id="base-url-">Base-URL 问题</h2>
+<h2 id="base-url-问题">Base-URL 问题</h2>
 <p>如果你正在这样使用 base-url 选项：</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">jekyll serve --baseurl <span class="s1">'/blog'</span></code></pre></figure>
@@ -328,7 +328,7 @@ DevKit</a>。</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">http://localhost:4000/blog</code></pre></figure>
 
-<h2 id="section-1">配置问题</h2>
+<h2 id="配置问题">配置问题</h2>
 <p>冲突的配置设置的优先顺序如下：</p>
 <ol>
   <li>命令行标志</li>
@@ -338,7 +338,7 @@ DevKit</a>。</p>
 
 <p>也就是说，默认配置会被 <code class="highlighter-rouge">_config.yml</code> 中指定的选项所覆盖，而在命令行中指定的参数配置会覆盖其它地方的配置。</p>
 
-<h2 id="markup-">Markup 问题</h2>
+<h2 id="markup-问题">Markup 问题</h2>
 <p>Jekyll 所使用的不同的 Markup 引擎可能会有一些问题。下面的文件可能会帮助你如果你遇到类似的问题。</p>
 
 <h3 id="maruku">Maruku</h3>
@@ -359,7 +359,7 @@ DevKit</a>。</p>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="s1">'{{'</span> was not properly terminated with regexp: /<span class="se">\}\}</span>/  <span class="o">(</span>Liquid::SyntaxError<span class="o">)</span></code></pre></figure>
 
-<h3 id="section-2">摘要</h3>
+<h3 id="摘要">摘要</h3>
 
 <p>从 V1.0.0 版本开始，Jekyll 已经可以自动生成文章摘要。 一直到 v1.1.0 版本，Jekyll 仍使用Liquid 来传递摘要，这将会在引用不存在或标记没有被关闭时造成奇怪的问题。如果你遇到了这些问题，你可以尝试将在 <code class="highlighter-rouge">_config.yml</code> 中设置 <code class="highlighter-rouge">excerpt_separator: ""</code> 或设置成不敏感的字符。</p>
 

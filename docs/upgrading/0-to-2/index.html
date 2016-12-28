@@ -10,30 +10,30 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <!-- Begin Jekyll SEO tag v2.0.0 -->
+  <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>从 0.x 升级到 2.x 版本 - Jekyll • 简单静态博客网站生成器</title>
 <meta property="og:title" content="从 0.x 升级到 2.x 版本">
 <meta name="description" content="将纯文本转换为静态博客网站">
 <meta property="og:description" content="将纯文本转换为静态博客网站">
-<link rel="canonical" href="http://jekyllcn.com/docs/upgrading/0-to-2/">
-<meta property="og:url" content="http://jekyllcn.com/docs/upgrading/0-to-2/">
+<link rel="canonical" href="/docs/upgrading/0-to-2/">
+<meta property="og:url" content="/docs/upgrading/0-to-2/">
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2016-10-20T23:29:13-07:00">
+<meta property="article:published_time" content="2016-12-28T01:40:43-08:00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@jekyllrb">
 <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "BlogPosting",
-    "headline": "从 0.x 升级到 2.x 版本",
-    "datePublished": "2016-10-20T23:29:13-07:00",
-    "description": "将纯文本转换为静态博客网站",
-    "logo": "http://jekyllcn.comimg/logo-2x.png",
-    "url": "http://jekyllcn.com/docs/upgrading/0-to-2/"
-  }
-</script>
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "从 0.x 升级到 2.x 版本",
+"datePublished": "2016-12-28T01:40:43-08:00",
+"description": "将纯文本转换为静态博客网站",
+"publisher": {"@type": "Organization",
+"logo": {"@type": "ImageObject",
+"url": "img/logo-2x.png"}},
+"url": "/docs/upgrading/0-to-2/"}</script>
 <!-- End Jekyll SEO tag -->
+
   <!--[if lt IE 9]>
   <script src="/js/html5shiv.min.js"></script>
   <script src="/js/respond.min.js"></script>
@@ -292,7 +292,7 @@
   <p>想快速构建并运行一个全新的 Jekyll 站点吗？那么只要执行 <code>jekyll new SITENAME</code> 即可！该命令会创建一个包含了 Jekyll 最基础框架的文件夹。</p>
 </div>
 
-<h3 id="jekyll-">Jekyll 命令行</h3>
+<h3 id="jekyll-命令行">Jekyll 命令行</h3>
 
 <p>为提升可读性，Jekyll 现已支持 <code class="highlighter-rouge">build</code> 和 <code class="highlighter-rouge">serve</code> 命令。在此之前，您可能通过执行 <code class="highlighter-rouge">jekyll</code> 来生成一个站点，并使用 <code class="highlighter-rouge">jekyll --server</code> 进行本地预览。在 v2.0（及之后的版本）中请您使用 <code class="highlighter-rouge">jekyll build</code> 和 <code class="highlighter-rouge">jekyll serve</code> 命令来创建并预览您的站点。</p>
 
@@ -301,7 +301,7 @@
   <p>由于全新的命令行，您在本地预览站点的方式将发生些小小的变化。目前站点配置文件中已使用 <code class="highlighter-rouge">jekyll serve</code> 来取代早先的<code class="highlighter-rouge">server: true</code>。类似的也针对于 <code class="highlighter-rouge">watch: true</code>。取而代之地，请结合 <code class="highlighter-rouge">jekyll serve</code> 或 <code class="highlighter-rouge">jekyll build</code> 使用 <code class="highlighter-rouge">--watch</code> 标识。</p>
 </div>
 
-<h3 id="section">绝对永久链接</h3>
+<h3 id="绝对永久链接">绝对永久链接</h3>
 
 <p>在 Jekyll v1.0 中，我们对于子目录下的页面推出了绝对永久链接。而从 v2.0 开始，绝对永久链接的选项将会不再可用。这便意味着 Jekyll 将默认使用绝对永久链接来取代相对永久链接。相对永久链接的向后兼容性也会在 v3.0 中被移除。</p>
 
@@ -312,7 +312,7 @@
   </p>
 </div>
 
-<h3 id="section-1">草稿文章</h3>
+<h3 id="草稿文章">草稿文章</h3>
 
 <p>Jekyll 现在支持使用草稿。且能让您更佳方便地在发布前预览它们。若需要使用草稿，只需要在您的站点资源目录下建立一个名为 <code class="highlighter-rouge">_drafts</code> 的文件夹（例如就在 <code class="highlighter-rouge">_posts</code> 文件夹旁），同时加入一个新的 markdown 文件。若想预览您的草稿文章，只要执行 <code class="highlighter-rouge">jekyll serve</code> 并带上 <code class="highlighter-rouge">--drafts</code> 即可。</p>
 
@@ -322,11 +322,11 @@
     不像一般您撰写的文章，草稿并不具备日期，这是因为它们仍未被发布。因此，与其将您的草稿命名为 <code class="highlighter-rouge">2013-07-01-my-draft-post.md</code> 这样的形式，不如简单地命名成 <code class="highlighter-rouge">my-draft-post.md</code> 便可。</p>
 </div>
 
-<h3 id="section-2">自定义配置文件</h3>
+<h3 id="自定义配置文件">自定义配置文件</h3>
 
 <p>在过去您可能需要通过命令行传递一个个独立的标识选项，而现在您能通过传递一整个配置文件来配置 Jekyll。这将帮助您在不同的环境及场景中进行区分，也让您更编程性地覆盖用户指定的默认值。您只要在 <code class="highlighter-rouge">jekyll</code> 命令后添加 <code class="highlighter-rouge">--config</code> 标识，然后紧跟一个或多个配置文件的路径即可（用没有空格的逗号隔开）。</p>
 
-<h4 id="section-3">因此，以下的命令行标识现已弃用:</h4>
+<h4 id="因此以下的命令行标识现已弃用">因此，以下的命令行标识现已弃用:</h4>
 
 <ul>
   <li><code class="highlighter-rouge">--no-server</code></li>
@@ -349,7 +349,7 @@
   <p>若您正使用 <code class="highlighter-rouge">--config</code> 标识，Jekyll 将会忽略您的 <code class="highlighter-rouge">_config.yml</code> 文件。那么您是否希望自定义的配置文件能与常规的配置文件一起使用呢？没问题！通过命令行，Jekyll 能同时支持多个配置文件。 配置文件将以从右到左的瀑布流分布，例如执行 <code class="highlighter-rouge">jekyll serve --config _config.yml,_config-dev.yml</code>，那么位居右侧的配置文件的变量（<code class="highlighter-rouge">_config-dev.yml</code>）将会覆盖左侧（<code class="highlighter-rouge">_config.yml</code>）文件中两者同时包含的配置选项.</p>
 </div>
 
-<h3 id="section-4">全新的配置文件选项</h3>
+<h3 id="全新的配置文件选项">全新的配置文件选项</h3>
 
 <p>在 1.0 版本中，Jekyll 推出了几个全新的配置文件选项。在您升级之前，您应该仔细检查您的配置文件是否存在以下配置选项。若存在，请确保它们能正常使用：</p>
 

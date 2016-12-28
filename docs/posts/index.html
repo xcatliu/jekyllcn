@@ -10,30 +10,30 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <!-- Begin Jekyll SEO tag v2.0.0 -->
+  <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>撰写博客 - Jekyll • 简单静态博客网站生成器</title>
 <meta property="og:title" content="撰写博客">
 <meta name="description" content="将纯文本转换为静态博客网站">
 <meta property="og:description" content="将纯文本转换为静态博客网站">
-<link rel="canonical" href="http://jekyllcn.com/docs/posts/">
-<meta property="og:url" content="http://jekyllcn.com/docs/posts/">
+<link rel="canonical" href="/docs/posts/">
+<meta property="og:url" content="/docs/posts/">
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2016-10-20T23:29:13-07:00">
+<meta property="article:published_time" content="2016-12-28T01:40:43-08:00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@jekyllrb">
 <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "BlogPosting",
-    "headline": "撰写博客",
-    "datePublished": "2016-10-20T23:29:13-07:00",
-    "description": "将纯文本转换为静态博客网站",
-    "logo": "http://jekyllcn.comimg/logo-2x.png",
-    "url": "http://jekyllcn.com/docs/posts/"
-  }
-</script>
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "撰写博客",
+"datePublished": "2016-12-28T01:40:43-08:00",
+"description": "将纯文本转换为静态博客网站",
+"publisher": {"@type": "Organization",
+"logo": {"@type": "ImageObject",
+"url": "img/logo-2x.png"}},
+"url": "/docs/posts/"}</script>
 <!-- End Jekyll SEO tag -->
+
   <!--[if lt IE 9]>
   <script src="/js/html5shiv.min.js"></script>
   <script src="/js/respond.min.js"></script>
@@ -283,11 +283,11 @@
           <h1>撰写博客</h1>
           <p>Jeklly 的一个最好的特点是『关注 blog 本身』。这是指什么呢？简单的说就是写博客的过程被铸造进了 Jekyll 的功能中。你只需简单的管理你电脑中的一个文件夹下的文本文件就可以写文章并方便的在线上发布。与繁琐的配置和维护数据库和基于网站的内容管理系统 (CMS) 相比，这是一个非常受欢迎的改变。</p>
 
-<h2 id="section">文章文件夹</h2>
+<h2 id="文章文件夹">文章文件夹</h2>
 
 <p>在<a href="../structure/">目录结构</a>介绍中说明过，所有的文章都在 <code class="highlighter-rouge">_posts</code> 文件夹中。这些文件可以用 <a href="http://daringfireball.net/projects/markdown/">Markdown</a> 编写，也可以用 <a href="http://textile.sitemonks.com/">Textile</a> 格式编写。只要文件中有 <a href="../frontmatter/">YAML 头信息</a>，它们就会从源格式转化成 HTML 页面，从而成为你的静态网站的一部分。</p>
 
-<h3 id="section-1">创建文章的文件</h3>
+<h3 id="创建文章的文件">创建文章的文件</h3>
 
 <p>发表一篇新文章，你所需要做的就是在 <code class="highlighter-rouge">_posts</code> 文件夹中创建一个新的文件。文件名的命名非常重要。Jekyll 要求一篇文章的文件名遵循下面的格式：</p>
 
@@ -305,7 +305,7 @@
   </p>
 </div>
 
-<h3 id="section-2">内容格式</h3>
+<h3 id="内容格式">内容格式</h3>
 
 <p>所有博客文章顶部必须有一段 <a href="../frontmatter/">YAML 头信息</a>(YAML front- matter)。在它下面，就可以选择你喜欢的格式来写文章。 Jekyll 支持 <a href="http://daringfireball.net/projects/markdown/">Markdown</a>，以及<a href="/docs/plugins/#converters-1">其他众多格式的扩展</a>，其中就包括十分流行的 <a href="http://redcloth.org/textile">Textile</a>。这些格式都有自己的方式来标记文章中不同类型的内容，所以你首先需要熟悉这些格式并选择一种最符合你需求的。</p>
 
@@ -316,7 +316,7 @@
   </p>
 </div>
 
-<h2 id="section-3">引用图片和其它资源</h2>
+<h2 id="引用图片和其它资源">引用图片和其它资源</h2>
 
 <p>很多时候，你需要在文章中引用图片、下载或其它数字资源。尽管 Markdown 和 Textile 在链接这些资源时的语法并不一样，但你只需要关心在站点的哪些地方保存这些文件。</p>
 
@@ -338,7 +338,7 @@
   </p>
 </div>
 
-<h2 id="section-4">文章的目录</h2>
+<h2 id="文章的目录">文章的目录</h2>
 
 <p>所有文章都在一个目录中是没有问题的，但是如果你不将文章列表列出来博客文章是不会被人看到。在另一个页面上创建文章的列表（或者使用<a href="../templates/">模版</a>）是很简单的。感谢 <a href="https://docs.shopify.com/themes/liquid/basics">Liquid 模版语言</a>和它的标记，下面是如何创建文章列表的简单例子：</p>
 
@@ -354,7 +354,7 @@
 
 <p>请注意，<code class="highlighter-rouge">post</code> 变量仅在 <code class="highlighter-rouge">for</code> 循环中存在。如果你希望使用当前呈现的页面/博文中的变量（在 <code class="highlighter-rouge">for</code> 循环中的博文/页面的变量），请使用 <code class="highlighter-rouge">page</code> 变量来替代它。</p>
 
-<h2 id="section-5">文章摘要</h2>
+<h2 id="文章摘要">文章摘要</h2>
 
 <p>Jekyll 会自动取每篇文章从开头到第一次出现 <code class="highlighter-rouge">excerpt_separator</code> 的地方作为文章的摘要，并将此内容保存到变量 <code class="highlighter-rouge">post.excerpt</code> 中。拿上面生成文章列表的例子，你可能想在每个标题下给出文章内容的提示，你可以在每篇文章的第一段加上如下的代码：</p>
 
@@ -387,7 +387,7 @@ Out-of-excerpt</code></pre></figure>
 
 <p>同时，对于由 Liquid 标签输出的内容，你可以通过<code class="highlighter-rouge">| strip_html</code>过滤器来移除输出内容中的html标签。这在某些场景，如在你博文的<code class="highlighter-rouge">head</code>中生成<code class="highlighter-rouge">meta="description"</code>，以及其他html标签与内容不应混杂的场景下很有帮助。</p>
 
-<h2 id="section-6">高亮代码片段</h2>
+<h2 id="高亮代码片段">高亮代码片段</h2>
 
 <p>Jekyll 自带语法高亮功能，你可以选择使用 Pygments 或 Rouge 两种工具中的一种。在文章中插入一段高亮代码非常容易，只需使用下面的 Liquid 标记：</p>
 

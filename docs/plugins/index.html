@@ -10,30 +10,30 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <!-- Begin Jekyll SEO tag v2.0.0 -->
+  <!-- Begin Jekyll SEO tag v2.1.0 -->
 <title>插件 - Jekyll • 简单静态博客网站生成器</title>
 <meta property="og:title" content="插件">
 <meta name="description" content="将纯文本转换为静态博客网站">
 <meta property="og:description" content="将纯文本转换为静态博客网站">
-<link rel="canonical" href="http://jekyllcn.com/docs/plugins/">
-<meta property="og:url" content="http://jekyllcn.com/docs/plugins/">
+<link rel="canonical" href="/docs/plugins/">
+<meta property="og:url" content="/docs/plugins/">
 <meta property="og:site_name" content="Jekyll • 简单静态博客网站生成器">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2016-10-20T23:29:13-07:00">
+<meta property="article:published_time" content="2016-12-28T01:40:43-08:00">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@jekyllrb">
 <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "BlogPosting",
-    "headline": "插件",
-    "datePublished": "2016-10-20T23:29:13-07:00",
-    "description": "将纯文本转换为静态博客网站",
-    "logo": "http://jekyllcn.comimg/logo-2x.png",
-    "url": "http://jekyllcn.com/docs/plugins/"
-  }
-</script>
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "插件",
+"datePublished": "2016-12-28T01:40:43-08:00",
+"description": "将纯文本转换为静态博客网站",
+"publisher": {"@type": "Organization",
+"logo": {"@type": "ImageObject",
+"url": "img/logo-2x.png"}},
+"url": "/docs/plugins/"}</script>
 <!-- End Jekyll SEO tag -->
+
   <!--[if lt IE 9]>
   <script src="/js/html5shiv.min.js"></script>
   <script src="/js/respond.min.js"></script>
@@ -291,7 +291,7 @@
   </p>
 </div>
 
-<h2 id="section">安装插件</h2>
+<h2 id="安装插件">安装插件</h2>
 
 <p>可以使用以下三种方式安装插件：</p>
 
@@ -343,7 +343,7 @@
   <li><a href="#hooks">钩子 - Hooks</a></li>
 </ol>
 
-<h2 id="generators">生成器 - Generators</h2>
+<h2 id="生成器---generators">生成器 - Generators</h2>
 
 <p>当你需要Jekyll根据你自己的规则来添加额外的内容时，你可以创建一个生成器。</p>
 
@@ -435,7 +435,7 @@
 </table>
 </div>
 
-<h2 id="converters">转换器 - Converters</h2>
+<h2 id="转换器---converters">转换器 - Converters</h2>
 
 <p>如果想使用一个新的标记语言，可以用你自己的转换器实现，Markdown 和 Textile 就是这样实现的。</p>
 
@@ -508,7 +508,7 @@
 
 <p>在上边的例子中， <code class="highlighter-rouge">UpcaseConverter#matches</code> 检查文件后缀名是不是 <code class="highlighter-rouge">.upcase</code> ;<code class="highlighter-rouge">UpcaseConverter#convert</code> 会处理检查成功文件的内容，即将所有的字符串变成大写；最终，保存的结果将以作为后缀名 <code class="highlighter-rouge">.html</code> 。</p>
 
-<h2 id="commands">命令 - Commands</h2>
+<h2 id="命令---commands">命令 - Commands</h2>
 
 <p>从2.5.0版本开始，Jekyll可以使用插件提供的子命令来扩展<code class="highlighter-rouge">jekyll</code>命令。
 可以通过在<code class="highlighter-rouge">Gemfile</code>中<code class="highlighter-rouge">:jekyll_plugins</code>组中包括相关的插件来实现：</p>
@@ -567,7 +567,7 @@
 </table>
 </div>
 
-<h2 id="tags">标记 - Tags</h2>
+<h2 id="标记---tags">标记 - Tags</h2>
 
 <p>如果你想使用 liquid 标记，你可以这样做。 Jekyll 官方的例子有 <code class="highlighter-rouge">highlight</code> 和 <code class="highlighter-rouge">include</code> 等标记。下边的例子中，自定义了一个 liquid 标记，用来输出当前时间：</p>
 
@@ -622,7 +622,7 @@
 
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p&gt;</span>page rendered at: Tue June 22 23:38:47 –0500 2010<span class="nt">&lt;/p&gt;</span></code></pre></figure>
 
-<h3 id="liquid-">Liquid 过滤器</h3>
+<h3 id="liquid-过滤器">Liquid 过滤器</h3>
 
 <p>你可以像上边那样在 Liquid 模板中加入自己的过滤器。过滤器会把自己的方法暴露给 liquid。所有的方法都必须至少接收一个参数，用来传输入内容；返回值是过滤的结果。</p>
 
@@ -690,7 +690,7 @@
   <span class="nf">end</span>
 <span class="k">end</span></code></pre></figure>
 
-<h2 id="hooks">钩子 - Hooks</h2>
+<h2 id="钩子---hooks">钩子 - Hooks</h2>
 
 <p>通过使用钩子，你的插件可以精细控制构建过程中的各个方面。
 如果你的插件定义了钩子，Jekyll就会在预定义时调用钩子。</p>
@@ -926,11 +926,11 @@
 </table>
 </div>
 
-<h2 id="section-1">可用的插件</h2>
+<h2 id="可用的插件">可用的插件</h2>
 
 <p>下边的插件，你可以按需索取：</p>
 
-<h4 id="section-2">生成器</h4>
+<h4 id="生成器">生成器</h4>
 
 <ul>
   <li>
@@ -953,7 +953,7 @@
 <a href="https://github.com/agelber/jekyll-rss">RssGenerator by Assaf Gelber</a>：自动生成 RSS 2.0 。</li>
 </ul>
 
-<h4 id="section-3">转换器</h4>
+<h4 id="转换器">转换器</h4>
 
 <ul>
   <li>
@@ -988,7 +988,7 @@
 <a href="https://gist.github.com/1472645">Transform Layouts</a>: 允许使用 HAML 布局（需要 HAML 转换器的配合）</li>
 </ul>
 
-<h4 id="section-4">过滤器</h4>
+<h4 id="过滤器">过滤器</h4>
 
 <ul>
   <li>
@@ -1017,7 +1017,7 @@
 <a href="https://github.com/dafi/jekyll-toc-generator">Table of Content Generator</a>: 生成包含表格（ TOC ）的 HTML 代码，支持自定义。</li>
 </ul>
 
-<h4 id="section-5">标签</h4>
+<h4 id="标签">标签</h4>
 
 <ul>
   <li>
@@ -1086,7 +1086,7 @@
 <a href="https://github.com/davidensinger/jekyll-suggested-tweet">Jekyll Suggested Tweet</a> by <a href="https://github.com/davidensinger/">David Ensinger</a>: 通过 Twitter 的 API 支持内嵌感兴趣的 tweets。</li>
 </ul>
 
-<h4 id="section-6">集合</h4>
+<h4 id="集合">集合</h4>
 
 <ul>
   <li>
@@ -1097,7 +1097,7 @@
 <a href="https://github.com/aucor/jekyll-plugins">Jekyll plugins by Aucor</a>: 移除不需要的空格空行，并根据 weight 属性给页面排序。</li>
 </ul>
 
-<h4 id="section-7">其他</h4>
+<h4 id="其他">其他</h4>
 
 <ul>
   <li>
