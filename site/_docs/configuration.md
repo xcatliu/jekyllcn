@@ -361,9 +361,9 @@ Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵�
   </p>
 </div>
 
-## 自定义 WEBRick 标题
-<!-- WEBRick应该怎么翻译　-->
-你可以在 `_config.yml` 中为你的站点提供自定义标题
+## 自定义 WEBRick 消息头
+<!-- WEBRick 为 Ruby 常用的一个 Web 服务器　-->
+你可以在 `_config.yml` 中为你的站点提供自定义的 HTTP 消息头
 
 {% highlight yaml %}
 # 文件: _config.yml
@@ -373,15 +373,15 @@ webrick:
     My-Other-Header: My-Other-Value
 {% endhighlight %}
 
-### 默认
+### 默认消息头
 
-我们只提供一个默认，而且这是一个不能在开发模式里缓存的 content-type 头，所以当你处于开发模式时，不用理会 chrome 的 aggressive　caching。
+Jekyll 将默认在响应中添加 `Content-Type` 和 `Cache-Control` 请求头：前者动态的匹配被请求资源的类型，后者将在开发模式下禁用缓存以让浏览器强制获取到最新的资源版本。
 
-## 指定 Jekyll build 时的环境
+## 指定 Jekyll 构建时的环境变量
 
-在 build（或者 serve）参数中，你能指定 Jekyll 的环境和参数。然后 build 会将参数应用在你内容中任意的条件语言。
+在 build（或 serve）命令参数中，你可以指定 Jekyll 的环境变量。然后 build 命令会将该环境变量暴露在给 `jekyll.environment` 变量以便于在代码中做环境判断。
 
-例如，在你代码中的条件语句中应用你的设置：
+假设在你的代码中存在如下的判断语句：
 
 {% highlight liquid %}
 {% raw %}
@@ -391,7 +391,7 @@ webrick:
 {% endraw %}
 {% endhighlight %}
 
-当你 build 你的 Jekyll 网站时，if 语句块中的内容不会被执行；除非你在 build 命令中还指定了一个 `production` 环境，像这样：
+当在构建你的 Jekyll 网站时，if 语句块中的内容不会被执行；除非你在 build 命令中还像下文这样指定了一个 `production` 环境：
 
 {% highlight sh %}
 JEKYLL_ENV=production jekyll build
@@ -401,7 +401,7 @@ JEKYLL_ENV=production jekyll build
 
 `JEKYLL_ENV` 的默认值是 `development`。因此，如果你在 build 参数中省略 `JEKYLL_ENV`，那么默认为 `JEKYLL_ENV=development`。任何 `{% raw %}{% if jekyll.environment == "development" %}{% endraw %}` 中的内容在 build 时都会自动显现。
 
-你的环境参数可以任意设置（不止是 `development` 或者 `production` ）。你可能想在开发环境下一些隐藏的元素，比如评论功能、谷歌分析。你可能想在 development environment 开发环境扩展一个“在 GitHub 中编辑”的按钮，而不包括在 production environments 中。
+你的环境参数可以任意设置（不止是 `development` 或者 `production` ）。你可能想在开发环境下隐藏一些元素，比如外部评论功能或谷歌分析插件；或是在开发环境中增加一个“在 GitHub中编辑”的按钮，但却不让其在生产环境中显示。
 
 在 build 命令中指定参数，当你迁移环境时，可以避免更改你配置文件中的值。
 
