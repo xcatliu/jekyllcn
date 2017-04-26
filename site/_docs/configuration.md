@@ -2,8 +2,8 @@
 layout: docs
 title: 配置
 permalink: /docs/configuration/
-translators: [debbbbie, chaucerling, archersmind, TimoTokki, baiyangcao]
-update_date: 2016-10-20
+translators: [debbbbie, chaucerling, archersmind, TimoTokki, baiyangcao, MondoGao]
+update_date: 2017-04-26
 hash: 5647b91
 ---
 
