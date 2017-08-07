@@ -46,7 +46,6 @@ Github Pages 依靠 Github 上项目的某些特定分支来工作。Github Page
 <div class="note protip">
   <h5>使用 <code>github-pages</code> gem包</h5>
   <p>
-    Our friends at GitHub have provided the
     我们在Github的朋友提供了
     <a href="https://github.com/github/pages-gem">github-pages</a>
     gem包来管理Jekyll和其在Github Pages上的依赖。使用这个包可以让你在将网站部署到Github Pages上时，
