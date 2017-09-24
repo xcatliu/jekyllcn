@@ -2,7 +2,7 @@
 layout: docs
 title: 撰写博客
 permalink: /docs/posts/
-translators: [sdpfoue, LeuisKen, archersmind, TimoTokki]
+translators: [sdpfoue, LeuisKen, archersmind, TimoTokki, shiyingyu]
 update_date: 2016-04-22
 ---
 
@@ -83,7 +83,7 @@ title:  "世界，你好!"
 date:   2015-11-17 16:16:01 -0600
 categories: 测试栏目
 ---
-博文正文开始了，一下英文请别看，都是例子。
+博文正文开始了，以下英文请别看，都是例子。
 
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `bundle exec jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
