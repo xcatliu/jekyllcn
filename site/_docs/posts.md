@@ -2,27 +2,31 @@
 layout: docs
 title: 撰写博客
 permalink: /docs/posts/
-translators: [sdpfoue, LeuisKen, archersmind, TimoTokki]
-update_date: 2016-04-22
+translators: [sdpfoue, LeuisKen, archersmind, TimoTokki, shiyingyu]
+update_date: 2017-09-21
 ---
 
-Jeklly 的一个最好的特点是『关注 blog 本身』。这是指什么呢？简单的说就是写博客的过程被铸造进了 Jekyll 的功能中。你只需简单的管理你电脑中的一个文件夹下的文本文件就可以写文章并方便的在线上发布。与繁琐的配置和维护数据库和基于网站的内容管理系统 (CMS) 相比，这是一个非常受欢迎的改变。
+JJekyll的一个长处就是便于博客写作。这句话从何说起呢？简单的说，Jekyll从功能上天然地适合写博客，
+因为要完成写文章并po到网上去这种事，你只需要在自己电脑上管理一个文件夹和一系列文本文件就好了，
+它就是一个再简单不过的Blog。比起搭建和维护一个数据库，再加一个WEB内容管理系统的种种繁琐来说，这显然是一个喜闻乐见的进步！
 
 ## 文章文件夹
 
-在[目录结构](../structure/)介绍中说明过，所有的文章都在 `_posts` 文件夹中。这些文件可以用 [Markdown](http://daringfireball.net/projects/markdown/) 编写，也可以用 [Textile](http://textile.sitemonks.com/) 格式编写。只要文件中有 [YAML 头信息](../frontmatter/)，它们就会从源格式转化成 HTML 页面，从而成为你的静态网站的一部分。
+在Jekyll中，名为 `_posts` 的文件夹是你放博文的地方。这里面的文章通常使用 [Markdown](http://daringfireball.net/projects/markdown/) 编写，或 HTML语法写成，也可以是其他格式，只要你安装了配套的格式转换器就行。所有的博文都必须有 [YAML Front Matter](../frontmatter/)头信息，并且它们最终在你的静态网站中会被转换为HTML格式的页面。
 
-### 创建文章的文件
+### 创建博文
 
-发表一篇新文章，你所需要做的就是在 `_posts` 文件夹中创建一个新的文件。文件名的命名非常重要。Jekyll 要求一篇文章的文件名遵循下面的格式：
-{% highlight bash %}
-年-月-日-标题.MARKUP
-{% endhighlight %} 
-在这里，`年`是 4 位数字，`月`和`日`都是 2 位数字。`MARKUP`扩展名代表了这篇文章是用什么格式写的。下面是一些合法的文件名的例子：
-{% highlight bash %}
+通过在`_posts`文件夹中创建一个新文件来创作并发表一篇新博文。重点要注意的是文件名，它应该符合如下格式：
+
+```sh
+YEAR-MONTH-DAY-title.MARKUP
+```
+其中 `YEAR` 是4个数字的年份， `MONTH` 和 `DAY` 是2位数的月份和日。最后的文件扩展名 `MARKUP` 代表文件的格式。下面是几个例子:
+
+```sh
 2011-12-31-new-years-eve-is-awesome.md
-2012-09-12-how-to-write-a-blog.textile
-{% endhighlight %}
+2012-09-12-how-to-write-a-blog.md
+```
 
 <div class="note">
   <h5>提示™: 链接到其他博文</h5>
@@ -38,41 +42,62 @@ Jeklly 的一个最好的特点是『关注 blog 本身』。这是指什么呢�
 <div class="note info">
   <h5>注意字符集</h5>
   <p>
-    内容处理器可以修改一些特定的字符来使他们表现的更好。比如， Redcarpet 的 <code>smart</code> 扩展被转换为标准样式，ASCII 的引号显示为弯曲的样子，和 Unicode 一样为了使浏览器可以正确显示这些字符，在你页面的 <code>&lt;head&gt;</code> 标签加入 <code>&lt;meta charset="utf-8"&gt;</code> 来定义页面所使用的字符集。
+    为了让内容中的一些字符看上去更美观，内容处理程序会修改它们。例如，<code>smart</code>扩展会根据Redcarpet转换标准将ASCII的引号字符（”）为Unicode中的花括号（{）。为了让浏览器正确显示这些字符，请在<code>&lt;head&gt;</code>中包含进字符集的元值，即<code>&lt;meta charset=&quot;utf-8&quot;&gt;</code>。
   </p>
 </div>
 
 ## 引用图片和其它资源
 
-很多时候，你需要在文章中引用图片、下载或其它数字资源。尽管 Markdown 和 Textile 在链接这些资源时的语法并不一样，但你只需要关心在站点的哪些地方保存这些文件。
+你显然会有需求在博文中插入图片、附件以及其他各种资源。除了要考虑在Markdown或Textile两种语法中，怎么做链接的语法以外，将图片等资源放在哪里也是要考虑的一个问题。
 
-由于 Jekyll 的灵活性，有很多方式可以解决这个问题。一种常用做法是在工程的根目录下创建一个文件夹，命名为　`assets` 或者 `downloads`，将图片文件，下载文件或者其它的资源放到这个文件夹下。然后在任何一篇文章中，它们都可以用站点的根目录来进行引用。这和你站点的域名/二级域名和目录的设置相关，下面有一些例子（Markdown 格式）来演示怎样利用 `site.url` 变量来解决这个问题。
+由于 Jekyll 的灵活性，有很多方式可以解决这个问题。一种常用做法是在工程的根目录下创建一个文件夹，命名为　`assets` 或者 `downloads`，将图片文件，下载文件或者其它的资源放到这个文件夹下。然后在你的博文中就可以使用assets文件夹在网站根目录下的路径作为网址链接这些附件了。但需要强调一个前提，就是你博客的配置文件中把域名和访问路径已经配置好了。 以下是在博文中通过Markdown语法做链接的几个例子，注意 `site.url`的使用。
 
-在文章中引用一个图片
+在博文中插入一个图片：
 
-{% highlight text %}
-… 从下面的截图可以看到：
-![有帮助的截图]({% raw %}{{ site.url }}{% endraw %}/assets/screenshot.jpg)
-{% endhighlight %}
+```text
+... 截图如下:
+![屏幕截图1]({% raw %}{{ site.url }}{% endraw %}/assets/screenshot.jpg)
+```
 
-链接一个读者可下载的 PDF 文件：
+放一个PDF链接让你的读者下载:
 
-{% highlight text %}
-… 你可以直接 [下载 PDF]({% raw %}{{ site.url }}{% endraw %}/assets/mydoc.pdf).
-{% endhighlight %}
+```text
+... 请 [下载PDF]({% raw %}{{ site.url }}{% endraw %}/assets/mydoc.pdf)。
+```
 
 <div class="note">
   <h5>提示™：链接只使用站点的根 URL</h5>
   <p>
-    如果你<strong>确信</strong>你的站点只在域名的根 URL 下做展示，你可以不使用 <code>{% raw %}{{ site.url }}{% endraw %}</code> 变量。在这种情况下，直接使用 <code>/path/file.jpg</code> 即可。
+    若能确保你的博客永远都可以通过域名下的根目录访问，那你也可以在链接时省略 <code>{% raw %}{{ site.url }}{% endraw %}</code>变量。要是这样的话，对图片附件等做链接时，你也可以直接这样写<code>/path/file.jpg</code>。
   </p>
 </div>
 
+## 一个典型的博文
+
+Jekyll 能处理很多不同的你能想象到的跟博文有关的特性，但是总的来说一个典型的博文一般包含标题、排版、发布日期，和栏目，它的文本格式看起来像下面这样:
+
+```
+---
+layout: post
+title:  "世界，你好!"
+date:   2015-11-17 16:16:01 -0600
+categories: 测试栏目
+---
+博文正文开始了，以下英文请别看，都是例子。
+
+You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `bundle exec jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+
+To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+
+```
+位于第一个和第二个`---`之间的所有内容都被识别为YAML Front Matter的部分，在其后的所有内容都会被按照Markdown语法处理转换，作为博文正文展示。
+
 ## 文章的目录
 
-所有文章都在一个目录中是没有问题的，但是如果你不将文章列表列出来博客文章是不会被人看到。在另一个页面上创建文章的列表（或者使用[模版](../templates/)）是很简单的。感谢 [Liquid 模版语言](https://docs.shopify.com/themes/liquid/basics)和它的标记，下面是如何创建文章列表的简单例子：
+光写一篇篇的博文别人看不到也没用啊，你总得弄一个入口页面把它列出来吧。好在有[Liquid template
+language](https://docs.shopify.com/themes/liquid/basics) 的语法标签，我们新建一个页面（或在[模板里](../templates/)）并在里面列出博文目录索引也不难的。以下就是一个列出博文的示例:
 
-{% highlight html %}
+```html
 <ul>
   {% raw %}{% for post in site.posts %}{% endraw %}
     <li>
@@ -80,11 +105,11 @@ Jeklly 的一个最好的特点是『关注 blog 本身』。这是指什么呢�
     </li>
   {% raw %}{% endfor %}{% endraw %}
 </ul>
-{% endhighlight %}
+```
 
-当然，你可以完全控制怎样（在哪里）显示你的文章，如何管理你的站点。如果你想了解更多你需要读一下 [Jekyll 的模版是怎样工作的](../templates/)这篇文章。
+至于怎么显示博文，怎么组织网站结构，完全取决于你。不过动手之前你得进一步学习Jekyll中[模板是怎么工作的](../templates/)。
 
-请注意，`post` 变量仅在 `for` 循环中存在。如果你希望使用当前呈现的页面/博文中的变量（在 `for` 循环中的博文/页面的变量），请使用 `page` 变量来替代它。
+注意一下，上面例子中的`post`变量只存在于`for`循环之内。如果你想操作当前正在渲染的整个页面（或博文）（也就是`for`所在的这整个页面），请改用`page`变量。
 
 ## 文章摘要
 
@@ -127,9 +152,11 @@ Out-of-excerpt
 
 ## 高亮代码片段
 
-Jekyll 自带语法高亮功能，你可以选择使用 Pygments 或 Rouge 两种工具中的一种。在文章中插入一段高亮代码非常容易，只需使用下面的 Liquid 标记：
+Jekyll还原生支持码农喜闻乐见的代码语法高亮。高亮功能由Rouge和Pygments两个库提供支持，默认是Rouge。
 
-{% highlight text %}
+使用如下的Liquid模板语法：
+
+```text
 {% raw %}{% highlight ruby %}{% endraw %}
 def show
   @widget = Widget(params[:id])
@@ -139,11 +166,11 @@ def show
   end
 end
 {% raw %}{% endhighlight %}{% endraw %}
-{% endhighlight %}
+```
 
-将输出下面的效果：
+得到的效果如下:
 
-{% highlight ruby %}
+```ruby
 def show
   @widget = Widget(params[:id])
   respond_to do |format|
@@ -151,7 +178,7 @@ def show
     format.json { render json: @widget }
   end
 end
-{% endhighlight %}
+```
 
 <div class="note">
   <h5>提示™：显示行数</h5>
