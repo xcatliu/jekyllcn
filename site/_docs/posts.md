@@ -3,7 +3,7 @@ layout: docs
 title: 撰写博客
 permalink: /docs/posts/
 translators: [sdpfoue, LeuisKen, archersmind, TimoTokki, shiyingyu]
-update_date: 2016-04-22
+update_date: 2017-09-21
 ---
 
 JJekyll的一个长处就是便于博客写作。这句话从何说起呢？简单的说，Jekyll从功能上天然地适合写博客，
