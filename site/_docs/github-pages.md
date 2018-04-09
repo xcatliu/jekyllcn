@@ -91,6 +91,32 @@ gem 'github-pages'
   </p>
 </div>
 
+<div class="note protip">
+  <h5>抛弃繁琐的 usename.github.io 仓库名称 -译者注</h5>
+  <p>
+    上面讲到的是采用
+    <code>CNAME</code> 方式绑定域名，
+    这种方式就需要将仓库命名成
+   <code>usename.github.io</code> 了。
+  </p>
+  <p>
+    但若是使用
+    <code>A记录</code> 方式绑定域名，
+    仓库的名称就可随意操作，
+    <strong>不需要这样命名了！</strong>
+    你只需要在域名服务商那里将原来的记录的类型改为A记录，再填写GitHub Pages的存放IP 
+    <code>151.101.73.147</code> 即可。
+    其它全部不用动！
+    而且你可以搭建多个站点，CNAME像平时一样写就好了！
+  </p>
+  <p>
+    但是这里有个bug：
+    当你建立好这个站点并push上去后，
+    你会得到一封warning的邮件，
+    大致内容就是这个域名不是用CNAME绑定的而是用A记录绑定的。
+    <strong>但是没有关系，照用！</strong>
+  </p>
+</div>
 ### 用户和组织的站点
 
 用户和组织的站点被放置在一个特殊的专用仓库中，在该仓库中只存在
