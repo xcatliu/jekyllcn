@@ -727,7 +727,7 @@ Jekyll 分别为 <code>:site</code>，<code>:pages</code>，<code>:posts</code>�
 - [Jekyll-beastiepress](https://github.com/okeeblow/jekyll-beastiepress): 可轻松连接到 FreeBSD 官网。
 - [Jsonball](https://gist.github.com/1895282): 读取json文件并生成地图。
 - [Bibjekyll](https://github.com/pablooliveira/bibjekyll): Render BibTeX-formatted bibliographies/citations included in posts and pages using bibtex2html.
-- [Jekyll-citation](https://github.com/archome/jekyll-citation): 生成 BibTeX格式（ Holy shit! 还有多少要翻译）。
+- [Jekyll-citation](https://github.com/archome/jekyll-citation): 生成 BibTeX格式。
 - [Jekyll Dribbble Set Tag](https://github.com/ericdfields/Jekyll-Dribbble-Set-Tag): 生成 Dribbble 画廊。
 - [Debbugs](https://gist.github.com/2218470):可以轻松的链接到 Debian BTS 。
 - [Refheap_tag](https://github.com/aburdette/refheap_tag): 支持[refheap](https://refheap.com).
