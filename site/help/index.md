@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 获得帮助
+translators: [zrzjohn]
 ---
 
 在Jekyll方面需要帮助吗？试试这些资源。

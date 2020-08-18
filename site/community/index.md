@@ -2,6 +2,7 @@
 layout: page
 title: 社区
 permalink: /community/
+translators: [zrzjohn]
 ---
 
 [JekyllConf](http://jekyllconf.com) 是由 [CloudCannon](http://cloudcannon.com)。主办的有关Jekyll的所有事情的免费在线会议。每年，Jekyll社区的成员都会谈论有趣的用例，他们学到的技巧或meta Jekyll主题。
