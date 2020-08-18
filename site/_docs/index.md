@@ -5,7 +5,7 @@ permalink: /docs/home/
 translators: [xcatliu, chaucerling, LeuisKen]
 ---
 
-该站点的目标是成为 Jekyll 的全面指南。包括一些内容如：搭建和运行你的站点、创建以及管理内容、定制站点的展现和外观、在不同的环境中发布、以及参与到 Jekyll 将来的开发的一些建议。
+该站点的目标是成为 Jekyll 的全面指南，如：搭建和运行你的站点、创建以及管理内容、定制站点的展现和外观、在不同的环境中发布、以及参与到 Jekyll 将来的开发的一些建议。
 
 ## Jekyll 究竟是什么？
 
@@ -17,12 +17,12 @@ Jekyll 是一个简单的博客形态的静态站点生产机器。它有一个�
 
 <div class="note">
   <h5>提示™帮助你更好的使用 Jekyll</h5>
-  <p>这儿有各种小技巧让你成为 Jekyll 的魔法师</p>
+  <p>这里有各种小技巧让你成为 Jekyll 大神</p>
 </div>
 
 <div class="note info">
   <h5>说明包含一些有用的信息</h5>
-  <p>这儿提供一些帮助理解 Jekyll 的其他内容</p>
+  <p>这里提供一些帮助你理解 Jekyll 的内容</p>
 </div>
 
 <div class="note warning">
@@ -35,4 +35,4 @@ Jekyll 是一个简单的博客形态的静态站点生产机器。它有一个�
   <p>这部分内容针对 Jekyll 尚未发布的版本</p>
 </div>
 
-如果你解决过一些问题不在我们的文档上，或者你发现一个别人可能也会用得到的技巧，请[提出 issue]({{ site.repository }}/issues/new)，我们将会考虑添加在这个指南中。
+如果你解决过一些问题不在我们的文档上，或者你发现一个别人可能也会用得到的技巧，请[提出 Issue]({{ site.repository }}/issues/new)，我们将会考虑添加在这个指南中。
