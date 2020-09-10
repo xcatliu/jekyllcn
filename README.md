@@ -1,3 +1,5 @@
+### [English](README.EN.md) | [繁體中文](README.TW.md)
+
 JekyllCN
 ========
 
@@ -13,9 +15,7 @@ Forked from [Jekyll](https://github.com/jekyll/jekyll).
 
 由于官方文档更新，现在中文文档落后于官方文档，欢迎参与[贡献翻译](https://github.com/xcatliu/jekyllcn#如何贡献翻译)。
 
-注意：中文排版遵循这个规范：[写给大家看的中文排版指南](http://zhuanlan.zhihu.com/p/20506092)
-
-注意：暂时放弃了翻译 contributing 和 history，因为他们是脚本生成的
+注意：中文排版遵循这个规范：[写给大家看的中文排版指南](http://zhuanlan.zhihu.com/p/20506092)。暂时放弃了翻译 contributing 和 history，因为他们是脚本生成的。
 
 ## 如何贡献翻译
 

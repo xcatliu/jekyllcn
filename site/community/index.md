@@ -1,12 +1,13 @@
 ---
 layout: page
-title: Community
+title: 社区
 permalink: /community/
+translators: [zrzjohn]
 ---
 
-[JekyllConf](http://jekyllconf.com) is a free, online conference for all things Jekyll hosted by [CloudCannon](http://cloudcannon.com). Each year members of the Jekyll community speak about interesting use cases, tricks they've learned, or meta Jekyll topics.
+[JekyllConf](http://jekyllconf.com) 是由 [CloudCannon](http://cloudcannon.com)。主办的有关Jekyll的所有事情的免费在线会议。每年，Jekyll社区的成员都会谈论有趣的用例，他们学到的技巧或meta Jekyll主题。
 
-## Featured
+## 精选
 {% assign random = site.time | date: "%s%N" | modulo: site.data.jekyllconf-talks.size %}
 {% assign featured = site.data.jekyllconf-talks[random] %}
 

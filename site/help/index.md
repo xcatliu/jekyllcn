@@ -1,49 +1,43 @@
 ---
 layout: page
-title: Getting Help
+title: 获得帮助
+translators: [zrzjohn]
 ---
 
-Need help with Jekyll? Try these resources.
+在Jekyll方面需要帮助吗？试试这些资源。
 
-### [Upgrading](/docs/upgrading/)
+### [升级](/docs/upgrading/)
 
-Did you recently upgrade from Jekyll 1 to 2 or from Jekyll 2 to 3?
-Known breaking changes are listed in the upgrading docs.
+您最近是从 Jekyll 1 升级到 2 还是从 Jekyll 2 升级到 3？升级文档中列出了已知的重大更改。
 
-### [Documentation](/docs/home/)
+### [文档](/docs/home/)
 
-Our guide to Jekyll covering installation, writing, customization, deployment, and more.
+我们的 Jekyll 指南涵盖安装，编写，自定义，部署等内容。
 
-### [View source](https://github.com/jekyll/jekyll/wiki/sites)
+### [查看源代码](https://github.com/jekyll/jekyll/wiki/sites)
 
-Learn from the source of others' Jekyll-powered sites.
+向 Jekyll 的网站学习。
 
-### [Google](https://www.google.com/?q=jekyll)
+### [谷歌](https://www.google.com/?q=jekyll)
 
-Add **jekyll** to almost any query, and you'll find just what you need.
+将 Jekyll 添加到几乎所有查询中，您将找到所需的内容。
 
 ### [Jekyll Talk](https://talk.jekyllrb.com/)
 
-Jekyll Talk is our official Discourse forum. Here, users and contributors
-can ask questions and discuss all aspects of Jekyll.
+Jekyll Talk 是我们的官方 Discourse 论坛。在这里，用户和贡献者可以提出问题并讨论 Jekyll 的各个方面。
 
-### [Jekyll on StackOverflow](https://stackoverflow.com/questions/tagged/jekyll)
+### [Jekyll 在 StackOverflow](https://stackoverflow.com/questions/tagged/jekyll)
 
-StackOverflow is a staple of any developer's diet. Check out the Jekyll tag
-on StackOverflow for an answer to your question. Not there? Ask a new
-question!
+StackOverflow是任何开发人员的主要论坛。在 StackOverflow 上查看 Jekyll 标签，以获取问题的答案。没有？问一个新问题！
 
-### [Jekyll IRC Channel](irc:irc.freenode.net/jekyll)
+### [Jekyll IRC 频道](irc:irc.freenode.net/jekyll)
 
-Get live support at **#jekyll** on **irc.freenode.net**, the official
-Jekyll IRC channel.
+在官方的 Jekyll IRC 频道 irc.freenode.net 上的 Jekyll 获得实时支持。
 
 ### [jekyll/jekyll](https://github.com/jekyll/jekyll/issues)
 
-Search through the issues on the main Jekyll development. Think you've
-found a bug? File a new issue.
+搜索有关 Jekyll 主要 Issue 。您发现了 Bug ？提出新的 Issue 。
 
-### [@jekyllrb on Twitter](https://twitter.com/jekyllrb)
+### [推特上的 @jekyllrb](https://twitter.com/jekyllrb)
 
-The official Jekyll Twitter account. It's not checked often, so try the
-above first.
+Jekyll 官方推特帐户。它不经常检查，因此请首先尝试上述操作。
