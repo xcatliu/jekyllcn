@@ -14,7 +14,7 @@ JuLian Thilo 已经写出关于 [Jekyll 运行于Windows上][windows-installatio
 
 ## 编码
 
-如果你使用 UTF-8 编码，请确保你的问题见中不存在 `BOM` 字符，否则 Jekyll 将会出现意想不到的情况。特别是你要在 Windows 上使用 Jekyll，这个问题就需要特别注意。
+如果你使用 UTF-8 编码，请确保你的文件头没有 `BOM` 字符，否则 Jekyll 将会出现意想不到的情况。尤其是当你想在 Windows 上使用 Jekyll 的时候。
 
 另外，你可能需要将代码控制台页面的编码修改为 UTF-8，否则将会出现一个异常：在生成网页的时候，使用了不正确的编码。可以通过以下的命令解决：
 
