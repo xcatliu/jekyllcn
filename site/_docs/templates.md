@@ -6,7 +6,7 @@ translators: [debbbbie, archersmind, TimoTokki, baiyangcao]
 update_date: 2016-10-20
 ---
 
-Jekyll 使用 [Liquid](http://wiki.shopify.com/Liquid) 模板语言，支持所有标准的 Liquid [标签](http://wiki.shopify.com/Logic)和[过滤器](http://wiki.shopify.com/Filters)。Jekyll 甚至增加了几个过滤器和标签，方便使用。
+Jekyll 使用 [Liquid](https://shopify.github.io/liquid/) 模板语言，支持所有标准的 Liquid [标签](https://shopify.github.io/liquid/basics/introduction/#tags)和[过滤器](https://shopify.github.io/liquid/basics/introduction/#filters)。Jekyll 甚至增加了几个过滤器和标签，方便使用。
 
 ## 过滤器
 
