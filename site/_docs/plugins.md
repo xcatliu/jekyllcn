@@ -768,6 +768,7 @@ Jekyll 分别为 <code>:site</code>，<code>:pages</code>，<code>:posts</code>�
 - [generator-jekyllrb](https://github.com/robwierzbowski/generator-jekyllrb): [Yeoman](http://yeoman.io/) 的包装，一个工具集，还有工作流，用来创建现代化的网站。
 - [grunt-jekyll](https://github.com/dannygarcia/grunt-jekyll)：[Grunt](http://gruntjs.com/) 插件。
 - [jekyll-postfiles](https://github.com/indirect/jekyll-postfiles)：添加目录 `_postfiles`　和标签 {% raw %}`{{ postfile }}`{% endraw %}以保证所有的指向正确。
+- [jekyll-spaceship](https://github.com/jeffreytse/jekyll-spaceship)：为Jekyll提供强有力的支持，例如：表格(对齐/合并)，MathJax数学公式，PlantUML图，Emoji表情符号，插入Youtube视屏等。
 
 <div class="note info">
   <h5>期待你的作品</h5>
