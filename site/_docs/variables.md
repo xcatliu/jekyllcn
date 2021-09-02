@@ -79,11 +79,22 @@ Jekyll 会遍历你的网站搜寻要处理的文件。任何有 [YAML 头信息
   <tbody>
     <tr>
       <td><p><code>site.time</code></p></td>
-      <td><p>
+      <td>
+        <p>
 
         当前时间（运行<code>jekyll</code>这个命令的时间点）。
 
-      </p></td>
+        </p>
+        <p>
+        
+        如果你发布在
+        <code>GitHub Pages</code>
+        或其它类似主机上，你每一次的
+        <code>commit</code>
+        都会触发这个操作。
+        
+        </p>
+      </td>
     </tr>
     <tr>
       <td><p><code>site.pages</code></p></td>
