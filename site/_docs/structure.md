@@ -163,7 +163,7 @@ Jekyll 的核心其实是一个文本转换引擎。它的概念其实就是：�
       <td>
         <p>
 
-          其他一些未被提及的目录和文件如
+          其他一些未被提及的目录和文件如asd
           <code>css</code> 还有 <code>images</code> 文件夹，
           <code>favicon.ico</code> 等文件都将被完全拷贝到生成的 site 中。这里有一些<a href="../sites/">使用 Jekyll 的站点</a>，如果你感兴趣就来看看吧。
 
